@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %title= 'ADMIN: ' + ( @title || APP_DEFAULT_NAME )
+    = stylesheet_link_tag :staff
+    = javascript_include_tag :staff
+    = csrf_meta_tag
+  %body{:class => 'staff'}
+    #wrapper
+      #content
+        .c1
+          .controls
+            %nav.links
+              %ul
+                %li
+                  %a Message
+                %li
+                  %a Message
+            .profile-box
+          .tabs
+            .tab{:style => 'display:block'}
+              %article
+                .text-section
+                  = yield
+      %aside#sidebar
+        %strong.logo
+          %a{:href => '/'}
+        %ul.tabset.buttons
+          %li.active
+            %a.ico1
+              %span Dashboard<em></em>
+            %span.tooltip
+              %span Dashboard
+          %li
+            %a.ico2
+              %span Dashboard<em></em>
+            %span.tooltip
+              %span Dashboard
+          %li
+            %a.ico3
+              %span Dashboard<em></em>
+            %span.tooltip
+              %span Dashboard
+          %li
+            %a.ico4
+              %span Dashboard<em></em>
+            %span.tooltip
+              %span Dashboard
+          %li
+            %a.ico5
+              %span Dashboard<em></em>
+            %span.tooltip
+              %span Dashboard
+        %span.shadow
