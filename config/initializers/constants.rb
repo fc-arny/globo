@@ -1,0 +1,1 @@
+APP_DEFAULT_NAME = 'GloboMarket'

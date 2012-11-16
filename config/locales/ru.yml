@@ -1,0 +1,9 @@
+# Russian
+ru:
+  #Global translations
+  market_name: 'Глобо'
+
+  # View's translations
+  layouts:
+    application:
+      title: 'ГлобоМаркет'
