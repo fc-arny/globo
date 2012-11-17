@@ -1,5 +1,5 @@
 module Staff
-	class Staff::BaseController < ApplicationController
+	class BaseController < ApplicationController
 		layout 'staff'
 	end
 end
