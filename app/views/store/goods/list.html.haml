@@ -1,0 +1,6 @@
+%h1 Список товаров
+%div{:style => 'background: #cdcdcd'}
+- @goods.each do |good|
+  %div{:style => 'margin-bottom: 15px'}
+    %div= good.name
+    %div= good.description

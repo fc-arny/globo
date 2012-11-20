@@ -1,5 +1,10 @@
 Sap::Application.routes.draw do
+  get "goods/index"
+
+  get "store/goods/list"
+
   get 'staff/index/index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
