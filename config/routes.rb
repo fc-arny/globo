@@ -1,9 +1,20 @@
 Sap::Application.routes.draw do
-  get "goods/index"
 
-  get "store/goods/list"
+	# Main page
+	root :to => 'public::index#main'
 
-  get 'staff/index/index'
+  # Goods
+  match 'goods' => 'store::goods#index'                 # Top offers
+  match 'goods/product' => redirect('/goods')           # Redirect to top offers
+	match 'goods/product/:id' => 'store::goods#product'   # View product
+  match 'goods/search' => 'store::goods#search'         # Search products
+  match 'goods/:cat1' => 'store::goods#category'        # View category
+  match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
+
+	namespace :staff do
+		get 'staff/index/index'
+	end
+
 
 
   # The priority is based upon order of creation:
@@ -55,9 +66,7 @@ Sap::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  scope '(:locale)' do
-    root :to => 'index#index'
-  end
+
 
   # See how all your routes lay out with "rake routes"
 
