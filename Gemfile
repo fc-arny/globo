@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 
 gem 'pg'
-gem 'unicorn'
+gem 'unicorn', :platform => :ruby
 gem 'haml-rails'
 gem 'rails-i18n'
 gem 'jquery-rails'
