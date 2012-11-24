@@ -3,14 +3,19 @@ Sap::Application.routes.draw do
 	# Main page
 	root :to => 'public::index#main'
 
-  # Goods
-  match 'goods' => 'store::goods#index'                 # Top offers
-  match 'goods/product' => redirect('/goods')           # Redirect to top offers
+	# Goods
+	match 'goods' => 'store::goods#index'                 # Top offers
+	match 'goods/product' => redirect('/goods')           # Redirect to top offers
 	match 'goods/product/:id' => 'store::goods#product'   # View product
-  match 'goods/search' => 'store::goods#search'         # Search products
-  match 'goods/:cat1' => 'store::goods#category'        # View category
-  match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
+	match 'goods/search' => 'store::goods#search'         # Search products
+	match 'goods/:cat1' => 'store::goods#category'        # View category
+	match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
 
+	# Users
+	match 'login' => 'user::index#login'
+	match 'logout' => 'user::index#logout'
+
+	# Admin Panel
 	namespace :staff do
 		get 'staff/index/index'
 	end

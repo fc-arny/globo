@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122221526) do
+ActiveRecord::Schema.define(:version => 20121124130835) do
+
+  create_table "admins", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "city_id"
+    t.string   "name",       :null => false
+    t.string   "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name",                      :null => false
@@ -35,6 +44,16 @@ ActiveRecord::Schema.define(:version => 20121122221526) do
     t.boolean  "is_disabled", :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "login",      :null => false
+    t.string   "password",   :null => false
+    t.string   "salt",       :null => false
+    t.string   "type",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
