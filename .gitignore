@@ -10,7 +10,7 @@
 .idea
 
 # Ignore RVM scripts
-.rmvrc
+.rvmrc
 
 # Ignore database settings
 config/database.yml
