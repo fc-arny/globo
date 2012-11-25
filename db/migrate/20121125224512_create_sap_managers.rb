@@ -1,20 +1,20 @@
 # -------------------------------------------------------------
-# =Name: CreateSapAdmins
+# =Name: CreateSapManagers
 # =Description:
-# GloboMarket's administrator table
+# Store's manager tagle
 # -------------------------------------------------------------
 # =Author: fc_arny
-# =Date:   24.11.2012
+# =Date:   26.11.2012
 # -------------------------------------------------------------
-class CreateSapAdmins < ActiveRecord::Migration
+class CreateSapManagers < ActiveRecord::Migration
 	def change
-		create_table :admins do |t|
+		create_table :managers do |t|
 			t.integer :user_id, null:false
-			t.integer :city_id
-			t.string :name, null:false
-			t.string :position
+			t.integer :store_id, null:false
+			t.integer :last_name, null:false
+			t.integer :first_name, null:false
 
 			t.timestamps
 		end
-	end
+  end
 end

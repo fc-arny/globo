@@ -1,3 +1,12 @@
+# -------------------------------------------------------------
+# =Name: CreateSapStores
+# =Description:
+# Create table for store
+# -------------------------------------------------------------
+# =Author: fc_arny
+# =Date:   17.11.2012
+# -------------------------------------------------------------
+
 class CreateSapStores < ActiveRecord::Migration
 	def change
 		create_table :stores do |t|

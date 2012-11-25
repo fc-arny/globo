@@ -1,16 +1,14 @@
 # -------------------------------------------------------------
-# =Name: Sap::Admin
+# =Name: Sap::Customer
 # =Description:
-# GloboMarket's administrator
+# Buyer model referenced to user
 # -------------------------------------------------------------
 # =Author: fc_arny
-# =Date:   24.11.2012
+# =Date:   26.11.2012
 # -------------------------------------------------------------
 # ==Fields:
-# city_id  - admin by city or global admin if null
-# position - position in company
-# user_id  - reference to user
+#
 # -------------------------------------------------------------
-class Sap::Admin < Sap::User
-  attr_accessible :city_id, :name, :position, :user_id
+class Sap::Customer < User
+	attr_accessible :email, :first_name, :last_name, :user_id
 end
