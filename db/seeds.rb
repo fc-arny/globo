@@ -34,4 +34,9 @@ Sap::Category.create([
 		{id:7,name: 'Фрукты', parent_id: 5},
 		{id:8,name: 'Орехи', parent_id: 5},
 		{id:9,name: 'Сухофрукты', parent_id: 5},
+		{id:10,name: 'Мясо и Рыба'},
+		{id:11,name: 'Колбаса и колбасные изделия', parent_id: 10},
+		{id:12,name: 'Рыба и море продукты', parent_id: 10},
+		{id:13,name: 'Икра', parent_id: 10},
+		{id:14,name: 'Мясные закуски', parent_id: 10},
 ])

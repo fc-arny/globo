@@ -22,4 +22,25 @@
 
 class Sap::Category < ActiveRecord::Base
 	attr_accessible :id, :name, :order_pos, :parent_id
+	# -------------------------------------------------------------
+	# =Name: get_category_tree
+	# =Author: fc_arny
+	# -------------------------------------------------------------
+	# Getting category tree ordered by order_pos
+	# -------------------------------------------------------------
+	def self.get_category_tree
+		tree = []
+		parent = self.where("parent_id is null").order("order_pos ASC")
+		parent.each do |cat|
+			# Get children
+			children = self.where("parent_id = :pid", {pid: cat.id}).order("order_pos ASC")
+
+			childrenTree = []
+			children.each do |child|
+				childrenTree << {id: child.id, name: child.name}
+			end
+			tree << { id: cat.id,name: cat.name, children: childrenTree}
+		end
+		return tree
+	end
 end
