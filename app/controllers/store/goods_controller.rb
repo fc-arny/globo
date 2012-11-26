@@ -8,6 +8,7 @@
 # -------------------------------------------------------------
 
 class Store::GoodsController < ApplicationController
+  layout 'main_left'
 	# -------------------------------------------------------------
 	# =Name: index
 	# =Author: fc_arny
