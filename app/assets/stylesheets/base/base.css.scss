@@ -1,0 +1,128 @@
+/* Base variables */
+$fc-base: #333;
+$ff-base: Arial, Tahoma;
+$fs-base: 16px;
+
+body {
+  font-color: $fc-base;
+  font-family: $ff-base;
+  font-size: $fs-base;
+
+  /* temp */ padding: 30px;
+}
+
+/**
+ * Header
+ */
+
+/* logo */
+.b-logo {
+  width: 20%;
+  float: left;
+  h1 {
+    font-size: $fs-base;
+    font-weight: normal;
+  }
+}
+
+/* menu */
+.b-menu {
+  width: 60%;
+  float: left;
+
+  .menu-item {
+    float: left;
+    width: 33%;
+  }
+}
+
+/* menu */
+.b-user {
+  width: 20%;
+  float: left;
+  text-align: right;
+}
+
+/**
+ * Sub-header
+ */
+
+/* shop-choose */
+.b-shop-choose {
+  float: left;
+  width: 40%;
+}
+
+/* goods-search */
+.b-goods-search {
+  float: left;
+  width: 60%;
+
+  input {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* goods-categories */
+.b-goods-categories {
+  padding-top: 50px;
+  .goods-categories-head-category {
+    float: left;
+    border-left: 1px solid #999;
+    border-top: 1px solid #999;
+
+    .goods-categories-item {
+      position: relative;
+      padding: 10px;
+      float: left;
+      width: 100px;
+      height: 30px;
+      border-right: 1px solid #999;
+      border-bottom: 1px solid #999;
+
+      .goods-categories-sub-category {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        background: #faebd7;
+      }
+      .goods-categories-item {
+        display: none;
+        float: none;
+        position: static;
+        width: 100px;
+        height: 30px;
+        padding: 20px 10px;
+        border: 0;
+      }
+    }
+    .goods-categories-item:hover .goods-categories-item {
+      display: block;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
