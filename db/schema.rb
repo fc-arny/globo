@@ -40,11 +40,12 @@ ActiveRecord::Schema.define(:version => 20121125230719) do
   end
 
   create_table "goods", :force => true do |t|
-    t.string   "name"
+    t.string   "name",                           :null => false
     t.text     "description"
-    t.boolean  "is_approved"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "is_approved", :default => false
+    t.integer  "order_por",   :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "managers", :force => true do |t|
