@@ -26,7 +26,7 @@ class Store::GoodsController < ApplicationController
 	# View product
 	# -------------------------------------------------------------
 	def product
-		exit
+
 	end
 
 	# -------------------------------------------------------------
