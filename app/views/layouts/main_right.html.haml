@@ -1,6 +1,73 @@
 = content_for :content do
+
+  / Logo, menu, user
+  .l-header
+    .b-logo
+      %h1
+        %a Globomarket
+    .b-menu
+      %ul
+        %li Choose
+        %li Buy
+        %li Get
+    .b-user
+      %ul
+        %li
+          %a Sergey Makhnatkin
+        %li
+          %span in basket:
+          %span 10
+        %li
+          %span you have:
+          %span 6&nbsp;470 rub.
+
+  / Categories, search
+  .l-sub-header
+
+    .b-shop-choose
+      %label Вы в магазине:
+      %select
+        %option Azbuka Vkusa
+        %option Zelenii Perekrestok
+        %option Globo
+
+    .b-goods-search
+      %input{type: "text", placeholder: "Product search"}
+
+    .b-goods-categories
+      %ul.goods-categories-head-category
+
+        %li.goods-categories-item
+          %a.goods-categories-title Bakery
+          %ul.goods-categories-sub-category
+            %li.goods-categories-item
+              %a.goods-categories-title Bread
+            %li.goods-categories-item
+              %a.goods-categories-title Cakes
+            %li.goods-categories-item
+              %a.goods-categories-title Fresh Deserts
+
+        %li.goods-categories-item
+          %a.goods-categories-title Fruit
+          %ul.goods-categories-sub-category
+            %li.goods-categories-item
+              %a.goods-categories-title Prepared Fruit
+            %li.goods-categories-item
+              %a.goods-categories-title Dried Fruit
+
+        %li.goods-categories-item
+          %a.goods-categories-title Frozen
+          %ul.goods-categories-sub-category
+            %li.goods-categories-item
+              %a.goods-categories-title Ice Cream
+            %li.goods-categories-item
+              %a.goods-categories-title Frozen Meat
+
+  / Main content
   .l-main
     = yield :main
+
+  / Right column
   .l-right
     = yield :right
 = render :template => 'layouts/base'
