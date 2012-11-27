@@ -1,5 +1,12 @@
 !!!
-%html
+/[if lt IE 7] <html class="no-js lt-ie7">
+/[if IE 7] <html class="no-js ie7">
+/[if IE 8] <html class="no-js ie8">
+/[if IE 9] <html class="no-js ie9">
+/ [if gt IE 9]><!
+%html.no-js
+  / <![endif]
+
   %head
     %title= @title || APP_DEFAULT_NAME
     = stylesheet_link_tag :application

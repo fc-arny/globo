@@ -2,40 +2,46 @@
 
   / Logo, menu, user
   .l-header
-    .b-logo
-      %h1
-        %a Globomarket
-    .b-menu
-      %ul
-        %li Choose
-        %li Buy
-        %li Get
-    .b-user
-      %ul
-        %li
-          %a Sergey Makhnatkin
-        %li
-          %span in basket:
-          %span 10
-        %li
-          %span you have:
-          %span 6&nbsp;470 rub.
+    .g-clearfix
+      .b-logo
+        %h1
+          %a Globomarket
+
+      .b-menu.g-clearfix
+        %ul.menu-list
+          %li.menu-item
+            %a{href: "/goods"} Choose
+          %li.menu-item
+            %a{href: "/pay"} Pay
+          %li.menu-item
+            %a{href: "/checkout"} Get
+
+      .b-user
+        %ul
+          %li
+            %a Sergey Makhnatkin
+          %li
+            %span in basket:
+            %span 10
+          %li
+            %span you have:
+            %span 6&nbsp;470 rub.
 
   / Categories, search
   .l-sub-header
+    .g-clearfix
+      .b-shop-choose
+        %label Вы в магазине:
+        %select
+          %option Azbuka Vkusa
+          %option Zelenii Perekrestok
+          %option Globo
 
-    .b-shop-choose
-      %label Вы в магазине:
-      %select
-        %option Azbuka Vkusa
-        %option Zelenii Perekrestok
-        %option Globo
+      .b-goods-search
+        %input{type: "text", placeholder: "Product search"}
 
-    .b-goods-search
-      %input{type: "text", placeholder: "Product search"}
-
-    .b-goods-categories
-      %ul.goods-categories-head-category
+    .b-goods-categories.g-clearfix
+      %ul.goods-categories-head-category.g-clearfix
 
         %li.goods-categories-item
           %a.goods-categories-title Bakery
