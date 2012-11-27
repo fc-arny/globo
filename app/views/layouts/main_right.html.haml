@@ -1,6 +1,6 @@
 = content_for :content do
-  %div.left
-    = yield :left
-  %div.main
+  .l-main
     = yield :main
+  .l-right
+    = yield :right
 = render :template => 'layouts/base'
