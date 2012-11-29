@@ -40,34 +40,16 @@
       .b-goods-search
         %input{type: "text", placeholder: "Product search"}
 
+    / Categories menu
     .b-goods-categories.g-clearfix
       %ul.goods-categories-head-category.g-clearfix
-
-        %li.goods-categories-item
-          %a.goods-categories-title Bakery
-          %ul.goods-categories-sub-category
-            %li.goods-categories-item
-              %a.goods-categories-title Bread
-            %li.goods-categories-item
-              %a.goods-categories-title Cakes
-            %li.goods-categories-item
-              %a.goods-categories-title Fresh Deserts
-
-        %li.goods-categories-item
-          %a.goods-categories-title Fruit
-          %ul.goods-categories-sub-category
-            %li.goods-categories-item
-              %a.goods-categories-title Prepared Fruit
-            %li.goods-categories-item
-              %a.goods-categories-title Dried Fruit
-
-        %li.goods-categories-item
-          %a.goods-categories-title Frozen
-          %ul.goods-categories-sub-category
-            %li.goods-categories-item
-              %a.goods-categories-title Ice Cream
-            %li.goods-categories-item
-              %a.goods-categories-title Frozen Meat
+        - @categoryTree.each do |cat|
+          %li.goods-categories-item
+            %a.goods-categories-title= cat[:name]
+            %ul.goods-categories-sub-category
+              - cat[:children].each do |children|
+                %li.goods-categories-item
+                  %a.goods-categories-title= children[:name]
 
   / Main content
   .l-main
