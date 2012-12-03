@@ -11,6 +11,7 @@
 # position - position in company
 # user_id  - reference to user
 # -------------------------------------------------------------
-class Sap::Admin < Sap::User
+class Sap::Admin < ActiveRecord::Base
+  belongs_to :sap_user, :class_name => 'Sap::User'
   attr_accessible :city_id, :name, :position, :user_id
 end

@@ -7,3 +7,11 @@ ru:
   layouts:
     application:
       title: 'ГлобоМаркет'
+  user:
+    index:
+      new:
+        registration_title: 'Регистрация'
+        password: 'Пароль'
+        email: 'Email'
+        name: 'Ваше имя'
+        register_customer: 'Зарегистрироваться'

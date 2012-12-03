@@ -1,21 +1,18 @@
 # -------------------------------------------------------------
-# =Name: CreateSapUsers
+# =Name: CreateSapAdmins
 # =Description:
-# Base table for users
+# GloboMarket's administrator table
 # -------------------------------------------------------------
 # =Author: fc_arny
 # =Date:   24.11.2012
 # -------------------------------------------------------------
-
-class CreateSapUsers < ActiveRecord::Migration
+class CreateSapAdmins < ActiveRecord::Migration
 	def change
-		create_table :users do |t|
-			t.integer :id
-			t.string :name
-			t.string :login, null:false
-			t.string :password, null:false
-			t.string :salt, null:false
-			t.string :type, null:false
+		create_table :"sap.admins" do |t|
+			t.integer :user_id, null:false
+			t.integer :city_id
+			t.string :name, null:false
+			t.string :position
 
 			t.timestamps
 		end

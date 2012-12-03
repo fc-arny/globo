@@ -2,3 +2,8 @@ en:
   layouts:
     application:
       title: 'GloboMarket'
+
+  user:
+    index:
+      new:
+        register_customer: 'Registration'

@@ -8,7 +8,7 @@
 # -------------------------------------------------------------
 class CreateSapManagers < ActiveRecord::Migration
 	def change
-		create_table :managers do |t|
+		create_table :"sap.managers" do |t|
 			t.integer :user_id, null:false
 			t.integer :store_id, null:false
 			t.integer :last_name, null:false

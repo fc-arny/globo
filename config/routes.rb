@@ -12,8 +12,12 @@ Sap::Application.routes.draw do
 	match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
 
 	# Users
-	match 'login' => 'user::index#login'
-	match 'logout' => 'user::index#logout'
+	match 'login' => 'user::index#login_form'             # Login form
+	match 'logout' => 'user::index#logout'                # Logout
+	get 'register' => 'user::index#new'                   # Register form
+	post 'register' => 'user::index#create'               # Register form
+
+	match ':controller(/:action(/:id))(.:format)'
 
 	# Admin Panel
 	namespace :staff do

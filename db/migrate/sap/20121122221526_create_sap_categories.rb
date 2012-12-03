@@ -1,19 +1,18 @@
 # -------------------------------------------------------------
-# =Name: CreateSapGoods
+# =Name: CreateSapCategories
 # =Description:
-# Create table for goods
+# Create category model
 # -------------------------------------------------------------
 # =Author: fc_arny
-# =Date:   17.11.2012d
+# =Date:   23.11.2012
 # -------------------------------------------------------------
-class CreateSapGoods < ActiveRecord::Migration
+class CreateSapCategories < ActiveRecord::Migration
 	def change
-		create_table :goods do |t|
+		create_table :"sap.categories" do |t|
 			t.integer :id
 			t.string :name, null: false
-			t.text :description
-			t.boolean :is_approved, default: false
-			t.integer :order_por, default: 0
+			t.integer :order_pos, default: 0
+			t.integer :parent_id, default: nil
 
 			t.timestamps
 		end

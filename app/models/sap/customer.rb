@@ -7,8 +7,11 @@
 # =Date:   26.11.2012
 # -------------------------------------------------------------
 # ==Fields:
-#
+#  email   - login for user
+#  name    - just name
+#  user_id - link to user
 # -------------------------------------------------------------
-class Sap::Customer < User
-	attr_accessible :email, :first_name, :last_name, :user_id
+class Sap::Customer < ActiveRecord::Base
+  belongs_to :sap_user, :class_name => 'Sap::User'
+  attr_accessible :email, :name, :user_id
 end

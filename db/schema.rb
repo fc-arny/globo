@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(:version => 20121127211029) do
   create_table "customers", :force => true do |t|
     t.integer  "user_id"
     t.string   "email"
-    t.string   "last_name"
-    t.string   "first_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.string   "token"
+    t.boolean  "is_proved",  :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "goods", :force => true do |t|
@@ -76,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20121127211029) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
     t.string   "login",      :null => false
     t.string   "password",   :null => false
     t.string   "salt",       :null => false
