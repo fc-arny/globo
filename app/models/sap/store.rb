@@ -7,6 +7,6 @@
 #  order_pos    - position in store list
 #  is_disables  - don't work with the client
 # -------------------------------------------------------------
-class Sap::Store < ActiveRecord::Base
+class Sap::Store < SapModel
 	attr_accessible :id, :name, :order_pos, :is_disabled
 end

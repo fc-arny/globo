@@ -10,7 +10,7 @@
 # store_id - reference to store
 # user_id  - reference to base user model
 # -------------------------------------------------------------
-class Sap::Manager < ActiveRecord::Base
+class Sap::Manager < SapModel
   belongs_to :sap_user, :class_name => 'Sap::User'
 	attr_accessible :first_name, :last_name, :store_id, :user_id
 end

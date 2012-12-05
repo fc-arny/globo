@@ -16,9 +16,38 @@ class User::IndexController < ApplicationController
   # =Author: fc_arny
   # -------------------------------------------------------------
   # Login user
+  # POST /login
   # -------------------------------------------------------------
   def login
+    user_params = params[:sap_user]
+    @user = Sap::User.find_by_login(user_params[:login])
 
+    if @user && @user.auth_by_password(user_params[:password])
+      # Set session if auth is success
+      session[:user_id] = @user.id
+
+      flash[:notice] = 'Success Logging'
+      redirect_to "/"
+    else
+      @user = Sap::User.new do |u|
+        u.login = params[:login]
+      end
+
+      flash[:notice] = 'No such user'
+      render "login_form"
+    end
+
+  end
+
+  # -------------------------------------------------------------
+  # =Name: login_form
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # Login form
+  # GET /login
+  # -------------------------------------------------------------
+  def login_form
+    @user = Sap::User.new
   end
 
   # -------------------------------------------------------------
@@ -47,8 +76,9 @@ class User::IndexController < ApplicationController
         # Create user
         user = Sap::User.new do |u|
           u.login = @customer.email
+          u.name = @customer.name
           u.set_password(params[:user][:password])
-          u.type = Sap::User::TYPE_CUSTOMER
+          #u.role_id = Sap::Role.find_by_class_name(Sap::Role::R_CUSTOMER)
           u.save
         end
 
@@ -58,7 +88,7 @@ class User::IndexController < ApplicationController
 
         # Success registration
         flash[:notice] = "Success"
-        render "new"
+        redirect_to "/"
       end
     rescue => e
       # Failed registration

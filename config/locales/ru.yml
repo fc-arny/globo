@@ -15,3 +15,5 @@ ru:
         email: 'Email'
         name: 'Ваше имя'
         register_customer: 'Зарегистрироваться'
+      login_form:
+        login_button: 'Войти'

@@ -9,7 +9,7 @@
 # ==Fields:
 # is_approved - new item entered by a store manager isn't show by default
 # -------------------------------------------------------------
-class Sap::Good < ActiveRecord::Base
+class Sap::Good < SapModel
   attr_accessible :description, :id, :is_approved, :name
 
 	# -------------------------------------------------------------

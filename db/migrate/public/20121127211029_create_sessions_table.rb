@@ -1,6 +1,6 @@
-class AddSessionsTable < ActiveRecord::Migration
+class CreateSessionsTable < ActiveRecord::Migration
   def change
-    create_table :"sap.sessions" do |t|
+    create_table :sessions do |t|
       t.string :session_id, :null => false
       t.text :data
       t.timestamps

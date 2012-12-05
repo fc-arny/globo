@@ -11,52 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127211029) do
-
-  create_table "admins", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "city_id"
-    t.string   "name",       :null => false
-    t.string   "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "categories", :force => true do |t|
-    t.string   "name",                      :null => false
-    t.integer  "order_pos",  :default => 0
-    t.integer  "parent_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  create_table "customers", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "email"
-    t.string   "name"
-    t.string   "token"
-    t.boolean  "is_proved",  :default => false, :null => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
-  create_table "goods", :force => true do |t|
-    t.string   "name",                           :null => false
-    t.text     "description"
-    t.boolean  "is_approved", :default => false
-    t.integer  "order_por",   :default => 0
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-  end
-
-  create_table "managers", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "store_id",   :null => false
-    t.integer  "last_name",  :null => false
-    t.integer  "first_name", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121204194631) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -67,22 +22,5 @@ ActiveRecord::Schema.define(:version => 20121127211029) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
-
-  create_table "stores", :force => true do |t|
-    t.string   "name",                           :null => false
-    t.integer  "order_pos",   :default => 0
-    t.boolean  "is_disabled", :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "login",      :null => false
-    t.string   "password",   :null => false
-    t.string   "salt",       :null => false
-    t.string   "type",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
 end

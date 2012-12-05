@@ -1,5 +1,5 @@
 # -------------------------------------------------------------
-# =Name: Category
+# =Name: Sap::Category
 # =Description:
 # Categories for goods. We have two-level categorization!
 # ----------
@@ -20,7 +20,7 @@
 # parent_id - parent category
 # -------------------------------------------------------------
 
-class Sap::Category < ActiveRecord::Base
+class Sap::Category < SapModel
   attr_accessible :id, :name, :order_pos, :parent_id
   class << self
     # -------------------------------------------------------------

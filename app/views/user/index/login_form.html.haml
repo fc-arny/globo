@@ -1,0 +1,15 @@
+%h1= t('.login')
+= form_for @user, :url => '/login' do |f|
+  %div
+    = f.label :login
+    = f.text_field :login
+  %div
+    = f.label :password
+    = f.password_field :password
+  %div
+    = check_box_tag :remember
+    = label_tag :remember
+  %div
+    =f.submit t('.login_button')
+
+= flash[:notice]

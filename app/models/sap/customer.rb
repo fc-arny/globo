@@ -11,7 +11,7 @@
 #  name    - just name
 #  user_id - link to user
 # -------------------------------------------------------------
-class Sap::Customer < ActiveRecord::Base
+class Sap::Customer < SapModel
   belongs_to :sap_user, :class_name => 'Sap::User'
   attr_accessible :email, :name, :user_id
 end

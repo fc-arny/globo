@@ -12,12 +12,13 @@ Sap::Application.routes.draw do
 	match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
 
 	# Users
-	match 'login' => 'user::index#login_form'             # Login form
+	get 'login' => 'user::index#login_form'               # Login form
+  post 'login' => 'user::index#login'                   # Login
+
 	match 'logout' => 'user::index#logout'                # Logout
+
 	get 'register' => 'user::index#new'                   # Register form
 	post 'register' => 'user::index#create'               # Register form
-
-	match ':controller(/:action(/:id))(.:format)'
 
 	# Admin Panel
 	namespace :staff do
@@ -81,5 +82,6 @@ Sap::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id))(.:format)'
   # match ':controller(/:action(/:id))(.:format)'
 end

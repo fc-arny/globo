@@ -10,15 +10,11 @@
 # login     - login string (email for customer)
 # password  - secret key = md5(md5(password) + salt)
 # salt      - increase secure for password
-# type      - role type: Admin, Manager and Customer
+# role_id   - role type: Admin, Manager and Customer
 # -------------------------------------------------------------
-class Sap::User < ActiveRecord::Base
-  # User's type
-  TYPE_ADMIN = 'Sap::Admin'
-  TYPE_MANAGER = 'Sap::Manager'
-  TYPE_CUSTOMER = 'Sap::Customer'
+class Sap::User < SapModel
 
-  attr_accessible :id, :login, :password, :salt, :type
+  attr_accessible :id, :login, :password, :salt
 
   # -------------------------------------------------------------
   # =Name: set_password
@@ -28,10 +24,29 @@ class Sap::User < ActiveRecord::Base
   # -------------------------------------------------------------
   def set_password (password)
     self.salt = ApplicationHelper::get_random_string
-    self.password = Digest::MD5.hexdigest( Digest::MD5.hexdigest( password ) + self.salt )
+    self.password = hash_password(password)
   end
 
-  class << self
+  # -------------------------------------------------------------
+  # =Name: auth_by_password
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # Auth user by password
+  # -------------------------------------------------------------
+  def auth_by_password(password)
+    hash = hash_password(password)
+    result = ( hash == self.password )
+  end
 
+  private
+
+  # -------------------------------------------------------------
+  # =Name: hash_password
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # Get hash-string for password
+  # -------------------------------------------------------------
+  def hash_password(password)
+    Digest::MD5.hexdigest( Digest::MD5.hexdigest(password) + self.salt )
   end
 end
