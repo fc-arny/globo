@@ -1,0 +1,18 @@
+= form_for @good_list, :url => staff_good_lists_path do |f|
+  - if @good_list.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@good_list.errors.count, "error")} prohibited this staff_good_list from being saved:"
+      %ul
+        - @good_list.errors.full_messages.each do |msg|
+          %li= msg
+  %div
+    = f.label :sap_good
+    = f.text_field  :sap_good
+  %div
+    = f.label :price
+    = f.text_field :price
+  %div
+    = f.label :sap_store
+    = f.text_field :sap_store
+  .actions
+    = f.submit 'Save'
