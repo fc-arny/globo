@@ -11,11 +11,7 @@ class ApplicationController < ActionController::Base
   #
   # -------------------------------------------------------------
   def set_category_tree
-    @categoryTree = []# Sap::Category.get_category_tree
-  end
-
-  # Set locale param by default
-  def default_url_options
-
+    @categoryTree = Sap::Category.get_category_tree
+    @stores = Sap::Store.all
   end
 end

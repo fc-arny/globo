@@ -8,6 +8,7 @@
 # -------------------------------------------------------------
 class CreateSapGoods < ActiveRecord::Migration
 	def change
+    #TODO: Create EMUN field STATUS
 		create_table :"sap.goods" do |t|
 			t.integer :id
 			t.string :name, null: false

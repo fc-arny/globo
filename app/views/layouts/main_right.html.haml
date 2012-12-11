@@ -33,9 +33,9 @@
       .b-shop-choose
         %label Вы в магазине:
         %select
-          %option Azbuka Vkusa
-          %option Zelenii Perekrestok
-          %option Globo
+          - @stores.each do |t|
+            %option= t.name
+
 
       .b-goods-search
         %input{type: "text", placeholder: "Product search"}

@@ -17,3 +17,6 @@ config/database.yml
 
 # Ignore web-server settings
 config/unicorn.rb
+
+# Ignore Gemfile.lock
+Gemfile.lock

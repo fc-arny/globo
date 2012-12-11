@@ -1,0 +1,17 @@
+%h1= t('.goods_header') + link_to( t('.add_good'), new_staff_good_path)
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @list.each do |good|
+    %tr
+      %td= good.id
+      %td= good.name
+      %td
+        %span= link_to 'Show', staff_good_path(good)
+        \|
+        %span= link_to 'Destroy',  "/staff/goods/#{good.id}", method: :delete, data: { confirm: 'Are you sure?' }
+        \|
+        %span= link_to 'Edit', edit_staff_good_path(good)

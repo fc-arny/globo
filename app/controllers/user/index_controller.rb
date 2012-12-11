@@ -104,6 +104,7 @@ class User::IndexController < ApplicationController
   # Logout user
   # -------------------------------------------------------------
   def logout
-
+    session[:user_id] = nil
+    redirect_to '/', :notice => 'Log out'
   end
 end

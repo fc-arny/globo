@@ -14,7 +14,9 @@
 # -------------------------------------------------------------
 class Sap::User < SapModel
 
+  has_one :customer, :class_name => 'Sap::Customer'
   attr_accessible :id, :login, :password, :salt
+
 
   # -------------------------------------------------------------
   # =Name: set_password

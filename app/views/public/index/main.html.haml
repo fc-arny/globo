@@ -1,1 +1,4 @@
-%h1 Main page
+%h1 Main Page
+- if @customer
+  %h2= "Hello, #{@customer.name}"
+

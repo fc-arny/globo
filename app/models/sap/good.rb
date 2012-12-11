@@ -8,9 +8,11 @@
 # -------------------------------------------------------------
 # ==Fields:
 # is_approved - new item entered by a store manager isn't show by default
+# status      - state of object (:deleted, :fake and etc)
 # -------------------------------------------------------------
 class Sap::Good < SapModel
-  attr_accessible :description, :id, :is_approved, :name
+
+  attr_accessible :description, :id, :is_approved, :name, :status
 
 	# -------------------------------------------------------------
 	# =Name: get_good_list

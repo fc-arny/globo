@@ -1,29 +1,29 @@
 Sap::Application.routes.draw do
 
-	# Main page
-	root :to => 'public::index#main'
+  # Main page
+  root :to => 'public::index#main'
 
-	# Goods
-	match 'goods' => 'store::goods#index'                 # Top offers
-	match 'goods/product' => redirect('/goods')           # Redirect to top offers
-	match 'goods/product/:id' => 'store::goods#product'   # View product
-	match 'goods/search' => 'store::goods#search'         # Search products
-	match 'goods/:cat1' => 'store::goods#category'        # View category
-	match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
+  # Goods
+  match 'goods' => 'store::goods#index'                 # Top offers
+  match 'goods/product' => redirect('/goods')           # Redirect to top offers
+  match 'goods/product/:id' => 'store::goods#product'   # View product
+  match 'goods/search' => 'store::goods#search'         # Search products
+  match 'goods/:cat1' => 'store::goods#category'        # View category
+  match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
 
-	# Users
-	get 'login' => 'user::index#login_form'               # Login form
+  # Users
+  get 'login' => 'user::index#login_form'               # Login form
   post 'login' => 'user::index#login'                   # Login
 
-	match 'logout' => 'user::index#logout'                # Logout
+  match 'logout' => 'user::index#logout'                # Logout
 
-	get 'register' => 'user::index#new'                   # Register form
-	post 'register' => 'user::index#create'               # Register form
+  get 'register' => 'user::index#new'                   # Register form
+  post 'register' => 'user::index#create'               # Register form
 
-	# Admin Panel
-	namespace :staff do
-		get 'staff/index/index'
-	end
+  # Admin Panel
+  namespace :staff do
+    get 'index/index'
+  end
 
 
 
@@ -82,6 +82,8 @@ Sap::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
-  # match ':controller(/:action(/:id))(.:format)'
+  namespace "staff" do
+    resources :goods
+  end
+
 end

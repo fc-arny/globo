@@ -1,16 +1,20 @@
 # -------------------------------------------------------------
-# =Name: Sap::Manager
+# =Name: Roles
 # =Description:
-# Store's Manager
+# User roles
 # -------------------------------------------------------------
 # =Author: fc_arny
-# =Date:   26.11.2012
+# =Date:   04.12.2012
 # -------------------------------------------------------------
 # ==Fields:
-# store_id - reference to store
-# user_id  - reference to base user model
+# class - role class
 # -------------------------------------------------------------
-class Sap::Manager < SapModel
-  belongs_to :user, :class_name => 'Sap::User'
-	attr_accessible :first_name, :last_name, :store_id, :user_id
+class Sap::Role < SapModel
+  # Roles class
+  R_ADMIN = 'SapAdmin'
+  R_MANAGER = 'SapManager'
+  R_CUSTOMER = 'SapCustomer'
+
+  attr_accessible :id, :class_name
 end
+
