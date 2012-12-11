@@ -13,6 +13,7 @@
 class Sap::Good < SapModel
 
   attr_accessible :description, :id, :is_approved, :name, :status
+  has_many :sap_good_lists, :class_name => 'Sap::GoodList'
 
 	# -------------------------------------------------------------
 	# =Name: get_good_list

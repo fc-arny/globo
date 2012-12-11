@@ -84,6 +84,7 @@ Sap::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   namespace "staff" do
     resources :goods
+    resources :good_lists
   end
 
 end

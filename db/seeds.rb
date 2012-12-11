@@ -3,17 +3,17 @@
 # Regions
 Sap::Region.delete_all
 Sap::Region.create([
-    {id:1, name: 'Москва', state: 'active', descriptnio: 'Работа идет полным ходом'},
-    {id:2, name: 'Киев', state: 'progress', descriptnio: 'Пока в планах'}
+    {id:1, name: 'Москва', state: 'active', description: 'Работа идет полным ходом'},
+    {id:2, name: 'Киев', state: 'progress', description: 'Пока в планах'}
 ])
 
 # Stores
 Sap::Store.delete_all
 Sap::Store.create([
-		{id:1,name: 'GloboMarket', is_disabled: false, order_pos: 1},
-		{id:2,name: 'Азбука Вкуса', is_disabled: false, order_pos: 2},
-		{id:3,name: 'Аллые Паруса', is_disabled: false, order_pos: 3},
-		{id:4,name: 'Перекресток', is_disabled: false, order_pos: 4},
+		#{id:1,name: 'GloboMarket', is_disabled: false, order_pos: 1, region_id: 1},
+		{id:2,name: 'Азбука Вкуса', is_disabled: false, order_pos: 2, region_id: 1},
+		{id:3,name: 'Аллые Паруса', is_disabled: false, order_pos: 3, region_id: 1},
+		{id:4,name: 'Перекресток', is_disabled: false, order_pos: 4, region_id: 1},
 ])
 # Categories
 Sap::Category.delete_all
@@ -37,18 +37,31 @@ Sap::Category.create([
 # Goods
 Sap::Good.delete_all
 Sap::Good.create([
-		{name:'Сникерс 100г.', description: 'Не тормози - сникерсНИ', is_approved: true},
-		{name:'Марс 100г.', description: 'Попробывав раз - ешь и сейчас', is_approved: true},
-		{name:'Порошок Tide.', description: 'Тогда мыы идем к Вам', is_approved: true},
-		{name:'Пиво клинское, 0.5л', description: 'Пиво клинское', is_approved: true},
-		{name:'Пиво Балтика 9, 0.5л', description: 'Пиво клинское', is_approved: true},
-		{name:'Водка столичная 0.5л', description: 'Водка столичная', is_approved: true},
-		{name:'Вино белое "Французкий завтрак" 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
-		{name:'Виски Джек Дениелс, 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
-    {name:'Молоко простоквашино 3.5%, 1л', description: 'Молочко', is_approved: true},
-    {name:'Молоко простоквашино 1.5%, 1л', description: 'Молочко', is_approved: true},
-    {name:'Молоко простоквашино 1.5%, 1л', description: 'Молочко', is_approved: true},
-    {name:'Молоко простоквашино топленое, 1л', description: 'Молочко', is_approved: true},
+		{id:1,name:'Сникерс 100г.', description: 'Не тормози - сникерсНИ', is_approved: true},
+		{id:2,name:'Марс 100г.', description: 'Попробывав раз - ешь и сейчас', is_approved: true},
+		{id:3,name:'Порошок Tide.', description: 'Тогда мыы идем к Вам', is_approved: true},
+		{id:4,name:'Пиво клинское, 0.5л', description: 'Пиво клинское', is_approved: true},
+		{id:5,name:'Пиво Балтика 9, 0.5л', description: 'Пиво клинское', is_approved: true},
+		{id:6,name:'Водка столичная 0.5л', description: 'Водка столичная', is_approved: true},
+		{id:7,name:'Вино белое "Французкий завтрак" 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
+		{id:8,name:'Виски Джек Дениелс, 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
+    {id:9,name:'Молоко простоквашино 3.5%, 1л', description: 'Молочко', is_approved: true},
+    {id:10,name:'Молоко простоквашино 1.5%, 1л', description: 'Молочко', is_approved: true},
+    {id:11,name:'Молоко простоквашино 1.5%, 1л', description: 'Молочко', is_approved: true},
+    {id:12,name:'Молоко простоквашино топленое, 1л', description: 'Молочко', is_approved: true},
+])
+
+# GoodLists
+Sap::GoodList.delete_all
+Sap::GoodList.create([
+    {good_id: 1, price: 25.09, store_id: 2},
+    {good_id: 1, price: 27.09, store_id: 3},
+
+    {good_id: 2, price: 27.97, store_id: 2},
+    {good_id: 2, price: 29.00, store_id: 3},
+
+    {good_id: 10, price: 45.09, store_id: 2},
+    {good_id: 10, price: 47.09, store_id: 3},
 ])
 
 

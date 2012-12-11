@@ -6,7 +6,8 @@
 # =Fields:
 #  order_pos    - position in store list
 #  is_disables  - don't work with the client
+# region_id     - link to region
 # -------------------------------------------------------------
 class Sap::Store < SapModel
-	attr_accessible :id, :name, :order_pos, :is_disabled
+	attr_accessible :id, :name, :order_pos, :is_disabled, :region_id
 end
