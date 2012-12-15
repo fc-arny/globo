@@ -51,6 +51,13 @@ Sap::Good.create([
     {id:12,name:'Молоко простоквашино топленое, 1л', description: 'Молочко', is_approved: true},
 ])
 
+# Good -> Category
+
+Sap::CategoryGood.create([
+    {category_id:1,good_id:1},
+    {category_id:2,good_id:1},
+])
+
 # GoodLists
 Sap::GoodList.delete_all
 Sap::GoodList.create([

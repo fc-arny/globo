@@ -15,6 +15,6 @@
 class Sap::GoodList < SapModel
   attr_accessible :good_id, :id, :order_pos, :price, :store_id
 
-  belongs_to :sap_good, :class_name => 'Sap::Good', :foreign_key => "good_id"
-  belongs_to :sap_store, :class_name => 'Sap::Store',:foreign_key => "store_id"
+  belongs_to :good, :class_name => 'Sap::Good', :foreign_key => "good_id"
+  belongs_to :store, :class_name => 'Sap::Store',:foreign_key => "store_id"
 end

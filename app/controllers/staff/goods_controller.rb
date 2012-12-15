@@ -37,6 +37,7 @@ class Staff::GoodsController < Staff::IndexController
   # -------------------------------------------------------------
   def edit
     @good = Sap::Good.find(params[:id])
+    @category = Sap::Category.find_child_in_deep(@good.categories, @good.categories.size)
   end
 
   # -------------------------------------------------------------
