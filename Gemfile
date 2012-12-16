@@ -8,6 +8,7 @@ gem 'haml-rails'
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'unicode'
+gem 'foreigner'
 
 
 # Gems used only for assets and not required
