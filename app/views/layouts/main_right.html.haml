@@ -5,16 +5,23 @@
     .g-clearfix
       .b-logo
         %h1
-          %a Globomarket
+          %a{href: "/"}
+            %img{src: " /assets/logo.png", alt: "Globomarket"}
 
       .b-menu.g-clearfix
         %ul.menu-list
           %li.menu-item
-            %a{href: "/goods"} Choose
+            %a.menu-link.active{href: "/goods"}
+              %span.menu-text Choose
+              %span.menu-arrow
           %li.menu-item
-            %a{href: "/pay"} Pay
+            %a.menu-link{href: "/pay"}
+              %span.menu-text Pay
+              %span.menu-arrow
           %li.menu-item
-            %a{href: "/checkout"} Get
+            %a.menu-link{href: "/checkout"}
+              %span.menu-text Get
+              %span.menu-arrow
 
       .b-user
         %ul
