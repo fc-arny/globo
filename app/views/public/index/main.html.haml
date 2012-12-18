@@ -1,4 +1,6 @@
 %h1 Main Page
-- if @customer
-  %h2= "Hello, #{@customer.name}"
+- if @user
+  %h2= "Hello, #{@user.name}"
+  %a{:href => "#{logout_path}"} Logout
+
 

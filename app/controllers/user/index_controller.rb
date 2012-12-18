@@ -47,6 +47,9 @@ class User::IndexController < ApplicationController
   # GET /login
   # -------------------------------------------------------------
   def login_form
+    if session[:user_id]
+      redirect_to root_path
+    end
     @user = Sap::User.new
   end
 
@@ -58,7 +61,62 @@ class User::IndexController < ApplicationController
   # GET /register
   # -------------------------------------------------------------
   def new
+    if session[:user_id]
+      redirect_to root_path, :notice => 'You are already have account. Please log out for creating new account.'
+    end
     @customer = Sap::Customer.new
+  end
+
+  # -------------------------------------------------------------
+  # =Name: password
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # New password form
+  # GET /password
+  # -------------------------------------------------------------
+  def password
+    @token = params[:token]
+    @user = Sap::User.find_by_token(@token)
+
+    @is_new = @user.valid_token_to == nil ? true : false
+  end
+
+  # -------------------------------------------------------------
+  # =Name: password_create
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # Create password
+  # -------------------------------------------------------------
+  def password_create
+    errors = []
+
+    pass = params[:password]
+    pass2 = params[:password_confirm]
+
+    if pass != pass
+        errors << 'Password are not equal'
+    end
+
+    # Getting user by token
+    user = Sap::User.find_by_token(params[:token])
+
+    if user == nil && (user.valid_token_to == nil || user.valid_token_to < Time.now)
+      errors << 'Your token is expired'
+    end
+
+    # Set new password and set null token
+    user.password = user.hash_password( pass )
+    user.token = nil
+    user.valid_token_to = nil
+
+    if user.save
+      respond_to do |format|
+        format.js{ render json:{:errors => errors}}
+      end
+    else
+
+    end
+
   end
 
   # -------------------------------------------------------------
@@ -69,32 +127,49 @@ class User::IndexController < ApplicationController
   # POST /register
   # -------------------------------------------------------------
   def create
-    begin
-      ActiveRecord::Base.transaction  do
-        @customer = Sap::Customer.new(params[:customer  ])
 
-        # Create user
-        user = Sap::User.new do |u|
-          u.login = @customer.email
-          u.name = @customer.name
-          u.set_password(params[:user][:password])
-          #u.role_id = Sap::Role.find_by_class_name(Sap::Role::R_CUSTOMER)
-          u.save
-        end
-
-        # Link user and customer
-        @customer.user_id = user.id
-        @customer.save
-
-        # Success registration
-        flash[:notice] = "Success"
-        redirect_to "/"
+      @customer = Sap::Customer.new do |c|
+        c.email = params[:customer][:email]
       end
-    rescue => e
-      # Failed registration
-      flash[:notice] = e.message
-      render "new"
-    end
+
+      # Generate random password
+      password = ApplicationHelper::get_random_string
+
+      # Create user
+      @customer.user = Sap::User.new do |user|
+        user.login = @customer.email
+        user.name = params[:customer][:user][:name]
+        user.role_id = Sap::Role.find_by_class_name(Sap::Role::R_CUSTOMER)
+
+        # Set Random password and Salt
+        user.salt = ApplicationHelper::get_random_string
+        user.password = user.hash_password(password)
+
+        user.token = Digest::SHA1.hexdigest( user.name + user.salt + user.password )
+      end
+
+      notice = ''
+
+      if @customer.save
+        notice = 'Success!User created!'
+
+        # Auth new user
+        session[:user_id] = @customer.user.id
+
+        #  Send email
+        UserMailer.new_customer(@customer).deliver
+        respond_to do |format|
+          format.js { render json: { notice: notice } }
+        end
+      else
+        notice = 'Failed! Please try again!'
+
+        errors = @customer.errors
+        respond_to do |format|
+          format.json  {render json: {notice: notice, error: errors} }
+          #    format.html{ render 'new' }
+        end
+      end
   end
 
   # -------------------------------------------------------------
@@ -105,6 +180,6 @@ class User::IndexController < ApplicationController
   # -------------------------------------------------------------
   def logout
     session[:user_id] = nil
-    redirect_to '/', :notice => 'Log out'
+    redirect_to root_path, :notice => 'Log out'
   end
 end

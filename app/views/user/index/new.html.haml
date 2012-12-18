@@ -1,14 +1,11 @@
-%h1= t('.registration_title')
-= form_for( :customer, :url => '/register', :method => :post ) do |f|
+%h1= 'Sign Up'
+= form_for( :customer, :url => register_path, :method => :post, :remote => true, :id => 'register' ) do |f|
   .field
-    = f.label (t '.name')
-    = f.text_field :name
+    = f.fields_for :user do |u|
+      = u.label :name
+      = u.text_field :name
   .field
-    = f.label(t '.email')
+    = f.label('Email')
     = f.text_field :email
-  .field
-    %label= (t '.password')
-    = password_field(:user, :password)
   .submit
-    = f.submit t '.register_customer'
-%h1= flash[:notice]
+    = f.submit 'Sign Up'

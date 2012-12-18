@@ -7,7 +7,7 @@
 # =Date:   04.12.2012
 # -------------------------------------------------------------
 # ==Fields:
-# class - role class
+# class_name - role class
 # -------------------------------------------------------------
 class Sap::Role < SapModel
   # Roles class
@@ -15,6 +15,11 @@ class Sap::Role < SapModel
   R_MANAGER = 'SapManager'
   R_CUSTOMER = 'SapCustomer'
 
+  # Fields
   attr_accessible :id, :class_name
+
+  # Relationships
+  has_many :user, :class_name => 'Sap::User'
 end
+
 

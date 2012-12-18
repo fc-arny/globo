@@ -15,10 +15,13 @@ Sap::Application.routes.draw do
   get 'login' => 'user::index#login_form'               # Login form
   post 'login' => 'user::index#login'                   # Login
 
-  match 'logout' => 'user::index#logout'                # Logout
+  get 'logout' => 'user::index#logout'                # Logout
 
   get 'register' => 'user::index#new'                   # Register form
   post 'register' => 'user::index#create'               # Register form
+
+  get 'password'  => 'user::index#password'             # Restore password form
+  post 'password'  => 'user::index#password_create'     # Restore password form
 
   # Admin Panel
   namespace :staff do

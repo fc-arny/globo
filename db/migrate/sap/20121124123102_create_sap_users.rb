@@ -15,6 +15,8 @@ class CreateSapUsers < ActiveRecord::Migration
       t.string :login, null:false
       t.string :password, null:false
       t.string :salt, null:false
+      t.string :token
+      t.datetime :valid_token_to
       t.integer :role_id
 
       t.timestamps
