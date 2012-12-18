@@ -38,11 +38,15 @@
   .l-sub-header
     .g-clearfix
       .b-shop-choose
-        %label Вы в магазине:
-        %select
-          - @stores.each do |t|
-            %option= t.name
 
+        .b-select.g-clearfix
+          %select
+            - @stores.each do |t|
+              %option= t.name
+          .select-title Select market
+          %ul.select-list
+            - @stores.each do |t|
+              %li.select-item= t.name
 
       .b-goods-search
         %input{type: "text", placeholder: "Product search"}

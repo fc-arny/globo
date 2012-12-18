@@ -1,8 +1,8 @@
 // Base variables
 // Fonts
 $fc-base: #333;
-$ff-base: Arial, Tahoma;
-$fs-base: 16px;
+$ff-base: "PT Sans", Arial, Tahoma;
+$fs-base: .8125em; //13px
 
 // Colors
 $c-base: #37a5df;
@@ -14,7 +14,20 @@ $ct-menu-item-active: #0367a1;
 
 // Other
 $ts-white: 0 -1px 0 rgba(255, 255, 255, .4);
-
+@mixin disable-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@mixin disable-text-shadow {
+  -moz-text-shadow: none;
+  -webkit-text-shadow: none;
+  -o-text-shadow: none;
+  -ms-text-shadow: none;
+  text-shadow: none;
+}
 // Gradients
 @mixin gradient-menu-active {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzU3YjllNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyZjliZGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -27,6 +40,103 @@ $ts-white: 0 -1px 0 rgba(255, 255, 255, .4);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#57b9e7', endColorstr='#2f9bda',GradientType=0 ); /* IE6-8 */
 }
 
+//
+// Elements
+//
+
+// For button block
+$button-radius: 3px;
+$button-shadow-bottom: 0 1px 0 rgba(0, 0, 0, .3);
+$button-shadow-top: 0 -1px 0 rgba(255, 255, 255, .9);
+$button-active-shadow-bottom: inset 0 1px 0 rgba(0, 0, 0, .3);
+$button-active-shadow-top: 0 1px 0 rgba(255, 255, 255, .9);
+$button-text-color: #3b94c3;
+$button-text-sub-color: #636363;
+$button-text-shadow: 0 1px 0 rgba(255, 255, 255, .9);
+
+@mixin button-base {
+  -moz-border-radius: $button-radius;
+  -webkit-border-radius: $button-radius;
+  -o-border-radius: $button-radius;
+  -ms-border-radius: $button-radius;
+  border-radius: $button-radius;
+
+  -moz-box-shadow: $button-shadow-bottom, $button-shadow-top;
+  -webkit-box-shadow: $button-shadow-bottom, $button-shadow-top;
+  -o-box-shadow: $button-shadow-bottom, $button-shadow-top;
+  -ms-box-shadow: $button-shadow-bottom, $button-shadow-top;
+  box-shadow: $button-shadow-bottom, $button-shadow-top;
+}
+@mixin button-gradient {
+  background: #f7f7f7; /* Old browsers */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlN2U3ZTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  #f7f7f7 0%, #e7e7e7 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#e7e7e7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f7f7f7 0%,#e7e7e7 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f7f7f7 0%,#e7e7e7 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f7f7f7 0%,#e7e7e7 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f7f7f7 0%,#e7e7e7 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e7e7e7',GradientType=0 ); /* IE6-8 */
+}
+@mixin button-text {
+  color: $button-text-color;
+
+  -moz-text-shadow: $button-text-shadow;
+  -webkit-text-shadow: $button-text-shadow;
+  -o-text-shadow: $button-text-shadow;
+  -ms-text-shadow: $button-text-shadow;
+  text-shadow: $button-text-shadow;
+}
+@mixin button-base-active {
+  -moz-border-radius: $button-radius;
+  -webkit-border-radius: $button-radius;
+  -o-border-radius: $button-radius;
+  -ms-border-radius: $button-radius;
+  border-radius: $button-radius;
+
+  -moz-box-shadow: $button-active-shadow-bottom, $button-active-shadow-top;
+  -webkit-box-shadow: $button-active-shadow-bottom, $button-active-shadow-top;
+  -o-box-shadow: $button-active-shadow-bottom, $button-active-shadow-top;
+  -ms-box-shadow: $button-active-shadow-bottom, $button-active-shadow-top;
+  box-shadow: $button-active-shadow-bottom, $button-active-shadow-top;
+}
+@mixin button-gradient-active {
+  background: #e7e7e7; /* Old browsers */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U3ZTdlNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlMGUwZTAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  #e7e7e7 0%, #e0e0e0 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e7e7e7), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #e7e7e7 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #e7e7e7 0%,#e0e0e0 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #e7e7e7 0%,#e0e0e0 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #e7e7e7 0%,#e0e0e0 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-8 */
+}
+
+// rectangle
+$rectangle-height: .6em;
+$rectangle-special: .4em;
+$rectangle-offset: 0;
+$rectangle-shadow: rgba(255, 255, 255, .9);
+
+@mixin base-rectangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: $rectangle-height $rectangle-special 0 $rectangle-special;
+  border-color: $button-text-color transparent transparent transparent;
+}
+@mixin base-rectangle-shadow {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: $rectangle-height $rectangle-special 0 $rectangle-special;
+  border-color: $rectangle-shadow transparent transparent transparent;
+}
+
+
+//
+// Styles
+//
 body {
   font-color: $fc-base;
   font-family: $ff-base;
@@ -133,7 +243,7 @@ body {
 
   input {
     display: block;
-    width: 100%;
+    width: 95%;
   }
 }
 
@@ -175,6 +285,98 @@ body {
     }
   }
 }
+
+//
+// Blocks
+//
+
+// select
+$select-padding: 1px 5em 2px 1em;
+$select-active-padding: 2px 5em 1px 1em;
+
+$select-height: 2.1em;
+$select-min-width: 7em;
+
+.b-select {
+  position: relative;
+  vertical-align: middle;
+  line-height: $select-height;
+  @include disable-select;
+
+  select {
+    display: none;
+  }
+  .select-title {
+    position: relative;
+    display: block;
+    float: left;
+    min-width: $select-min-width;
+    height: $select-height;
+    padding: $select-padding;
+    @include button-base;
+    @include button-gradient;
+    @include button-text;
+    cursor: pointer;
+  }
+  .select-title:before,
+  .select-title:after {
+      content: "";
+      position: absolute;
+      top: ($select-height - $rectangle-height) / 2;
+      right: 1em;
+      display: block;
+      margin-top: $rectangle-offset + 2px;
+      @include base-rectangle-shadow;
+   }
+  .select-title:after {
+    margin-top: $rectangle-offset;
+    @include base-rectangle;
+  }
+  .select-list {
+    display: none;
+    position: absolute;
+    margin-top: 4px;
+    top: $select-height;
+    left: 0;
+    z-index: 1;
+    @include button-base;
+    @include button-gradient;
+  }
+  .select-item {
+    padding: $select-padding;
+    min-width: $select-min-width;
+    cursor: pointer;
+    @include button-text;
+    color: $button-text-sub-color;
+    padding-bottom: 1px;
+  }
+  .select-item:hover {
+    background: $c-menu-item-active;
+    padding-bottom: 0;
+    border-bottom: 1px solid $ct-menu-item-active;
+    color: #FFF;
+    @include disable-text-shadow;
+  }
+}
+.b-select.active {
+  .select-title {
+    height: $select-height;
+    padding: $select-active-padding;
+    @include button-base-active;
+    @include button-gradient-active;
+  }
+  .select-title:before,
+  .select-title:after {
+    margin-top: $rectangle-offset + 3px;
+  }
+  .select-title:after {
+    margin-top: $rectangle-offset + 1px;
+  }
+  .select-list {
+    display: block;
+  }
+}
+
 
 
 
