@@ -6,6 +6,7 @@
 $base-font-color: #333;
 $base-font-family: "PT Sans", Arial, Tahoma;
 $base-font-size: .875em; //14px
+$black-green: #11451f; //temp
 
 @mixin text-shadow($shadow) {
   -webkit-text-shadow: $shadow;
@@ -85,9 +86,30 @@ $user-text-shadow: none;
   max-width: 1200px;
 }
 .l-header {
-  height: 150px;
+  height: 130px;
   background: url("/assets/header.png") repeat-x;
   @include box-shadow($header-shadow);
+}
+.l-sub-header {
+  position: relative;
+  background: #287c3f;
+
+  .before {
+    position: absolute;
+    z-index: 0;
+    top: -25px;
+    left: -50%;
+
+    display: block;
+    width: 200%;
+    height: 110px;
+    transform: rotate(-2deg);
+    background: #287c3f;
+  }
+}
+#search {
+  position: relative;
+  top: -2em;
 }
 
 //
@@ -160,11 +182,11 @@ body {
 // shop-choose
 .b-shop-choose {
   float: left;
-  width: 40%;
-  min-height: 1em; // temp
+  width: 20%;
+  margin-left: 20%;
 
   .b-select {
-    margin-left: 20%;
+    margin-left: 1em;
   }
 }
 
@@ -179,11 +201,8 @@ body {
 
 // goods-categories
 .b-goods-categories {
-  padding-top: 50px;
   .goods-categories-head-category {
     float: left;
-    border-left: 1px solid #999;
-    border-top: 1px solid #999;
 
     .goods-categories-item {
       position: relative;
@@ -191,14 +210,13 @@ body {
       float: left;
       width: 100px;
       height: 30px;
-      border-right: 1px solid #999;
-      border-bottom: 1px solid #999;
+      color: #FFF;
+      cursor: pointer;
 
       .goods-categories-sub-category {
         position: absolute;
         top: 30px;
         left: 0;
-        background: #faebd7;
       }
       .goods-categories-item {
         display: none;
@@ -221,27 +239,26 @@ body {
 //
 .b-select {
   position: relative;
-  @include selection(#000);
+  @include selection(#FFF);
 
   .select-value {
-    position: absolute;
-    z-index: 15;
+    float: left;
     display: block;
 
     cursor: pointer;
-    border: 1px solid #D9D9D9;
+    border: 1px solid $black-green;
     @include border-radius(5px);
-    @include gradient(red, blue);
+    @include gradient(#287c3f, #1f6331);
+    color: #FFF;
 
     span {
       display: block;
-      width: 70px;
       height: 23px;
       line-height: 23px;
       padding: 0 30px 0 10px;
       overflow: hidden;
       @include border-radius(5px);
-      background: url("https://tutsplus.com/wp-content/themes/tuts-premium-theme/images/select-span.png") no-repeat scroll right top transparent;
+      background: url("/assets/select-span.png") no-repeat scroll right top transparent;
     }
   }
   .select-list {
@@ -249,7 +266,7 @@ body {
     position: absolute;
     left: 0;
     z-index: 16;
-    width: 110px;
+    width: 122px;
     margin: 0;
     padding: 2px 0;
     top: 23px;
@@ -315,7 +332,27 @@ body {
 }
 
 
+// search
+.b-search {
+  .search-wrapper {
+    float: left;
+    min-width: 200px;
 
+    height: 23px;
+    line-height: 23px;
+    overflow: hidden;
+    padding: 0 30px 0 10px;
+
+    border: 1px solid #287c3f1;
+    @include border-radius(5px);
+    @include gradient(#EEE, #FFF);
+    color: #999;
+    input {
+      background: none;
+      border: 0;
+    }
+  }
+}
 
 
 
