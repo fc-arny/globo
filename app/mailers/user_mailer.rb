@@ -19,4 +19,13 @@ class UserMailer < ActionMailer::Base
     @token = customer.user.token
     mail(:to => customer.email, :subject => 'Welcome to GloboMarket')
   end
+
+  # -------------------------------------------------------------
+  # =Name: reset_password
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # Email with token for resetting password
+  # -------------------------------------------------------------
+  def reset_password
+  end
 end

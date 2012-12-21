@@ -4,12 +4,12 @@ Sap::Application.routes.draw do
   root :to => 'public::index#main'
 
   # Goods
-  match 'goods' => 'store::goods#index'                 # Top offers
-  match 'goods/product' => redirect('/goods')           # Redirect to top offers
-  match 'goods/product/:id' => 'store::goods#product'   # View product
-  match 'goods/search' => 'store::goods#search'         # Search products
-  match 'goods/:cat1' => 'store::goods#category'        # View category
-  match 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
+  get 'goods' => 'store::goods#index'                 # Top offers
+  get 'goods/product' => redirect('/goods')           # Redirect to top offers
+  get 'goods/product/:id' => 'store::goods#product'   # View product
+  get 'goods/search' => 'store::goods#search'         # Search products
+  get 'goods/:cat1' => 'store::goods#category'        # View category
+  get 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
 
   # Users
   get 'login' => 'user::index#login_form'               # Login form
@@ -22,6 +22,8 @@ Sap::Application.routes.draw do
 
   get 'password'  => 'user::index#password'             # Restore password form
   post 'password'  => 'user::index#password_create'     # Restore password
+  post 'password_reset' => 'user::index#password_reset' # Generate token for reset
+  get 'password_reset_sent' => 'user::index#password_reset_sent'
 
   # Admin Panel
   namespace :staff do

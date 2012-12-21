@@ -15,8 +15,5 @@ class Public::IndexController < ApplicationController
   # Show main page
   # -------------------------------------------------------------
   def main
-    if session[:user_id]
-      @user = Sap::User.find(session[:user_id])
-    end
-   end
+  end
 end

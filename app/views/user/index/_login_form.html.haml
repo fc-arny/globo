@@ -1,5 +1,7 @@
+%div
+  = flash[:alert]
 %h1= t('.login')
-= form_for @user, :url => '/login' do |f|
+= form_for @user, :url => login_path do |f|
   %div
     = f.label :login
     = f.text_field :login
@@ -10,4 +12,6 @@
     = check_box_tag :remember
     = label_tag :remember
   %div
-    =f.submit t('.login_button')
+    =f.submit 'Login'
+%div
+  %a{:href => password_path} Reset password

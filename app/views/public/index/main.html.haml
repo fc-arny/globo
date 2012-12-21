@@ -1,5 +1,15 @@
 %h1 Main Page
-- if @user
-  %h2= "Hello, #{@user.name}"
-  %a{:href => "#{logout_path}"} Logout
+- if current_user
+    %a{:href => '/'}= current_user.name
+    \|
+    %a{:href => logout_path} Logout
+- else
+    %a{:href => login_path} Login
+    \|
+    %a{:href => register_path} Registration
+
+
+%h1 Goods
+%a{:href => goods_path} View goods ->
+
 

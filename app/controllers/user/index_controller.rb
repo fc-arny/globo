@@ -30,10 +30,10 @@ class User::IndexController < ApplicationController
       redirect_to "/"
     else
       @user = Sap::User.new do |u|
-        u.login = params[:login]
+        u.login = user_params[:login]
       end
 
-      flash[:notice] = 'No such user'
+      flash.now.alert = 'Wrong login or password'
       render "login_form"
     end
 
@@ -73,8 +73,6 @@ class User::IndexController < ApplicationController
   def password
     @token = params[:token]
     @user = Sap::User.find_by_token(@token)
-
-    @is_new = @user.valid_token_to == nil ? true : false
   end
 
   # -------------------------------------------------------------
@@ -113,6 +111,35 @@ class User::IndexController < ApplicationController
 
     end
 
+  end
+
+  # -------------------------------------------------------------
+  # =Name: password_reset
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # Create token for creating new password and send to email
+  # -------------------------------------------------------------
+  def password_reset
+    @user = Sap::User.find_by_login(params[:login])
+
+    if @user.nil?
+      flash[:alert] = "User with login '#{params[:login]}' not found"
+      redirect_to password_path
+    else
+      # Generate token and send email
+      redirect_to password_reset_sent_path
+    end
+
+
+  end
+
+  # -------------------------------------------------------------
+  # =Name: password_reset_sent
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  #
+  # -------------------------------------------------------------
+  def password_reset_sent
   end
 
   # -------------------------------------------------------------
