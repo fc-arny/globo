@@ -12,6 +12,6 @@
 # user_id  - reference to user
 # -------------------------------------------------------------
 class Sap::Admin < SapModel
-  belongs_to :user, :class_name => 'Sap::User'
-  attr_accessible :city_id, :name, :position, :user_id
+  has_one :user, :class_name => 'Sap::User', :as => :person
+  attr_accessible :city_id, :position, :user_id
 end

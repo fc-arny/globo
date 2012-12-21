@@ -9,7 +9,6 @@
 class CreateSapAdmins < ActiveRecord::Migration
 	def change
 		create_table :"sap.admins" do |t|
-			t.integer :user_id, null:false
 			t.integer :city_id
 			t.string :name, null:false
 			t.string :position

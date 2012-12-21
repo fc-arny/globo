@@ -1,0 +1,17 @@
+.b-user
+  %ul
+    %li
+      -if user
+        %a{:href => '/'}= user.name
+        \|
+        %a{:href => logout_path} Log Out
+      - else
+        %a{:href => login_path} Login
+        \|
+        %a{:href => register_path} Registration
+    %li
+      %span in basket:
+      %span 10
+    %li
+      %span you have:
+      %span 6&nbsp;470 rub.

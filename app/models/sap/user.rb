@@ -16,10 +16,10 @@
 # -------------------------------------------------------------
 class Sap::User < SapModel
   # Fields
-  attr_accessible :id, :login, :password, :salt, :token, :valid_token_to, :role_id
+  attr_accessible :id, :login, :password, :salt, :token, :valid_token_to, :name
 
   # Relationships
-  belongs_to :role, :class_name => 'Sap::Role'
+  belongs_to :role, :polymorphic => true
 
 
 

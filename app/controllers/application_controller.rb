@@ -1,8 +1,24 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
   before_filter :set_category_tree
+  helper_method :current_user
 
   protected
+
+  # -------------------------------------------------------------
+  # =Name: current_user
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  # Current uses or nil
+  # -------------------------------------------------------------
+  def current_user
+    begin
+      current_user ||= Sap::User.find(session[:user_id]) if session[:user_id]
+    rescue
+      nil
+    end
+  end
 
   # -------------------------------------------------------------
   # =Name: set_category_tree

@@ -1,0 +1,10 @@
+%h1= 'Sign Up'
+= form_for( :user, :url => register_path, :method => :post, :remote => true, :id => 'register' ) do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label('Email')
+    = f.text_field :login
+  .submit
+    = f.submit 'Sign Up'

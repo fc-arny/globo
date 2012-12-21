@@ -8,11 +8,10 @@
 # -------------------------------------------------------------
 # ==Fields:
 #  email   - login for user
-#  user_id - link to user
 # -------------------------------------------------------------
 class Sap::Customer < SapModel
   # Fields
-  attr_accessible :email, :user_id
+  attr_accessible :email, :role
 
   # Validators
   validates :email, :uniqueness => true,
@@ -21,5 +20,5 @@ class Sap::Customer < SapModel
                     :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
 
   # Relationships
-  belongs_to :user, :class_name => 'Sap::User', :foreign_key => 'user_id'
+  has_one :user, :class_name => 'Sap::User', :as => :role
 end

@@ -47,10 +47,8 @@ class User::IndexController < ApplicationController
   # GET /login
   # -------------------------------------------------------------
   def login_form
-    if session[:user_id]
-      redirect_to root_path
-    end
-    @user = Sap::User.new
+    @user = session[:user_id] ?
+        Sap::User.find(session[:user_id]) : Sap::User.new
   end
 
   # -------------------------------------------------------------
@@ -60,11 +58,9 @@ class User::IndexController < ApplicationController
   # Register form for customer
   # GET /register
   # -------------------------------------------------------------
-  def new
-    if session[:user_id]
-      redirect_to root_path, :notice => 'You are already have account. Please log out for creating new account.'
-    end
-    @customer = Sap::Customer.new
+  def register_form
+    @user = session[:user_id] ?
+        Sap::User.find(session[:user_id]) : Sap::User.new
   end
 
   # -------------------------------------------------------------
@@ -127,19 +123,18 @@ class User::IndexController < ApplicationController
   # POST /register
   # -------------------------------------------------------------
   def create
+    # Generate random password for new user
+    password = ApplicationHelper::get_random_string
 
-      @customer = Sap::Customer.new do |c|
-        c.email = params[:customer][:email]
-      end
-
-      # Generate random password
-      password = ApplicationHelper::get_random_string
+    # Create customer
+    @customer = Sap::Customer.new do |customer|
 
       # Create user
-      @customer.user = Sap::User.new do |user|
-        user.login = @customer.email
-        user.name = params[:customer][:user][:name]
-        user.role_id = Sap::Role.find_by_class_name(Sap::Role::R_CUSTOMER)
+      customer.user = Sap::User.new do |user|
+
+        # Email is login for customer
+        user.login = customer.email = params[:user][:login]
+        user.name  = params[:user][:name]
 
         # Set Random password and Salt
         user.salt = ApplicationHelper::get_random_string
@@ -147,29 +142,26 @@ class User::IndexController < ApplicationController
 
         user.token = Digest::SHA1.hexdigest( user.name + user.salt + user.password )
       end
+    end
 
-      notice = ''
+    if @customer.save
 
-      if @customer.save
-        notice = 'Success!User created!'
+      # Auth new user
+      session[:user_id] = @customer.user.id
 
-        # Auth new user
-        session[:user_id] = @customer.user.id
+      #  Send email
+      UserMailer.new_customer(@customer).deliver
 
-        #  Send email
-        UserMailer.new_customer(@customer).deliver
-        respond_to do |format|
-          format.js { render json: { notice: notice } }
-        end
-      else
-        notice = 'Failed! Please try again!'
-
+      respond_to do |format|
+        format.js { render json: { notice: 'Success!User created!' } }
+      end
+    else
         errors = @customer.errors
         respond_to do |format|
-          format.json  {render json: {notice: notice, error: errors} }
+          format.json  {render json: {notice: 'Failed! Please try again!', error: errors} }
           #    format.html{ render 'new' }
         end
-      end
+    end
   end
 
   # -------------------------------------------------------------
