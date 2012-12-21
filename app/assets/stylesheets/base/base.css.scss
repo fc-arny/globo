@@ -102,9 +102,10 @@ $user-text-shadow: none;
 
     display: block;
     width: 200%;
-    height: 110px;
+    height: 100px;
     transform: rotate(-2deg);
-    background: #287c3f;
+    @include gradient(#55c0ba, #3fadc0);
+    border: 5px solid #FFF;
   }
 }
 #search {
