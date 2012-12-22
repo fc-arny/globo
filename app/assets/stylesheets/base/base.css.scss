@@ -85,7 +85,6 @@ $menu-active-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4),0 1px rgba(255, 255, 2
 
 // user
 $user-text-color: #FFF;
-//$user-text-shadow: 0 -1px 0 rgba(255, 255, 255, .5);
 $user-text-shadow: none;
 
 //
@@ -96,13 +95,13 @@ $user-text-shadow: none;
   max-width: 1200px;
 }
 .l-header {
+  position: relative;
   height: $header-height;
   background: $base-background;
-  //@include gradient(red, blue); // это аухенно!!! я сделал треугольники с градиентами
-  // ну т.е. они полупрозрачные но суть в том, что можно градиенты юзать на хедере
+  @include gradient(#84cb51, #70ae48);
+  @include box-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
 }
 .l-sub-header {
-  position: relative;
   background: #476D10;
 }
 #search {
@@ -174,6 +173,10 @@ body {
 
     @include transition(color .3s);
     @include text-shadow($menu-text-shadow);
+  }
+  .menu-text {
+    font-size: 1.2em;
+    letter-spacing: .1em;
   }
 
   // hover
