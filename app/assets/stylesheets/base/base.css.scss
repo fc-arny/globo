@@ -161,21 +161,42 @@ body {
     display: block;
     min-width: 80px;
     height: $header-height;
-    padding: 0 $arrow-height;
+    padding: 0 5px;
     margin-left: $arrow-height;
 
-    line-height: $header-height;
-    font-weight: bold;
     text-align: center;
     text-decoration: none;
-    text-transform: uppercase;
     color: $menu-text-color;
 
     @include transition(color .3s);
     @include text-shadow($menu-text-shadow);
   }
+  .menu-text,
+  .upper-text,
+  .lower-text {
+    display: block;
+  }
+  .upper-text,
+  .lower-text {
+    color: rgba(255, 255, 255, 0);
+    @include text-shadow(none);
+    font-size: .8571em;
+    height: 1.5335em;
+    padding-top: .8em;
+  }
+  .lower-text {
+    height: 1.3335em;
+    padding-top: 0;
+    padding-bottom: 1em;
+  }
+
+
   .menu-text {
+    font-weight: bold;
+    text-transform: uppercase;
     font-size: 1.2em;
+    height: 1.6667em;
+    line-height: 1.6667em;
     letter-spacing: .1em;
   }
 
@@ -191,6 +212,10 @@ body {
       right: -$arrow-height;
       border-width: $arrow-height 0 $arrow-height $arrow-height;
       border-color: transparent transparent transparent $menu-hover-background;
+    }
+    .upper-text,
+    .lower-text {
+      color: rgba(255, 255, 255, .7);
     }
   }
   .menu-item:hover:before {
