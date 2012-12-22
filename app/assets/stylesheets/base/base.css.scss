@@ -6,7 +6,8 @@
 $base-font-color: #333;
 $base-font-family: "PT Sans", Arial, Tahoma;
 $base-font-size: .875em; //14px
-$black-green: #11451f; //temp
+$base-background: #75b54a;
+
 
 @mixin text-shadow($shadow) {
   -webkit-text-shadow: $shadow;
@@ -61,20 +62,29 @@ $black-green: #11451f; //temp
   background: linear-gradient(to bottom,  $color-from 0%,$color-to 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-from', endColorstr='$color-to',GradientType=0 ); /* IE6-8 */
 }
+@mixin transition($function) {
+  -webkit-transition: $function;
+  -moz-transition: $function;
+  -o-transition: $function;
+  -ms-transition: $function;
+  transition: $function;
+}
 
 
 // header
-$header-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+$header-height: 6em;
 
 // menu
-$menu-font-weight: bold;
-$menu-text-color: #FFF;
-$menu-text-shadow: 0 1px 1px rgba(0, 0, 0, .6);
-$menu-active-text-color: #32602e;
-$menu-active-text-shadow: 0 -1px 0 rgba(255, 255, 255, .4);
+$menu-text-color: #D5E9C3;
+$menu-text-shadow: 0 -1px rgba(0, 0, 0, .2);
+$menu-hover-background: rgba(0, 0, 0, .1);
+$menu-active-background: rgba(0, 0, 0, .2);
+$menu-active-text-color: #FFF;
+$menu-active-text-shadow: none;
+$menu-active-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4),0 1px rgba(255, 255, 255, 0.15);
 
 // user
-$user-text-color: #1c4b18;
+$user-text-color: #FFF;
 //$user-text-shadow: 0 -1px 0 rgba(255, 255, 255, .5);
 $user-text-shadow: none;
 
@@ -86,31 +96,19 @@ $user-text-shadow: none;
   max-width: 1200px;
 }
 .l-header {
-  height: 130px;
-  background: url("/assets/header.png") repeat-x;
-  @include box-shadow($header-shadow);
+  height: $header-height;
+  background: $base-background;
+  //@include gradient(red, blue); // это аухенно!!! я сделал треугольники с градиентами
+  // ну т.е. они полупрозрачные но суть в том, что можно градиенты юзать на хедере
 }
 .l-sub-header {
   position: relative;
-  background: #287c3f;
-
-  .before {
-    position: absolute;
-    z-index: 0;
-    top: -25px;
-    left: -50%;
-
-    display: block;
-    width: 200%;
-    height: 100px;
-    transform: rotate(-2deg);
-    @include gradient(#55c0ba, #3fadc0);
-    border: 5px solid #FFF;
-  }
+  background: #476D10;
 }
 #search {
   position: relative;
   top: -2em;
+  display: none;
 }
 
 //
@@ -128,48 +126,126 @@ body {
 
 // logo
 .b-logo {
-  width: 20%;
   float: left;
+  padding-right: 2em;
 
   h1 {
     font-size: 1em;
-    margin-top: 1em;
+    margin-top: 1.2em;
   }
 }
 
 // menu
 .b-menu {
-  width: 60%;
-  float: left;
+  $arrow-height: $header-height / 2;
+  @mixin menu-arrow {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+  }
 
+  float: left;
+  width: 60%;
+
+  .menu-list {
+    margin: 0;
+  }
   .menu-item {
+    position: relative;
     float: left;
   }
   .menu-link {
     display: block;
-    padding: .8em 1em;
+    min-width: 80px;
+    height: $header-height;
+    padding: 0 $arrow-height;
+    margin-left: $arrow-height;
 
+    line-height: $header-height;
+    font-weight: bold;
+    text-align: center;
     text-decoration: none;
-    font-size: 1.2em;
-    font-weight: $menu-font-weight;
+    text-transform: uppercase;
     color: $menu-text-color;
+
+    @include transition(color .3s);
     @include text-shadow($menu-text-shadow);
   }
-  .menu-link:hover {
-    color: $menu-active-text-color;
-    @include text-shadow($menu-active-text-shadow);
+
+  // hover
+  .menu-item:hover {
+    .menu-link {
+      background: $menu-hover-background;
+      color: $menu-active-text-color;
+      @include text-shadow($menu-active-text-shadow);
+    }
+    .menu-arrow {
+      @include menu-arrow;
+      right: -$arrow-height;
+      border-width: $arrow-height 0 $arrow-height $arrow-height;
+      border-color: transparent transparent transparent $menu-hover-background;
+    }
+  }
+  .menu-item:hover:before {
+    content: "";
+    @include menu-arrow;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 $arrow-height $arrow-height;
+    border-color: transparent transparent $menu-hover-background transparent;
+  }
+  .menu-item:hover:after {
+    content: "";
+    @include menu-arrow;
+    left: 0;
+    border-width: 0 $arrow-height $arrow-height 0;
+    border-color: transparent $menu-hover-background transparent transparent;
+  }
+
+  // active
+  .menu-item.active {
+    .menu-link {
+      background: $menu-active-background;
+      color: $menu-active-text-color;
+      @include text-shadow($menu-active-text-shadow);
+    }
+    .menu-arrow {
+      @include menu-arrow;
+      right: -$arrow-height;
+      border-width: $arrow-height 0 $arrow-height $arrow-height;
+      border-color: transparent transparent transparent $menu-active-background;
+    }
+  }
+  .menu-item.active:before {
+    content: "";
+    @include menu-arrow;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 $arrow-height $arrow-height;
+    border-color: transparent transparent $menu-active-background transparent;
+  }
+  .menu-item.active:after {
+    content: "";
+    @include menu-arrow;
+    left: 0;
+    border-width: 0 $arrow-height $arrow-height 0;
+    border-color: transparent $menu-active-background transparent transparent;
   }
 }
 
 // user
 .b-user {
   width: 20%;
-  float: left;
+  float: right;
   padding-top: 1em;
-  font-weight: bold;
   font-size: .9286em;
   text-align: right;
-  @include text-shadow($user-text-shadow);
 
   li, a, span {
     color: $user-text-color;
@@ -247,7 +323,6 @@ body {
     display: block;
 
     cursor: pointer;
-    border: 1px solid $black-green;
     @include border-radius(5px);
     @include gradient(#287c3f, #1f6331);
     color: #FFF;
