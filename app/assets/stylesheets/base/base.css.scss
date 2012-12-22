@@ -72,7 +72,7 @@ $base-background: #75b54a;
 
 
 // header
-$header-height: 6em;
+$header-height: 5em;
 
 // menu
 $menu-text-color: #D5E9C3;
@@ -102,12 +102,10 @@ $user-text-shadow: none;
   @include box-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
 }
 .l-sub-header {
-  background: #476D10;
+  background: #555;
 }
 #search {
-  position: relative;
-  top: -2em;
-  display: none;
+  padding: 1em;
 }
 
 //
@@ -126,17 +124,18 @@ body {
 // logo
 .b-logo {
   float: left;
-  padding-right: 2em;
+  padding-right: 3em;
 
   h1 {
     font-size: 1em;
-    margin-top: 1.2em;
+    margin: .8em 0 0;
   }
 }
 
 // menu
 .b-menu {
   $arrow-height: $header-height / 2;
+
   @mixin menu-arrow {
     display: block;
     position: absolute;
@@ -159,7 +158,7 @@ body {
   }
   .menu-link {
     display: block;
-    min-width: 80px;
+    min-width: 180px; // temp
     height: $header-height;
     padding: 0 5px;
     margin-left: $arrow-height;
@@ -181,15 +180,10 @@ body {
     color: rgba(255, 255, 255, 0);
     @include text-shadow(none);
     font-size: .8571em;
-    height: 1.5335em;
-    padding-top: .8em;
   }
-  .lower-text {
-    height: 1.3335em;
-    padding-top: 0;
-    padding-bottom: 1em;
+  .upper-text {
+    padding-top: .3em;
   }
-
 
   .menu-text {
     font-weight: bold;
@@ -271,10 +265,14 @@ body {
 .b-user {
   width: 20%;
   float: right;
-  padding-top: 1em;
+  padding-top: .5em;
+  margin: 0;
   font-size: .9286em;
   text-align: right;
 
+  ul {
+    margin: 0;
+  }
   li, a, span {
     color: $user-text-color;
   }
@@ -288,19 +286,15 @@ body {
 .b-shop-choose {
   float: left;
   width: 20%;
-  margin-left: 20%;
-
-  .b-select {
-    margin-left: 1em;
-  }
 }
 
 // goods-search
 .b-goods-search {
   float: left;
-  width: 60%;
+  width: 80%;
   .b-search {
-    margin-right: 1em;
+    width: 75%;
+    float: right;
   }
 }
 
@@ -352,8 +346,8 @@ body {
 
     cursor: pointer;
     @include border-radius(5px);
-    @include gradient(#287c3f, #1f6331);
-    color: #FFF;
+    @include gradient(#444, #333);
+    color: rgba(255, 255, 255, .7);
 
     span {
       display: block;
@@ -440,7 +434,11 @@ body {
 .b-search {
   .search-wrapper {
     float: left;
-    min-width: 200px;
+    width: 100%;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 
     height: 23px;
     line-height: 23px;
