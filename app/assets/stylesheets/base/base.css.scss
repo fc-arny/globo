@@ -52,14 +52,14 @@ $base-background: #75b54a;
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
-@mixin gradient($color-from, $color-to) {
-  background: $color-from;
-  background: -moz-linear-gradient(top,  $color-from 0%, $color-to 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-from), color-stop(100%,$color-to));
-  background: -webkit-linear-gradient(top,  $color-from 0%,$color-to 100%);
-  background: -o-linear-gradient(top,  $color-from 0%,$color-to 100%);
-  background: -ms-linear-gradient(top,  $color-from 0%,$color-to 100%);
-  background: linear-gradient(to bottom,  $color-from 0%,$color-to 100%);
+@mixin gradient($image, $color-from, $color-to) {
+  background: $image, $color-from;
+  background: $image, -moz-linear-gradient(top,  $color-from 0%, $color-to 100%);
+  background: $image, -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-from), color-stop(100%,$color-to));
+  background: $image, -webkit-linear-gradient(top,  $color-from 0%,$color-to 100%);
+  background: $image, -o-linear-gradient(top,  $color-from 0%,$color-to 100%);
+  background: $image, -ms-linear-gradient(top,  $color-from 0%,$color-to 100%);
+  background: $image, linear-gradient(to bottom,  $color-from 0%,$color-to 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-from', endColorstr='$color-to',GradientType=0 ); /* IE6-8 */
 }
 @mixin transition($function) {
@@ -73,6 +73,10 @@ $base-background: #75b54a;
 
 // header
 $header-height: 5em;
+$header-gradient-from: #91da53;
+$header-gradient-to: #6dad4a;
+$header-border-color: rgba(76, 118, 47, 0.8);
+$header-box-shadow: 0 1px 0 rgba(213, 233, 195, 0.4) inset, 0 -1px 0 rgba(213, 233, 195, 0.2) inset, 0 1px 1px rgba(0, 0, 0, 0.2);
 
 // menu
 $menu-text-color: #D5E9C3;
@@ -98,8 +102,9 @@ $user-text-shadow: none;
   position: relative;
   height: $header-height;
   background: $base-background;
-  @include gradient(#84cb51, #70ae48);
-  @include box-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
+  @include gradient(url("/assets/noise.png"), $header-gradient-from, $header-gradient-to);
+  border-bottom: 1px solid $header-border-color;
+  @include box-shadow($header-box-shadow);
 }
 .l-sub-header {
   background: #555;
@@ -134,7 +139,8 @@ body {
 
 // menu
 .b-menu {
-  $arrow-height: $header-height / 2;
+  $menu-height: $header-height;
+  $arrow-height: $menu-height / 2;
 
   @mixin menu-arrow {
     display: block;
@@ -159,7 +165,7 @@ body {
   .menu-link {
     display: block;
     min-width: 180px; // temp
-    height: $header-height;
+    height: $menu-height;
     padding: 0 5px;
     margin-left: $arrow-height;
 
@@ -346,7 +352,7 @@ body {
 
     cursor: pointer;
     @include border-radius(5px);
-    @include gradient(#444, #333);
+    @include gradient(none, #444, #333);
     color: rgba(255, 255, 255, .7);
 
     span {
@@ -447,7 +453,7 @@ body {
 
     border: 1px solid #287c3f1;
     @include border-radius(5px);
-    @include gradient(#EEE, #FFF);
+    @include gradient(none, #EEE, #FFF);
     color: #999;
     input {
       background: none;
