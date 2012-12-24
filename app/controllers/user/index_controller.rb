@@ -72,7 +72,20 @@ class User::IndexController < ApplicationController
   # -------------------------------------------------------------
   def password
     @token = params[:token]
-    @user = Sap::User.find_by_token(@token)
+    @user = Sap::User.where('token = ? AND valid_token_to > ?',  @token, Time.now.utc).first
+  end
+
+  # -------------------------------------------------------------
+  # =Name: password_save
+  # =Author: fc_arny
+  # -------------------------------------------------------------
+  #
+  # -------------------------------------------------------------
+  def password_save
+    # Save password after reset
+    if params[:token]
+       user = Sap::User.get_user_by_valid_token(params[:token])
+    end
   end
 
   # -------------------------------------------------------------
@@ -108,9 +121,7 @@ class User::IndexController < ApplicationController
         format.js{ render json:{:errors => errors}}
       end
     else
-
     end
-
   end
 
   # -------------------------------------------------------------
@@ -127,17 +138,19 @@ class User::IndexController < ApplicationController
       redirect_to password_path
     else
       # Generate token and send email
+      @user.token = Sap::User.generate_token(@user)
+      @user.valid_token_to = 1.day.from_now
+      @user.save
+
       redirect_to password_reset_sent_path
     end
-
-
   end
 
   # -------------------------------------------------------------
   # =Name: password_reset_sent
   # =Author: fc_arny
   # -------------------------------------------------------------
-  #
+  # Request sent
   # -------------------------------------------------------------
   def password_reset_sent
   end

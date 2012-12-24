@@ -21,8 +21,6 @@ class Sap::User < SapModel
   # Relationships
   belongs_to :role, :polymorphic => true
 
-
-
   # -------------------------------------------------------------
   # =Name: set_password
   # =Author: fc_arny
@@ -64,6 +62,16 @@ class Sap::User < SapModel
     # -------------------------------------------------------------
     def generate_token(user)
       Digest::SHA1.hexdigest( user.name + user.salt + user.password )
+    end
+
+    # -------------------------------------------------------------
+    # =Name: find_user_by_valid_token
+    # =Author: fc_arny
+    # -------------------------------------------------------------
+    # Find user by valid token
+    # -------------------------------------------------------------
+    def get_user_by_valid_token(token)
+      self.where('token = ? AND (valid_token_to < ? OR valid_token_to IS NULL)', token).first
     end
   end
 end

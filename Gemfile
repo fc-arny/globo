@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'http://gems.github.com'
 
 gem 'rails', '3.2.8'
 
@@ -9,7 +10,7 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'unicode'
 gem 'foreigner'   # Foreign key
-
+gem 'angular-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

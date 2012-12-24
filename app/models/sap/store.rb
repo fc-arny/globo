@@ -9,5 +9,6 @@
 # region_id     - link to region
 # -------------------------------------------------------------
 class Sap::Store < SapModel
+  # Fields
 	attr_accessible :id, :name, :order_pos, :is_disabled, :region_id
 end

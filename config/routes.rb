@@ -30,6 +30,18 @@ Sap::Application.routes.draw do
     get 'index/index'
   end
 
+  # API
+  namespace 'api' do
+    # API v1.0
+    namespace 'v1' do
+      # Goods
+      resources :goods do
+        get 'search', :on => :collection
+      end
+      # Categories
+    end
+  end
+
 
 
   # The priority is based upon order of creation:
