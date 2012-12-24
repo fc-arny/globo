@@ -8,6 +8,17 @@ $base-font-family: "PT Sans", Arial, Tahoma;
 $base-font-size: .875em; //14px
 $base-background: #75b54a;
 
+// EXAMPLE
+//@font-face {
+//  font-family: 'forgetmenotmedium';
+//  src: url('/assets/test/forgetmenot-webfont.eot');
+//  src: url('/assets/test/forgetmenot-webfont.eot?#iefix') format('embedded-opentype'),
+//  url('/assets/test/forgetmenot-webfont.woff') format('woff'),
+//  url('/assets/test/forgetmenot-webfont.ttf') format('truetype'),
+//  url('/assets/test/forgetmenot-webfont.svg#forgetmenotmedium') format('svg');
+//  font-weight: normal;
+//  font-style: normal;
+//}
 
 @mixin text-shadow($shadow) {
   -webkit-text-shadow: $shadow;
