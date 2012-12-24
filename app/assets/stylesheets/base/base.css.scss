@@ -112,6 +112,41 @@ $user-text-shadow: none;
 #search {
   padding: 1em;
 }
+.l-content {
+  background: url("/assets/noise-2.png"), #FDFDFD;
+  overflow: hidden;
+
+  .l-container {
+    position: relative;
+    min-height: 1000px;
+  }
+  .l-container:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 3000px;
+    height: 20000px;
+    background: url("/assets/right-bg.jpg");
+    top: 0;
+    left: 75%;
+    z-index: 0;
+  }
+}
+.l-main {
+  padding-top: 1em;
+  float: left;
+  width: 75%;
+  min-height: 1000px;
+}
+.l-right {
+  padding-top: 1em;
+  padding-left: 1em;
+  margin-left: 75%;
+  position: relative;
+  z-index: 1;
+  min-height: 1000px;
+  border-left: 1px solid #DDD;
+}
 
 //
 // Styles
