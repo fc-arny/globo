@@ -62,12 +62,20 @@ Sap::CategoryGood.create([
 Sap::GoodList.delete_all
 Sap::GoodList.create([
     {good_id: 1, price: 25.09, store_id: 2},
-    {good_id: 1, price: 27.09, store_id: 3},
-
     {good_id: 2, price: 27.97, store_id: 2},
-    {good_id: 2, price: 29.00, store_id: 3},
+    {good_id: 3, price: 45.09, store_id: 2},
+    {good_id: 4, price: 25.09, store_id: 2},
+    {good_id: 5, price: 15.09, store_id: 2},
+    {good_id: 6, price: 5.09, store_id: 2},
+    {good_id: 7, price: 7.09, store_id: 2},
+    {good_id: 8, price: 4.09, store_id: 2},
+    {good_id: 9, price: 85.09, store_id: 2},
+    {good_id: 10, price: 25.09, store_id: 2},
+    {good_id: 11, price: 15.09, store_id: 2},
+    {good_id: 12, price: 95.09, store_id: 2},
 
-    {good_id: 10, price: 45.09, store_id: 2},
+    {good_id: 1, price: 27.09, store_id: 3},
+    {good_id: 2, price: 29.00, store_id: 3},
     {good_id: 10, price: 47.09, store_id: 3},
 ])
 
