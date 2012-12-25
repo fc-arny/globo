@@ -10,7 +10,6 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'unicode'
 gem 'foreigner'   # Foreign key
-gem 'angular-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
