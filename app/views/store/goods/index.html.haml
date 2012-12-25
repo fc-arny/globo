@@ -2,11 +2,11 @@
   goods
 
 = content_for :main do
-  .b-goods
+  .b-goods{:"ng-controller" => "GoodsController"}
     %ul.goods-list
 
       //goods item
-      %li.goods-item#good-id-1000
+      %li.goods-item#good-id-1000{:"ng-repeat" => "good in goods"}
         .goods-item-wrapper
           .goods-add-to-basket.g-clearfix
             .goods-button-add
@@ -15,14 +15,13 @@
               %input{type:"text", placeholder:"1"}
           .goods-image
           .goods-title
-            %span Snikers Big Size, 45*2 grams
+            %span {{good.good_name}}
           .goods-price
             %span 1$
           .goods-stores
             %select
               %option Azbuka Vkusa
               %option Perekrestok
-
 
 = content_for :right do
   deals
