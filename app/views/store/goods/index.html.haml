@@ -2,7 +2,27 @@
   goods
 
 = content_for :main do
-  goods
+  .b-goods
+    %ul.goods-list
+
+      //goods item
+      %li.goods-item#good-id-1000
+        .goods-item-wrapper
+          .goods-add-to-basket.g-clearfix
+            .goods-button-add
+              %span Add to basket
+            .goods-count
+              %input{type:"text", placeholder:"1"}
+          .goods-image
+          .goods-title
+            %span Snikers Big Size, 45*2 grams
+          .goods-price
+            %span 1$
+          .goods-stores
+            %select
+              %option Azbuka Vkusa
+              %option Perekrestok
+
 
 = content_for :right do
   deals
