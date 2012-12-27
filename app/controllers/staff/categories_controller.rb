@@ -1,2 +1,2 @@
-class Staff::CategoriesController < ApplicationController
+class Staff::CategoriesController < Staff::BaseController[p]
 end

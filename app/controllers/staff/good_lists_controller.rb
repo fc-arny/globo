@@ -1,4 +1,4 @@
-class Staff::GoodListsController < ApplicationController
+class Staff::GoodListsController < Staff::BaseController
   # GET /staff/good_lists
   # GET /staff/good_lists.json
   def index
