@@ -1,10 +1,52 @@
-!!!
-%html
-  %head
-    %title= 'ADMIN: ' + ( @title || APP_DEFAULT_NAME )
-    = stylesheet_link_tag :staff
-    = javascript_include_tag :staff
-    = csrf_meta_tag
-  %body{:class => 'staff'}
-    #wrapper
-      = yield
+= content_for :content do
+
+  Это стафф, детка!
+
+  / Categories, search
+  .l-sub-header
+    .l-container.g-clearfix#search
+      .b-shop-choose
+
+        .b-select.g-clearfix
+          .select-value
+            %span Select market
+          %ul.select-list
+            - @stores.each do |t|
+              %li.select-item
+                %span= t.name
+          %select
+            - @stores.each do |t|
+              %option= t.name
+
+      .b-goods-search
+        .b-search
+          .search-wrapper
+            %input{type: "text", placeholder: "Product search"}
+          .search-button
+
+    .l-container.g-clearfix
+
+      / Categories menu
+      .b-goods-categories.g-clearfix
+        %ul.goods-categories-head-category.g-clearfix
+          - @categoryTree.each do |cat|
+            %li.goods-categories-item
+              %a.goods-categories-title= cat[:name]
+              %ul.goods-categories-sub-category
+                - cat[:children].each do |children|
+                  %li.goods-categories-item
+                    %a.goods-categories-title= children[:name]
+            %li.goods-categories-item test
+            %li.goods-categories-item test
+
+  .l-content
+    .l-container.g-clearfix
+
+      / Main content
+      .l-main
+        = yield :main
+
+      / Right column
+      .l-right
+        = yield :right
+= render :template => 'layouts/base'
