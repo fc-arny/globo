@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class Staff::GoodHelperTest < ActionView::TestCase
+class Admin::GoodHelperTest < ActionView::TestCase
 end

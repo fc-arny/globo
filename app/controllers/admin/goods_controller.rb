@@ -1,18 +1,18 @@
 # -------------------------------------------------------------
-# =Name: Staff::GoodController
+# =Name: Admin::GoodController
 # =Description:
 # CRUD for goods, good list
 # -------------------------------------------------------------
 # =Author: fc_arny
 # =Date:   07.12.2012
 # -------------------------------------------------------------
-class Staff::GoodsController < Staff::BaseController
+class Admin::GoodsController < Admin::BaseController
   # -------------------------------------------------------------
   # =Name: index
   # =Author: fc_arny
   # -------------------------------------------------------------
   # List of goods
-  # GET /staff/goods
+  # GET /admin/goods
   # -------------------------------------------------------------
   def index
     @list = Sap::Good.all
@@ -23,7 +23,7 @@ class Staff::GoodsController < Staff::BaseController
   # =Author: fc_arny
   # -------------------------------------------------------------
   # Get good in goods list
-  # GET /staff/goods/:id
+  # GET /admin/goods/:id
   # -------------------------------------------------------------
   def show
     @good = Sap::Good.find(params[:id])
@@ -45,7 +45,7 @@ class Staff::GoodsController < Staff::BaseController
   # =Author: fc_arny
   # -------------------------------------------------------------
   # New good form
-  # GET /staff/goods/new
+  # GET /admin/goods/new
   # -------------------------------------------------------------
   def new
     @good = Sap::Good.new
@@ -65,7 +65,7 @@ class Staff::GoodsController < Staff::BaseController
     @good = Sap::Good.new(params[:sap_good])
     respond_to do |format|
       if ! @good.save
-        format.html { redirect_to staff_good_path(@good), notice: 'Test was successfully created.' }
+        format.html { redirect_to admin_good_path(@good), notice: 'Test was successfully created.' }
         format.json { render json: @good, status: :created, location: @good }
       else
         format.html { render action: "new" }

@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class Staff::CategoriesHelperTest < ActionView::TestCase
+class Admin::CategoriesHelperTest < ActionView::TestCase
 end

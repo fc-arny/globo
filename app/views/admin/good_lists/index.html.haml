@@ -1,0 +1,27 @@
+%h1 Listing admin_good_lists
+
+%table
+  %tr
+    %th ID
+    %th Good
+    %th Store
+    %th Price
+    %th
+
+  - @good_lists.each do |good_list|
+    %tr
+      %td= good_list.id
+      %td= good_list.good.name
+      %td= good_list.store.name
+      %td= good_list.price
+      %td
+        %div
+          =link_to 'Show', admin_good_list_path(good_list)
+          \|
+          = link_to 'Edit', edit_admin_good_list_path(good_list)
+          \|
+          = link_to 'Destroy', admin_good_list_path(good_list), method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Good list', new_admin_good_list_path

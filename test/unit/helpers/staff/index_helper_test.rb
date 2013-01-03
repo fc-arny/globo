@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class Staff::IndexHelperTest < ActionView::TestCase
+class Admin::IndexHelperTest < ActionView::TestCase
 end

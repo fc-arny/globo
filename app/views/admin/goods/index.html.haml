@@ -1,4 +1,4 @@
-%h1= t('.goods_header') + link_to( t('.add_good'), new_staff_good_path)
+%h1= t('.goods_header') + link_to( t('.add_good'), new_admin_good_path)
 %table
   %tr
     %th ID
@@ -14,8 +14,8 @@
           - Sap::GoodList.find_all_by_good_id(good.id).each do |list|
             %div= list.store.name + ' | ' + list.price.to_s + 'р.'
       %td
-        %span= link_to 'Show', staff_good_path(good)
+        %span= link_to 'Show', admin_good_path(good)
         \|
-        %span= link_to 'Destroy',  "/staff/goods/#{good.id}", method: :delete, data: { confirm: 'Are you sure?' }
+        %span= link_to 'Destroy',  "/admin/goods/#{good.id}", method: :delete, data: { confirm: 'Are you sure?' }
         \|
-        %span= link_to 'Edit', edit_staff_good_path(good)
+        %span= link_to 'Edit', edit_admin_good_path(good)

@@ -1,2 +1,2 @@
-module Staff::GoodListsHelper
+module Admin::GoodListsHelper
 end

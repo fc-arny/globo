@@ -26,7 +26,7 @@ Sap::Application.routes.draw do
   get 'password_reset_sent' => 'user::index#password_reset_sent'
 
   # Admin Panel
-  namespace :staff do
+  namespace :admin do
     get 'index/index'
   end
 
@@ -99,7 +99,7 @@ Sap::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  namespace "staff" do
+  namespace "admin" do
     resources :goods
     resources :good_lists
   end
