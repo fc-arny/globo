@@ -19,7 +19,7 @@ class Admin::GoodListsControllerTest < ActionController::TestCase
   test "should create admin_good_list" do
     assert_difference('Admin::GoodList.count') do
       post :create, admin_good_list: {  }
-    end                                                                            ``
+    end
 
     assert_redirected_to admin_good_list_path(assigns(:admin_good_list))
   end
