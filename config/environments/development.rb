@@ -22,8 +22,8 @@ Sap::Application.configure do
       port: 587,
       authentication: "plain",
       enable_starttls_auto: true,
-      user_name: 'arsen4rum@gmail.com',
-      password: 'fhybfhyb'
+      user_name: 'info@martsoft.ru',
+      password: 'sap2013sap'
   }
 
   # Print deprecation notices to the Rails logger
@@ -44,4 +44,10 @@ Sap::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.after_initialize do
+    smsaero = {
+      :login => ''
+    }
+  end
 end

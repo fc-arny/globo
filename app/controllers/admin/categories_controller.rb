@@ -1,2 +1,2 @@
-class Admin::CategoriesController < Admin::BaseController[p]
+class Admin::CategoriesController < AdminController
 end

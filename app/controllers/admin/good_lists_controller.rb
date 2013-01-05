@@ -1,4 +1,4 @@
-class Admin::GoodListsController < Admin::BaseController
+class Admin::GoodListsController < AdminController
   # GET /admin/good_lists
   # GET /admin/good_lists.json
   def index

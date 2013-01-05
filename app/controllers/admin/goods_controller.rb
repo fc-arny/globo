@@ -6,7 +6,7 @@
 # =Author: fc_arny
 # =Date:   07.12.2012
 # -------------------------------------------------------------
-class Admin::GoodsController < Admin::BaseController
+class Admin::GoodsController < AdminController
   # -------------------------------------------------------------
   # =Name: index
   # =Author: fc_arny

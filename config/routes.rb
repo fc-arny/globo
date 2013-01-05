@@ -25,11 +25,6 @@ Sap::Application.routes.draw do
   post 'password_reset' => 'user::index#password_reset' # Generate token for reset
   get 'password_reset_sent' => 'user::index#password_reset_sent'
 
-  # Admin Panel
-  namespace :admin do
-    get 'index/index'
-  end
-
   # API
   namespace 'api' do
     # API v1.0
@@ -40,6 +35,13 @@ Sap::Application.routes.draw do
       end
       # Categories
     end
+  end
+
+  # Admin Panel
+  namespace "admin" do
+    get '/' => 'index#index'
+    resources :goods
+    resources :good_lists
   end
 
 
@@ -99,9 +101,5 @@ Sap::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  namespace "admin" do
-    resources :goods
-    resources :good_lists
-  end
 
 end
