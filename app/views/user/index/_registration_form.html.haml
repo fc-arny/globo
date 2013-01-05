@@ -4,7 +4,10 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :login, 'Email'
+    = f.label :login, 'Phone'
     = f.text_field :login
+  .field
+    = f.label :password, 'Password'
+    = f.password_field :password
   .submit
     = f.submit 'Sign Up'

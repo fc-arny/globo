@@ -13,11 +13,7 @@ class ApplicationController < ActionController::Base
   # Current uses or nil
   # -------------------------------------------------------------
   def current_user
-    begin
-      current_user ||= Sap::User.find(session[:user_id]) if session[:user_id]
-    rescue
-      nil
-    end
+    @current_user ||= Sap::User.find(session[:user_id]) if session[:user_id]
   end
 
   # -------------------------------------------------------------

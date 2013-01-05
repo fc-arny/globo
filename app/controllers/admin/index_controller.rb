@@ -1,4 +1,4 @@
-class Admin::IndexController < Admin::BaseController
+class Admin::IndexController < AdminController
   def index
 	  @stores = Sap::Store.all
   end
