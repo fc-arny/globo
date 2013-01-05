@@ -13,6 +13,22 @@
     = javascript_include_tag :application
     = csrf_meta_tag
   %body{:class => "#{content_for?(:body_class) ? yield(:body_class) : 'market'}"}
+    // if you have admin rules:
+    .l-admin
+      .b-admin.g-clearfix
+        %a.admin-logo{href: '/admin/'} adminarea
+        .admin-resize
+          %ul.admin-resize-list.g-clearfix
+            %li.admin-resize-item
+              %span Resize:
+            %li.admin-resize-item
+              %a.icon-monitor{title: 'Full size'}
+            %li.admin-resize-item
+              %a.icon-tablet{title: 'Tablet'}
+            %li.admin-resize-item
+              %a.icon-mobile{title: 'Mobile'}
+    // end if
+
     .l-wrapper
 
       / Logo, menu, user
