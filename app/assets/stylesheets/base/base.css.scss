@@ -315,7 +315,7 @@ body {
 
 // user
 .b-user {
-  width: 20%;
+  width: 17%;
   float: right;
   padding-top: .5em;
   margin: 0;
@@ -327,6 +327,28 @@ body {
   }
   li, a, span {
     color: $user-text-color;
+  }
+}
+
+.b-admin {
+  $admin-button-color: #DD0000;
+  $admin-button-color-hover: #CC0000;
+
+  float: right;
+  width: 8%;
+  margin-left: 2%;
+  height: $header-height;
+  a {
+    display: block;
+    padding: 1em;
+    color: #FFF;
+    text-decoration: none;
+    background: $admin-button-color;
+  }
+  a:hover {
+    color: #EEE;
+    text-decoration: none;
+    background: $admin-button-color-hover;
   }
 }
 

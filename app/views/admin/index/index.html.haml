@@ -1,3 +1,37 @@
 = content_for :body_class do
   admin
 
+= content_for :left do
+  .b-admin-menu
+    %ul.admin-menu-list
+      %li.admin-menu-item
+        %a.admin-menu-link{:href => '/admin/goods/index'}
+          %span Products
+      %li.admin-menu-item
+        %a.admin-menu-link{:href => '/admin/categories/index'}
+          %span Categories
+      %li.admin-menu-item
+        %a.admin-menu-link{:href => '/admin/users/index'}
+          %span Users
+      %li.admin-menu-item.separator
+      %li.admin-menu-item
+        %a.admin-menu-link{:href => '/admin/settings/index'}
+          %span Settings
+      %li.admin-menu-item
+        %a.admin-menu-link{:href => '/admin/statistics/index'}
+          %span Statistics
+
+  .b-admin-combiner
+    %ul.admin-combiner-list
+      %li.admin-combiner-item
+        .admin-combiner-tab
+          %span Categories
+        .admin-combiner-content
+
+
+
+
+
+
+= content_for :main do
+  ddd
