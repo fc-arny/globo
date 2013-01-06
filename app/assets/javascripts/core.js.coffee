@@ -5,4 +5,21 @@ $(()->
 
   $('.b-select').on 'click', ()->
     $(@).toggleClass 'active'
+
+  $('.admin-resize-list a').on 'click', ()->
+    widthType = $(@).attr('class').split('-')
+    $('.l-wrapper')
+      .removeClass('width-monitor width-tablet width-mobile')
+      .addClass 'width-' + widthType[1]
+    false
+#  classes = element.attr('class').split(/\s+/);
+#
+#  pattern = /^icon-/
+#
+#  for(var i = 0; i < classes.length; i++){
+#  className = classes[i];
+#
+#  if className.match pattern
+#    element.removeClass className
+
 )

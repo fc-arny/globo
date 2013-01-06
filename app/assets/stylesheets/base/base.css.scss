@@ -163,6 +163,20 @@ $user-text-shadow: none;
 //
 // Layouts
 //
+.l-wrapper.width-tablet {
+  width: 768px;
+  height: 1024px !important;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.l-wrapper.width-mobile {
+  width: 320px;
+  height: 568px !important;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
 .l-container {
   margin: 0 auto;
   max-width: 1200px;
@@ -247,19 +261,20 @@ body {
   }
   .admin-resize-item {
     float: left;
-    color: $admin-text-color;
+    color: rgba(255, 255, 255, .7);
     padding-left: .5em;
     a {
       color: $admin-text-color;
       text-decoration: none;
-      opacity: .7;
+      opacity: .5;
     }
     a:before {
-      font-size: 1.3em;
+      font-size: 1.2em;
     }
   }
   .admin-resize-item:hover {
-    a {
+    a:hover,
+    a:hover:before {
       opacity: 1;
     }
   }
