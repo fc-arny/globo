@@ -1,51 +1,88 @@
 = content_for :body_class do
-  admin
+  page-admin
 
 = content_for :left do
-  .b-admin-menu
-    %ul.admin-menu-list
-      %li.admin-menu-item
-        %a.admin-menu-link{:href => '/admin/goods/index'}
-          %span Products
-      %li.admin-menu-item
-        %a.admin-menu-link{:href => '/admin/categories/index'}
-          %span Categories
-      %li.admin-menu-item
-        %a.admin-menu-link{:href => '/admin/users/index'}
-          %span Users
-      %li.admin-menu-item.separator
-      %li.admin-menu-item
-        %a.admin-menu-link{:href => '/admin/settings/index'}
-          %span Settings
-      %li.admin-menu-item
-        %a.admin-menu-link{:href => '/admin/statistics/index'}
-          %span Statistics
 
-  .b-admin-combiner
-    %ul.admin-combiner-list
-      %li.admin-combiner-item
-        .admin-combiner-tab
-          %span Categories
-        .admin-combiner-content
-          .b-admin-categories
-            %ul.admin-categories-list
-              %li.admin-categories-item
-                %a.admin-categories-link
+  .l-column
+    .column-left
 
-      %li.admin-combiner-item
-        .admin-combiner-tab
-          %span Filtres
-        .admin-combiner-content
-          .b-admin-filteres
-            .admin-filters-source
-              %input
-          .b-admin-sort
-            .admin-sort-source
-              %select
-                %option Drinks
-                %option Fruits
+      .b-admin-menu
+        %ul.admin-menu-list
+          %li.admin-menu-item
+            %a.admin-menu-link{:href => '/admin/goods/index'}
+              %span Products
+          %li.admin-menu-item
+            %a.admin-menu-link{:href => '/admin/categories/index'}
+              %span Categories
+          %li.admin-menu-item
+            %a.admin-menu-link{:href => '/admin/users/index'}
+              %span Users
+          %li.admin-menu-item.separator
+          %li.admin-menu-item
+            %a.admin-menu-link{:href => '/admin/settings/index'}
+              %span Settings
+          %li.admin-menu-item
+            %a.admin-menu-link{:href => '/admin/statistics/index'}
+              %span Statistics
+
+    .column-center
+      .b-admin-combiner
+        %ul.admin-combiner-list
+
+          %li.admin-combiner-item
+            .admin-combiner-tab
+              %span Categories
+            .admin-combiner-content
+              .b-admin-categories
+                %ul.admin-categories-list
+                  %li.admin-categories-item
+                    %a.admin-categories-link
+
+          %li.admin-combiner-item
+            .admin-combiner-tab
+              %span Filtres
+            .admin-combiner-content
+              .b-admin-filteres
+                .admin-filters-source
+                  %input
+              .b-admin-sort
+                .admin-sort-source
+                  %select
+                    %option Drinks
+                    %option Fruits
 
 
 
 = content_for :main do
-  ddd
+
+  .b-panel.g-clearfix
+    %span.icon-trash
+    %span.icon-pencil
+    %span.icon-eye
+    %span.icon-menu
+
+  .b-table{:"ng-controller" => "GoodsController"}
+    %table
+
+      //goods item
+      %tr{:"ng-repeat" => "good in goods"}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
+        %td {{good.good_name}}
+        %td ${{good.price}}
