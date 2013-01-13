@@ -20,10 +20,10 @@ class AdminController < ApplicationController
   # Pages only for admins
   # -------------------------------------------------------------
   def admin_only
-    #user = current_user
-    #
-    #unless user && user.role.class == Sap::Admin
-    #raise ActiveResource::ForbiddenAccess.new({:code => 403, :message =>'Forbidden'})
-    #end
+    user = current_user
+
+    unless user && user.role.class == Sap::Admin
+    raise ActiveResource::ResourceNotFound, 'Access denied'
+    end
   end
 end
