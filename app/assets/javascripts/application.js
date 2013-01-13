@@ -15,3 +15,4 @@
 //= require_tree .
 //= require_tree ./angular
 //= require angular/angular.min
+//= require bootstrap.min

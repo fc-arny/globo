@@ -12,5 +12,6 @@
  *= require base/normalize
  *= require base/main
  *= require base/base
+ *= require base/bootstrap
  *= require_tree ./pages
  */
