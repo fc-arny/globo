@@ -52,7 +52,6 @@ Sap::Good.create([
 ])
 
 # Good -> Category
-
 Sap::CategoryGood.create([
     {category_id:1,good_id:1},
     {category_id:2,good_id:1},
@@ -78,5 +77,74 @@ Sap::GoodList.create([
     {good_id: 2, price: 29.00, store_id: 3},
     {good_id: 10, price: 47.09, store_id: 3},
 ])
+#------------------
+# Create users
+#------------------
+
+Sap::User.delete_all
+
+# Customer
+Sap::Customer.delete_all
+customer = Sap::Customer.new do |c|
+
+  # Create user
+  c.user = Sap::User.new do |user|
+
+    # Email is login for customer
+    user.login = 'user'
+    user.name  = 'Пользователь'
+
+    # Set Random password and Salt
+    user.salt = ApplicationHelper::get_random_string
+    user.password = user.hash_password('user')
+
+    user.token = Digest::SHA1.hexdigest( user.name + user.salt + user.password )
+  end
+  c.email = 'famc_arny@mail.ru'
+end
+customer.save!
+
+# Admin
+Sap::Admin.delete_all
+admin = Sap::Admin.new do |a|
+
+  # Create user
+  a.user = Sap::User.new do |user|
+
+    # Email is login for customer
+    user.login = 'admin'
+    user.name  = 'Администратор'
+
+    # Set Random password and Salt
+    user.salt = ApplicationHelper::get_random_string
+    user.password = user.hash_password('admin')
+
+    user.token = Digest::SHA1.hexdigest( user.name + user.salt + user.password )
+  end
+  a.name = 'Админитратор'
+end
+admin.save!
+
+# Manager
+Sap::Manager.delete_all
+manager = Sap::Manager.new do |m|
+
+  # Create user
+  m.user = Sap::User.new do |user|
+
+    # Email is login for customer
+    user.login = 'manager'
+    user.name  = 'Менаджер'
+    # Set Random password and Salt
+    user.salt = ApplicationHelper::get_random_string
+    user.password = user.hash_password('manager')
+
+    user.token = Digest::SHA1.hexdigest( user.name + user.salt + user.password )
+  end
+  m.store_id = 2 # Azbuka Vkusa
+  m.last_name = 'Ivanov'
+  m.first_name = 'Denis'
+end
+manager.save!
 
 
