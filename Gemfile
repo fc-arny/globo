@@ -10,6 +10,7 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'unicode'
 gem 'foreigner'   # Foreign key
+gem 'orm_adapter'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -2,7 +2,7 @@
 class ApplicationController < ActionController::Base
 
   # Check access
-  #include Perms::Resource
+  include Perms::Resource
 
   # CSRF protection
   protect_from_forgery

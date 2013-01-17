@@ -1,7 +1,7 @@
 require "active_support"
 require "active_support/core_ext/module/delegation"
 require "active_model"
-#require "orm_adapter"
+require "orm_adapter"
 
 module Perms
   class << self
@@ -20,8 +20,14 @@ module Perms
   module Proxy; end
 end
 
-#require "perms/proxy/record"
+require "perms/proxy/record"
 require "perms/evaluator"
 require "perms/model"
 require "perms/resource"
 require "perms/resource_implementation"
+
+__END__
+TODO:
+1. Проверка прав на валидаторы
+2. Проверка прав на фикстуры
+3. Хелперы для доступа к действиям

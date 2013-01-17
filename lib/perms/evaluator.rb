@@ -34,9 +34,9 @@ module Perms
     # @param [Symbol, Array<Symbol>] actions one or more action names
     # @param [Hash<Hash, Object>] fields field restrictions
     # -------------------------------------------------------------
-    def can(actions, fields=@model_class.column_names)
+    def can(actions, fields=@model_class.to_adapter.column_names)
       Array(actions).map(&:to_sym).each do |action|
-        @allowed_fields[action] += Array(fields)
+        @allowed_fields[action] += Array(fields).map(&:to_sym)
       end
     end
 

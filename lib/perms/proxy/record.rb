@@ -1,4 +1,4 @@
-module Heimdallr
+module Perms
   # A security-aware proxy for individual records. This class validates all the
   # method calls and either forwards them to the encapsulated object or raises
   # an exception.
@@ -199,8 +199,8 @@ module Heimdallr
                           @record.class.reflect_on_association(builder_method)
                     end
       pass = unless association
-               @record.class.perms_relations.respond_to?(:include?) &&
-                   @record.class.perms_relations.include?(normalized_method)
+               @record.class.perm_relations.respond_to?(:include?) &&
+                   @record.class.perm_relations.include?(normalized_method)
              end
 
       if association || pass

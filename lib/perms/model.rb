@@ -51,6 +51,18 @@ module Perms
         self.perm_scopes.push name
       end
 
+      # @api private
+      #
+      # An internal attribute to store the list of user-defined relation-like methods
+      # which return ActiveRecord family objects and can be automatically restricted.
+      attr_accessor :perm_relations
+
+      # A DSL method for defining relation-like methods.
+      def perm_relation(*methods)
+        self.perm_relations ||= []
+        self.perms_relations  += methods.map(&:to_sym)
+      end
+
       # -------------------------------------------------------------
       # Evaluate the restrictions for a given +context+ and +record+.
       #
@@ -67,7 +79,7 @@ module Perms
         unless  @perm_proxy_class
           record = self
 
-          @perm_proxy_class = Class.new(Perms::Record) do
+          @perm_proxy_class = Class.new(Proxy::Record) do
             define_singleton_method :model_name do
               record.model_name
             end
