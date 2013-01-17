@@ -1,18 +1,13 @@
 # -------------------------------------------------------------
-# =Name: Sap::Category
-# =Description:
 # Categories for goods. We have two-level categorization!
-# ----------
-# Example:
-# Alcohol
-#  |_ Bear
-#  |_ Wine
-#  |_Cocktail
-#  |...
-# - no more subcategory for Bear, Wine or Cocktail
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   23.11.2012
+#
+# @example
+#   Alcohol
+#     |_ Bear
+#     |_ Wine
+#     |_Cocktail
+#     |...
+#     - no more subcategory for Bear, Wine or Cocktail
 # -------------------------------------------------------------
 # ==Fields:
 # name      - category name
@@ -30,9 +25,7 @@ class Sap::Category < SapModel
   has_many :category_goods, :class_name => 'Sap::CategoryGood'
 
   class << self
-    # -------------------------------------------------------------
-    # =Name: find_child_in_deep
-    # =Author: fc_arny
+
     # -------------------------------------------------------------
     # Find child in deep
     # -------------------------------------------------------------
@@ -70,9 +63,6 @@ class Sap::Category < SapModel
       cur_category
     end
 
-    # -------------------------------------------------------------
-    # =Name: get_category_tree
-    # =Author: fc_arny
     # -------------------------------------------------------------
     # Getting category tree ordered by order_pos
     # -------------------------------------------------------------

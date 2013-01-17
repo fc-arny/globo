@@ -1,19 +1,12 @@
-  # -------------------------------------------------------------
-# =Name: Public::Index
-# =Description:
-# Show base or static pages
 # -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   23.11.2012
+# Show base or static pages
 # -------------------------------------------------------------
 
 class Public::IndexController < ApplicationController
   # -------------------------------------------------------------
-  # =Name: main
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # Show main page
   # -------------------------------------------------------------
   def main
+    @users = Sap::User.restrict(current_user)
   end
 end

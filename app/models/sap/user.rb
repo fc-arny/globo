@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: Sap::User
-# =Description:
 # Base model for users
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   24.11.2012
 # -------------------------------------------------------------
 # ==Fields:
 # login           - login string (email for customer)
@@ -32,9 +27,6 @@ class Sap::User < SapModel
   end
 
   # -------------------------------------------------------------
-  # =Name: set_password
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # Generate salt and set password
   # -------------------------------------------------------------
   def set_password (password)
@@ -42,9 +34,6 @@ class Sap::User < SapModel
     self.password = hash_password(password)
   end
 
-  # -------------------------------------------------------------
-  # =Name: auth_by_password
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # Auth user by password
   # -------------------------------------------------------------
@@ -54,9 +43,6 @@ class Sap::User < SapModel
   end
 
   # -------------------------------------------------------------
-  # =Name: hash_password
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # Get hash-string for password
   # -------------------------------------------------------------
   def hash_password(password)
@@ -65,18 +51,12 @@ class Sap::User < SapModel
 
   class << self
     # -------------------------------------------------------------
-    # =Name: generate_token
-    # =Author: fc_arny
-    # -------------------------------------------------------------
     # Generate token
     # -------------------------------------------------------------
     def generate_token(user)
       Digest::SHA1.hexdigest( user.name + user.salt + user.password )
     end
 
-    # -------------------------------------------------------------
-    # =Name: find_user_by_valid_token
-    # =Author: fc_arny
     # -------------------------------------------------------------
     # Find user by valid token
     # -------------------------------------------------------------

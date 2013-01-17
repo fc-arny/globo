@@ -6,9 +6,7 @@ module Perms
   # The DSL consists of three functions: {#scope}, {#can} and {#cannot}.
   class Evaluator
     attr_reader :allowed_fields #, :fixtures, :validators
-    # -------------------------------------------------------------
-    # =Name: 
-    # =Author: fc_arny
+
     # -------------------------------------------------------------
     # 
     # -------------------------------------------------------------
@@ -20,9 +18,6 @@ module Perms
     end
 
     # -------------------------------------------------------------
-    # =Name: scope
-    # =Author: fc_arny
-    # -------------------------------------------------------------
     # Define a scope. A special +:fetch+ scope is applied to any other scope
     # automatically.
     # -------------------------------------------------------------
@@ -33,9 +28,6 @@ module Perms
       @scopes[name] = explicit_block || implicit_block || -> {scoped}
     end
 
-    # -------------------------------------------------------------
-    # =Name: can
-    # =Author: fc_arny
     # -------------------------------------------------------------
     # Define allowed operations for action(s).
 
@@ -49,18 +41,12 @@ module Perms
     end
 
     # -------------------------------------------------------------
-    # =Name: can?
-    # =Author: fc_arny
-    # -------------------------------------------------------------
     #
     # -------------------------------------------------------------
     def can?(action)
       @allowed_fields.include? action
     end
 
-    # -------------------------------------------------------------
-    # =Name: evaluate
-    # =Author: fc_arny
     # -------------------------------------------------------------
     # Compute the restrictions for a given +context+ and possibly a specific +record+.
     # Invokes a +block+ passed to the +initialize+ once.
@@ -88,9 +74,6 @@ module Perms
       self
     end
 
-    # -------------------------------------------------------------
-    # =Name: request_scope
-    # =Author: fc_arny
     # -------------------------------------------------------------
     # Request a scope.
     #

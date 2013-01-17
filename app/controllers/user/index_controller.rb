@@ -1,19 +1,10 @@
 # -------------------------------------------------------------
-# =Name: User::Index
-# =Description:
 # Users' module
 # -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   
-# -------------------------------------------------------------
-
 class User::IndexController < ApplicationController
   def index
   end
 
-  # -------------------------------------------------------------
-  # =Name: login
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # Login user
   # POST /login
@@ -40,9 +31,6 @@ class User::IndexController < ApplicationController
   end
 
   # -------------------------------------------------------------
-  # =Name: login_form
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # Login form
   # GET /login
   # -------------------------------------------------------------
@@ -51,9 +39,6 @@ class User::IndexController < ApplicationController
         Sap::User.find(session[:user_id]) : Sap::User.new
   end
 
-  # -------------------------------------------------------------
-  # =Name: new
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # Register form for customer
   # GET /register
@@ -64,9 +49,6 @@ class User::IndexController < ApplicationController
   end
 
   # -------------------------------------------------------------
-  # =Name: password
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # New password form
   # GET /password
   # -------------------------------------------------------------
@@ -75,9 +57,6 @@ class User::IndexController < ApplicationController
     @user = Sap::User.where('token = ? AND valid_token_to > ?',  @token, Time.now.utc).first
   end
 
-  # -------------------------------------------------------------
-  # =Name: password_save
-  # =Author: fc_arny
   # -------------------------------------------------------------
   #
   # -------------------------------------------------------------
@@ -88,9 +67,6 @@ class User::IndexController < ApplicationController
     end
   end
 
-  # -------------------------------------------------------------
-  # =Name: password_create
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # Create password
   # -------------------------------------------------------------
@@ -125,9 +101,6 @@ class User::IndexController < ApplicationController
   end
 
   # -------------------------------------------------------------
-  # =Name: password_reset
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # Create token for creating new password and send to email
   # -------------------------------------------------------------
   def password_reset
@@ -147,17 +120,11 @@ class User::IndexController < ApplicationController
   end
 
   # -------------------------------------------------------------
-  # =Name: password_reset_sent
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # Request sent
   # -------------------------------------------------------------
   def password_reset_sent
   end
 
-  # -------------------------------------------------------------
-  # =Name: create
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # Create new customer and user. Link user and customer
   # POST /register
@@ -204,9 +171,6 @@ class User::IndexController < ApplicationController
     end
   end
 
-  # -------------------------------------------------------------
-  # =Name: logout
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # Logout user
   # -------------------------------------------------------------

@@ -22,9 +22,6 @@ module Perms
     # Class methods for {Perms::Model}.
     module ClassMethods
       # -------------------------------------------------------------
-      # =Name: restrict
-      # =Author: fc_arny
-      # -------------------------------------------------------------
       # @overload restrict
       #   Define restrictions for a model with a DSL.
       #
@@ -55,9 +52,6 @@ module Perms
       end
 
       # -------------------------------------------------------------
-      # =Name: restrictions
-      # =Author: fc_arny
-      # -------------------------------------------------------------
       # Evaluate the restrictions for a given +context+ and +record+.
       #
       # @return [Evaluator]
@@ -66,9 +60,6 @@ module Perms
         perm_restrictions.evaluate(context,record)
         #puts perm_res
       end
-      # -------------------------------------------------------------
-      # =Name: perm_proxy_class
-      # =Author: fc_arny
       # -------------------------------------------------------------
       #
       # -------------------------------------------------------------

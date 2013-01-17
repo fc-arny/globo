@@ -1,15 +1,5 @@
-# -------------------------------------------------------------
-# =Name: Admin::GoodController
-# =Description:
 # CRUD for goods, good list
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   07.12.2012
-# -------------------------------------------------------------
-class Admin::GoodsController < AdminController
-  # -------------------------------------------------------------
-  # =Name: index
-  # =Author: fc_arny
+class Admin::GoodsController < AdminControllerd
   # -------------------------------------------------------------
   # List of goods
   # GET /admin/goods
@@ -19,9 +9,6 @@ class Admin::GoodsController < AdminController
   end
 
   # -------------------------------------------------------------
-  # =Name: show
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   # Get good in goods list
   # GET /admin/goods/:id
   # -------------------------------------------------------------
@@ -30,9 +17,6 @@ class Admin::GoodsController < AdminController
   end
 
   # -------------------------------------------------------------
-  # =Name: edit
-  # =Author: fc_arny
-  # -------------------------------------------------------------
   #
   # -------------------------------------------------------------
   def edit
@@ -40,9 +24,6 @@ class Admin::GoodsController < AdminController
     @category = Sap::Category.find_child_in_deep(@good.categories, @good.categories.size)
   end
 
-  # -------------------------------------------------------------
-  # =Name: new
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # New good form
   # GET /admin/goods/new
@@ -56,10 +37,7 @@ class Admin::GoodsController < AdminController
   end
 
   # -------------------------------------------------------------
-  # =Name: create
-  # =Author: fc_arny
-  # -------------------------------------------------------------
-  # Create good
+  # Create a good
   # -------------------------------------------------------------
   def create
     @good = Sap::Good.new(params[:sap_good])

@@ -1,10 +1,5 @@
-      # -------------------------------------------------------------
-# =Name: Sap::Customer
-# =Description:
-# Buyer model referenced to user
 # -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   26.11.2012
+# Buyer model referenced to user
 # -------------------------------------------------------------
 # ==Fields:
 #  email   - login for user

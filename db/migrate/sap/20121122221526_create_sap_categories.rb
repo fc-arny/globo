@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: CreateSapCategories
-# =Description:
 # Create category model
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   23.11.2012
 # -------------------------------------------------------------
 class CreateSapCategories < ActiveRecord::Migration
 	def change

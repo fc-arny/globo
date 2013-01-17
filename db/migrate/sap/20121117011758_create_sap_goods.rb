@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: CreateSapGoods
-# =Description:
 # Create table for goods
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   17.11.2012d
 # -------------------------------------------------------------
 class CreateSapGoods < ActiveRecord::Migration
 	def change

@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: Sap::CategoryGood
-# =Description:
 # Many-to-many relationship Sap::Goods and Sap::Categories
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   15.12.2012
 # -------------------------------------------------------------
 # ==Fields:
 # category_id - category ID

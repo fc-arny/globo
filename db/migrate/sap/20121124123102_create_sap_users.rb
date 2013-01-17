@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: CreateSapUsers
-# =Description:
 # Base table for users
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   24.11.2012
 # -------------------------------------------------------------
 
 class CreateSapUsers < ActiveRecord::Migration

@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: CreateSapManagers
-# =Description:
 # Store's manager tagle
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   26.11.2012
 # -------------------------------------------------------------
 class CreateSapManagers < ActiveRecord::Migration
 	def change

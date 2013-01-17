@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: CreateSapSchema
-# =Description:
 # Create Postgre schema SAP
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   07.12.2012
 # -------------------------------------------------------------
 class CreateSapSchema < ActiveRecord::Migration
   def up

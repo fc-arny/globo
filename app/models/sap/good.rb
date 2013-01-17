@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: Sap::Good
-# =Description:
 # Common good list for all stores
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   20.11.2012
 # -------------------------------------------------------------
 # ==Fields:
 # is_approved - new item entered by a store manager isn't show by default
@@ -21,10 +16,6 @@ class Sap::Good < SapModel
   #has_many :category_goods, :class_name => 'Sap::CategoryGood'
 
 	# -------------------------------------------------------------
-	# =Name: get_good_list
-	# =Author: fc_arny
-	# -------------------------------------------------------------
-	# =Description:
   # Get list of goods by store
 	# -------------------------------------------------------------
 	def get_good_list(store = nil, category = nil)

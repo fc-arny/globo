@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: Sap::Admin
-# =Description:
 # GloboMarket's administrators
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   24.11.2012
 # -------------------------------------------------------------
 # ==Fields:
 # city_id  - admin by city or global admin if null

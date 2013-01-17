@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: CreateSapAdmins
-# =Description:
 # GloboMarket's administrator table
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   24.11.2012
 # -------------------------------------------------------------
 class CreateSapAdmins < ActiveRecord::Migration
 	def change
