@@ -55,34 +55,109 @@
 
 = content_for :main do
 
-  .b-panel.g-clearfix
-    %span.icon-trash
-    %span.icon-pencil
-    %span.icon-eye
-    %span.icon-menu
+  / Button to trigger modal
+  %a.btn{"data-toggle" => "modal", :href => "#myModal", :role => "button"} Launch demo modal
 
-  .b-table{:"ng-controller" => "GoodsController"}
-    %table
+  / Modal
+  #myModal.modal.hide.fade{:tabindex => "-1"}
+    .modal-body
+      .row-fluid
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      .row-fluid{"ng-controller" => "LoginCtrl"}
+        .span6
+          %h4 Вход в личный кабинет
+          %form{"ng-submit" => "submitForm()"}
+            .control-group
+              .controls
+                %input#inputEmail{:placeholder => "Email", :type => "text", "ng-model" => "email.text"}
+            .control-group
+              .controls
+                %input#inputPassword{:placeholder => "Password", :type => "password", "ng-model" => "password.text"}
+            .control-group
+              .controls
+                .row-fluid
+                  .span5
+                    %button.btn{:type => "submit"} Отправить
+                  .span7
+                    %a Забыли пароль?
+                .row-fluid
+                  .error{"ng-switch on" => "error.state"}
+                    %span{"ng-switch-when" => "true"} {{error.text}}
 
-      //goods item
-      %tr{:"ng-repeat" => "good in goods"}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
-        %td {{good.good_name}}
-        %td ${{good.price}}
+        .span6
+          %h4 Вы здесь впервые
+          %form
+            .control-group
+              .controls
+                Чтобы оценить все возможности Мегаплана нужно зарегистрироваться:
+            .control-group
+              .controls
+                %a.btn{"data-toggle" => "modal", :href => "#myModalReg", :role => "button"} Получить свой Мегаплан
+
+          %h4 Восстановление доступа
+          %form
+            .control-group
+              .controls
+                Мы пришлем информацию для входа на вашу почту:
+            .control-group
+              .controls
+                %input#inputPassword{:placeholder => "Email", :type => "text"}
+            .control-group
+              .controls
+                %button.btn{:type => "submit"} Выслать
+
+          %h4 Проверить почту
+          %form
+            .control-group
+              .controls
+                Письмо с информацией для входа отправлено на
+                %strong megaplan@megaplan.ru
+            .control-group
+              .controls
+                .row-fluid
+                  .span5
+                    %button.btn{:type => "submit"} Вернуться
+                  .span7
+                    %a Отправить еще раз
+
+
+  #myModalReg.modal.hide.fade{:tabindex => "-1"}
+    .modal-body
+      .row-fluid
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      .row-fluid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
