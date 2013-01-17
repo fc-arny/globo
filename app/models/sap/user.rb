@@ -15,11 +15,21 @@
 # valid_token_to  - expire token
 # -------------------------------------------------------------
 class Sap::User < SapModel
+
+  include Perms::Model
+
   # Fields
   attr_accessible :id, :login, :password, :salt, :token, :valid_token_to, :name
 
   # Relationships
   belongs_to :role, :polymorphic => true
+
+  # Restrict
+  restrict do |user, record|
+    scope :fetch, -> { where('id IN (30,31)') }
+    scope :delete, -> { where('id IN (30,31)') }
+    can [:view, :create, :update]
+  end
 
   # -------------------------------------------------------------
   # =Name: set_password

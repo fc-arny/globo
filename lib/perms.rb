@@ -21,7 +21,7 @@ module Perms
 end
 
 #require "perms/proxy/record"
-#require "perms/evaluator"
+require "perms/evaluator"
 require "perms/model"
 require "perms/resource"
 require "perms/resource_implementation"

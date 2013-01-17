@@ -41,9 +41,59 @@ module Perms
         if block
           self.perm_restrictions = Evaluator.new(self, block)
         else
-          raise "TODO:Restrict no block"
+          Proxy::Collection.new(context, restrictions(context).request_scope(:fetch, self), options)
         end
       end
+
+      # An internal attribute to store the list of user-defined name scopes.
+      attr_accessor :perm_scopes
+
+      # An interceptor for named scopes which adds them to {#perm_scopes} list.
+      def scope(name, *args)
+        self.perm_scopes ||= []
+        self.perm_scopes.push name
+      end
+
+      # -------------------------------------------------------------
+      # =Name: restrictions
+      # =Author: fc_arny
+      # -------------------------------------------------------------
+      # Evaluate the restrictions for a given +context+ and +record+.
+      #
+      # @return [Evaluator]
+      # -------------------------------------------------------------
+      def restrictions(context, record=nil)
+        perm_restrictions.evaluate(context,record)
+        #puts perm_res
+      end
+      # -------------------------------------------------------------
+      # =Name: perm_proxy_class
+      # =Author: fc_arny
+      # -------------------------------------------------------------
+      #
+      # -------------------------------------------------------------
+      def perm_proxy_class
+        unless  @perm_proxy_class
+          record = self
+
+          @perm_proxy_class = Class.new(Perms::Record) do
+            define_singleton_method :model_name do
+              record.model_name
+            end
+          end
+
+        end
+        @perm_proxy_class
+      end
+    end
+
+
+
+    # Return a secure proxy object for the record
+    #
+    # @return [Proxy::Record]
+    def restrict(context, options={})
+      self.class.perm_proxy_class.new(context, self, options)
     end
 
   end

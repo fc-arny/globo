@@ -16,9 +16,9 @@ class Sap::Good < SapModel
   attr_accessible :description, :id, :is_approved, :name, :status
 
   # Associations
-  has_many :sap_good_lists, :class_name => 'Sap::GoodList'
+  has_many :good_lists, :class_name => 'Sap::GoodList'
   has_many :categories, :class_name => 'Sap::Category', :through => :category_goods
-  has_many :category_goods, :class_name => 'Sap::CategoryGood'
+  #has_many :category_goods, :class_name => 'Sap::CategoryGood'
 
 	# -------------------------------------------------------------
 	# =Name: get_good_list

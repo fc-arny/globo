@@ -12,3 +12,6 @@
 %h1 Goods
 %a{:href => goods_path} View goods ->
 
+- @users.each do |u|
+    %h1= u.name
+

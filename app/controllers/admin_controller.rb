@@ -1,10 +1,5 @@
 # -------------------------------------------------------------
-# =Name: AdminController
-# =Description:
 # Base controller for admin
-# -------------------------------------------------------------
-# =Author: fc_arny
-# =Date:   03.01.2012
 # -------------------------------------------------------------
 
 class AdminController < ApplicationController
@@ -13,9 +8,6 @@ class AdminController < ApplicationController
   
   private
 
-  # -------------------------------------------------------------
-  # =Name: admin_only
-  # =Author: fc_arny
   # -------------------------------------------------------------
   # Pages only for admins
   # -------------------------------------------------------------

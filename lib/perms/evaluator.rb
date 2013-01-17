@@ -42,9 +42,74 @@ module Perms
     # @param [Symbol, Array<Symbol>] actions one or more action names
     # @param [Hash<Hash, Object>] fields field restrictions
     # -------------------------------------------------------------
-    def can(actions, fields=@model_class.to_adapter.column_names)
+    def can(actions, fields=@model_class.column_names)
       Array(actions).map(&:to_sym).each do |action|
         @allowed_fields[action] += Array(fields)
+      end
+    end
+
+    # -------------------------------------------------------------
+    # =Name: can?
+    # =Author: fc_arny
+    # -------------------------------------------------------------
+    #
+    # -------------------------------------------------------------
+    def can?(action)
+      @allowed_fields.include? action
+    end
+
+    # -------------------------------------------------------------
+    # =Name: evaluate
+    # =Author: fc_arny
+    # -------------------------------------------------------------
+    # Compute the restrictions for a given +context+ and possibly a specific +record+.
+    # Invokes a +block+ passed to the +initialize+ once.
+    # -------------------------------------------------------------
+    def evaluate(context, record =  nil)
+      if [context,record] != @last_context
+        @scopes = {}
+        @allowed_fields = Hash.new { [] }
+
+        @allowed_fields[:view] += [ :id ]
+
+        instance_exec context, record, &@block
+
+        unless @scopes[:fetch]
+          raise RuntimeError, 'A :fetch scope must be defined'
+        end
+
+        @allowed_fields.each do |action, fields|
+          fields.uniq!
+        end
+
+        [@scopes, @allowed_fields].map(&:freeze)
+      end
+
+      self
+    end
+
+    # -------------------------------------------------------------
+    # =Name: request_scope
+    # =Author: fc_arny
+    # -------------------------------------------------------------
+    # Request a scope.
+    #
+    # @param name name of the scope
+    # @param basic_scope the scope to which scope +name+ will be applied. Defaults to +:fetch+.
+    #
+    # @return +ActiveRecord+ scope.
+    #
+    # @raise [RuntimeError] if the scope is not defined
+    # -------------------------------------------------------------
+    def request_scope(name=:fetch, basic_scope=nil)
+      unless @scopes.has_key? name
+        raise RuntimeError, "The #{name.inspect} scope does not exist"
+      end
+
+      if name == :fetch && basic_scope.nil?
+        @model_class.instance_exec(&@scopes[:fetch])
+      else
+        (basic_scope || request_scope(:fetch)).instance_exec(&@scopes[name])
       end
     end
   end
