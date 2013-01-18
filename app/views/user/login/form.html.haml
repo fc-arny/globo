@@ -1,0 +1,18 @@
+%h1= t('Login')
+= form_for @form, :url => login_path do |f|
+  %div
+    = f.label :login, t('Login(Email or Phone)')
+    = f.text_field :login
+    = @form.errors[:login].first
+  %div
+    = f.label :password
+    = f.password_field :password
+    = @form.errors[:password].first
+
+  %div
+    = check_box_tag :remember
+    = label_tag :remember
+  %div
+    =f.submit 'Login'
+%div
+  %a{:href => password_path} Reset password

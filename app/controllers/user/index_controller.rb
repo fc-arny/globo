@@ -2,42 +2,6 @@
 # Users' module
 # -------------------------------------------------------------
 class User::IndexController < ApplicationController
-  def index
-  end
-
-  # -------------------------------------------------------------
-  # Login user
-  # POST /login
-  # -------------------------------------------------------------
-  def login
-    user_params = params[:sap_user]
-    @user = Sap::User.find_by_login(user_params[:login])
-
-    if @user && @user.auth_by_password(user_params[:password])
-      # Set session if auth is success
-      session[:user_id] = @user.id
-
-      flash[:notice] = 'Success Logging'
-      redirect_to "/"
-    else
-      @user = Sap::User.new do |u|
-        u.login = user_params[:login]
-      end
-
-      flash.now.alert = 'Wrong login or password'
-      render "login_form"
-    end
-
-  end
-
-  # -------------------------------------------------------------
-  # Login form
-  # GET /login
-  # -------------------------------------------------------------
-  def login_form
-    @user = session[:user_id] ?
-        Sap::User.find(session[:user_id]) : Sap::User.new
-  end
 
   # -------------------------------------------------------------
   # Register form for customer
@@ -169,13 +133,5 @@ class User::IndexController < ApplicationController
           #    format.html{ render 'new' }
         end
     end
-  end
-
-  # -------------------------------------------------------------
-  # Logout user
-  # -------------------------------------------------------------
-  def logout
-    session[:user_id] = nil
-    redirect_to root_path, :notice => 'Log out'
   end
 end
