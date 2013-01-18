@@ -177,44 +177,6 @@ $user-text-shadow: none;
   padding-top: 40px;
 }
 
-.l-column {
-  .column-left {
-    width: 40%;
-    float: left;
-  }
-  .column-center {
-    width: 60%;
-    float: left;
-  }
-}
-.page-admin {
-  background: #EEE;
-
-  .l-content {
-    background: none;
-  }
-  .l-left {
-    width: 30%;
-    float: left;
-
-    .column-left {
-      background: #2f4f4f;
-      a {
-        color: #FFF;
-        text-decoration: none;
-      }
-    }
-  }
-  .l-main {
-    width: 70%;
-    float: left;
-    background: #ffffe0;
-  }
-}
-
-.l-container {
-  margin: 0 auto;
-}
 .l-header {
   position: relative;
   height: $header-height;
@@ -228,27 +190,6 @@ $user-text-shadow: none;
 }
 #search {
   padding: 1em;
-}
-.l-content {
-  background: url("/assets/noise-2.png"), #FDFDFD;
-  overflow: hidden;
-}
-.store {
-  .l-main {
-    padding-top: 1em;
-    float: left;
-    width: 75%;
-    min-height: 1000px;
-  }
-  .l-right {
-    padding-top: 1em;
-    padding-left: 1em;
-    margin-left: 75%;
-    position: relative;
-    z-index: 1;
-    min-height: 1000px;
-    border-left: 1px solid #DDD;
-  }
 }
 
 //

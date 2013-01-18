@@ -1,147 +1,51 @@
 = content_for :body_class do
   page-admin
 
+= content_for :ng_app do
+  adminApp
+
 = content_for :left do
 
-  .l-column
-    .column-left
+  / Menu
+  .span4
+    %ul.nav.nav-list
+      %li.nav-header Menu
+      %li.active Active item
+      %li
+        %a Some item
+      %li
+        %a Some item
+      %li
+        %a Some item
 
-      .b-admin-menu
-        %ul.admin-menu-list
-          %li.admin-menu-item
-            %a.admin-menu-link{:href => '/admin/goods/index'}
-              %span Products
-          %li.admin-menu-item
-            %a.admin-menu-link{:href => '/admin/categories/index'}
-              %span Categories
-          %li.admin-menu-item
-            %a.admin-menu-link{:href => '/admin/users/index'}
-              %span Users
-          %li.admin-menu-item.separator
-          %li.admin-menu-item
-            %a.admin-menu-link{:href => '/admin/settings/index'}
-              %span Settings
-          %li.admin-menu-item
-            %a.admin-menu-link{:href => '/admin/statistics/index'}
-              %span Statistics
+  .span8
 
-    .column-center
-      .b-admin-combiner
-        %ul.admin-combiner-list
+    .tabbable
+      %ul.nav.nav-tabs
+        %li.active
+          %a{:href => "#tab1", :'data-toggle' => "tab"} Section 1
+        %li
+          %a{:href => "#tab2", :'data-toggle' => "tab"} Section 2
 
-          %li.admin-combiner-item
-            .admin-combiner-tab
-              %span Categories
-            .admin-combiner-content
-              .b-admin-categories
-                %ul.admin-categories-list
-                  %li.admin-categories-item
-                    %a.admin-categories-link
-
-          %li.admin-combiner-item
-            .admin-combiner-tab
-              %span Filtres
-            .admin-combiner-content
-              .b-admin-filteres
-                .admin-filters-source
-                  %input
-              .b-admin-sort
-                .admin-sort-source
-                  %select
-                    %option Drinks
-                    %option Fruits
-
-
+      .tab-content
+        .tab-pane.active#tab1
+          %p I'm in Section 1.
+        .tab-pane#tab2
+          %p Howdy, I'm in Section 2.
 
 = content_for :main do
-
-  / Button to trigger modal
-  %a.btn{"data-toggle" => "modal", :href => "#myModal", :role => "button"} Launch demo modal
-
-  / Modal
-  #myModal.modal.hide.fade{:tabindex => "-1"}
-    .modal-body
-      .row-fluid
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-      .row-fluid{"ng-controller" => "LoginCtrl"}
-        .span6
-          %h4 Вход в личный кабинет
-          %form{"ng-submit" => "submitForm()"}
-            .control-group
-              .controls
-                %input#inputEmail{:placeholder => "Email", :type => "text", "ng-model" => "email.text"}
-            .control-group
-              .controls
-                %input#inputPassword{:placeholder => "Password", :type => "password", "ng-model" => "password.text"}
-            .control-group
-              .controls
-                .row-fluid
-                  .span5
-                    %button.btn{:type => "submit"} Отправить
-                  .span7
-                    %a Забыли пароль?
-                .row-fluid
-                  .error{"ng-switch on" => "error.state"}
-                    %span{"ng-switch-when" => "true"} {{error.text}}
-
-        .span6
-          %h4 Вы здесь впервые
-          %form
-            .control-group
-              .controls
-                Чтобы оценить все возможности Мегаплана нужно зарегистрироваться:
-            .control-group
-              .controls
-                %a.btn{"data-toggle" => "modal", :href => "#myModalReg", :role => "button"} Получить свой Мегаплан
-
-          %h4 Восстановление доступа
-          %form
-            .control-group
-              .controls
-                Мы пришлем информацию для входа на вашу почту:
-            .control-group
-              .controls
-                %input#inputPassword{:placeholder => "Email", :type => "text"}
-            .control-group
-              .controls
-                %button.btn{:type => "submit"} Выслать
-
-          %h4 Проверить почту
-          %form
-            .control-group
-              .controls
-                Письмо с информацией для входа отправлено на
-                %strong megaplan@megaplan.ru
-            .control-group
-              .controls
-                .row-fluid
-                  .span5
-                    %button.btn{:type => "submit"} Вернуться
-                  .span7
-                    %a Отправить еще раз
-
-
-  #myModalReg.modal.hide.fade{:tabindex => "-1"}
-    .modal-body
-      .row-fluid
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-      .row-fluid
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  %table.table
+    %caption
+    %thead>
+      %tr
+        %th Number
+        %th Name
+        %th Description
+    %tbody>
+      %tr>
+        %td 1
+        %td Snikers
+        %td I'm lovin it!
 
 
 

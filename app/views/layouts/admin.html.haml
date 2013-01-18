@@ -1,14 +1,13 @@
 = content_for :content do
 
-  .l-content
-    .l-container.g-clearfix
+  .row-fluid
 
-      / Left column
-      .l-left
-        = yield :left
+    / Left column
+    .span4
+      = yield :left
 
-      / Main content
-      .l-main
-        = yield :main
+    / Main content
+    .span8
+      = yield :main
 
 = render :template => 'layouts/base'

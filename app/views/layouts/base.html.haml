@@ -4,7 +4,7 @@
 /[if IE 8] <html class="no-js ie8">
 /[if IE 9] <html class="no-js ie9">
 / [if gt IE 9]><!
-%html.no-js{:'ng-app' => true}
+%html.no-js{'ng-app' => "#{content_for?(:ng_app) ? yield(:ng_app) : true}"}
   / <![endif]
 
   %head
@@ -13,26 +13,29 @@
     = javascript_include_tag :application
     = csrf_meta_tag
   %body{:class => "#{content_for?(:body_class) ? yield(:body_class) : 'market'}"}
-    // if you have admin rules:
-    .l-admin
-      .b-admin.g-clearfix
-        %a.admin-logo{href: '/admin/'} adminarea
-        .admin-resize
-          %ul.admin-resize-list.g-clearfix
-            %li.admin-resize-item
-              %span Resize:
-            %li.admin-resize-item
-              %a.icon-monitor{title: 'Full size'}
-            %li.admin-resize-item
-              %a.icon-tablet{title: 'Tablet'}
-            %li.admin-resize-item
-              %a.icon-mobile{title: 'Mobile'}
-    // end if
 
-    .l-wrapper
+    / if you have admin rules:
+    .container-fluid
+
+      .row-fluid.l-admin
+        .b-admin.g-clearfix
+          %a.admin-logo{href: '/admin/'} adminarea
+          .admin-resize
+            %ul.admin-resize-list.g-clearfix
+              %li.admin-resize-item
+                %span Resize:
+              %li.admin-resize-item
+                %a.icon-monitor{title: 'Full size'}
+              %li.admin-resize-item
+                %a.icon-tablet{title: 'Tablet'}
+              %li.admin-resize-item
+                %a.icon-mobile{title: 'Mobile'}
+      / end if
+
+
 
       / Logo, menu, user
-      .l-header
+      .row-fluid.l-header
         .l-container.g-clearfix
           .g-clearfix
             .b-logo

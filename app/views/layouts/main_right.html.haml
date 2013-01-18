@@ -1,7 +1,7 @@
 = content_for :content do
 
   / Categories, search
-  .l-sub-header
+  .row-fluid.l-sub-header
     .l-container.g-clearfix#search
       .b-shop-choose
 
@@ -37,14 +37,21 @@
             %li.goods-categories-item test
             %li.goods-categories-item test
 
-  .l-content
-    .l-container.g-clearfix
+  / Content
+  .row-fluid
+    .span2
+      = yield :main
+    .span10
+      = yield :right
 
-      / Main content
-      .l-main
-        = yield :main
 
-      / Right column
-      .l-right
-        = yield :right
+
+
+
+
+
+
+
+
+
 = render :template => 'layouts/base'
