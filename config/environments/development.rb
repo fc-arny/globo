@@ -46,7 +46,7 @@ Sap::Application.configure do
   config.assets.debug = true
 
   config.after_initialize do
-    smsaero = {
+    smsс = {
       :login => ''
     }
   end

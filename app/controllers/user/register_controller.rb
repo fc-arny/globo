@@ -34,8 +34,6 @@ module User
             user.salt = ApplicationHelper::get_random_string
             user.password = user.hash_password(password)
           end
-
-          customer.email = form_params[:login] ? form_params[:type] == RegisterForm::TYPE_LOGIN_EMAIL : nil
           customer.phone = form_params[:login] ? form_params[:type] == RegisterForm::TYPE_LOGIN_PHONE : nil
         end
 

@@ -6,14 +6,9 @@
     - @form.errors[:name].each do |mes|
       = mes
   .field
-    = f.radio_button :type, 'phone',{:checked => true}
-    = f.label :type_phone, t('Phone')
-    = f.radio_button :type, 'email'
-    = f.label :type_email, t('Email')
-  .field
-    = f.label :login, t('Login')
-    = f.text_field :login
-    - @form.errors[:login].each do |mes|
+    = f.label :phone, t('Phone')
+    = f.text_field :phone
+    - @form.errors[:phone].each do |mes|
       = mes
   .field
     = f.label :password, t('Password')
