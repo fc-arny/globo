@@ -44,10 +44,4 @@ Sap::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
-  config.after_initialize do
-    smsс = {
-      :login => ''
-    }
-  end
 end
