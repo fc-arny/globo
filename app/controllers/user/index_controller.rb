@@ -4,15 +4,6 @@
 class User::IndexController < ApplicationController
 
   # -------------------------------------------------------------
-  # Register form for customer
-  # GET /register
-  # -------------------------------------------------------------
-  def register_form
-    @user = session[:user_id] ?
-        Sap::User.find(session[:user_id]) : Sap::User.new
-  end
-
-  # -------------------------------------------------------------
   # New password form
   # GET /password
   # -------------------------------------------------------------

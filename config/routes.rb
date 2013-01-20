@@ -16,8 +16,8 @@ Sap::Application.routes.draw do
   post  'login' => 'user::login#do_login'             # Login
   get   'logout' => 'user::logout#do_logout'          # Logout
 
-  get   'register' => 'user::index#register_form'     # Register form
-  post  'register' => 'user::index#create'            # Register form
+  get   'register' => 'user::register#form'           # Register form
+  post  'register' => 'user::register#create'         # Register action
 
   get 'password'  => 'user::index#password'             # Restore password form
   post 'password'  => 'user::index#password_create'     # Restore password
