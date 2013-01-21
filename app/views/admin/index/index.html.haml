@@ -29,7 +29,8 @@
 
       .tab-content
         .tab-pane.active#tab1
-          %p I'm in Section 1.
+          %input{:type => "text", 'ng-model' => "searchGoodsList", :placeholder => 'Поиск по товарам'}
+
         .tab-pane#tab2
           %p Hey! I'm in Section 2.
 
@@ -52,7 +53,7 @@
             %th Name
             %th Description
         %tbody
-          %tr{'ng-repeat' => "good in goods"}
+          %tr{'ng-repeat' => "good in goods | filter:searchGoodsList" }
             %td {{$index}}
             %td {{good.good_name}}
             %td {{good.price}}
