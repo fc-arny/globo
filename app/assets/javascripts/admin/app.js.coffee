@@ -18,12 +18,7 @@ angular.module('adminApp', [])
 # Controllers
 controllerGoodsList = ($scope, $http) ->
   $http.get('/api/v1/goods/search.json?store_id=2').success (data) ->
-    $scope = {
-      goods: data
-      count: 0
-    }
-
-
+    $scope.goods = data
 
 #controllerGoodsList.$inject = ['$scope', '$http'];
 
