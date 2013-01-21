@@ -27,9 +27,19 @@ module ApplicationHelper
   # -------------------------------------------------------------
   # Render category tree. We use only two-level categorization
   # -------------------------------------------------------------
-  def category_main_menu
-    # TODO: Move here render menu
+  def category_list(section=:main_menu)
+    _category_tree = Sap::Category.get_category_tree
+    render partial: "partials/base/category_list/#{section}", locals: { :category_tree => _category_tree}
   end
+
+  # -------------------------------------------------------------
+  # Render stores
+  # -------------------------------------------------------------
+  def store_list(section=:main_menu)
+    _stores = Sap::Store.all
+    render partial: "partials/base/store_list/#{section}", locals: { :stores => _stores}
+  end
+
   class << self
     # -------------------------------------------------------------
     # Generate random string
