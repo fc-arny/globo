@@ -31,23 +31,29 @@
         .tab-pane.active#tab1
           %p I'm in Section 1.
         .tab-pane#tab2
-          %p Howdy, I'm in Section 2.
+          %p Hey! I'm in Section 2.
 
 = content_for :main do
-  %table.table
-    %caption
-    %thead>
-      %tr
-        %th Number
-        %th Name
-        %th Description
-    %tbody>
-      %tr>
-        %td 1
-        %td Snikers
-        %td I'm lovin it!
+
+  / Angular template — goods list
+  %script{:id => "templateGoodsList", :type => "text/ng-template"}
+
+    %div
+      %table.table
+        %caption Products {{goods.length}}
+        %thead
+          %tr
+            %th Number
+            %th Name
+            %th Description
+        %tbody
+          %tr{'ng-repeat' => "good in goods"}
+            %td {{good.good_name}}
+            %td {{good.price}}
 
 
+
+  %div{'ng-view' => true}
 
 
 

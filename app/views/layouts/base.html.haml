@@ -4,7 +4,7 @@
 /[if IE 8] <html class="no-js ie8">
 /[if IE 9] <html class="no-js ie9">
 / [if gt IE 9]><!
-%html.no-js{'ng-app' => true}
+%html.no-js{'ng-app' => "#{content_for?(:ng_app) ? yield(:ng_app) : ''}", 'lang' => "en"}
   / <![endif]
 
   %head

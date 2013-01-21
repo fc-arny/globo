@@ -3,6 +3,7 @@
   $http.get('/api/v1/goods/search.json?store_id=2').success (data) ->
     $scope.goods = data
 
+###
 
 @LoginCtrl = ($scope) ->
   $scope.email = {
@@ -38,5 +39,6 @@
       $scope.error.state = false
       $scope.error.text = 'Ошибки нет!'
 
+###
 
 
