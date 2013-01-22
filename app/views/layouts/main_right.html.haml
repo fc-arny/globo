@@ -1,21 +1,4 @@
-= content_for :content do
-
-  / Categories, search
-  .row-fluid.l-sub-header
-    .l-container.g-clearfix#search
-      = store_list
-
-      .b-goods-search
-        .b-search
-          .search-wrapper
-            %input{type: "text", placeholder: "Product search"}
-          .search-button
-
-    .l-container.g-clearfix
-      / Categories menu
-      = category_list
-
-
+= content_for :application_content do
   / Content
   .row-fluid
     .span2
@@ -23,14 +6,4 @@
     .span10
       = yield :right
 
-
-
-
-
-
-
-
-
-
-
-= render :template => 'layouts/base'
+= render :template => 'layouts/application'

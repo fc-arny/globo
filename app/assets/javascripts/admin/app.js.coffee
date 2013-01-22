@@ -13,16 +13,3 @@ angular.module('adminApp', [])
           redirectTo: '/goods'
         })
   ]
-
-
-# Controllers
-controllerGoodsList = ($scope, $http) ->
-  $http.get('/api/v1/goods/search.json?store_id=2').success (data) ->
-    $scope.goods = data
-
-#controllerGoodsList.$inject = ['$scope', '$http'];
-
-PhoneDetailCtrl = ($scope, $routeParams) ->
-  console.log 'PhoneListCtrl'
-
-#PhoneDetailCtrl.$inject = ['$scope', '$routeParams'];

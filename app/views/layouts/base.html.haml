@@ -9,14 +9,12 @@
 
   %head
     %title= @title || APP_DEFAULT_NAME
-    = stylesheet_link_tag :application
-    = javascript_include_tag :application
+    = yield :head
     = csrf_meta_tag
   %body{:class => "#{content_for?(:body_class) ? yield(:body_class) : 'market'}"}
 
     / if you have admin rules:
     .container-fluid
-
       .row-fluid.l-admin
         .b-admin.g-clearfix
           %a.admin-logo{href: '/admin/'} adminarea
@@ -31,39 +29,4 @@
               %li.admin-resize-item
                 %a.icon-mobile{title: 'Mobile'}
       / end if
-
-
-
-      / Logo, menu, user
-      .row-fluid.l-header
-        .l-container.g-clearfix
-          .g-clearfix
-            .b-logo
-              %h1
-                %a{href: "/"}
-                  %img{src: " /assets/logo.png", alt: "Globomarket"}
-
-            .b-menu.g-clearfix
-              %ul.menu-list.g-clearfix
-                %li.menu-item.active
-                  %a.menu-link{href: "/goods"}
-                    %span.upper-text So, let's start to
-                    %span.menu-text Choose
-                    %span.lower-text something to eat
-                    %span.menu-arrow
-                %li.menu-item
-                  %a.menu-link{href: "/pay"}
-                    %span.upper-text Now you can
-                    %span.menu-text Pay
-                    %span.lower-text for the goods
-                    %span.menu-arrow
-                %li.menu-item
-                  %a.menu-link{href: "/checkout"}
-                    %span.upper-text Soon you will
-                    %span.menu-text Get
-                    %span.lower-text your goods
-                    %span.menu-arrow
-
-            = render :partial => 'partials/current_user', :locals => {:user => current_user}
-
-      = yield :content
+      = yield :base_content
