@@ -9,12 +9,12 @@ require "erb"
 module SmsGate
   class SMSC
     # Константы для настройки библиотеки
-    SMSC_LOGIN = ENV['smsc_login']           # логин клиента
-    SMSC_PASSWORD = ENV['smsc_password']    # пароль или MD5-хеш пароля в нижнем регистре
-    SMSC_POST = false                # использовать метод POST
+    SMSC_LOGIN = Settings.smsgate.smsc.login            # Login
+    SMSC_PASSWORD = Settings.smsgate.smsc.password      # Password
+    SMSC_POST = false                 # использовать метод POST
     SMSC_HTTPS = false                # использовать HTTPS протокол
     SMSC_CHARSET = "utf-8"            # кодировка сообщения: koi8-r или windows-1251 (по умолчанию utf-8)
-    SMSC_DEBUG = false                # флаг отладки
+    SMSC_DEBUG = Settings.smsgate.smsc.debug               # флаг отладки
     SMTP_FROM = "api@smsc.ru"        # e-mail адрес отправителя
 
     # Функция отправки SMS

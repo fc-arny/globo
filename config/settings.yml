@@ -1,0 +1,5 @@
+smsgate:
+  smsc:
+    login: 'fc_arny'
+    password: 'fhctyfk2301'
+    debug: '1'
