@@ -100,7 +100,7 @@ customer = Sap::Customer.new do |c|
 
     user.token = Digest::SHA1.hexdigest( user.name + user.salt + user.password )
   end
-  c.email = 'famc_arny@mail.ru'
+  c.phone = '02020202021'
 end
 customer.save!
 

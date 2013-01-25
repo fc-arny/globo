@@ -28,20 +28,22 @@ module User
           # Create user
           customer.user = Sap::User.new do |user|
             # Email is login for customer
-            user.login = form_params[:login]
-            user.name  = form_params[:name]
+            user.login = @form.login
+            user.name = customer.name = @form.name
             # Set Random password and Salt
             user.salt = ApplicationHelper::get_random_string
             user.password = user.hash_password(password)
           end
-          customer.phone = form_params[:login] ? form_params[:type] == RegisterForm::TYPE_LOGIN_PHONE : nil
+          customer.phone = @form.login
         end
 
         if @customer.save
           # Auth new user
           session[:user_id] = @customer.user.id
-          #  Send email
-          # TODO: Проверить почта или телефон указаны и отправить сообщение
+          #  Send conformation code
+          sms_gate = SmsGate::SMSC.new
+          @ret = sms_gate.send_sms(@form.login, 'Thank you for registration. your code is...',0,0,0,0, 'MartSoft')
+
           flash[:success] = 'Thank you for success registration'
           redirect_to root_path
         else

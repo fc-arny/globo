@@ -4,6 +4,7 @@ require 'active_model'
 
 class ActiveForm
   include ActiveModel::Validations
+  include ActiveModel::Validations::Callbacks
 
   def to_model; self; end
   def persisted?; false; end

@@ -7,29 +7,31 @@
 # -------------------------------------------------------------
 class Sap::Customer < SapModel
   # Fields
-  attr_accessible :email, :phone, :name, :role
+  attr_accessible :phone, :name, :role
 
   # Validators
-  validate :login_as_phone_or_email
+  validates :phone,
+            :length => {:is => 11}, # For Russian
+            :uniqueness => true,
+            :presence => true
 
-  validates :email, :uniqueness => true,
-                    :length => {:minimum => 3, :maximum => 80}
-                    #:format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i}
-
-  validates :phone, :uniqueness => true
+  validates :name,
+            :length => {:minimum => 1, :maximum => 80}
 
   # Relationships
   has_one :user, :class_name => 'Sap::User', :as => :role
 
+  before_validation :filter_data
+
+  private
+
   # -------------------------------------------------------------
-  # For creating customer we need email or phone
+  # Prepare data for save                                                                  WW
   # -------------------------------------------------------------
-  def login_as_phone_or_email
-    if email.blank? && phone.blank?
-      message = 'You must specify email or phone'
-      [:email,:phone].each do |field|
-        errors.add(field, message)
-      end
-    end
+  def filter_data
+    self.phone.gsub!(/[^0-9]/,'')
+    self.name.strip!
   end
+
+
 end

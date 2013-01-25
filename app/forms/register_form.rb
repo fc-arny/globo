@@ -14,13 +14,13 @@ class RegisterForm < ActiveForm
   TYPE_LOGIN_PHONE = 'phone'
 
   # Fields
-  attr_accessor :type, :phone, :name, :password
+  attr_accessor :login, :name, :password
 
   # Validators
   #validates :type,
   #          :inclusion => [TYPE_LOGIN_EMAIL,TYPE_LOGIN_PHONE]
 
-  validates :phone,
+  validates :login,
             :length => {:minimum => 5, :maximum => 30}
 
   validates :name,
@@ -29,13 +29,26 @@ class RegisterForm < ActiveForm
   validates :password,
             :length => {:minimum => 4, :maximum => 80}
 
+  validate :login_unique
+
+  before_validation :filter_data
+
   # -------------------------------------------------------------
-  # 
+  # Check Login unique
   # -------------------------------------------------------------
   def login_unique
-     if Sap::User.find_by_login(@phone)
-       errors.add(field, 'User with this login already exists')
+     if Sap::User.find_by_login(@login)
+       errors.add(:login, 'User with this login already exists')
      end
+  end
+
+  private
+
+  # -------------------------------------------------------------
+  # Filter form data
+  # -------------------------------------------------------------
+  def filter_data
+    self.login.gsub(/[^0-9]/,'')
   end
 
 end
