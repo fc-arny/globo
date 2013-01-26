@@ -1,6 +1,6 @@
 .b-store-choose
   .b-select.g-clearfix
-    %select
+    %select#store-select
       %option{:value => 0} Stores
       - stores.each do |t|
         %option{:value => t.id}= t.name

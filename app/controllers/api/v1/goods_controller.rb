@@ -12,7 +12,7 @@ module Api
 
         #raise 'store_id is required' if params[:store_id].nil?
 
-        condition = '1 = 1'#{:store_id => params[:store_id]}
+        condition = {:store_id => params[:store_id]} if !params[:store_id].nil?
 
         # Get all goods
         @goods = Sap::GoodList.

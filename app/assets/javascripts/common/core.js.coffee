@@ -6,6 +6,14 @@ $(()->
   $('.b-select').on 'click', ()->
     $(@).toggleClass 'active'
 
+  $('#store-select').on 'change', ()->
+    $.ajax
+      url: '/api/v1/goods/search'
+      dataType: 'json'
+      data:
+        store_id: $(@).val()
+
+
   $('.admin-resize-list a').on 'click', ()->
     widthType = $(@).attr('class').split('-')
     $('.l-wrapper')

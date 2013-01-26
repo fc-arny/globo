@@ -12,7 +12,6 @@ gem 'unicode'
 gem 'foreigner'     # Foreign key
 gem 'orm_adapter'   # Common function for different data storage
 gem 'rails_config'  # Configure app
-gem 'psych'
 
 # Gems used only for assets and not required
 # in production environments by default.
