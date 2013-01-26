@@ -2,26 +2,23 @@
   goods store
 
 = content_for :main do
-  .b-goods{:"ng-controller" => "GoodsController"}
-    %ul.goods-list
-
-      //goods item
-      %li.goods-item#good-id-1000{:"ng-repeat" => "good in goods"}
-        .goods-item-wrapper
-          .goods-add-to-basket.g-clearfix
-            .goods-button-add
-              %span Add to basket
-            .goods-count
-              %input{type:"text", placeholder:"1"}
-          .goods-image
-          .goods-title
-            %span {{good.good_name}}
-          .goods-price
-            %span ${{good.price}}
-          .goods-stores
-            %select
-              %option Azbuka Vkusa
-              %option Perekrestok
+  %h1 Best offers
 
 = content_for :right do
-  deals
+  .b-goods{:"ng-controller" => "GoodsController"}
+    %ul.goods-list
+    //goods item
+    %li.goods-item#good-id-1000{:"ng-repeat" => "good in goods"}
+      .goods-item-wrapper
+        .goods-add-to-basket.g-clearfix
+          .goods-button-add
+            %span Add to basket
+          .goods-count
+            %input{type:"text", placeholder:"1"}
+        .goods-image
+        .goods-title
+          %span {{good.good_name}}
+        .goods-price
+          %span ${{good.price}}
+        .goods-stores
+          {{good.store_name}}

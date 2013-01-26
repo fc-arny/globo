@@ -37,6 +37,7 @@ module ApplicationHelper
   # -------------------------------------------------------------
   def store_list(section=:main_menu)
     _stores = Sap::Store.all
+    #render :file
     render partial: "partials/base/store_list/#{section}", locals: { :stores => _stores}
   end
 

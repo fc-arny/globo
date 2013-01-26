@@ -10,9 +10,9 @@ module Api
       def search
         condition = []
 
-        raise 'store_id is required' if params[:store_id].nil?
+        #raise 'store_id is required' if params[:store_id].nil?
 
-        condition = {:store_id => params[:store_id]}
+        condition = '1 = 1'#{:store_id => params[:store_id]}
 
         # Get all goods
         @goods = Sap::GoodList.

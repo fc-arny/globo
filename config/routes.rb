@@ -8,8 +8,7 @@ Sap::Application.routes.draw do
   get 'goods/product' => redirect('/goods')           # Redirect to top offers
   get 'goods/product/:id' => 'store::goods#product'   # View product
   get 'goods/search' => 'store::goods#search'         # Search products
-  get 'goods/:cat1' => 'store::goods#category'        # View category
-  get 'goods/:cat1/:cat2' => 'store::goods#category'  # View category
+  get 'goods/*category' => 'store::goods#category'    # View category
 
   # Users
   get   'login' => 'user::login#form'                 # Login form

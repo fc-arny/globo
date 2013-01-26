@@ -30,6 +30,6 @@ class Store::GoodsController < ApplicationController
   # View goods by category
   # -------------------------------------------------------------
   def category
-
+    @p = params[:category]
   end
 end
