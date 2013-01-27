@@ -26,11 +26,11 @@ class Sap::Customer < SapModel
   private
 
   # -------------------------------------------------------------
-  # Prepare data for save                                                                  WW
+  # Prepare data for save
   # -------------------------------------------------------------
   def filter_data
-    self.phone.gsub!(/[^0-9]/,'')
-    self.name.strip!
+    self.phone.gsub!(/[^0-9]/,'') unless self.phone.nil?
+    self.name.strip! unless self.name.nil?
   end
 
 
