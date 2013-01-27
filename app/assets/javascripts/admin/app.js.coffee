@@ -1,15 +1,16 @@
 angular.module('adminApp', [])
   .config [
-    '$routeProvider'
-    ($routeProvider) ->
-
+    '$routeProvider',
+    '$locationProvider'
+    ($routeProvider, $locationProvider) ->
+      $locationProvider.html5Mode(true)
       $routeProvider
-        .when('/goods', {
-          templateUrl: '/assets/admin/list.html'
+        .when('/admin/goods/', {
+          templateUrl: '/assets/admin/goods.html'
           controller: controllerGoodsList
-        }).when('/goods/:goodId', {
-          controller: controllerGoodsList
+        }).when('/admin/goods/product/:goodId', {
+          controller: controllerProductEdit
         }).otherwise({
-          redirectTo: '/goods'
+          redirectTo: '/admin/goods/'
         })
   ]
