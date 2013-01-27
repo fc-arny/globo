@@ -1,5 +1,5 @@
 # CRUD for goods, good list
-class Admin::GoodsController < AdminControllerd
+class Admin::GoodsController < AdminController
   # -------------------------------------------------------------
   # List of goods
   # GET /admin/goods

@@ -16,7 +16,7 @@ module Api
 
         # Get all goods
         @goods = Sap::GoodList.
-            select('goods.name as good_name, stores.name as store_name, price').
+            select('goods.id as good_id,goods.name as good_name, stores.name as store_name, price').
             joins(:good, :store).
             where(condition)
 
