@@ -2,13 +2,28 @@
   = stylesheet_link_tag :admin
   = javascript_include_tag :admin
 
+= content_for :body_class do
+  page-admin
+
+= content_for :ng_app do
+  adminApp
+
 = content_for :base_content do
   .row-fluid
+
     / Left column
-    .span4
-      = yield :left
-    / Main content
-    .span8
-      = yield :main
+    .span1
+      %ul.nav.nav-list
+        %li.nav-header Menu
+        %li.active Goods
+        %li
+          %a Users
+        %li
+          %a Statistic
+        %li
+          %a Settings
+
+    .span11
+      %div{'ng-view' => true}
 
 = render :template => 'layouts/base'

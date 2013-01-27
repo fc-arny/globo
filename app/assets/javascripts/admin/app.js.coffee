@@ -5,10 +5,10 @@ angular.module('adminApp', [])
 
       $routeProvider
         .when('/goods', {
-          templateUrl: 'templateGoodsList'
+          templateUrl: '/assets/admin/list.html'
           controller: controllerGoodsList
         }).when('/goods/:goodId', {
-          controller: PhoneDetailCtrl
+          controller: controllerGoodsList
         }).otherwise({
           redirectTo: '/goods'
         })
