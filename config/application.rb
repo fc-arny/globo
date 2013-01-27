@@ -22,7 +22,9 @@ module Sap
                             #{config.root}/lib
                             #{config.root}/forms/**)
 
-    config.assets.paths += %W(#{config.root}/assets/fonts/**)
+    config.assets.paths += %W(
+                            #{config.root}/assets/fonts/**
+                            #{config.root}/assets/templates/**)
 
 
     # Only load the plugins named here, in the order given (default is alphabetical).
