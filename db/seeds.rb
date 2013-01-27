@@ -92,7 +92,7 @@ customer = Sap::Customer.new do |c|
 
     # Email is login for customer
     user.login = 'user'
-    user.name  = 'Пользователь'
+    user.name  = c.name = 'Пользователь'
 
     # Set Random password and Salt
     user.salt = ApplicationHelper::get_random_string
