@@ -9,6 +9,7 @@ angular.module('adminApp', [])
           templateUrl: '/assets/admin/goods.html'
           controller: controllerGoodsList
         }).when('/admin/goods/product/:goodId', {
+          templateUrl: '/assets/admin/product.html'
           controller: controllerProductEdit
         }).otherwise({
           redirectTo: '/admin/goods/'
