@@ -17,7 +17,7 @@
 		</thead>
 		<tbody>
 		<tr ng-repeat="good in goods | filter:filterStr">
-			<td><a href="/admin/goods/product/{{good.good_id}}">{{$index}}</a></td>
+			<td><a href="/admin/goods/{{good.good_id}}/edit">{{$index}}</a></td>
 			<td>{{good.good_name}}</td>
 			<td>{{good.price}}</td>
 			<!--<td><span class="disable-item" style="color:{{['red','green'][+item.shown]}};" ng-click="disableItem()">{{['выкл','вкл'][+item.shown]}}</span></td>-->

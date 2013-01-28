@@ -1,5 +1,5 @@
 # Controllers
-@controllerGoodsList = ($scope, $http) ->
+@GoodsCtrl = ($scope, $http) ->
   $scope.tablehead = [
     {name: 'number',    title: 'Number'},
     {name: 'name',      title: 'Name'},
@@ -10,10 +10,16 @@
       $scope.goods = data
       console.log $scope.goods
 
-#controllerGoodsList.$inject = ['$scope', '$routeParams'];
+#GoodsCtrl.$inject = ['$scope', '$routeParams'];
 
 
-@controllerProductEdit = ($scope, $http) ->
+@NewGoodCtrl = ($scope, $http) ->
+  $scope.data = 'Новый товар'
+
+#NewGoodCtrl.$inject = ['$scope', '$routeParams'];
+
+
+@EditGoodCtrl = ($scope, $http) ->
   $scope.data = 'Редактирование товара'
 
-#controllerProductEdit.$inject = ['$scope', '$routeParams'];
+#EditGoodCtrl.$inject = ['$scope', '$routeParams'];

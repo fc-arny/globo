@@ -7,10 +7,16 @@ angular.module('adminApp', [])
       $routeProvider
         .when('/admin/goods/', {
           templateUrl: '/assets/admin/goods.html'
-          controller: controllerGoodsList
-        }).when('/admin/goods/product/:goodId', {
+          controller: GoodsCtrl
+
+        }).when('/admin/goods/new', {
           templateUrl: '/assets/admin/product.html'
-          controller: controllerProductEdit
+          controller: NewGoodCtrl
+
+        }).when('/admin/goods/:goodId/edit', {
+          templateUrl: '/assets/admin/product.html'
+          controller: EditGoodCtrl
+
         }).otherwise({
           redirectTo: '/admin/goods/'
         })
