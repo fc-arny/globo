@@ -2,7 +2,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular/angular.min
 //= require bootstrap
 //= require_tree ./common
 //= require_tree ./sap

@@ -1,5 +1,7 @@
 # encoding: UTF-8
 
+connection = ActiveRecord::Base.connection
+
 # Regions
 Sap::Region.delete_all
 Sap::Region.create([
@@ -50,6 +52,7 @@ Sap::Good.create([
     {id:11,name:'Молоко простоквашино 1.5%, 1л', description: 'Молочко', is_approved: true},
     {id:12,name:'Молоко простоквашино топленое, 1л', description: 'Молочко', is_approved: true},
 ])
+connection.execute('ALTER SEQUENCE sap.goods_id_seq MINVALUE 10000 START 10000 RESTART 10000;')
 
 # Good -> Category
 Sap::CategoryGood.create([

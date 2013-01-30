@@ -1,16 +1,24 @@
 %div#content{:'ng-controller' => 'GoodsCtrl', :'ng-init' => 'index()'}
   .tools.pull-left
-    %a{:href=> "/admin/goods/new", :'ng-click' => 'new()'} Add new
+    %a{:href=> new_admin_good_path} Add new
     %table.table
-      %caption Products {{goods.length}}
       %thead
         %tr
           %th Number
           %th Name
           %th Description
+          %th Actions
       %tbody
-        %tr{'ng-repeat' => "good in goods | filter:searchGoodsList" }
-          %td
-            %a{:href => '', :'ng-click' => 'show(good.id)'} {{good.id}}
-          %td {{good.name}}
-          %td {{good.description}}
+        - @list.each do |good|
+          %tr
+            %td
+              %a{:href => admin_good_path("#{good.id}")}= good.id
+            %td= good.name
+            %td= good.description
+            %td
+              %div
+                =link_to 'Show', admin_good_path(good)
+                \|
+                = link_to 'Edit', edit_admin_good_path(good)
+                \|
+                = link_to 'Destroy', admin_good_path(good), method: :delete, data: { confirm: 'Are you sure?' }
