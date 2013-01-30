@@ -6,6 +6,10 @@ class Admin::GoodsController < AdminController
   # -------------------------------------------------------------
   def index
     @list = Sap::Good.all
+    respond_to do |format|
+      format.html
+      format.json{ render :json => @list}
+    end
   end
 
   # -------------------------------------------------------------
@@ -14,6 +18,9 @@ class Admin::GoodsController < AdminController
   # -------------------------------------------------------------
   def show
     @good = Sap::Good.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
 
   # -------------------------------------------------------------
@@ -31,8 +38,8 @@ class Admin::GoodsController < AdminController
   def new
     @good = Sap::Good.new
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @good }
+      format.html{ render :layout => !request.xhr? } # new.html.erb
+      #format.json { render json: @good }
     end
   end
 

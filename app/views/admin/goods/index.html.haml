@@ -1,21 +1,16 @@
-%h1= t('.goods_header') + link_to( t('.add_good'), new_admin_good_path)
-%table
-  %tr
-    %th ID
-    %th Name
-    %th Actions
-
-  - @list.each do |good|
-    %tr
-      %td= good.id
-      %td
-        %h3= good.name
-        %div
-          - Sap::GoodList.find_all_by_good_id(good.id).each do |list|
-            %div= list.store.name + ' | ' + list.price.to_s + 'р.'
-      %td
-        %span= link_to 'Show', admin_good_path(good)
-        \|
-        %span= link_to 'Destroy',  "/admin/goods/#{good.id}", method: :delete, data: { confirm: 'Are you sure?' }
-        \|
-        %span= link_to 'Edit', edit_admin_good_path(good)
+%div#content{:'ng-controller' => 'GoodsCtrl', :'ng-init' => 'index()'}
+  .tools.pull-left
+    %a{:href=> "/admin/goods/new", :'ng-click' => 'new()'} Add new
+    %table.table
+      %caption Products {{goods.length}}
+      %thead
+        %tr
+          %th Number
+          %th Name
+          %th Description
+      %tbody
+        %tr{'ng-repeat' => "good in goods | filter:searchGoodsList" }
+          %td
+            %a{:href => '', :'ng-click' => 'show(good.id)'} {{good.id}}
+          %td {{good.name}}
+          %td {{good.description}}

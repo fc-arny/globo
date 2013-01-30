@@ -44,4 +44,5 @@ Sap::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.sass.debug_info = true
 end

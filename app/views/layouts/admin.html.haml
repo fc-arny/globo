@@ -24,6 +24,7 @@
           %a Settings
 
     .span11
-      %div{'ng-view' => true}
+      %div
+        = yield
 
 = render :template => 'layouts/base'
