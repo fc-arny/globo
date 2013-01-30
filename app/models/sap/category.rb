@@ -56,7 +56,7 @@ class Sap::Category < SapModel
 
         # Increment deep and change parent to found category
         _deep += 1
-        _parent = cur_category.first.id
+        _parent = cur_category.first ? cur_category.first.id : nil
       end
 
       # Return round category
@@ -79,7 +79,7 @@ class Sap::Category < SapModel
         end
         tree << { id: cat.id,name: cat.name, children: childrenTree}
       end
-      return tree
+      tree
     end
   end
 end

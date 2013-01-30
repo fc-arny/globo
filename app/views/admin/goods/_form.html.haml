@@ -7,6 +7,6 @@
     = f.text_area :description
   %div
     = f.label :category
-    = f.select(:categories, options_from_collection_for_select(Sap::Category.all, "id", "name", @category.id))
+    = #f.select(:categories, options_from_collection_for_select(Sap::Category.all, "id", "name", @category.id))
   %div
     = f.submit :"save_good"
