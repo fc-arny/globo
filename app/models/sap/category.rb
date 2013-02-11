@@ -75,9 +75,9 @@ class Sap::Category < SapModel
 
         childrenTree = []
         children.each do |child|
-          childrenTree << {id: child.id, name: child.name}
+          childrenTree << {id: child.id, name: child.name, url: child.url}
         end
-        tree << { id: cat.id,name: cat.name, children: childrenTree}
+        tree << { id: cat.id,name: cat.name, url: cat.url,children: childrenTree}
       end
       tree
     end

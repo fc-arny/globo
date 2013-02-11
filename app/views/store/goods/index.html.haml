@@ -15,6 +15,6 @@
            $(document).on("click", "a", function(evt) {
              evt.preventDefault();
              var href = { prop: $(this).prop("href"), attr: $(this).attr("href") };
-             Backbone.history.navigate(href.attr.replace('goods',''), true);
+             Backbone.history.navigate(href.attr.replace('goods/',''), true);
            });
         });

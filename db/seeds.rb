@@ -20,20 +20,20 @@ Sap::Store.create([
 # Categories
 Sap::Category.delete_all
 Sap::Category.create([
-    {id:1,name: 'Алкогольные напитки'},
-    {id:2,name: 'Пиво', parent_id: 1},
-    {id:3,name: 'Вино', parent_id: 1},
-    {id:4,name: 'Крепкие напитки', parent_id: 1},
-    {id:5,name: 'Овощи и Фрукты'},
-    {id:6,name: 'Овощи', parent_id: 5},
-    {id:7,name: 'Фрукты', parent_id: 5},
-    {id:8,name: 'Орехи', parent_id: 5},
-    {id:9,name: 'Сухофрукты', parent_id: 5},
-    {id:10,name: 'Мясо и Рыба'},
-    {id:11,name: 'Колбаса и колбасные изделия', parent_id: 10},
-    {id:12,name: 'Рыба и море продукты', parent_id: 10},
-    {id:13,name: 'Икра', parent_id: 10},
-    {id:14,name: 'Мясные закуски', parent_id: 10},
+    {id:1,name: 'Алкогольные напитки', url: 'alcohol'},
+    {id:2,name: 'Пиво', parent_id: 1, url: 'bear'},
+    {id:3,name: 'Вино', parent_id: 1,url: 'wine'},
+    {id:4,name: 'Крепкие напитки', parent_id: 1,url: 'strong'},
+    {id:5,name: 'Овощи и Фрукты', url: 'vegetables-and-fruits'},
+    {id:6,name: 'Овощи', parent_id: 5,url: 'vegetables'},
+    {id:7,name: 'Фрукты', parent_id: 5,url: 'fruits'},
+    {id:8,name: 'Орехи', parent_id: 5,url: 'nuts'},
+    {id:9,name: 'Сухофрукты', parent_id: 5, url: 'dried-fruit'},
+    {id:10,name: 'Мясо и Рыба',url: 'meat-and-fish'},
+    {id:11,name: 'Колбаса и колбасные изделия', parent_id: 10, url: 'sausages'},
+    {id:12,name: 'Рыба и море продукты', parent_id: 10, url: 'sea-foods'},
+    {id:13,name: 'Икра', parent_id: 10,url: 'caviar'},
+    {id:14,name: 'Мясные закуски', parent_id: 10,url: 'meat'},
 ])
 
 # Goods
@@ -58,6 +58,8 @@ connection.execute('ALTER SEQUENCE sap.goods_id_seq MINVALUE 10000 START 10000 R
 Sap::CategoryGood.create([
     {category_id:1,good_id:1},
     {category_id:2,good_id:1},
+    {category_id:1,good_id:2},
+    {category_id:2,good_id:2}
 ])
 
 # GoodLists
