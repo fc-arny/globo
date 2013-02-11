@@ -1,6 +1,3 @@
 .b-store-choose
   .b-select.g-clearfix
-    %select#store-select
-      %option{:value => 0} Stores
-      - stores.each do |t|
-        %option{:value => t.id}= t.name
+    = select_tag(:store,options_for_select(stores, session_setting(:store_id) ), {:name => :store_id, :'ng-model' => :store})

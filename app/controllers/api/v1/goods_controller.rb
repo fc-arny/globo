@@ -8,6 +8,7 @@ module Api
       # Search goods by params
       # -------------------------------------------------------------
       def search
+        sleep 5
         condition = []
 
         #raise 'store_id is required' if params[:store_id].nil?

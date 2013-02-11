@@ -1,0 +1,6 @@
+<h1>Продукты</h1>
+<% goods.each(function(model){%>
+	<div>
+		<div><%= model.escape('name') %></div>
+	</div>
+<% });%>

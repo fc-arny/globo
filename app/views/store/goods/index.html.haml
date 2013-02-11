@@ -1,24 +1,20 @@
 = content_for :body_class do
   goods store
 
-= content_for :main do
-  %h1 Best offers
-
 = content_for :right do
-  .b-goods{:"ng-controller" => "GoodsController"}
-    %ul.goods-list
-    //goods item
-    %li.goods-item#good-id-1000{:"ng-repeat" => "good in goods"}
-      .goods-item-wrapper
-        .goods-add-to-basket.g-clearfix
-          .goods-button-add
-            %span Add to basket
-          .goods-count
-            %input{type:"text", placeholder:"1"}
-        .goods-image
-        .goods-title
-          %span {{good.good_name}}
-        .goods-price
-          %span ${{good.price}}
-        .goods-stores
-          {{good.store_name}}
+
+  .b-goods
+    = content_for :js do
+      :javascript
+        $(function(){
+           var data = [];
+           data.goods = #{@goods.to_json};
+
+           Sap.initialize(data);
+
+           $(document).on("click", "a", function(evt) {
+             evt.preventDefault();
+             var href = { prop: $(this).prop("href"), attr: $(this).attr("href") };
+             Backbone.history.navigate(href.attr.replace('goods',''), true);
+           });
+        });

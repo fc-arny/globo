@@ -7,11 +7,15 @@ $(()->
     $(@).toggleClass 'active'
 
   $('#store-select').on 'change', ()->
+    window.store = $(@).val()
     $.ajax
-      url: '/api/v1/goods/search'
+      url: '/common/settings/setup'
       dataType: 'json'
       data:
-        store_id: $(@).val()
+        key   : 'store_id'
+        value : $(@).val()
+      success: ->
+        location.reload(true)
 
 
   $('.admin-resize-list a').on 'click', ()->

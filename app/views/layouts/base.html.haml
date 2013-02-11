@@ -11,22 +11,25 @@
     %title= @title || APP_DEFAULT_NAME
     = yield :head
     = csrf_meta_tag
-  %body{:class => "#{content_for?(:body_class) ? yield(:body_class) : 'market'}"}
 
-    / if you have admin rules:
+  %body{:class => "#{content_for?(:body_class) ? yield(:body_class) : 'market'}"}
     .container-fluid
-      .row-fluid.l-admin
-        .b-admin.g-clearfix
-          %a.admin-logo{href: '/admin/'} adminarea
-          .admin-resize
-            %ul.admin-resize-list.g-clearfix
-              %li.admin-resize-item
-                %span Resize:
-              %li.admin-resize-item
-                %a.icon-monitor{title: 'Full size'}
-              %li.admin-resize-item
-                %a.icon-tablet{title: 'Tablet'}
-              %li.admin-resize-item
-                %a.icon-mobile{title: 'Mobile'}
-      / end if
+      - if is_admin?
+        .row-fluid.l-admin
+          .b-admin.g-clearfix
+            %a.admin-logo{href: '/admin/'} adminarea
+            .admin-resize
+              %ul.admin-resize-list.g-clearfix
+                %li.admin-resize-item
+                  %span Resize:
+                %li.admin-resize-item
+                  %a.icon-monitor{title: 'Full size'}
+                %li.admin-resize-item
+                  %a.icon-tablet{title: 'Tablet'}
+                %li.admin-resize-item
+                  %a.icon-mobile{title: 'Mobile'}
+
       = yield :base_content
+    .scripts
+      = yield :bottom
+      = yield :js

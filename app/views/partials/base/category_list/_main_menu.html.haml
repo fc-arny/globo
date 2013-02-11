@@ -2,8 +2,8 @@
   %ul.goods-categories-head-category.g-clearfix
     - category_tree.each do |cat|
       %li.goods-categories-item
-        %a.goods-categories-title= cat[:name]
+        %a.goods-categories-title{:href => "/goods/#{cat[:id]}"}= cat[:name]
         %ul.goods-categories-sub-category
           - cat[:children].each do |children|
             %li.goods-categories-item
-              %a.goods-categories-title= children[:name]
+              %a.goods-categories-title{:href => "/goods/#{children[:id]}"}= children[:name]

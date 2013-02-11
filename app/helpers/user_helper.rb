@@ -1,36 +1,36 @@
 # -------------------------------------------------------------
-# Goods & Categories
+# Helper methods for users
 # -------------------------------------------------------------
-
-class Store::GoodsController < ApplicationController
-  layout 'main_right'
-
+module UserHelper
   # -------------------------------------------------------------
-  # Show top offers
+  # Is user an admin?
   # -------------------------------------------------------------
-  def index
-    @goods = Sap::Good.all
+  def is_admin?
+    !current_user.nil? && current_user.role.class == Sap::Admin
   end
 
   # -------------------------------------------------------------
-  # Return angular templates
+  # Is user logged in ?
   # -------------------------------------------------------------
-  def view
-    template = params[:template]
-    render :file => "store/goods/templates/#{template}", :layout => false
+  def logged_in?
+    !current_user.nil?
   end
 
   # -------------------------------------------------------------
-  # Search products
+  # Get session setting
   # -------------------------------------------------------------
-  def search
-
+  def session_setting(key, default = nil)
+    (!session[:settings].nil? && !session[:settings][key.to_sym].nil?) ? session[:settings][key.to_sym] : default
   end
 
   # -------------------------------------------------------------
-  # View goods by category
+  # Set setting to session
   # -------------------------------------------------------------
-  def category
-    @p = params[:category]
+  def set_session_setting(key, value)
+    if session[:settings].nil?
+      session[:settings] = {}
+    end
+
+    session[:settings][key.to_sym] = value
   end
 end

@@ -36,8 +36,9 @@ module ApplicationHelper
   # Render stores
   # -------------------------------------------------------------
   def store_list(section=:main_menu)
-    _stores = Sap::Store.all
-    #render :file
+    _stores = []
+    _stores << ['Store', 0]
+    _stores += Sap::Store.all.map{|store| [store.name, store.id]}
     render partial: "partials/base/store_list/#{section}", locals: { :stores => _stores}
   end
 

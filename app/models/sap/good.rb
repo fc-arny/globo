@@ -15,10 +15,17 @@ class Sap::Good < SapModel
   has_many :categories, :class_name => 'Sap::Category'#, :through => :category_goods
   has_many :category_goods, :class_name => 'Sap::CategoryGood'
 
-	# -------------------------------------------------------------
+  # -------------------------------------------------------------
   # Get list of goods by store
-	# -------------------------------------------------------------
-	def get_good_list(store = nil, category = nil)
-		 self.find_all
-	end
+  # -------------------------------------------------------------
+  def get_good_list(store = nil, category = nil)
+     self.find_all
+  end
+
+  # -------------------------------------------------------------
+  #
+  # -------------------------------------------------------------
+  def as_json(options = { })
+    super(options.merge(:only => [:id, :name]))
+  end
 end

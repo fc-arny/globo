@@ -1,14 +1,22 @@
 Sap::Application.routes.draw do
 
   # Main page
-  root :to => 'public::index#main'
+  root :to => 'common::index#main'
+
+  # Common
+
+
+  match ':controller(/:action(/:id))(.:format)', :controller => /common\/[^\/]+/
+
+
 
   # Goods
   get 'goods' => 'store::goods#index'                 # Top offers
-  get 'goods/product' => redirect('/goods')           # Redirect to top offers
-  get 'goods/product/:id' => 'store::goods#product'   # View product
-  get 'goods/search' => 'store::goods#search'         # Search products
-  get 'goods/*category' => 'store::goods#category'    # View category
+  get 'goods/view/:template' => 'store::goods#view'
+  #get 'goods/product' => redirect('/goods')           # Redirect to top offers
+  #get 'goods/product/:id' => 'store::goods#product'   # View product
+  #get 'goods/search' => 'store::goods#search'         # Search products
+  get 'goods/*category' => 'store::goods#index'    # View category
 
   # Users
   get   'login' => 'user::login#form'                 # Login form
@@ -31,7 +39,10 @@ Sap::Application.routes.draw do
       resources :goods do
         get 'search', :on => :collection
       end
+      # Stores
+      resources :stores
       # Categories
+      resources :categories
     end
   end
 

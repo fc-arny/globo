@@ -7,11 +7,17 @@ gem 'pg'
 gem 'unicorn', :platform => :ruby
 gem 'haml-rails'
 gem 'rails-i18n'
-gem 'jquery-rails'
 gem 'unicode'
-gem 'foreigner'     # Foreign key
-gem 'orm_adapter'   # Common function for different data storage
-gem 'rails_config'  # Configure app
+gem 'foreigner'             # Foreign key
+gem 'orm_adapter'           # Common function for different data storage
+gem 'rails_config'          # Configure app
+
+
+# Client Side
+gem 'ejs'                         # EJS gem for backbone
+gem 'jquery-rails'                # jQuery
+gem 'rails-backbone'              # Backbone
+gem 'backbone-support'            # Backbone Support
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,7 +25,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  #gem 'haml-edge'
 end
 
 # To use ActiveModel has_secure_password
