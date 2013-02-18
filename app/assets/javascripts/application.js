@@ -5,6 +5,7 @@
 // jQuery -------------------------
 //= require jquery
 //= require jquery_ujs
+//= require hamlcoffee
 
 // Bootstrap ----------------------
 //= require bootstrap

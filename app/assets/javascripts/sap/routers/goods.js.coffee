@@ -11,6 +11,7 @@ Sap.Routers.Goods = Backbone.Router.extend(#Support.SwappingRouter.extend(
 
   index: () ->
     console.log "indexAction"
+    view = new Sap.Views.GoodsIndex
 
   list: () ->
 #    view = Sap.Views.GoodsList
