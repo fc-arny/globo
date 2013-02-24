@@ -9,6 +9,7 @@
         $(function(){
            var data = [];
            data.goods = #{@goods.to_json};
+           data.categories = #{@categories.to_json}
 
            Sap.initialize(data);
 

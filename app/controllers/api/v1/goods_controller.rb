@@ -3,7 +3,18 @@ module Api
     # -------------------------------------------------------------
     # API for goods
     # -------------------------------------------------------------
-    class GoodsController < ApplicationController
+    class GoodsController < ApiController
+      # -------------------------------------------------------------
+      # List of goods
+      # -------------------------------------------------------------
+      def index
+        @goods = Sap::GoodList.
+            select('goods.id as good_id,goods.name as good_name, stores.name as store_name, price').
+            joins(:good, :store)
+
+        respond_with @goods
+      end
+
       # -------------------------------------------------------------
       # Search goods by params
       # -------------------------------------------------------------
@@ -24,6 +35,15 @@ module Api
         respond_to do |format|
           format.json{render json: @goods}
         end
+      end
+
+      private
+
+      # -------------------------------------------------------------
+      #
+      # -------------------------------------------------------------
+      def build_query(query, *params)
+
       end
     end
   end

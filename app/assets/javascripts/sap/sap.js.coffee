@@ -1,14 +1,20 @@
-@Sap =
+Sap =
   Models: {}
   Collections: {}
   Views: {}
   Routers: {}
   initialize: (data) ->
     console.log 'Init app'
+
+    # Data
+    this.categories = new Sap.Collections.Categories(data.categories)
     goods = new Sap.Collections.Goods(data.goods)
-    console.log goods
-    # Define Routers
-    new Sap.Routers.Goods(goods:goods)
+
+    # Routers
+    new Sap.Routers.Goods(
+      goods     : goods
+      categories: this.categories
+    )
 
     # Enable histroy API
     if (!Backbone.history.started)
@@ -18,7 +24,7 @@
       )
       Backbone.history.started = true
 
-
     this
 
+@Sap = Sap
 

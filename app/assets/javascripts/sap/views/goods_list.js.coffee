@@ -1,7 +1,7 @@
-Sap.Views.GoodsList = Backbone.View.extend(#Support.CompositeView.extend(
+Sap.Views.GoodsList = Support.CompositeView.extend(
 #    intialize: (options) ->
 #      console.log options
-#  #    _.bindAll(this, "render")
+#      _.bindAll(this, "render")
 
   render: () ->
     console.log 'ListView'
