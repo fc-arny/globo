@@ -11,12 +11,12 @@ Sap::Application.routes.draw do
 
 
   # Goods
-  get 'goods' => 'store::goods#index'                 # Top offers
-  get 'goods/view/:template' => 'store::goods#view'
-  #get 'goods/product' => redirect('/goods')           # Redirect to top offers
-  #get 'goods/product/:id' => 'store::goods#product'   # View product
-  #get 'goods/search' => 'store::goods#search'         # Search products
-  get 'goods/*category' => 'store::goods#index'    # View category
+  get 'goods' => 'store::goods#index'                   # Redirect to goods/:store
+  get 'goods/:store' => 'store::goods#index'            # Store promo page
+  get 'goods/:store/*category' => 'store::goods#index'       # View category
+  #get 'goods/product' => redirect('/goods')            # Redirect to top offers
+  #get 'goods/product/:id' => 'store::goods#product'    # View product
+  #get 'goods/search' => 'store::goods#search'          # Search products
 
   # Users
   get   'login' => 'user::login#form'                 # Login form

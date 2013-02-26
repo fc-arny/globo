@@ -1,11 +1,5 @@
 !!!
-/[if lt IE 7] <html class="no-js lt-ie7">
-/[if IE 7] <html class="no-js ie7">
-/[if IE 8] <html class="no-js ie8">
-/[if IE 9] <html class="no-js ie9">
-/ [if gt IE 9]><!
-%html.no-js{'ng-app' => "#{content_for?(:ng_app) ? yield(:ng_app) : ''}", 'lang' => "en"}
-  / <![endif]
+%html{'lang' => "en"}
 
   %head
     %title= @title || APP_DEFAULT_NAME
@@ -14,22 +8,9 @@
 
   %body{:class => "#{content_for?(:body_class) ? yield(:body_class) : 'market'}"}
     .container-fluid
-      - if is_admin?
-        .row-fluid.l-admin
-          .b-admin.g-clearfix
-            %a.admin-logo{href: '/admin/'} adminarea
-            .admin-resize
-              %ul.admin-resize-list.g-clearfix
-                %li.admin-resize-item
-                  %span Resize:
-                %li.admin-resize-item
-                  %a.icon-monitor{title: 'Full size'}
-                %li.admin-resize-item
-                  %a.icon-tablet{title: 'Tablet'}
-                %li.admin-resize-item
-                  %a.icon-mobile{title: 'Mobile'}
-
       = yield :base_content
-    .scripts
-      = yield :bottom
-      = yield :js
+
+    / JS Files anf page script
+    .scripts.hide
+      = yield :bottom # Include js-files
+      = yield :js     # Page scripts

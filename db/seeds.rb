@@ -13,9 +13,9 @@ Sap::Region.create([
 Sap::Store.delete_all
 Sap::Store.create([
 		#{id:1,name: 'GloboMarket', is_disabled: false, order_pos: 1, region_id: 1},
-		{id:2,name: 'Азбука Вкуса', is_disabled: false, order_pos: 2, region_id: 1},
-		{id:3,name: 'Аллые Паруса', is_disabled: false, order_pos: 3, region_id: 1},
-		{id:4,name: 'Перекресток', is_disabled: false, order_pos: 4, region_id: 1},
+		{id:2,name: 'Азбука Вкуса', order_pos: 2, url: 'azbuka-vkusa', region_id: 1},
+		{id:3,name: 'Аллые Паруса', order_pos: 3, url: 'allie-parusa',region_id: 1},
+		{id:4,name: 'Перекресток', order_pos: 4, url: 'globus-gurme', region_id: 1},
 ])
 # Categories
 Sap::Category.delete_all

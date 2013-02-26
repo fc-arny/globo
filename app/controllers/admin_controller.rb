@@ -15,7 +15,7 @@ class AdminController < ApplicationController
     user = current_user
 
     unless user && user.role.class == Sap::Admin
-    raise ActiveResource::ResourceNotFound, 'Access denied'
+      raise ActiveResource::ResourceNotFound, 'Access denied'
     end
   end
 end

@@ -1,31 +1,495 @@
-= content_for :head do
-  = stylesheet_link_tag :admin
-  = javascript_include_tag :admin
+!!!
+%html{'lang' => "en"}
 
-= content_for :body_class do
-  page-admin
+  %head
+    %title= @title || APP_DEFAULT_NAME
+    = stylesheet_link_tag :admin
+    = yield :head
+    = csrf_meta_tag
 
-= content_for :ng_app do
-  adminApp
+  %body.admin
+    / Top line
+    #top
+      .wrapper
+        %a.logo{:href => admin_path}
+          %img{:style => "height: 35px;", :src => "/assets/logo.png"}/
+        / Right top nav
+        .topNav
+          %ul.userNav
+            %li
+              %a.search{:title => ""}
+            %li
+              %a.screen{:href => "#", :title => ""}
+            %li
+              %a.settings{:href => "#", :title => ""}
+            %li
+              %a.logout{:href => "#", :title => ""}
+            %li.showTabletP
+              %a.sidebar{:href => "#", :title => ""}
+          %a.iButton{:title => ""}
+          %a.iTop{:title => ""}
+          .topSearch
+            .topDropArrow
+            %form{:action => ""}
+              %input{:name => "topSearch", :placeholder => "search...", :type => "text"}/
+              %input{:type => "submit", :value => ""}/
+        / Responsive nav
+        %ul.altMenu
+          %li
+            %a{:href => "index.html", :title => ""} Dashboard
+          %li
+            %a#current.exp{:href => "ui.html", :title => ""} UI elements
+            %ul
+              %li
+                %a{:href => "ui.html"} General elements
+              %li
+                %a{:href => "ui_icons.html"} Icons
+              %li
+                %a{:href => "ui_buttons.html"} Button sets
+              %li
+                %a.active{:href => "ui_grid.html"} Grid
+              %li
+                %a{:href => "ui_custom.html"} Custom elements
+          %li
+            %a.exp{:href => "forms.html", :title => ""} Forms stuff
+            %ul
+              %li
+                %a{:href => "forms.html"} Inputs & elements
+              %li
+                %a{:href => "form_validation.html"} Validation
+              %li
+                %a{:href => "form_editor.html"} File uploads & editor
+              %li
+                %a{:href => "form_wizards.html"} Form wizards
+          %li
+            %a{:href => "messages.html", :title => ""} Messages
+          %li
+            %a{:href => "statistics.html", :title => ""} Statistics
+          %li
+            %a.exp{:href => "tables.html", :title => ""} Tables
+            %ul
+              %li
+                %a{:href => "tables.html"} Standard tables
+              %li
+                %a{:href => "tables_dynamic.html"} Dynamic tables
+              %li
+                %a{:href => "tables_control.html"} Tables with control
+              %li
+                %a{:href => "tables_sortable.html"} Sortable & resizable
+          %li
+            %a.exp{:href => "other_calendar.html", :title => ""} Other pages
+            %ul
+              %li
+                %a{:href => "other_calendar.html"} Calendar
+              %li
+                %a{:href => "other_gallery.html"} Images gallery
+              %li
+                %a{:href => "other_file_manager.html"} File manager
+              %li
+                %a{:href => "other_404.html"} Sample error page
+              %li
+                %a{:href => "other_typography.html"} Typography
 
-= content_for :base_content do
-  .row-fluid
+    / Sidebar
+    #sidebar
+      .mainNav
+        .user
+          %a.leftUserDrop{:title => ""}
+            %img{:alt => "", :src => "/assets/user.png"}/
+            %span
+              %strong 3
+          %span Eugene
+          %ul.leftUser
+            %li
+              %a.sProfile{:href => "#", :title => ""} My profile
+            %li
+              %a.sMessages{:href => "#", :title => ""} Messages
+            %li
+              %a.sSettings{:href => "#", :title => ""} Settings
+            %li
+              %a.sLogout{:href => "#", :title => ""} Logout
+        / Responsive nav
+        .altNav
+          .userSearch
+            %form{:action => ""}
+              %input{:name => "userSearch", :placeholder => "search...", :type => "text"}/
+              %input{:type => "submit", :value => ""}/
+          / User nav
+          %ul.userNav
+            %li
+              %a.profile{:href => "#", :title => ""}
+            %li
+              %a.messages{:href => "#", :title => ""}
+            %li
+              %a.settings{:href => "#", :title => ""}
+            %li
+              %a.logout{:href => "#", :title => ""}
+        / Main nav
+        %ul.nav
+          %li
+            %a.active{:href => "index.html", :title => ""}
+              %img{:alt => "", :src => "/assets/icons/mainnav/dashboard.png"}/
+              %span Dashboard
+          %li
+            %a{:href => "ui.html", :title => ""}
+              %img{:alt => "", :src => "/assets/icons/mainnav/ui.png"}/
+              %span UI elements
+            %ul
+              %li
+                %a{:href => "ui.html", :title => ""}
+                  %span.icol-fullscreen>
+                  General elements
+              %li
+                %a{:href => "ui_icons.html", :title => ""}
+                  %span.icol-images2>
+                  Icons
+              %li
+                %a{:href => "ui_buttons.html", :title => ""}
+                  %span.icol-coverflow>
+                  Button sets
+              %li
+                %a{:href => "ui_grid.html", :title => ""}
+                  %span.icol-view>
+                  Grid
+              %li
+                %a{:href => "ui_custom.html", :title => ""}
+                  %span.icol-cog2>
+                  Custom elements
+          %li
+            %a{:href => "forms.html", :title => ""}
+              %img{:alt => "", :src => "/assets/icons/mainnav/forms.png"}/
+              %span Forms stuff
+            %ul
+              %li
+                %a{:href => "forms.html", :title => ""}
+                  %span.icol-list>
+                  Inputs & elements
+              %li
+                %a{:href => "form_validation.html", :title => ""}
+                  %span.icol-alert>
+                  Validation
+              %li
+                %a{:href => "form_editor.html", :title => ""}
+                  %span.icol-pencil>
+                  File uploader & WYSIWYG
+              %li
+                %a{:href => "form_wizards.html", :title => ""}
+                  %span.icol-signpost>
+                  Form wizards
+          %li
+            %a{:href => "messages.html", :title => ""}
+              %img{:alt => "", :src => "/assets/icons/mainnav/messages.png"}/
+              %span Messages
+          %li
+            %a{:href => "statistics.html", :title => ""}
+              %img{:alt => "", :src => "/assets/icons/mainnav/statistics.png"}/
+              %span Statistics
+          %li
+            %a{:href => "tables.html", :title => ""}
+              %img{:alt => "", :src => "/assets/icons/mainnav/tables.png"}/
+              %span Tables
+            %ul
+              %li
+                %a{:href => "tables.html", :title => ""}
+                  %span.icol-frames>
+                  Standard tables
+              %li
+                %a{:href => "tables_dynamic.html", :title => ""}
+                  %span.icol-refresh>
+                  Dynamic table
+              %li
+                %a{:href => "tables_control.html", :title => ""}
+                  %span.icol-bullseye>
+                  Tables with control
+              %li
+                %a{:href => "tables_sortable.html", :title => ""}
+                  %span.icol-transfer>
+                  Sortable and resizable
+          %li
+            %a{:href => "other_calendar.html", :title => ""}
+              %img{:alt => "", :src => "/assets/icons/mainnav/other.png"}/
+              %span Other pages
+            %ul
+              %li
+                %a{:href => "other_calendar.html", :title => ""}
+                  %span.icol-dcalendar>
+                  Calendar
+              %li
+                %a{:href => "other_gallery.html", :title => ""}
+                  %span.icol-images2>
+                  Images gallery
+              %li
+                %a{:href => "other_file_manager.html", :title => ""}
+                  %span.icol-files>
+                  File manager
+              %li
+                %a.exp{:href => "#", :title => ""}
+                  %span.icol-alert>
+                  Error pages
+                  %span.dataNumRed 6
+                %ul
+                  %li
+                    %a{:href => "other_403.html", :title => ""} 403 error
+                  %li
+                    %a{:href => "other_404.html", :title => ""} 404 error
+                  %li
+                    %a{:href => "other_405.html", :title => ""} 405 error
+                  %li
+                    %a{:href => "other_500.html", :title => ""} 500 error
+                  %li
+                    %a{:href => "other_503.html", :title => ""} 503 error
+                  %li
+                    %a{:href => "other_offline.html", :title => ""} Website is offline error
+              %li
+                %a{:href => "other_typography.html", :title => ""}
+                  %span.icol-create>
+                  Typography
+              %li
+                %a{:href => "other_invoice.html", :title => ""}
+                  %span.icol-money2>
+                  Invoice template
+      / Secondary nav
+      .secNav
+        .secWrapper
+          .secTop
+            .balance
+              .balInfo
+                Balance:
+                %span Apr 21 2012
+              .balAmount
+                %span.balBars
+                  / 5,10,15,20,18,16,14,20,15,16,12,10
+                %span $58,990
+            %a.triangle-red{:href => "#"}
+          / Tabs container
+          #tab-container.tab-container
+            %ul.iconsLine.ic3.etabs
+              %li
+                %a{:href => "#general", :title => ""}
+                  %span.icos-fullscreen
+              %li
+                %a{:href => "#alt1", :title => ""}
+                  %span.icos-user
+              %li
+                %a{:href => "#alt2", :title => ""}
+                  %span.icos-archive
+            .divider
+              %span
+            #general
+              / Sidebar big buttons
+              .sidePad
+                %a.sideB.bLightBlue{:href => "#", :title => ""} Add new session
+              .divider
+                %span
+              / Sidebar file uploads widget
+              .sideUpload
+                .dropFiles
+                %ul.filesDown
+                  %li.currentFile
+                    .fileProcess
+                      %img.loader{:alt => "", :src => "/assets/elements/loaders/10s.gif"}/
+                      %strong Homepage_widgets_102.psd
+                      .fileProgress
+                        %span 9.1 of 17MB
+                        \-
+                        %span 243KB/sec
+                        \-
+                        %span 1 min
+                      .contentProgress
+                        #bar10.barG.tipN{:title => "61%"}
+                  %li
+                    %span.fileSuccess>
+                    About_Us_08956.psd
+                    %span.remove
+                  %li
+                    %span.fileSuccess>
+                    Our_services_02811.psd
+                    %span.remove
+                  %li
+                    %span.fileError>
+                    Homepage_Alt_032811.psd
+                    %span.remove
+                  %li
+                    %span.fileQueue>
+                    Homepage_Alt_032811.psd
+                    %span.remove
+                  %li
+                    %span.fileQueue>
+                    Homepage_Alt_032811.psd
+                    %span.remove
+              .divider
+                %span
+              / Sidebar chart
+              .sideChart
+                #placeholder1_hS.barsS
+            #alt1
+              / Sidebar chart
+              .numStats
+                %ul
+                  %li
+                    %a{:href => "#", :title => ""} 4248
+                    %span visitors
+                  %li
+                    %a{:href => "#", :title => ""} 748
+                    %span orders
+                  %li.last
+                    %a{:href => "#", :title => ""} 357
+                    %span reviews
+              .divider
+                %span
+              / Sidebar user list
+              %ul.userList
+                %li
+                  %a{:href => "#", :title => ""}
+                    %img{:alt => "", :src => "/assets/live/face1.png"}/
+                    %span.contactName
+                      %strong
+                        Eugene Kopyov
+                        %span (5)
+                      %i web & ui designer
+                    %span.status_away
+                %li
+                  %a{:href => "#", :title => ""}
+                    %img{:alt => "", :src => "/assets/live/face2.png"}/
+                    %span.contactName
+                      %strong
+                        Lucy Wilkinson
+                        %span (12)
+                      %i Team leader
+                    %span.status_off
+                %li
+                  %a{:href => "#", :title => ""}
+                    %img{:alt => "", :src => "/assets/live/face3.png"}/
+                    %span.contactName
+                      %strong John Dow
+                      %i PHP developer
+                    %span.status_available
+              .divider
+                %span
+              / Sidebar progress bars
+              .sideWidget
+                .contentProgress
+                  #bar1.barGr.tipS{:title => "15%"}
+                .contentProgress.mt8
+                  #bar2.barB.tipS{:title => "30%"}
+                .contentProgress.mt8
+                  #bar3.barO.tipS{:title => "45%"}
+                .contentProgress.mt8
+                  #bar4.barBl.tipS{:title => "60%"}
+                .contentProgress.mt8
+                  #bar5.barR.tipS{:title => "75%"}
+            #alt2
+              / Sidebar forms
+              .sideWidget
+                .formRow
+                  %label Usual input field:
+                  %input{:name => "regular", :placeholder => "Your name", :type => "text"}/
+                .formRow
+                  %label Usual password field:
+                  %input{:name => "regular", :placeholder => "Your password", :type => "password"}/
+                .formRow
+                  %label Single file uploader:
+                  %input#fileInput.styled{:type => "file"}/
+                .formRow
+                  %label Dropdown menu:
+                  %select.styled{:name => "select2"}
+                    %option{:value => "opt1"} Usual select box
+                    %option{:value => "opt2"} Option 2
+                    %option{:value => "opt3"} Option 3
+                    %option{:value => "opt4"} Option 4
+                    %option{:value => "opt5"} Option 5
+                    %option{:value => "opt6"} Option 6
+                    %option{:value => "opt7"} Option 7
+                    %option{:value => "opt8"} Option 8
+                .formRow.searchDrop
+                  %label Dropdown with search:
+                  %select.select{"data-placeholder" => "Choose a Country...", :tabindex => "2"}
+                    %option{:value => ""}
+                    %option{:value => "Cambodia"} Cambodia
+                    %option{:value => "Cameroon"} Cameroon
+                    %option{:value => "Canada"} Canada
+                    %option{:value => "Cape Verde"} Cape Verde
+                    %option{:value => "Cayman Islands"} Cayman Islands
+                    %option{:value => "Central African Republic"} Central African Republic
+                    %option{:value => "Chad"} Chad
+                    %option{:value => "Chile"} Chile
+                    %option{:value => "China"} China
+                    %option{:value => "Christmas Island"} Christmas Island
+                    %option{:value => "Cocos (Keeling) Islands"} Cocos (Keeling) Islands
+                    %option{:value => "Colombia"} Colombia
+                    %option{:value => "Comoros"} Comoros
+                    %option{:value => "Congo"} Congo
+                    %option{:value => "Congo, The Democratic Republic of The"} Congo, The Democratic Republic of The
+                    %option{:value => "Cook Islands"} Cook Islands
+                    %option{:value => "Costa Rica"} Costa Rica
+                    %option{:value => "Cote D'ivoire"} Cote D'ivoire
+                    %option{:value => "Croatia"} Croatia
+                    %option{:value => "Cuba"} Cuba
+                    %option{:value => "Cyprus"} Cyprus
+                    %option{:value => "Czech Republic"} Czech Republic
+                    %option{:value => "Denmark"} Denmark
+                    %option{:value => "Djibouti"} Djibouti
+                    %option{:value => "Dominica"} Dominica
+                    %option{:value => "Dominican Republic"} Dominican Republic
+                    %option{:value => "Ecuador"} Ecuador
+                    %option{:value => "Egypt"} Egypt
+                    %option{:value => "El Salvador"} El Salvador
+                    %option{:value => "Equatorial Guinea"} Equatorial Guinea
+                    %option{:value => "Eritrea"} Eritrea
+                    %option{:value => "Estonia"} Estonia
+                    %option{:value => "Ethiopia"} Ethiopia
+                    %option{:value => "Falkland Islands (Malvinas)"} Falkland Islands (Malvinas)
+                    %option{:value => "Faroe Islands"} Faroe Islands
+                    %option{:value => "Fiji"} Fiji
+                    %option{:value => "Finland"} Finland
+                    %option{:value => "France"} France
+                    %option{:value => "French Guiana"} French Guiana
+                    %option{:value => "French Polynesia"} French Polynesia
+                    %option{:value => "French Southern Territories"} French Southern Territories
+                    %option{:value => "Gabon"} Gabon
+                    %option{:value => "Gambia"} Gambia
+                    %option{:value => "Georgia"} Georgia
+                    %option{:value => "Germany"} Germany
+                    %option{:value => "Ghana"} Ghana
+                    %option{:value => "Gibraltar"} Gibraltar
+                    %option{:value => "Greece"} Greece
+                .formRow
+                  %input#check2.check{:checked => "checked", :name => "chbox1", :type => "checkbox"}/
+                  %label.nopadding{:for => "check2"} Checkbox checked
+                .formRow
+                  %input#radio1{:checked => "checked", :name => "question1", :type => "radio"}/
+                  %label.nopadding{:for => "radio1"} Usual radio button
+                .formRow
+                  %label Usual textarea:
+                  %textarea{:cols => "", :name => "textarea", :placeholder => "Your message", :rows => "8"}
+                .formRow
+                  %input.buttonS.bLightBlue{:type => "submit", :value => "Submit button"}/
+          .divider
+            %span
+          / Sidebar datepicker
+          .sideWidget
+            .inlinedate
+          .divider
+            %span
+          / Sidebar tags line
+          .formRow
+            %input#tags.tags{:name => "tags", :type => "text", :value => "these,are,sample,tags"}/
+          .divider
+            %span
+          / Sidebar buttons
+          .fluid.sideWidget
+            .grid6
+              %input.buttonS.bRed{:type => "submit", :value => "Cancel"}/
+            .grid6
+              %input.buttonS.bGreen{:type => "submit", :value => "Submit"}/
+          .divider
+            %span
 
-    / Left column
-    .span1
-      %ul.nav.nav-list
-        %li.nav-header Menu
-        %li.active Goods
-        %li
-          %a Users
-        %li
-          %a Statistic
-        %li
-          %a Settings
+    / Content
+    #content
+      = yield
 
-    .span11
-      %div
-        - display_flash_message
-        = yield
-
-= render :template => 'layouts/base'
+    / JS Files anf page script
+    .scripts.hide
+      = javascript_include_tag :admin
+      = yield :js     # Page scripts

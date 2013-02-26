@@ -1,24 +1,27 @@
 Sap.Routers.Goods = Support.SwappingRouter.extend(
   initialize: (data) ->
-    console.log 'Init Route'
-    console.log(data.goods)
     this.el = $('.span10')
     this.collection = data.goods
     this.categies = data.categories
 
   routes:
-    ""      : 'index'
-    "*categories"  : 'list'
+    ""                    : 'main'
+    ":store"              : 'store'
+    ":store/*categories"  : 'list'
 
-  index: () ->
-    console.log "indexAction"
+  store: (store) ->
+    console.log 'STORE' + store
+
+  main: () ->
+    console.log "MAIN"
     view = new Sap.Views.GoodsIndex
     $('.span10').html(view.render().$el)
 
-  list: (categoriesUrl, page) ->
+  list: (store,categories) ->
+    console.log 'LIST'
     route       = this
     goods       = new Sap.Collections.Goods
-    categories  = Sap.categories.getByUrl(categoriesUrl)
+    categories  = Sap.categories.getByUrl(categories)
 
     categoryIds = []
     for category in categories.models

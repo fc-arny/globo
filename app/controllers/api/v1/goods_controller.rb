@@ -8,9 +8,11 @@ module Api
       # List of goods
       # -------------------------------------------------------------
       def index
+
         @goods = Sap::GoodList.
-            select('goods.id as good_id,goods.name as good_name, stores.name as store_name, price').
-            joins(:good, :store)
+            select('goods.id as id,goods.name as name, stores.name as store_name, price').
+            joins(:good, :store).
+            where('store_id = ?', 2)
 
         respond_with @goods
       end

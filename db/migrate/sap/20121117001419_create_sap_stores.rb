@@ -5,10 +5,10 @@ class CreateSapStores < ActiveRecord::Migration
   def change
     create_table :"sap.stores" do |t|
       t.integer :id
-      t.string :name, null: false
+      t.string  :name, null: false
       t.integer :order_pos, default: 0
-      t.boolean :is_disabled, default: false
-      t.integer :region_id
+      t.string  :url, null: false
+      t.string  :region_id
       t.timestamps
     end
   end

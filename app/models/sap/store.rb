@@ -5,10 +5,11 @@
 # -------------------------------------------------------------
 # =Fields:
 #  order_pos    - position in store list
+#  url          - name in latin for links
 #  is_disables  - don't work with the client
-# region_id     - link to region
+#  region_id    - link to region
 # -------------------------------------------------------------
 class Sap::Store < SapModel
   # Fields
-	attr_accessible :id, :name, :order_pos, :is_disabled, :region_id
+	attr_accessible :id, :name, :url, :order_pos, :region_id
 end
