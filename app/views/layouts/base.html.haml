@@ -6,11 +6,10 @@
     = yield :head
     = csrf_meta_tag
 
-  %body{:class => "#{content_for?(:body_class) ? yield(:body_class) : 'market'}"}
-    .container-fluid
-      = yield :base_content
+  %body
+    = content_for?(:base_content) ? yield(:base_content) : yield
 
     / JS Files anf page script
-    .scripts.hide
+    .js-scripts
       = yield :bottom # Include js-files
       = yield :js     # Page scripts

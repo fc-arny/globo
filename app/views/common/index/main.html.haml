@@ -9,9 +9,9 @@
     %a{:href => register_path} Registration
 
 
-%h1 Goods
-%a{:href => goods_path} View goods ->
+%h1 Stores
+- @stores.each do |store|
+    %a{:href => "/goods/#{store.url}"}= store.name
+    \|
 
-- @users.each do |u|
-    %h1= u.name
 

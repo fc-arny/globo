@@ -12,4 +12,11 @@
 class Sap::Store < SapModel
   # Fields
 	attr_accessible :id, :name, :url, :order_pos, :region_id
+
+  # -------------------------------------------------------------
+  # Get actual store list
+  # -------------------------------------------------------------
+  def self.get_store_list
+    self.all
+  end
 end

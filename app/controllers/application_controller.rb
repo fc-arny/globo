@@ -9,7 +9,17 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :user
 
+  before_filter :current_store
+
   protected
+
+  # -------------------------------------------------------------
+  # Getting current store or return default value
+  # -------------------------------------------------------------
+  def current_store
+    @current_store = session[:current_store].nil? ? Sap::Store.first : Sap::Store.find(session[:current_store])
+    session[:current_store] = @current_store.id
+  end
 
   # -------------------------------------------------------------
   # Current user or nil

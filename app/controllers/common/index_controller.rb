@@ -3,13 +3,12 @@ module Common
   # Show base or static pages
   # -------------------------------------------------------------
   class IndexController < ApplicationController
+    layout 'base'
     # -------------------------------------------------------------
     # Show main page
     # -------------------------------------------------------------
     def main
-      @users = Sap::User.all #restrict(current_user).order('id DESC')
-      #sms_gate = SmsGate::SMSC.new
-      #@ret = sms_gate.send_sms('79091553336', 'Hallo Globo!',0,0,0,0, 'MartSoft')
+      @stores = Sap::Store.get_store_list
     end
   end
 end

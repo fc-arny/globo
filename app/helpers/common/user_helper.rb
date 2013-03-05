@@ -1,7 +1,7 @@
 # -------------------------------------------------------------
 # Helper methods for users
 # -------------------------------------------------------------
-module UserHelper
+module Common::UserHelper
   # -------------------------------------------------------------
   # Is user an admin?
   # -------------------------------------------------------------
@@ -19,7 +19,7 @@ module UserHelper
   # -------------------------------------------------------------
   # Get session setting
   # -------------------------------------------------------------
-  def session_setting(key, default = nil)
+  def get_session_setting(key, default = nil)
     (!session[:settings].nil? && !session[:settings][key.to_sym].nil?) ? session[:settings][key.to_sym] : default
   end
 

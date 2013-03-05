@@ -10,12 +10,12 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
     ":store/*categories"  : 'list'
 
   store: (store) ->
-    console.log 'STORE' + store
+    console.log 'STORE'
 
   main: () ->
     console.log "MAIN"
     view = new Sap.Views.GoodsIndex
-    $('.span10').html(view.render().$el)
+    $('.content-main').html(view.render().$el)
 
   list: (store,categories) ->
     console.log 'LIST'
@@ -29,7 +29,6 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
 
     goods.fetch(
       data:
-        page: page
         category: categoryIds
       success:->
         console.log 'ListAction'

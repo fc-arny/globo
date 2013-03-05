@@ -1,18 +1,14 @@
-= content_for :main do
+= content_for :js do
+  :javascript
+    $(function(){
+       var data = [];
+       data.stores = #{@stores.to_json};
+       data.categories = #{@categories.to_json}
 
-  .b-goods
-    = content_for :js do
-      :javascript
-        $(function(){
-           var data = [];
-           data.goods = #{@goods.to_json};
-           data.categories = #{@categories.to_json}
+       Sap.initialize(data);
 
-           Sap.initialize(data);
-
-           $(document).on("click", "a", function(evt) {
-             evt.preventDefault();
-             var href = { prop: $(this).prop("href"), attr: $(this).attr("href") };
-             Backbone.history.navigate(href.attr.replace('goods/',''), true);
-           });
-        });
+       $(document).on("click", "a[href^='/goods']", function(evt) {
+         evt.preventDefault();
+         Backbone.history.navigate($(this).attr("href").replace('/goods',''), true);
+       });
+    });

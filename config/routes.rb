@@ -8,12 +8,11 @@ Sap::Application.routes.draw do
 
   match ':controller(/:action(/:id))(.:format)', :controller => /common\/[^\/]+/
 
+  # Good
+  get 'goods'                     => 'store::goods#index'               # Promo Page init backbone-app
+  get 'goods/:store'              => 'store::goods#index'               # Store promo page
+  get 'goods/:store/*categories'  => 'store::goods#index'               # Store promo page
 
-
-  # Goods
-  get 'goods' => 'store::goods#index'                   # Redirect to goods/:store
-  get 'goods/:store' => 'store::goods#index'            # Store promo page
-  get 'goods/:store/*category' => 'store::goods#index'       # View category
   #get 'goods/product' => redirect('/goods')            # Redirect to top offers
   #get 'goods/product/:id' => 'store::goods#product'    # View product
   #get 'goods/search' => 'store::goods#search'          # Search products
