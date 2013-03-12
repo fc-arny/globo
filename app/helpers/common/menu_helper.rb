@@ -84,15 +84,13 @@ module Common::MenuHelper
     # Render sub categories
     # -------------------------------------------------------------
     def render_category_subitems(category)
-      link = build_link(category[:url])
-
       haml_tag :ul, :class => 'sub-categories' do
         category[:children].each do |cat|
 
-          href = "#{link}/#{cat[:url]}"
-          data_url = "#{category[:url]}/#{cat[:url]}"
+          href = build_link(cat[:url])
+          data_url = "#{cat[:url]}"
 
-          haml_tag :li, :class => 'item' do
+          haml_tag :li, :class => 'sub-item' do
             haml_tag :a, :href => href, :'data-url' => data_url do
               haml_concat cat[:name]
             end

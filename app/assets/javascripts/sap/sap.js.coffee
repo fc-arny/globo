@@ -5,17 +5,16 @@ Sap =
   Views: {}
   Routers: {}
   initialize: (data) ->
-    console.log 'Init app'
 
     this.currentStore = ''
 
     # Data
+    this.stores = new Sap.Collections.Stores(data.stores)
     this.categories = new Sap.Collections.Categories(data.categories)
-    goods = new Sap.Collections.Goods(data.goods)
 
     # Routers
     new Sap.Routers.Goods(
-      goods     : goods
+#      goods     : goods
       categories: this.categories
     )
 
@@ -31,8 +30,12 @@ Sap =
 
 @Sap = Sap
 
+
+
 # Document load
 $(()->
+  $('li.item').mainMenu()
+
   GOODS_URL = '/goods'
   $('#select-store').on 'change', ()->
     store       = $(@).val()
@@ -52,6 +55,11 @@ $(()->
           category_url = GOODS_URL + '/' + store + '/' + $(link).data('url')
           $(link).attr('href', category_url)
         )
+        $.ajax
+          url: GOODS_URL + '/' + store
+          dataType: 'json'
+
+
         Backbone.history.navigate(page_url, true);
       else
         document.location.href = GOODS_URL + '/' + store

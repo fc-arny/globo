@@ -5,47 +5,90 @@ module Api
     # -------------------------------------------------------------
     class GoodsController < ApiController
       # -------------------------------------------------------------
+      # Init env
+      # -------------------------------------------------------------
+      def initialize
+        # Using tables
+        @table_good      = Sap::Good.table_name
+        @table_good_list = Sap::GoodList.table_name
+
+        # alias => field grouped by table
+        @select_fields = {
+            @table_good => {
+                :id   => 'id',
+                :name => 'name'
+            },
+            @table_good_list => {
+                :price    => 'price',
+                :store_id    => 'store_id'
+            }
+        }
+      end
+
+      # -------------------------------------------------------------
       # List of goods
       # -------------------------------------------------------------
       def index
-
-        @goods = Sap::GoodList.
-            select('goods.id as id,goods.name as name, stores.name as store_name, price').
-            joins(:good, :store).
-            where('store_id = ?', 2)
-
-        respond_with @goods
+        respond_with build_query(Sap::Good)
       end
 
       # -------------------------------------------------------------
       # Search goods by params
       # -------------------------------------------------------------
       def search
-        sleep 5
-        condition = []
 
-        #raise 'store_id is required' if params[:store_id].nil?
+      end
 
-        condition = {:store_id => params[:store_id]} if !params[:store_id].nil?
+      # -------------------------------------------------------------
+      # Create goods
+      # -------------------------------------------------------------
+      def create
+        #if @task.save
+        #  respond_with(@task)
+        #else
+        #  respond_with(@task, :status => :unprocessable_entity)
+        #end
 
-        # Get all goods
-        @goods = Sap::GoodList.
-            select('goods.id as good_id,goods.name as good_name, stores.name as store_name, price').
-            joins(:good, :store).
-            where(condition)
-
-        respond_to do |format|
-          format.json{render json: @goods}
-        end
       end
 
       private
 
       # -------------------------------------------------------------
+      # Generate SELECT for query
+      # @return String
+      # -------------------------------------------------------------
+      def build_query_select
+
+        select = []
+
+        @select_fields.each do |table, fields|
+          select << fields.map{|value,field| "#{table}.#{field} as #{value}"}.join(',')
+        end
+
+        select.join(',')
+      end
+
+      # -------------------------------------------------------------
       #
       # -------------------------------------------------------------
-      def build_query(query, *params)
+      def build_query_where
 
+
+
+
+      end
+
+      # -------------------------------------------------------------
+      # Create QUERY
+      # -------------------------------------------------------------
+      def build_query(query)
+        # Category and store is required for getting goods
+        store_id    = params[:store]
+        category_id = params[:category]
+
+        query.select(build_query_select).
+          joins(:good_list,:category_goods).
+          where('store_id = ? AND category_id = ?', store_id, category_id)
       end
     end
   end

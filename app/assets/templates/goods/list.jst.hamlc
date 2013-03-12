@@ -1,4 +1,5 @@
 %h1 Продукты
+  = @title
 - for good in @goods.models
   %div
-    %div= good.escape('good_id') + ')' + good.escape('good_name')
+    %div= good.escape('id') + ')' + good.escape('name') + ' - ' + good.escape('price')

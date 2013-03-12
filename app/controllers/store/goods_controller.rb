@@ -5,17 +5,28 @@
 class Store::GoodsController < ApplicationController
 
   # -------------------------------------------------------------
-  # Show top offers
+  # SPA for goods
   # -------------------------------------------------------------
   def index
     store_url = params[:store]
+
+    # Redirect to current store
     if store_url.nil?
-      redirect_to '/goods/' + @current_store.url
-    else
-      @stores = Sap::Store.select('id, name, url')
-      store = Sap::Store.find_by_url(store_url)
-      session[:current_store] = store.id
-      @categories = Sap::Category.select('id, url, name')
+      return redirect_to goods_path(:store => @current_store.url)
+    end
+
+    # Set up current store
+    store = Sap::Store.find_by_url(store_url)
+    session[:current_store] = store.id
+
+    # Data for backbone
+    @stores = Sap::Store.select('id, name, url')
+    @categories = Sap::Category.select('id, url, name')
+
+    # JSON respond is empty. Need for setting up current store
+    respond_to do |format|
+      format.html
+      format.json{ render :json => '' }
     end
   end
 end

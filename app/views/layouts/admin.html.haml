@@ -98,7 +98,7 @@
             %img{:alt => "", :src => "/assets/user.png"}/
             %span
               %strong 3
-          %span Eugene
+          %span= current_user.login
           %ul.leftUser
             %li
               %a.sProfile{:href => "#", :title => ""} My profile
@@ -127,13 +127,13 @@
         / Main nav
         %ul.nav
           %li
-            %a.active{:href => "index.html", :title => ""}
+            %a.active{:href => "/admin", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/dashboard.png"}/
-              %span Dashboard
+              %span= 'Main'
           %li
             %a{:href => "ui.html", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/ui.png"}/
-              %span UI elements
+              %span= 'Users'
             %ul
               %li
                 %a{:href => "ui.html", :title => ""}
@@ -158,7 +158,7 @@
           %li
             %a{:href => "forms.html", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/forms.png"}/
-              %span Forms stuff
+              %span Manage Store
             %ul
               %li
                 %a{:href => "forms.html", :title => ""}
@@ -251,7 +251,84 @@
 
     / Content
     #content
-      = yield
+      / Page title and statistic
+      .contentTop
+        %span.pageTitle
+          = content_for?(:page_title) ? yield(:page_title) : t('Administaration')
+
+        / Today statistic
+        %ul.quickStats
+          %li
+            %a.blueImg{:href => ""}
+              %img{:alt => "", :src => "/assets/icons/quickstats/plus.png"}/
+            .floatR
+              %strong.blue 5489
+              %span visits
+          %li
+            %a.redImg{:href => ""}
+              %img{:alt => "", :src => "/assets/icons/quickstats/user.png"}/
+            .floatR
+              %strong.blue 4658
+              %span users
+          %li
+            %a.greenImg{:href => ""}
+              %img{:alt => "", :src => "/assets/icons/quickstats/money.png"}/
+            .floatR
+              %strong.blue 1289
+              %span orders
+      / Bread crumbs TODO: Вынести в хелпер хлебные крошки
+      .breadLine
+        .bc
+          %ul#breadcrumbs.breadcrumbs
+            %li
+              %a{:href => "#"} Dashboard
+            %li
+              %a{:href => "#"} UI elements
+              %ul{:style => "display: none;"}
+                %li
+                  %a{:href => "ui.html", :title => ""} General elements
+                %li
+                  %a{:href => "ui_icons.html", :title => ""} Icons
+                %li
+                  %a{:href => "ui_buttons.html", :title => ""} Button sets
+                %li
+                  %a{:href => "ui_custom.html", :title => ""} Custom elements
+            %li.current
+              %a{:href => "ui_grid.html", :title => ""} Grid
+        .breadLinks
+          %ul
+            %li
+              %a{:href => "#", :title => ""}
+                %i.icos-list
+                %span Orders
+                %strong (+58)
+            %li
+              %a{:href => "#", :title => ""}
+                %i.icos-check
+                %span Tasks
+                %strong (+12)
+            %li.has
+              %a{:title => ""}
+                %i.icos-money3
+                %span Invoices
+                %span
+                  %img{:alt => "", :src => "/assets/elements/control/hasddArrow.png"}/
+              %ul
+                %li
+                  %a{:href => "#", :title => ""}
+                    %span.icos-add>
+                    New invoice
+                %li
+                  %a{:href => "#", :title => ""}
+                    %span.icos-archive>
+                    History
+                %li.noBorderB
+                  %a{:href => "#", :title => ""}
+                    %span.icos-printer>
+                    Print invoices
+
+      .wrapper
+        = yield
 
     / JS Files anf page script
     .scripts.hide

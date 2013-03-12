@@ -11,9 +11,9 @@ class Sap::Good < SapModel
   attr_accessible :description, :id, :is_approved, :name, :status
 
   # Associations
-  has_many :good_lists, :class_name => 'Sap::GoodList'
-  has_many :categories, :class_name => 'Sap::Category'#, :through => :category_goods
+  has_many :good_list, :class_name => 'Sap::GoodList'
   has_many :category_goods, :class_name => 'Sap::CategoryGood'
+  has_many :categories, :class_name => 'Sap::Category', :through => :category_goods
 
   # -------------------------------------------------------------
   # Get list of goods by store
@@ -26,6 +26,6 @@ class Sap::Good < SapModel
   #
   # -------------------------------------------------------------
   def as_json(options = { })
-    super(options.merge(:only => [:id, :name]))
+    super(options.merge(:only => [:id, :name, :price]))
   end
 end

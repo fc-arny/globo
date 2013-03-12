@@ -4,17 +4,18 @@
 //= require jquery_ujs
 //= require hamlcoffee
 
-// Core ---------------------------
-//---------------------------------
-//= require_tree ./common
-//= require_directory ./sap
-
 // Backbone Lib -------------------
 //---------------------------------
 //= require underscore
 //= require json2
 //= require backbone
 //= require backbone-support
+
+// Core ---------------------------
+//---------------------------------
+//= require_tree ./common
+//= require_directory ./sap
+//= require_tree ./sap/plugins
 
 // Backbone App -------------------
 //---------------------------------
@@ -23,6 +24,4 @@
 //= require_tree ./sap/views
 //= require_tree ./sap/routers
 //= require_tree ../templates
-
-$()
 

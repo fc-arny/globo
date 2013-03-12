@@ -1,38 +1,36 @@
 Sap.Routers.Goods = Support.SwappingRouter.extend(
   initialize: (data) ->
-    this.el = $('.span10')
+    this.el = $('.content-main')
     this.collection = data.goods
     this.categies = data.categories
 
   routes:
     ""                    : 'main'
     ":store"              : 'store'
-    ":store/*categories"  : 'list'
+    ":store/:category"    : 'list'
 
   store: (store) ->
-    console.log 'STORE'
+    store_model = Sap.stores.getByUrl(store)
+    view = new Sap.Views.GoodsStore(model:store_model)
+    this.swap(view)
 
   main: () ->
-    console.log "MAIN"
     view = new Sap.Views.GoodsIndex
     $('.content-main').html(view.render().$el)
 
-  list: (store,categories) ->
-    console.log 'LIST'
+  list: (store, category) ->
     route       = this
-    goods       = new Sap.Collections.Goods
-    categories  = Sap.categories.getByUrl(categories)
 
-    categoryIds = []
-    for category in categories.models
-      categoryIds.push category.get('id')
+    goods = new Sap.Collections.Goods
+    store_model         = Sap.stores.getByUrl(store)
+    category_model      = Sap.categories.getByUrl(category)
 
+    # Getting goods by AJAX
     goods.fetch(
       data:
-        category: categoryIds
+        store     : store_model.id
+        category  : category_model.id
       success:->
-        console.log 'ListAction'
-
         view = new Sap.Views.GoodsList(collection:goods)
         route.swap(view)
     )

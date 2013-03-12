@@ -1,7 +1,9 @@
-// This is a manifest file that'll be compiled into admin.js
-//
+// jQuery -------------------------
+//---------------------------------
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+
+// Core ---------------------------
+//---------------------------------
 //= require_tree ./common
 //= require_tree ./admin

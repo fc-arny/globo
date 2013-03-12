@@ -2,7 +2,7 @@ Sap.Collections.Categories = Backbone.Collection.extend(
   model : Sap.Models.Category
   url   : '/api/v1/categories'
 
-  # Get Ccategories by url
+  # Get categories by url
   getByUrl: (categoriesUrl)->
     urls = categoriesUrl.split('/')
     categories = this.select((category)->
@@ -10,7 +10,5 @@ Sap.Collections.Categories = Backbone.Collection.extend(
       category if url in urls
     )
 
-    console.log categories
-
-    new Sap.Collections.Categories(categories)
+    categories[0]
 )
