@@ -3,6 +3,10 @@ ru:
   #Global translations
   market_name: 'Глобо'
 
+  #Common
+  login: Войти
+  signup: Регистрация
+
   # View's translations
   layouts:
     application:

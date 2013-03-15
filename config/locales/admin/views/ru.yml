@@ -1,0 +1,9 @@
+ru:
+  titles:
+    main: Главная
+  sidemenu:
+    main: Главная
+    users: Пользователи
+    manage-store: Управление
+    messages: Сообщения
+    stat: Статистика

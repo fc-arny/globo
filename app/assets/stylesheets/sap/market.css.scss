@@ -1,0 +1,32 @@
+.market {
+  // Header
+  #header {
+    background: #74c900;
+  }
+
+  // MainMenu
+  #main-menu {
+    .categories {
+      .item {
+        padding: 0px 15px;
+        float:  left;
+      }
+    }
+    .sub-categories {
+      .item {
+        float:  none;
+      }
+    }
+  }
+
+  // Content
+  #wrapper {
+    background: #cdcdcd;
+    clear: both;
+  }
+
+  // Footer
+  #footer {
+    background: #3c3c3c;
+  }
+}

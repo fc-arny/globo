@@ -129,11 +129,11 @@
           %li
             %a.active{:href => "/admin", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/dashboard.png"}/
-              %span= 'Main'
+              %span= t('sidemenu.main')
           %li
             %a{:href => "ui.html", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/ui.png"}/
-              %span= 'Users'
+              %span= t('sidemenu.users')
             %ul
               %li
                 %a{:href => "ui.html", :title => ""}
@@ -158,7 +158,7 @@
           %li
             %a{:href => "forms.html", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/forms.png"}/
-              %span Manage Store
+              %span= t('sidemenu.manage-store')
             %ul
               %li
                 %a{:href => "forms.html", :title => ""}
@@ -177,13 +177,13 @@
                   %span.icol-signpost>
                   Form wizards
           %li
-            %a{:href => "messages.html", :title => ""}
+            %a{:href => "/", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/messages.png"}/
-              %span Messages
+              %span= t('sidemenu.messages')
           %li
             %a{:href => "statistics.html", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/statistics.png"}/
-              %span Statistics
+              %span= t('sidemenu.stat')
           %li
             %a{:href => "tables.html", :title => ""}
               %img{:alt => "", :src => "/assets/icons/mainnav/tables.png"}/

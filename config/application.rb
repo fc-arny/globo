@@ -20,11 +20,16 @@ module Sap
 	  config.autoload_paths += %W(
                             #{config.root}/models/**
                             #{config.root}/lib
-                            #{config.root}/forms/**)
+                            #{config.root}/forms/**
+                            #{config.root}/workers)
 
     config.assets.paths += %W(
                             #{config.root}/assets/fonts/**
                             #{config.root}/assets/templates/**)
+
+    config.i18n.load_path +=
+        Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
 
 
     # Only load the plugins named here, in the order given (default is alphabetical).

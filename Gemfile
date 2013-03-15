@@ -12,12 +12,16 @@ gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
 
+# Sidekiq
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 
 # Client Side
-gem 'ejs'                         # EJS gem for backbone
 gem 'jquery-rails'                # jQuery
 gem 'rails-backbone'              # Backbone
 gem 'backbone-support'            # Backbone Support
+gem 'haml_coffee_assets'          # JS Templates for backbone
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,8 +30,12 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 
-  gem 'haml_coffee_assets' # JS Templates for backbone
-  gem 'execjs'             # JS Templates for backbone
+  #gem 'execjs'             # JS Templates for backbone
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # To use ActiveModel has_secure_password

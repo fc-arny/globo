@@ -44,7 +44,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: sap_test
+  database: sap_development
   pool: 5
   username: www
   password: fhybfhyb

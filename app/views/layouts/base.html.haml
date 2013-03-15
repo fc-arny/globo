@@ -3,10 +3,12 @@
 
   %head
     %title= @title || APP_DEFAULT_NAME
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     = yield :head
     = csrf_meta_tag
 
-  %body
+
+  %body{:class => content_for?(:body_class) ? yield(:body_class) : 'market'}
     = content_for?(:base_content) ? yield(:base_content) : yield
 
     / JS Files anf page script
