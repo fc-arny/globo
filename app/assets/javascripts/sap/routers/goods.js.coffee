@@ -1,9 +1,14 @@
 Sap.Routers.Goods = Support.SwappingRouter.extend(
-  initialize: (data) ->
-    this.el = $('.content-main')
-    this.collection = data.goods
-    this.categies = data.categories
 
+
+  # Init router
+  initialize: (data) ->
+    @el = $('.content-main')
+    @collection = data.goods
+    @categies = data.categories
+
+
+  # Routers
   routes:
     ""                    : 'main'
     ":store"              : 'store'
@@ -19,20 +24,36 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
     $('.content-main').html(view.render().$el)
 
   list: (store, category) ->
-    route       = this
 
-    goods = new Sap.Collections.Goods
-    store_model         = Sap.stores.getByUrl(store)
-    category_model      = Sap.categories.getByUrl(category)
+    if Sap.collections.goods isnt undefined
+      Sap.collections.goods.page++
+    else
+      Sap.collections.goods = new Sap.Collections.Goods()
+
+    Sap.models.currentStore     = Sap.collections.stores.getByUrl(store)
+    Sap.models.currentCategory  = Sap.collections.categories.getByUrl(category)
 
     # Getting goods by AJAX
-    goods.fetch(
+    Sap.collections.goods.fetch(
+      add: true
       data:
-        store     : store_model.id
-        category  : category_model.id
-      success:->
-        view = new Sap.Views.GoodsList(collection:goods)
-        route.swap(view)
+        store     : Sap.models.currentStore.id
+        category  : Sap.models.currentCategory.id
+        limit     : 3
+        offset    : 3*Sap.collections.goods.page
+      success:()->
+        if Sap.views.goodsList is undefined
+          # Fetch goods
+          Sap.views.goodsList = new Sap.Views.GoodsList(
+            collection: Sap.collections.goods
+            category  : Sap.models.currentCategory
+
+          )
+          Sap.routers.goods.swap(Sap.views.goodsList)
+        else
+          Sap.views.goodsList.renderGoods()
     )
+
+  # Private
 
 )

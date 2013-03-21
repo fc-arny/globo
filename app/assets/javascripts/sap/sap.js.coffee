@@ -1,20 +1,30 @@
 # SAP application
 Sap =
-  Models: {}
-  Collections: {}
-  Views: {}
-  Routers: {}
+  # Namespaces
+  Views       : {}
+  Models      : {}
+  Routers     : {}
+  Collections : {}
+
+  # Instances
+  views       : {}
+  models      : {}
+  routers     : {}
+  collections : {}
+
+  # Init application
   initialize: (data) ->
+
+    @routers.goods = new Sap.Routers.Goods
 
     this.currentStore = ''
 
-    # Data
-    this.stores = new Sap.Collections.Stores(data.stores)
-    this.categories = new Sap.Collections.Categories(data.categories)
+    # Set collections
+    @collections.stores     = new Sap.Collections.Stores(data.stores)
+    @collections.categories = new Sap.Collections.Categories(data.categories)
 
-    # Routers
-    new Sap.Routers.Goods(
-#      goods     : goods
+    # Set routers
+    @routers.goods = new Sap.Routers.Goods(
       categories: this.categories
     )
 

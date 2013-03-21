@@ -1,1 +1,1 @@
-%h1= @store.get('name')
+%h3= "Лушее от #{@store.get('name')}"

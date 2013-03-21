@@ -7,10 +7,21 @@ ru:
   login: Войти
   signup: Регистрация
 
+  #Index
+  main:
+    best-supermarkets: Лучшие супермаркеты в одном месте
+    help-you: Мы поможем Вам
+    buy-online: Заказ продуктов по Интернету
+    buy-online-desc: Вы можете собрать корзину из любого магазина
+    compare-prices: Сравнить цены
+    compare-prices-desc: Сравните цены и выбирете то, что Вам подходит
+    save-time: Сэкономить время
+    save-time-desc: потратье время на себя, мы Вам все доставим
+
   # View's translations
   layouts:
-    application:
-      title: 'ГлобоМаркет'
+    copyright: Globomarket.ru
+    title: 'ГлобоМаркет'
   user:
     index:
       new:

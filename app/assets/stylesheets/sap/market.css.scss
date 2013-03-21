@@ -21,12 +21,35 @@
 
   // Content
   #wrapper {
-    background: #cdcdcd;
     clear: both;
-  }
+    overflow: hidden;
 
-  // Footer
-  #footer {
-    background: #3c3c3c;
+    // Main Content
+    .content-main {
+      margin: 0 150px 0 150px;
+
+      // Equal columns height
+      @include equal-columns;
+    }
+
+    // Left column
+    .content-left {
+      background: #cdcdcd;
+      float: left;
+      width: 150px;
+
+      // Equal columns height
+      @include equal-columns;
+    }
+
+    // Right column
+    .content-right {
+      background: #cdcdcd;
+      float: right;
+      width: 150px;
+
+      // Equal columns height
+      @include equal-columns;
+    }
   }
 }

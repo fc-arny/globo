@@ -1,0 +1,1 @@
+%div= @good.escape('id') + ')' + @good.get('name') + ' - ' + @good.escape('price')

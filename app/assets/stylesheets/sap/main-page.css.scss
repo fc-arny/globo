@@ -14,4 +14,26 @@
       float: right;
     }
   }
+
+  h1 {
+    margin-bottom: 0px;
+    &.line-two {
+      color: darken($green-main, 10%);;
+    }
+  }
+
+  .reasons {
+    li {
+      list-style: circle;
+      padding: 5px;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 12px;
+      font-style: italic;
+    }
+  }
 }

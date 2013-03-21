@@ -73,7 +73,7 @@ module Common::MenuHelper
     def render_category_item(category)
       link = build_link(category[:url])
 
-      haml_tag :a, :href => link, :'data-url' => category[:url]  do
+      haml_tag :strong  do
         haml_concat category[:name]
       end
 

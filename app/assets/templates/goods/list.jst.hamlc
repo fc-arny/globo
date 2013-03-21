@@ -1,5 +1,4 @@
-%h1 Продукты
-  = @title
-- for good in @goods.models
-  %div
-    %div= good.escape('id') + ')' + good.escape('name') + ' - ' + good.escape('price')
+%h1= @category.get('name')
+.goods
+
+%a.more{:href => 'javascript:void(0)'} More

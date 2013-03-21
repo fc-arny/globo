@@ -52,6 +52,11 @@ Sap::Good.create([
     {id:10,name:'Молоко простоквашино 1.5%, 1л', description: 'Молочко', is_approved: true},
     {id:11,name:'Молоко простоквашино 1.5%, 1л', description: 'Молочко', is_approved: true},
     {id:12,name:'Молоко простоквашино топленое, 1л', description: 'Молочко', is_approved: true},
+    {id:13,name:'Абсент, 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
+    {id:14,name:'Мартини, 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
+    {id:15,name:'Ром Кубинский, 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
+    {id:16,name:'Коктель отвертка, 1л.', description: 'Тогда мыы идем к Вам', is_approved: true},
+    {id:17,name:'Ягуар, 0.5л.', description: 'Тогда мыы идем к Вам', is_approved: true},
 ])
 connection.execute('ALTER SEQUENCE sap.goods_id_seq MINVALUE 10000 START 10000 RESTART 10000;')
 
@@ -60,7 +65,14 @@ Sap::CategoryGood.create([
     {category_id:1,good_id:1},
     {category_id:2,good_id:1},
     {category_id:1,good_id:2},
-    {category_id:2,good_id:2}
+    {category_id:4,good_id:6},
+    {category_id:4,good_id:7},
+    {category_id:4,good_id:8},
+    {category_id:4,good_id:13},
+    {category_id:4,good_id:14},
+    {category_id:4,good_id:15},
+    {category_id:4,good_id:16},
+    {category_id:4,good_id:17},
 ])
 
 # GoodLists
@@ -78,6 +90,12 @@ Sap::GoodList.create([
     {good_id: 10, price: 25.09, store_id: 2},
     {good_id: 11, price: 15.09, store_id: 2},
     {good_id: 12, price: 95.09, store_id: 2},
+    {good_id: 13, price: 85.09, store_id: 2},
+    {good_id: 14, price: 25.09, store_id: 2},
+    {good_id: 15, price: 95.99, store_id: 2},
+    {good_id: 16, price: 23.79, store_id: 2},
+    {good_id: 17, price: 75.91, store_id: 2},
+
 
     {good_id: 1, price: 27.09, store_id: 3},
     {good_id: 2, price: 29.00, store_id: 3},

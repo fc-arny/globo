@@ -29,7 +29,16 @@ module Api
       # List of goods
       # -------------------------------------------------------------
       def index
-        respond_with build_query(Sap::Good)
+        query =  build_query(Sap::Good)
+
+        data = Hash.new
+        data[:goods] = query.limit(params[:limit]).offset(params[:offset])
+
+        count = query.count
+        data[:count] = count
+        data[:page_count] = (count.to_f/3).ceil
+
+        respond_with data
       end
 
       # -------------------------------------------------------------

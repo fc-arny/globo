@@ -13,8 +13,7 @@
       %h1
         %a{:href => "/"}
           %img{src: "/assets/logo.png", alt: "Globomarket"}
-          %img{src: "/assets/demo.png", alt: "Globomarket"}
-          %img{src: "/assets/user.png", alt: "Globomarket"}
+
     / User state
     = render :partial => 'partials/current_user', :locals => {:user => current_user}
 
@@ -30,14 +29,17 @@
     / Left menu - store select, filters
     .content-left
       - store_list
+      %h6 Категории
+      %h6 Производитель
+
+    /  Right menu
+    .content-right
+      sd
+
     / Content
     .content-main
       = content_for?(:main) ? yield(:main) : yield
-    /  Right menu - basket
-    .content-fight
-      %h1 Basket
 
-  #footer
-    %h1 Footer
+  = render :partial => 'partials/footer'
 
 = render :template => 'layouts/base'
