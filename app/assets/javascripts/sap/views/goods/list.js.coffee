@@ -5,8 +5,6 @@ Sap.Views.GoodsList = Support.CompositeView.extend(
     _.bindAll(@,'render')
     @category = options.category
 
-
-
   events:
     'click a.more': 'more'
 
@@ -32,7 +30,11 @@ Sap.Views.GoodsList = Support.CompositeView.extend(
       self.$('.goods').append(item.el)
     )
 
+  changeContentFull:()->
+    @$el.empty()
+    @renderLayout()
+
   # Load more goods
   more: ()->
-    Sap.routers.goods.list(Sap.models.currentStore.get('url'),Sap.models.currentCategory.get('url'))
+    Sap.routers.goods.list(Sap.models.currentStore.get('url'), Sap.models.currentCategory.get('url'), 1)
 )

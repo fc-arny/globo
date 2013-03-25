@@ -1,5 +1,7 @@
 Sap.Routers.Goods = Support.SwappingRouter.extend(
 
+  # Constants
+  LIST_LIMIT: 3
 
   # Init router
   initialize: (data) ->
@@ -10,28 +12,37 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
 
   # Routers
   routes:
-    ""                    : 'main'
     ":store"              : 'store'
     ":store/:category"    : 'list'
 
+  ###
+  # Best offers of given store
+  ###
   store: (store) ->
-    store_model = Sap.stores.getByUrl(store)
+    store_model = Sap.collections.stores.getByUrl(store)
     view = new Sap.Views.GoodsStore(model:store_model)
     this.swap(view)
 
-  main: () ->
-    view = new Sap.Views.GoodsIndex
-    $('.content-main').html(view.render().$el)
+  ###
+  # Good list router, load goods by API
+  ###
+  list: (storeUrl, categoryUrl, loadMore = 0) ->
 
-  list: (store, category) ->
+    # Getting models by url
+    store     = Sap.collections.stores.getByUrl(storeUrl)
+    category  = Sap.collections.categories.getByUrl(categoryUrl)
 
-    if Sap.collections.goods isnt undefined
-      Sap.collections.goods.page++
-    else
+    # Create collection
+    if Sap.collections.goods is undefined
       Sap.collections.goods = new Sap.Collections.Goods()
 
-    Sap.models.currentStore     = Sap.collections.stores.getByUrl(store)
-    Sap.models.currentCategory  = Sap.collections.categories.getByUrl(category)
+    # Reset page number
+    if not loadMore
+      Sap.collections.goods.page = 0
+
+    # Save current store and category
+    Sap.models.currentStore     = store
+    Sap.models.currentCategory  = category
 
     # Getting goods by AJAX
     Sap.collections.goods.fetch(
@@ -39,10 +50,10 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
       data:
         store     : Sap.models.currentStore.id
         category  : Sap.models.currentCategory.id
-        limit     : 3
-        offset    : 3*Sap.collections.goods.page
+        limit     : @LIST_LIMIT
+        offset    : @LIST_LIMIT * Sap.collections.goods.page
       success:()->
-        if Sap.views.goodsList is undefined
+        if Sap.views.goodsList is undefined || not Sap.collections.goods.page
           # Fetch goods
           Sap.views.goodsList = new Sap.Views.GoodsList(
             collection: Sap.collections.goods
@@ -52,8 +63,10 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
           Sap.routers.goods.swap(Sap.views.goodsList)
         else
           Sap.views.goodsList.renderGoods()
+
+        # Increment loading page number
+        Sap.collections.goods.page++
     )
 
   # Private
-
 )
