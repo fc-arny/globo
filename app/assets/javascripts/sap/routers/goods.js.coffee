@@ -51,14 +51,13 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
         store     : Sap.models.currentStore.id
         category  : Sap.models.currentCategory.id
         limit     : @LIST_LIMIT
-        offset    : @LIST_LIMIT * Sap.collections.goods.page
+        offset    : @LIST_LIMIT * Sap.collections.goods.page        # TODO: Лучше передавать на номер страницы!
       success:()->
         if Sap.views.goodsList is undefined || not Sap.collections.goods.page
           # Fetch goods
           Sap.views.goodsList = new Sap.Views.GoodsList(
             collection: Sap.collections.goods
             category  : Sap.models.currentCategory
-
           )
           Sap.routers.goods.swap(Sap.views.goodsList)
         else

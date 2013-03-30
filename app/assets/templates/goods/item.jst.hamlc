@@ -1,1 +1,6 @@
-%div= @good.escape('id') + ')' + @good.get('name') + ' - ' + @good.escape('price')
+.pic
+  %img{:src => 'http://lorempixel.com/g/150/185/food/'}
+.title= @good.get('name')
+.price= @good.escape('price')
+.actions
+  %a{:href => '#'} Add to Basket

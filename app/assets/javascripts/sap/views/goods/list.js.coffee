@@ -1,5 +1,5 @@
 Sap.Views.GoodsList = Support.CompositeView.extend(
-  className: 'good-list'
+  className: 'goods-content'
 
   initialize: (options) ->
     _.bindAll(@,'render')
@@ -27,7 +27,7 @@ Sap.Views.GoodsList = Support.CompositeView.extend(
     @collection.each((model)->
       item = new Sap.Views.GoodsItem(model:model)
       self.renderChild(item)
-      self.$('.goods').append(item.el)
+      self.$('.good-list').append(item.el)
     )
 
   changeContentFull:()->
