@@ -1,8 +1,6 @@
-/ CSS Files
 = content_for :head do
   = stylesheet_link_tag :application, :media => :all
 
-/ JS Files
 = content_for :bottom do
   = javascript_include_tag :application
 
@@ -29,12 +27,13 @@
     / Left menu - store select, filters
     .content-left
       - store_list
-      %h6 Категории
-      %h6 Производитель
+
 
     /  Right menu
     .content-right
       %h2= t('goods.basket')
+      .basket
+        %ul.basket-items
 
     / Content
     .content-main

@@ -3,9 +3,11 @@
     $(function(){
        var data = [];
        data.stores = #{@stores.to_json};
-       data.categories = #{@categories.to_json}
+       data.categories = #{@categories.to_json};
 
+       $('#wrapper').basket();
        Sap.initialize(data);
+
 
        $(document).on("click", "a[href^='/goods']", function(evt) {
          evt.preventDefault();
