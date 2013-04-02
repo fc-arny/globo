@@ -67,6 +67,7 @@ class Sap::Category < SapModel
     # Getting category tree ordered by order_pos
     # -------------------------------------------------------------
     def get_category_tree
+      # TODO: Cache it!
       tree = []
       parent = self.where("parent_id is null").order("order_pos ASC")
       parent.each do |cat|

@@ -13,6 +13,11 @@ Sap::Application.routes.draw do
   get 'goods/:store'              => 'store::goods#index'               # Store promo page
   get 'goods/:store/*categories'  => 'store::goods#index'               # Store promo page
 
+  # Order(Basket)
+  namespace :store do
+    resource :order
+  end
+
   #get 'goods/product' => redirect('/goods')            # Redirect to top offers
   #get 'goods/product/:id' => 'store::goods#product'    # View product
   #get 'goods/search' => 'store::goods#search'          # Search products

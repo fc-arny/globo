@@ -36,8 +36,13 @@ module ApplicationHelper
     def get_random_string (length = 6)
       str = ''
       length.times do
-        is_big = rand(2)
-        code = is_big == 1 ? 65 + rand(25) : 97 + rand(25)
+        type = rand(3)
+        code =  case type
+                 when 1 then 65 + rand(25)  # Big letter
+                 when 2 then 97 + rand(25)  # Small letter
+                 else 48 + rand(9)          # Number
+        end
+
         str << code.chr
       end
       return str

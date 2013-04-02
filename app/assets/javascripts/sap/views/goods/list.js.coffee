@@ -6,25 +6,29 @@ Sap.Views.GoodsList = Support.CompositeView.extend(
     @category = options.category
 
   events:
-    'click a.more': 'more'
+    'click a.more' : 'more'
+    'click .add-to-basket' : 'addToBasket'
 
   # Render good list
   render: () ->
     @renderLayout()
-    @renderGoods()
+    @renderGoods(@collection)
     this
 
   # Render container for goods
   renderLayout: ()->
+    # Reset collection
+    Sap.collections.goods = @collection
+
     @$el.html(JST['goods/list'](
       goods   : @collection
       category: @category
     ))
 
   # Render goods
-  renderGoods: ()->
+  renderGoods: (collection)->
     self = @
-    @collection.each((model)->
+    collection.each((model)->
       item = new Sap.Views.GoodsItem(model:model)
       self.renderChild(item)
       self.$('.good-list').append(item.el)
@@ -33,6 +37,18 @@ Sap.Views.GoodsList = Support.CompositeView.extend(
   changeContentFull:()->
     @$el.empty()
     @renderLayout()
+
+  addToBasket: (event)->
+    # Getting model by ID
+    id = $(event.target).data('id')
+    good = Sap.collections.goods.get $(event.target).data('id')
+
+    # Add to basket
+    $li = $('<li></li>')
+    $li.html good.get('name')
+    $li.prependTo $('.basket-items')
+
+    console.log Sap.collections.goods
 
   # Load more goods
   more: ()->

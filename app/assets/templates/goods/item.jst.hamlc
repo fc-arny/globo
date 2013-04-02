@@ -3,4 +3,4 @@
 .title= @good.get('name')
 .price= @good.escape('price')
 .actions
-  %a.add-to-basket{:href => 'javascript:void(0)'} Add to Basket
+  %a.add-to-basket{:href => 'javascript:void(0)', :'data-id' => @good.get('id')} Add to Basket

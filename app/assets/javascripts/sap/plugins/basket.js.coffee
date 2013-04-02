@@ -35,7 +35,7 @@
     ###
     _bindEvents: ->
       @$node.on 'click', '.add-to-basket', (event) => @_onAddToBasketClick event
-      console.log @$node
+
 
 
     ###
@@ -49,10 +49,7 @@
     # Handler for "Add to Basket" click
     ###
     _onAddToBasketClick: (event) ->
-      $li = $('<li></li>')
-      $li.html 'Good'
-      console.log @$basketItems
-      $li.prependTo @$basketItems
+      console.log 'Add'
 
   # Create plugin
   Sap.createjQueryPlugin Basket

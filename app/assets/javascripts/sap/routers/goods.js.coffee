@@ -27,6 +27,8 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
   # Good list router, load goods by API
   ###
   list: (storeUrl, categoryUrl, loadMore = 0) ->
+    # Temp collection
+    _goods = new Sap.Collections.Goods()
 
     # Getting models by url
     store     = Sap.collections.stores.getByUrl(storeUrl)
@@ -45,7 +47,7 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
     Sap.models.currentCategory  = category
 
     # Getting goods by AJAX
-    Sap.collections.goods.fetch(
+    _goods.fetch(
       add: true
       data:
         store     : Sap.models.currentStore.id
@@ -56,12 +58,15 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
         if Sap.views.goodsList is undefined || not Sap.collections.goods.page
           # Fetch goods
           Sap.views.goodsList = new Sap.Views.GoodsList(
-            collection: Sap.collections.goods
+            collection: _goods
             category  : Sap.models.currentCategory
           )
           Sap.routers.goods.swap(Sap.views.goodsList)
         else
-          Sap.views.goodsList.renderGoods()
+          Sap.views.goodsList.renderGoods(_goods)
+
+        # Collect all loaded good in collection
+        Sap.collections.goods.add _goods.models
 
         # Increment loading page number
         Sap.collections.goods.page++

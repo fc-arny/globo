@@ -1,6 +1,6 @@
 class CreateSapOrderLists < ActiveRecord::Migration
   def change
-    create_table :sap_order_lists do |t|
+    create_table :'sap.order_lists' do |t|
       t.integer :id
       t.integer :order_id
       t.integer :good_id

@@ -1,16 +1,27 @@
 = content_for :js do
   :javascript
     $(function(){
-       var data = [];
-       data.stores = #{@stores.to_json};
-       data.categories = #{@categories.to_json};
+      var data = [];
+      data.stores = #{@stores.to_json};
+      data.categories = #{@categories.to_json};
 
-       $('#wrapper').basket();
-       Sap.initialize(data);
+      $('#wrapper').basket();
+      Sap.initialize(data);
+
+      //$.ajax({
+      //  url: '/api/v1/categories',
+      //  dataType: 'json'
+      //});
+
+      $.ajax({
+        url: '/store/order',
+        type: 'post',
+        dataType: 'json'
+      });
 
 
-       $(document).on("click", "a[href^='/goods']", function(evt) {
-         evt.preventDefault();
-         Backbone.history.navigate($(this).attr("href").replace('/goods',''), true);
-       });
+      $(document).on("click", "a[href^='/goods']", function(evt) {
+        evt.preventDefault();
+        Backbone.history.navigate($(this).attr("href").replace('/goods',''), true);
+      });
     });
