@@ -1,9 +1,23 @@
 # -------------------------------------------------------------
-# Backend for basket
+# API controller for working with Order and OrderList models
 # -------------------------------------------------------------
-class Store::OrdersController < ApplicationController
+class Api::V1::OrdersController < ApiController
+
   # -------------------------------------------------------------
-  # Create order object by AJAX
+  # Get order list
+  # -------------------------------------------------------------
+  def index
+    # Fetch order by Id and Hash
+    order = Sap::Order.get_by_hash( params[:hash])
+
+    ## Fetch order list
+    #goods = Sap::OrderList.get_by_order_id order.id
+
+    respond_with order
+  end
+
+  # -------------------------------------------------------------
+  # Create order
   # -------------------------------------------------------------
   def create
     if session[:order_id]
@@ -13,21 +27,26 @@ class Store::OrdersController < ApplicationController
       order.state = 'new'
       order.user_id   = current_user ? current_user.id : nil
       order.hash_str  = ApplicationHelper::get_random_string(6)
-      order.save
+      order.save!
 
       # Save order id in session
       session[:order_id] = order.id
     end
 
-    respond_to do |format|
-      format.json{ render :json => order }
-    end
+    respond_with order
   end
 
   # -------------------------------------------------------------
-  # Return order
+  # Add good to order
+  # -------------------------------------------------------------
+  def add_good
+
+  end
+
+  # -------------------------------------------------------------
+  #
   # -------------------------------------------------------------
   def show
-
+    render :json => 1
   end
 end

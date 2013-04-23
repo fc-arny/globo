@@ -17,7 +17,10 @@ class Store::GoodsController < ApplicationController
 
     # Set up current store
     store = Sap::Store.find_by_url(store_url)
-    session[:current_store] = store.id
+    session[:store_id] = store.id
+
+    # Set up current order
+    @order = session[:order_id] ? Sap::Order.find(session[:order_id]) : nil
 
     # Data for backbone
     @stores = Sap::Store.select('id, name, url')

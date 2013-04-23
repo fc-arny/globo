@@ -1,21 +1,39 @@
-Sap.Views.GoodsList = Support.CompositeView.extend(
+###
+# Main class for working with goods, basket ant etc
+###
+class Sap.Views.GoodsList extends Support.CompositeView
   className: 'goods-content'
 
+  ###
+  # Bind events for inside elements
+  ###
+  events:
+    'click a.more'          : 'more'
+
+  ###
+  # PUBLIC
+  ###
+
+  ###
+  # Initialization view
+  ###
   initialize: (options) ->
-    _.bindAll(@,'render')
     @category = options.category
 
-  events:
-    'click a.more' : 'more'
-    'click .add-to-basket' : 'addToBasket'
+    # Prepare
+    @_cache()
 
+  ###
   # Render good list
+  ###
   render: () ->
     @renderLayout()
     @renderGoods(@collection)
     this
 
+  ###
   # Render container for goods
+  ###
   renderLayout: ()->
     # Reset collection
     Sap.collections.goods = @collection
@@ -25,32 +43,37 @@ Sap.Views.GoodsList = Support.CompositeView.extend(
       category: @category
     ))
 
+  ###
   # Render goods
+  ###
   renderGoods: (collection)->
     self = @
     collection.each((model)->
       item = new Sap.Views.GoodsItem(model:model)
       self.renderChild(item)
+
+      # Set data
+      item.$el.attr('data-id', model.get('id'))
+      item.$el.attr('data-name', model.get('name'))
+
+      # Append
       self.$('.good-list').append(item.el)
     )
 
-  changeContentFull:()->
-    @$el.empty()
-    @renderLayout()
+    # Increment/Decrement goods in basket
+#    Sap.models.order.addGood(good)
 
-  addToBasket: (event)->
-    # Getting model by ID
-    id = $(event.target).data('id')
-    good = Sap.collections.goods.get $(event.target).data('id')
-
-    # Add to basket
-    $li = $('<li></li>')
-    $li.html good.get('name')
-    $li.prependTo $('.basket-items')
-
-    console.log Sap.collections.goods
 
   # Load more goods
   more: ()->
     Sap.routers.goods.list(Sap.models.currentStore.get('url'), Sap.models.currentCategory.get('url'), 1)
-)
+
+  ###
+  # PRIVATE
+  ###
+
+  ###
+  # Cache DOM elements
+  ###
+  _cache: ->
+    @$basket = $('.basket')

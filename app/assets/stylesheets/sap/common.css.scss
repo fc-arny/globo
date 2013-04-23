@@ -5,7 +5,9 @@ body {
   color: $text-color;
   font-family: "Trebuchet MS",Tahoma;
 
+  //--------------------------------
   // Links
+  //--------------------------------
   a {
     color: $text-color;
     font-size: 13px;
@@ -21,7 +23,9 @@ body {
     margin: 10px;
   }
 
+  //--------------------------------
   // Footer
+  //--------------------------------
   #footer {
     background: $header-footer-bg;
 

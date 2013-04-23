@@ -1,3 +1,4 @@
-Sap.Models.Good = Backbone.Model.extend(
-
-)
+###
+# Catalog good
+###
+class Sap.Models.Good extends Backbone.Model

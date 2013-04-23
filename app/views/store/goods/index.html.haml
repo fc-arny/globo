@@ -1,23 +1,31 @@
 = content_for :js do
   :javascript
     $(function(){
-      var data = [];
-      data.stores = #{@stores.to_json};
-      data.categories = #{@categories.to_json};
 
-      $('#wrapper').basket();
+      var data = {
+        stores: #{@stores.to_json},
+        categories: #{@categories.to_json}
+      };
+
+      var order = #{@order.to_json};
+
       Sap.initialize(data);
+
+      $('.basket').basket({
+        order: order
+      });
 
       //$.ajax({
       //  url: '/api/v1/categories',
       //  dataType: 'json'
       //});
 
-      $.ajax({
-        url: '/store/order',
-        type: 'post',
-        dataType: 'json'
-      });
+      //$.ajax({
+      //  url: '/store/order',
+      //  type: 'post',
+      //  dataType: 'json'
+      //});
+
 
 
       $(document).on("click", "a[href^='/goods']", function(evt) {

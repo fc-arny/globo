@@ -76,8 +76,8 @@ Sap::CategoryGood.create([
 ])
 
 # GoodLists
-Sap::GoodList.delete_all
-Sap::GoodList.create([
+Sap::GoodItem.delete_all
+Sap::GoodItem.create([
     {good_id: 1, price: 25.09, store_id: 2},
     {good_id: 2, price: 27.97, store_id: 2},
     {good_id: 3, price: 45.09, store_id: 2},

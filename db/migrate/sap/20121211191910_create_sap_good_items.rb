@@ -1,6 +1,6 @@
 class CreateSapGoodLists < ActiveRecord::Migration
   def change
-    create_table :"sap.good_lists" do |t|
+    create_table :"sap.good_items" do |t|
       t.integer :id
       t.integer :good_id, null:false
       t.decimal :price, null:false

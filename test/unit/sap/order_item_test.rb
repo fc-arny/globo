@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Sap::OrderListTest < ActiveSupport::TestCase
+class Sap::OrderItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

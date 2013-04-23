@@ -2,7 +2,7 @@ class Admin::GoodListsController < AdminController
   # GET /admin/good_lists
   # GET /admin/good_lists.json
   def index
-    @good_lists = Sap::GoodList.all
+    @good_lists = Sap::GoodItem.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class Admin::GoodListsController < AdminController
   # GET /admin/good_lists/1
   # GET /admin/good_lists/1.json
   def show
-    @good_list = Sap::GoodList.find(params[:id])
+    @good_list = Sap::GoodItem.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class Admin::GoodListsController < AdminController
   # GET /admin/good_lists/new
   # GET /admin/good_lists/new.json
   def new
-    @good_list = Sap::GoodList.new
+    @good_list = Sap::GoodItem.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class Admin::GoodListsController < AdminController
 
   # GET /admin/good_lists/1/edit
   def edit
-    @good_list = Sap::GoodList.find(params[:id])
+    @good_list = Sap::GoodItem.find(params[:id])
   end
 
   # POST /admin/good_lists
   # POST /admin/good_lists.json
   def create
-    @good_list = Sap::GoodList.new do |list|
+    @good_list = Sap::GoodItem.new do |list|
       p = params[:sap_good_list]
       list.price = p[:price]
       list.store_id = p[:sap_store]
@@ -61,7 +61,7 @@ class Admin::GoodListsController < AdminController
   # PUT /admin/good_lists/1
   # PUT /admin/good_lists/1.json
   def update
-    @admin_good_list = Admin::GoodList.find(params[:id])
+    @admin_good_list = Admin::GoodItem.find(params[:id])
 
     respond_to do |format|
       if @admin_good_list.update_attributes(params[:admin_good_list])
@@ -77,7 +77,7 @@ class Admin::GoodListsController < AdminController
   # DELETE /admin/good_lists/1
   # DELETE /admin/good_lists/1.json
   def destroy
-    @admin_good_list = Admin::GoodList.find(params[:id])
+    @admin_good_list = Admin::GoodItem.find(params[:id])
     @admin_good_list.destroy
 
     respond_to do |format|

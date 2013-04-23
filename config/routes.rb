@@ -43,10 +43,17 @@ Sap::Application.routes.draw do
       resources :goods do
         get 'search', :on => :collection
       end
+
       # Stores
       resources :stores
+
       # Categories
       resources :categories
+
+      # Order
+      resources :orders do
+        resources :items, :controller => 'order_items'
+      end
     end
   end
 
@@ -59,5 +66,6 @@ Sap::Application.routes.draw do
 
   # For Developers
   mount Sidekiq::Web, at: '/admin/sidekiq'
+  # /newrelic - open profiler
 
 end

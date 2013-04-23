@@ -12,7 +12,7 @@ class Sap::Good < SapModel
   attr_accessible :description, :id, :is_approved, :name, :status
 
   # Associations
-  has_many :good_list, :class_name => 'Sap::GoodList'
+  has_many :good_items, :class_name => 'Sap::GoodItem'
   has_many :category_goods, :class_name => 'Sap::CategoryGood'
   has_many :categories, :class_name => 'Sap::Category', :through => :category_goods
   # TODO: Заменать на has_and_belongs_to_many

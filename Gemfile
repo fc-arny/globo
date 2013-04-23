@@ -11,6 +11,13 @@ gem 'unicode'
 gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
+gem 'jsend-rails'           # API format specification
+
+# Profiling, Monitoring
+gem 'newrelic_rpm'
+gem 'ruby-prof'
+gem 'airbrake'
+
 
 # Sidekiq
 gem 'sidekiq'
@@ -29,8 +36,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-
-  #gem 'execjs'             # JS Templates for backbone
 end
 
 group :development do

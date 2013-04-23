@@ -40,7 +40,7 @@ module Common::MenuHelper
       @categories = categories
 
       # Get current store
-      @current_store = Sap::Store.find(session[:current_store])
+      @current_store = Sap::Store.find(session[:store_id])
     end
 
     # -------------------------------------------------------------

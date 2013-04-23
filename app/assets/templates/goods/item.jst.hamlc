@@ -1,6 +1,6 @@
 .pic
-  %img{:src => 'http://lorempixel.com/g/150/185/food/'}
+  %img{:src => 'http://placekitten.com/150/185/'}
 .title= @good.get('name')
 .price= @good.escape('price')
 .actions
-  %a.add-to-basket{:href => 'javascript:void(0)', :'data-id' => @good.get('id')} Add to Basket
+  %a.add-to-basket{:href => 'javascript:void(0)'} Add to Basket

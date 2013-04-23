@@ -20,7 +20,7 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
   ###
   store: (store) ->
     store_model = Sap.collections.stores.getByUrl(store)
-    view = new Sap.Views.GoodsStore(model:store_model)
+    view = new Sap.Views.Store(model:store_model)
     this.swap(view)
 
   ###
@@ -52,8 +52,7 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
       data:
         store     : Sap.models.currentStore.id
         category  : Sap.models.currentCategory.id
-        limit     : @LIST_LIMIT
-        offset    : @LIST_LIMIT * Sap.collections.goods.page        # TODO: Лучше передавать на номер страницы!
+        page      : Sap.collections.goods.page
       success:()->
         if Sap.views.goodsList is undefined || not Sap.collections.goods.page
           # Fetch goods
@@ -65,7 +64,7 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
         else
           Sap.views.goodsList.renderGoods(_goods)
 
-        # Collect all loaded good in collection
+
         Sap.collections.goods.add _goods.models
 
         # Increment loading page number

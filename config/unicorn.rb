@@ -1,4 +1,4 @@
-worker_processes 2
+worker_processes 1
 working_directory "/var/www/sap/"
 
 preload_app true

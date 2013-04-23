@@ -2,41 +2,21 @@
 # API for goods
 # -------------------------------------------------------------
 class Api::V1::GoodsController < ApiController
-  # -------------------------------------------------------------
-  # Init env
-  # -------------------------------------------------------------
-  def initialize
-    # Using tables
-    @table_good      = Sap::Good.table_name
-    @table_good_list = Sap::GoodList.table_name
-
-    # alias => field grouped by table
-    @select_fields = {
-        @table_good => {
-            :id   => 'id',
-            :name => 'name'
-        },
-        @table_good_list => {
-            :price    => 'price',
-            :store_id    => 'store_id'
-        }
-    }
-  end
+  # Group params
+  wrap_parameters :good_item, :include => [:store]
 
   # -------------------------------------------------------------
   # List of goods
   # -------------------------------------------------------------
   def index
-    query =  build_query(Sap::Good)
+    builder = QueryBuilder.new(params)
 
-    data = Hash.new
-    data[:goods] = query.limit(params[:limit]).offset(params[:offset])
+    data = {
+        :goods => builder.relation,
+        :info => builder.info
+    }
 
-    count = query.count
-    data[:count] = count
-    data[:page_count] = (count.to_f/3).ceil
-
-    respond_with data
+    render_jsend :success => data
   end
 
   # -------------------------------------------------------------
@@ -60,42 +40,69 @@ class Api::V1::GoodsController < ApiController
 
   private
 
-  # -------------------------------------------------------------
-  # Generate SELECT for query
-  # @return String
-  # -------------------------------------------------------------
-  def build_query_select
+  class QueryBuilder
 
-    select = []
+    DEFAULT_LIMIT = 3
 
-    @select_fields.each do |table, fields|
-      select << fields.map{|value,field| "#{table}.#{field} as #{value}"}.join(',')
+    attr_accessor :fields, :relation, :info
+
+    # -------------------------------------------------------------
+    # Init
+    # -------------------------------------------------------------
+    def initialize(params)
+      @params = params
+
+      # SELECT fields
+      @fields = [
+          # Goods
+          'sap.goods.id',
+          'sap.goods.name AS name',
+
+          # Good Items
+          'sap.good_items.id AS item_id',
+          'sap.good_items.price AS price',
+          'sap.good_items.store_id AS store_id',
+
+          # Order Data
+      ]
+
+      # Create relation
+      @relation = Sap::GoodItem.
+        select( @fields.join(',') ).
+        joins( {:good => :categories} )
+
+      # Create condition
+      parse_params()
+
+      # Set pages count
+      @info = {
+        :pages => ( @relation.count / DEFAULT_LIMIT.to_f ).ceil,
+        :count => @relation.count
+      }
+
+      # Pagination
+      @limit  = DEFAULT_LIMIT
+      @offset = @params[:page].to_i * DEFAULT_LIMIT || 0
+
+      @relation = @relation.limit( @limit ).offset( @offset )
+
     end
 
-    select.join(',')
-  end
+    # -------------------------------------------------------------
+    #
+    # -------------------------------------------------------------
+    def parse_params
+      # Set store
+      if !@params[:store].nil?
+        @relation = @relation.where('sap.good_items.store_id = ?', @params[:store])
+      end
 
-  # -------------------------------------------------------------
-  #
-  # -------------------------------------------------------------
-  def build_query_where
+      # Set category
+      if !@params[:category].nil?
+        @relation = @relation.where('sap.categories.id = ?', @params[:category])
+      end
 
-
-
-
-  end
-
-  # -------------------------------------------------------------
-  # Create QUERY
-  # -------------------------------------------------------------
-  def build_query(query)
-    # Category and store is required for getting goods
-    store_id    = params[:store]
-    category_id = params[:category]
-
-    query.select(build_query_select).
-      joins(:good_list,:category_goods).
-      where('store_id = ? AND category_id = ?', store_id, category_id)
+    end
   end
 end
 
