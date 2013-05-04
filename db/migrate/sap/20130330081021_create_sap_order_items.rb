@@ -1,4 +1,4 @@
-class CreateSapOrderLists < ActiveRecord::Migration
+class CreateSapOrderItems < ActiveRecord::Migration
   def change
     create_table :'sap.order_items' do |t|
       t.integer :id
@@ -8,5 +8,7 @@ class CreateSapOrderLists < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :'sap.order_items', [:order_id, :good_item_id], :unique => true
   end
 end

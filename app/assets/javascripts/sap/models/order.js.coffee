@@ -1,21 +1,21 @@
 ###
 # Order model containing goods from basket
 ###
-class Sap.Models.Order extends Backbone.Model
+class   Sap.Models.Order extends Sap.Models.Base
   url: '/api/v1/orders'
 
+  # -------------------------------------------------- Constructor
   initialize: ->
-    # Good in basket
-    @_parseItems()
+    @_parseOrderItems()
 
-  ###
-  # Parse order's goods
-  ###
-  _parseItems: ->
-    orderItems = @get('order_items')
-    orderHash = @get('id') + 'x' + @get('hash_str')
-    @items = new Sap.Collections.OrderItems( orderItems, orderHash: orderHash )
+  # -------------------------------------------------- Return hash string for order
+  hash: ->
+    @get('id') + 'x' + @get('hash_str')
 
-    @items.each (orderItem) ->
-      orderItem.goodItem = new Sap.Models.GoodItem orderItem.get('good_item')
-      orderItem.unset('good_item')
+  # -------------------------------------------------- Parse order's goods
+  _parseOrderItems: ->
+    @items = null
+
+    if @has 'order_items'
+      @items = new Sap.Collections.OrderItems @get('order_items')
+      @unset('order_items', silent:true)

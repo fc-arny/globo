@@ -2,23 +2,19 @@
  # Good model
 ###
 class Sap.Models.GoodItem extends Backbone.Model
-  ###
-  # PUBLIC
-  ###
 
-  ###
-  # Constructor
-  ###
+
+
+  # Constructor --------------------------------------
   initialize:(options) ->
     @_parseGood()
+  # // Constructor -----------------------------------
 
-  ###
-  # PRIVATE
-  ###
-
-  ###
-  # Fetch Good object from GoodItem
-  ###
+  # Parse good ---------------------------------------
   _parseGood: ->
-    @good = new Sap.Models.Good @.get('good')
-    @unset('good')
+    @good = null
+
+    if @has 'good'
+      @good = new Sap.Models.Good @get('good')
+      @unset('good', silent:true)
+  # // Parse good ------------------------------------

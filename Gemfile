@@ -39,8 +39,11 @@ group :assets do
 end
 
 group :development do
+  # Errors
   gem 'better_errors'
   gem 'binding_of_caller'
+  # Debug
+  #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 end
 
 # To use ActiveModel has_secure_password

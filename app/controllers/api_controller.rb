@@ -14,14 +14,12 @@ class ApiController < ApplicationController
 
   protected
 
-
-
   private
   # -------------------------------------------------------------
   # Error handler
   # -------------------------------------------------------------
   def render_error(exception)
-    render_jsend :error => exception.message, :code => 500, :data => nil
+    render_jsend :error => exception.message, :status => 500, :data => nil
     logger.error(exception)
     #notify_airbrake(exception)
   end

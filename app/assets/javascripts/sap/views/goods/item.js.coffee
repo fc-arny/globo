@@ -8,6 +8,6 @@ class Sap.Views.GoodsItem extends Support.CompositeView
 
   # Render good item
   render:()->
-    @$el.attr('id', 'good_id_' + @model.id)
+    @$el.attr('id', 'gi_id_' + @model.get('item_id'))
     @$el.html(JST['goods/item'](good: @model))
     this

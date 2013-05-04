@@ -14,7 +14,6 @@
     # Constructor
     ###
     constructor: ($node, options)->
-
       @$basket = $node
 
       defaults =
@@ -81,21 +80,36 @@
 
       # Render good items
       @order.items.each (item)->
-        li = JST['orders/item'](item:item)
-        _this.$basketItems.prepend li
+        _this._buildOrderItem(item)
 
+    ###
+    #
+    ###
+    _buildOrderItem:(item)->
+      li = JST['orders/item'](item:item)
+      @$basketItems.prepend li
 
     ###
     # Add good in basket
     ###
     _onAddToBasketClick: (event)->
+      _this = @
       $goodItem = $(event.currentTarget).closest(@options.selectors.goodItem)
 
       # Get data
-      id = $goodItem.data('id')
+      id = $goodItem.data('item_id')
       name = $goodItem.data('name')
 
-      @_buildGoodItem(id, name)
+      item = new Sap.Models.OrderItem(order_hash: @order.hash())
+
+      item.save(
+        count         : 1
+        good_item_id  : id
+      ,
+        success: ->
+          _this._buildOrderItem(item)
+      )
+
 
     ###
     # Update order item count
@@ -149,6 +163,6 @@
       @_updateCount( orderItemId, 0 )
 
   # Create plugin
-  Sap.createjQueryPlugin Basket
+#  Sap.createjQueryPlugin Basket
 
 ) window, jQuery

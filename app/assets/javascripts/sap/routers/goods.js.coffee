@@ -1,23 +1,19 @@
-Sap.Routers.Goods = Support.SwappingRouter.extend(
+###
+# Main route class
+###
+class Sap.Routers.Goods extends Support.SwappingRouter
 
-  # Constants
-  LIST_LIMIT: 3
-
-  # Init router
+  # -------------------------------------------------- Init router
   initialize: (data) ->
     @el = $('.content-main')
     @collection = data.goods
-    @categies = data.categories
 
-
-  # Routers
+  # -------------------------------------------------- Routers
   routes:
     ":store"              : 'store'
     ":store/:category"    : 'list'
 
-  ###
-  # Best offers of given store
-  ###
+  # -------------------------------------------------- Best offers of given store
   store: (store) ->
     store_model = Sap.collections.stores.getByUrl(store)
     view = new Sap.Views.Store(model:store_model)
@@ -26,7 +22,7 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
   ###
   # Good list router, load goods by API
   ###
-  list: (storeUrl, categoryUrl, loadMore = 0) ->
+  list: (storeUrl, categoryUrl, loadMore = false) ->
     # Temp collection
     _goods = new Sap.Collections.Goods()
 
@@ -39,7 +35,7 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
       Sap.collections.goods = new Sap.Collections.Goods()
 
     # Reset page number
-    if not loadMore
+    unless loadMore
       Sap.collections.goods.page = 0
 
     # Save current store and category
@@ -53,6 +49,7 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
         store     : Sap.models.currentStore.id
         category  : Sap.models.currentCategory.id
         page      : Sap.collections.goods.page
+        order_id  : if Sap.models.order then Sap.models.order.hash() else null
       success:()->
         if Sap.views.goodsList is undefined || not Sap.collections.goods.page
           # Fetch goods
@@ -72,4 +69,3 @@ Sap.Routers.Goods = Support.SwappingRouter.extend(
     )
 
   # Private
-)

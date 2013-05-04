@@ -6,27 +6,38 @@ Sap =
   Routers     : {}
   Collections : {}
 
+  # Constants
+  API_STATUS_ERROR    : 'error'
+  API_STATUS_SUCCESS  : 'success'
+
   # Instances
   views       : {}
   models      : {}
   routers     : {}
   collections : {}
 
-  # Init application
+  # -------------------------------------------------- Init application
   initialize: (data) ->
+    @currentStore = ''
 
+    # Setup read-only collections
+    @collections.stores     = new Sap.Collections.Stores data.stores
+    @collections.categories = new Sap.Collections.Categories data.categories
+
+    # Setup order
+    @models.order = new Sap.Models.Order data.order if data.order
+
+    # Setup routers
     @routers.goods = new Sap.Routers.Goods
 
-    this.currentStore = ''
+    # Event aggragation
+    @vent = _.extend({}, Backbone.Events)
+    @_bindEvents()
 
-    # Set collections
-    @collections.stores     = new Sap.Collections.Stores(data.stores)
-    @collections.categories = new Sap.Collections.Categories(data.categories)
-
-    # Set routers
-    @routers.goods = new Sap.Routers.Goods(
-      categories: this.categories
-    )
+    # Render basket if order exist
+    if @models.order
+      @views.basket = new Sap.Views.Basket collection: @models.order.items
+      @views.basket.render()
 
     # Enable histroy API
     if (!Backbone.history.started)
@@ -38,22 +49,22 @@ Sap =
 
     this
 
-  createjQueryPlugin : (Class) ->
-    className = Class.toString().match(/^function ([^(]+)/)[1]
-    pluginName = className.slice(0, 1).toLowerCase() + className.slice(1)
-    $.fn[pluginName] = (options) ->
-      args = undefined
-      args = Array::slice.call(arguments, 1)
-      @each ->
-        obj = undefined
-        obj = $(this).data(pluginName)
-        unless obj instanceof Class
-          obj = new Class($(this), options)
-          $(this).data pluginName, obj
-        obj[options].apply obj, args  if typeof options is "string"
+  # -------------------------------------------------- Bind App Events
+  _bindEvents: ->
+#    @vent.on 'addToBasket', @_onAddToBasket
+#    Sap.vent.trigger 'addToBasket', orderItem
 
-@Sap = Sap
+  # -------------------------------------------------- Update/Create order item
+  _onAddToBasket:(orderItem) ->
 
+
+
+  # -------------------------------------------------- Error handler
+  errorHandler: ->
+
+
+
+window.Sap = Sap
 
 
 # Document load
@@ -84,7 +95,7 @@ $(()->
           dataType: 'json'
 
 
-        Backbone.history.navigate(page_url, true);
+        Backbone.history.navigate(page_url, true)
       else
         document.location.href = GOODS_URL + '/' + store
 )

@@ -27,13 +27,13 @@ class Api::V1::OrdersController < ApiController
       order.state = 'new'
       order.user_id   = current_user ? current_user.id : nil
       order.hash_str  = ApplicationHelper::get_random_string(6)
-      order.save!
+      order.save
 
       # Save order id in session
       session[:order_id] = order.id
     end
 
-    respond_with order
+    render_jsend :success => order
   end
 
   # -------------------------------------------------------------

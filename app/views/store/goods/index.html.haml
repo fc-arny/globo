@@ -1,32 +1,20 @@
+= content_for :main do
+  %h1 Loading...
+
 = content_for :js do
   :javascript
     $(function(){
 
+      //TODO: Cache it
       var data = {
-        stores: #{@stores.to_json},
+        order     : #{@order.to_json},
+        stores    : #{@stores.to_json},
         categories: #{@categories.to_json}
       };
 
       var order = #{@order.to_json};
 
       Sap.initialize(data);
-
-      $('.basket').basket({
-        order: order
-      });
-
-      //$.ajax({
-      //  url: '/api/v1/categories',
-      //  dataType: 'json'
-      //});
-
-      //$.ajax({
-      //  url: '/store/order',
-      //  type: 'post',
-      //  dataType: 'json'
-      //});
-
-
 
       $(document).on("click", "a[href^='/goods']", function(evt) {
         evt.preventDefault();

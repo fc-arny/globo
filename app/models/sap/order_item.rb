@@ -27,16 +27,22 @@ class Sap::OrderItem < SapModel
   end
 
   # -------------------------------------------------------------
-  #
+  # JSON for model
   # -------------------------------------------------------------
-  #def as_json(options = {})
-  #  super(options.merge(
-  #            :include => {
-  #                :good_item => {
-  #                    :only => :name
-  #                }
-  #            }
-  #        )
-  #  )
-  #end
+  def as_json(options = {})
+    # Good's settings
+    good_setting = [
+      :good => {:only => [:id, :name]}
+    ]
+
+    # GoodItem's settings
+    good_item_setting = [
+      :good_item => {
+        :only => [:id,:price,:store_id],
+        :include => good_setting
+      }
+    ]
+
+    order = super(options.merge( :include => good_item_setting ))
+  end
 end

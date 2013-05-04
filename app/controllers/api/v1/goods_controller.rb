@@ -12,8 +12,8 @@ class Api::V1::GoodsController < ApiController
     builder = QueryBuilder.new(params)
 
     data = {
-        :goods => builder.relation,
-        :info => builder.info
+      :goods => builder.relation,
+      :info => builder.info
     }
 
     render_jsend :success => data
@@ -64,12 +64,19 @@ class Api::V1::GoodsController < ApiController
           'sap.good_items.store_id AS store_id',
 
           # Order Data
+          'sap.order_items.count AS count'
       ]
+
+      order = Sap::Order.get_by_hash(params[:order_id])
+      order_item_cond = "LEFT OUTER JOIN sap.order_items ON sap.order_items.good_item_id = sap.good_items.id"
+      order_item_cond += " AND sap.order_items.order_id = #{order.id}" if order
 
       # Create relation
       @relation = Sap::GoodItem.
         select( @fields.join(',') ).
-        joins( {:good => :categories} )
+        joins( {:good => :categories}).
+        joins(order_item_cond)
+
 
       # Create condition
       parse_params()
@@ -89,7 +96,7 @@ class Api::V1::GoodsController < ApiController
     end
 
     # -------------------------------------------------------------
-    #
+    # Create query condition using params
     # -------------------------------------------------------------
     def parse_params
       # Set store
