@@ -4,13 +4,15 @@
 class Api::V1::OrderItemsController < ApiController
 
   # Group params
-  wrap_parameters :item, :include => [:count,:good_item_id, :order_id]
+  wrap_parameters :item, :include => [:count,:good_item_id]
 
   # -------------------------------------------------------------
   # Update order item
   # -------------------------------------------------------------
   def update
-    order_item = Sap::OrderItem.find(params[:id])
+    order = Sap::Order.get_by_hash(params[:order_id]) or raise ActiveRecord::RecordNotFound
+
+    order_item = Sap::OrderItem.where("order_id = :order_id AND id = :id", {:id => params[:id], :order_id => order.id}).first!
     order_item.update_attributes(params[:item])
 
     render_jsend :success => order_item

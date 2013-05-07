@@ -3,7 +3,4 @@
 .title= @good.get('name')
 .price= @good.escape('price')
 .actions
-  - unless @good.get('count')
-    %a.add-to-basket{:href => 'javascript:void(0)', :'data-good_item_id' => @good.get('id')} Add to Basket
-  - else
-    = @good.get('count')
+

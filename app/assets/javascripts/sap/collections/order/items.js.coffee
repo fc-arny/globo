@@ -5,11 +5,6 @@ class Sap.Collections.OrderItems extends Backbone.Collection
 
   model: Sap.Models.OrderItem
 
-  url: ->
-    "/api/v1/orders/#{Sap.models.order.hash()}/items"
-
-  model: Sap.Models.OrderItem
-
   # Constructor ------------------------------
   initialize: (models, options) ->
 #    @parseItems(models)

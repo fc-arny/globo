@@ -5,31 +5,29 @@ class Sap.Views.Basket extends Support.CompositeView
 
   el: '.basket'
 
-  # -------------------------------------------------- Constructor
-  initialize: (options) ->
-    _.bindAll(@, 'addToBasket')
-
-    Sap.vent.bind('addToBasket', @addToBasket)
-
   # -------------------------------------------------- Bind events
   events:
-    'click .spin .plus' :'goodPlus'
-    'click .spin .minus': 'goodMinus'
+    'click .spin .plus' : '_onPlusClick'
+    'click .spin .minus': '_onMinusClick'
 
-  _onAddToBasket: (event) ->
-    Sap.vent.bind('addToBasket', @addToBasket, @)
+  # -------------------------------------------------- Constructor
+  initialize: (options) ->
+    # Events
+    Sap.vent.bind Sap.E_ORDER_ADD_TO_BASKET, @addToBasket, @
+    Sap.vent.bind Sap.E_ORDER_UPDATE_COUNT, @updateCount, @
 
-
-  addToBasket: (orderItem) ->
+  # -------------------------------------------------- Add good to basket
+  addToBasket: (orderItemId) ->
+    orderItem = Sap.models.order.items.get orderItemId
     @renderItem orderItem
 
   # -------------------------------------------------- Render basket
   render: ->
-    _this = @
+    self = @
 
     # Render order items
     @collection.each ((model)->
-      _this.renderItem model
+      self.renderItem model
     )
     @
 
@@ -39,41 +37,42 @@ class Sap.Views.Basket extends Support.CompositeView
     $li = $(JST['orders/item'](item:model))
     @$el.find('.basket-items').append $li
 
+
   # -------------------------------------------------- Update order item count
-  _updateCount:(orderItemId, count) ->
-    orderItem = Sap.models.order.items.where(id:orderItemId)
+  updateCount:(goodItemId, count) ->
+    $basketItem = @$el.find "#basket-good_item_#{goodItemId}"
 
-    # Update Model
-    orderItem = orderItem[0]
+    # Update model data
+    orderItem = Sap.models.order.items.get $basketItem.data('id')
     orderItem.set(count:count)
-    orderItem.save()
 
-    Sap.vent.trigger('basket.updateCount', orderItem)
-
-  # -------------------------------------------------- Decrese good count
-  goodMinus:(event)->
-    # Update markup
-    $count = $(event.currentTarget).closest('.spin').find('.count')
-    count = new Number( $count.text() ) - 1
-
-    $count.html count
-
+    # Update markup and send data to server
     if count == 0
-      $count.closest('.basket-item').remove()
+      $basketItem.closest('.basket-item').remove()
+      orderItem.destroy()
+    else
+      $basketItem.find('.spin .count').html count
+      orderItem.save()
 
-    # Update data
-    orderItemId = $(event.currentTarget).closest('.basket-item').data('order_item_id')
-    @_updateCount( orderItemId, count )
-
-  # --------------------------------------------------Increase goods count
-  goodPlus: (event)->
-    # Update html
-    $count = $(event.currentTarget).closest('.spin').find('.count')
-    count = new Number( $count.text() ) + 1
-    $count.html count
-
-    # Update data
-    orderItemId = $(event.currentTarget).closest('.basket-item').data('order_item_id')
-    @_updateCount( orderItemId, count )
+  # -------------------------------------------------- Decrease good count
+  _onMinusClick:(event)->
+    @_triggerUpdateCount event, '-'
 
 
+  # --------------------------------------------------Increase good count
+  _onPlusClick: (event)->
+    @_triggerUpdateCount event, '+'
+
+  # -------------------------------------------------- Trigger event for updating count
+  _triggerUpdateCount:(event, operation)->
+    $basketItem = $(event.currentTarget).closest '.basket-item'
+    orderItem   = Sap.models.order.items.get $basketItem.data 'id'
+
+    count       = new Number(orderItem.get 'count')
+    goodItemId  = orderItem.goodItem.get 'id'
+
+    switch operation
+      when '+' then count += 1
+      when '-' then count -= 1
+
+    Sap.vent.trigger Sap.E_ORDER_UPDATE_COUNT, goodItemId, count

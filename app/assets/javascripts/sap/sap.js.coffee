@@ -6,7 +6,11 @@ Sap =
   Routers     : {}
   Collections : {}
 
-  # Constants
+  # Events' name
+  E_ORDER_ADD_TO_BASKET : 'order.addToBasket'
+  E_ORDER_UPDATE_COUNT  : 'order.updateCount'
+
+  # API statuses
   API_STATUS_ERROR    : 'error'
   API_STATUS_SUCCESS  : 'success'
 
@@ -20,6 +24,9 @@ Sap =
   initialize: (data) ->
     @currentStore = ''
 
+    # Event aggragation
+    @vent = _.extend({}, Backbone.Events)
+
     # Setup read-only collections
     @collections.stores     = new Sap.Collections.Stores data.stores
     @collections.categories = new Sap.Collections.Categories data.categories
@@ -27,37 +34,23 @@ Sap =
     # Setup order
     @models.order = new Sap.Models.Order data.order if data.order
 
-    # Setup routers
-    @routers.goods = new Sap.Routers.Goods
-
-    # Event aggragation
-    @vent = _.extend({}, Backbone.Events)
-    @_bindEvents()
-
     # Render basket if order exist
     if @models.order
       @views.basket = new Sap.Views.Basket collection: @models.order.items
       @views.basket.render()
 
+    # Setup routers
+    @routers.goods = new Sap.Routers.Goods
+
     # Enable histroy API
-    if (!Backbone.history.started)
+    unless Backbone.history.started
       Backbone.history.start(
         pushState: true
         root: '/goods'
       )
       Backbone.history.started = true
 
-    this
-
-  # -------------------------------------------------- Bind App Events
-  _bindEvents: ->
-#    @vent.on 'addToBasket', @_onAddToBasket
-#    Sap.vent.trigger 'addToBasket', orderItem
-
-  # -------------------------------------------------- Update/Create order item
-  _onAddToBasket:(orderItem) ->
-
-
+    @
 
   # -------------------------------------------------- Error handler
   errorHandler: ->

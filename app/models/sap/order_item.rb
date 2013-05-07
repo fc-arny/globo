@@ -24,6 +24,7 @@ class Sap::OrderItem < SapModel
           {:order_id => id}
       )
     end
+
   end
 
   # -------------------------------------------------------------

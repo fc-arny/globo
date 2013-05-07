@@ -3,6 +3,9 @@
 ###
 class Sap.Models.OrderItem extends Sap.Models.Base
 
+  urlRoot: ->
+    "/api/v1/orders/#{Sap.models.order.hash()}/items"
+
   # -------------------------------------------------- Constructor
   initialize: (options) ->
     @_parseGoodItem()

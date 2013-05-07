@@ -1,4 +1,4 @@
-%li{:id => "basket_item_#{@item.goodItem.good.get('id')}", :class => 'basket-item', :'data-order_item_id' => @item.get('id')}
+%li{:id => "basket-good_item_#{@item.goodItem.good.get('id')}", :class => 'basket-item', :'data-id'            => @item.get('id')}
   = @item.goodItem.good.get('name')
   %span.spin
     %span.minus{:class=>  ('disabled' if @item.get('count') == 1) } -
