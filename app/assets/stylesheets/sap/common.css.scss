@@ -2,19 +2,15 @@
  *Common styles for all pages
  */
 body {
-  color: $text-color;
-  font-family: "Trebuchet MS",Tahoma;
 
   //--------------------------------
   // Links
   //--------------------------------
   a {
-    color: $text-color;
     font-size: 13px;
     text-decoration: none;
 
     &:hover {
-      color: $link-hover;
       text-decoration: underline;
     }
   }

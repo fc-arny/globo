@@ -16,6 +16,7 @@ class Sap.Views.Basket extends Support.CompositeView
     Sap.vent.bind Sap.E_ORDER_ADD_TO_BASKET, @addToBasket, @
     Sap.vent.bind Sap.E_ORDER_UPDATE_COUNT, @updateCount, @
 
+
   # -------------------------------------------------- Add good to basket
   addToBasket: (orderItemId) ->
     orderItem = Sap.models.order.items.get orderItemId
@@ -29,6 +30,7 @@ class Sap.Views.Basket extends Support.CompositeView
     @collection.each ((model)->
       self.renderItem model
     )
+    @updateSum()
     @
 
   # -------------------------------------------------- Render basket item
@@ -37,6 +39,11 @@ class Sap.Views.Basket extends Support.CompositeView
     $li = $(JST['orders/item'](item:model))
     @$el.find('.basket-items').append $li
 
+  # -------------------------------------------------- Recalc order sum
+  updateSum: ->
+    sum = Sap.models.order.items.calcSum()
+    sum = Math.floor(sum * 100) / 100
+    @$el.find('.sum').html(sum + ' р.')
 
   # -------------------------------------------------- Update order item count
   updateCount:(goodItemId, count) ->
@@ -53,6 +60,9 @@ class Sap.Views.Basket extends Support.CompositeView
     else
       $basketItem.find('.spin .count').html count
       orderItem.save()
+
+    # Update order sum
+    @updateSum()
 
   # -------------------------------------------------- Decrease good count
   _onMinusClick:(event)->

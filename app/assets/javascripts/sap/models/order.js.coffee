@@ -3,6 +3,7 @@
 ###
 class   Sap.Models.Order extends Sap.Models.Base
   url: '/api/v1/orders'
+  total : 0
 
   # -------------------------------------------------- Constructor
   initialize: ->
@@ -19,3 +20,7 @@ class   Sap.Models.Order extends Sap.Models.Base
     if @has 'order_items'
       @items = new Sap.Collections.OrderItems @get('order_items')
       @unset('order_items', silent:true)
+
+      @total = @items.calcSum()
+
+      console.log @total
