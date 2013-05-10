@@ -24,24 +24,9 @@
   - display_flash_message
 
   / Content
-  #wrapper
-    / Left menu - store select, filters
-    .content-left
+  #wrapper.container-fluid
+    = content_for?(:content) ? yield(:content) : yield
 
-
-
-    /  Right menu
-    .content-right
-      .basket
-        %h2
-          = t('goods.basket')
-          %span.sum 0
-        %ul.basket-items
-        %a{:href => ''}= t('goods._basket.buy')
-
-    / Content
-    .content-main
-      = content_for?(:main) ? yield(:main) : yield
 
   = render :partial => 'partials/footer'
 

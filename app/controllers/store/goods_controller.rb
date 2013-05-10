@@ -4,6 +4,8 @@
 
 class Store::GoodsController < ApplicationController
 
+  layout 'application-with-sidebars'
+
   # -------------------------------------------------------------
   # SPA for goods
   # -------------------------------------------------------------

@@ -6,49 +6,41 @@ Sap::Application.routes.draw do
   root :to => 'common::index#main'
 
   # Common
-  match ':controller(/:action(/:id))(.:format)', :controller => /common\/[^\/]+/
+  #match ':module/:controller(/:action(/*))'
 
-  # Good
-  get 'goods'                     => 'store::goods#index'               # Promo Page init backbone-app
-  get 'goods/:store'              => 'store::goods#index'               # Store promo page
-  get 'goods/:store/*categories'  => 'store::goods#index'               # Store promo page
+  # Store module
+  scope :module => 'store' do
+    match '/goods/(:store(/*categories))'  => 'goods#index'      # Goods
 
-  # Order(Basket)
-  namespace :store do
-    resource :order
+    controller :order do
+      match 'order' => :index
+    end
   end
 
-  #get 'goods/product' => redirect('/goods')            # Redirect to top offers
-  #get 'goods/product/:id' => 'store::goods#product'    # View product
-  #get 'goods/search' => 'store::goods#search'          # Search products
+  # User module
+  scope :module => 'user' do
+    get   '/login' => 'login#form'                 # Login form
+    post  '/login' => 'login#do_login'             # Login
+    get   '/logout' => 'logout#do_logout'          # Logout
 
-  # Users
-  get   'login' => 'user::login#form'                 # Login form
-  post  'login' => 'user::login#do_login'             # Login
-  get   'logout' => 'user::logout#do_logout'          # Logout
+    get   '/register' => 'register#form'           # Register form
+    post  '/register' => 'register#create'         # Register action
 
-  get   'register' => 'user::register#form'           # Register form
-  post  'register' => 'user::register#create'         # Register action
+    get '/password'  => 'index#password'             # Restore password form
+    post '/password'  => 'index#password_create'     # Restore password
+    post '/password_reset' => 'index#password_reset' # Generate token for reset
+    get '/password_reset_sent' => 'index#password_reset_sent'
+  end
 
-  get 'password'  => 'user::index#password'             # Restore password form
-  post 'password'  => 'user::index#password_create'     # Restore password
-  post 'password_reset' => 'user::index#password_reset' # Generate token for reset
-  get 'password_reset_sent' => 'user::index#password_reset_sent'
 
   # API
   namespace 'api' do
     # API v1.0
     namespace 'v1' do
-      # Goods
-      resources :goods do
-        get 'search', :on => :collection
-      end
 
-      # Stores
-      resources :stores
-
-      # Categories
-      resources :categories
+      resources :goods          # Goods
+      resources :stores         # Stores
+      resources :categories     # Categories
 
       # Order
       resources :orders do
@@ -63,6 +55,8 @@ Sap::Application.routes.draw do
     resources :goods
     resources :good_lists
   end
+
+  match '/:controller/:action(.:format)', :defaults => {:action => 'index'}
 
   # For Developers
   mount Sidekiq::Web, at: '/admin/sidekiq'
