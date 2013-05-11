@@ -28,7 +28,7 @@ class Sap::Order < SapModel
       self.where(
           'id = :id AND hash_str = :hash_str',
           {:id => id, :hash_str => hash_str}
-      ).first!
+      ).first
     end
   end
 

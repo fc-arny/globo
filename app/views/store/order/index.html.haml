@@ -1,6 +1,10 @@
-%h1 Checkout order!!!!
+%h1 Checkout
 .row-fluid
-  .span3
-    sd
-  .span7
-    sd
+  .span4
+    %h3= t('order.login')
+    = render :partial => 'user/login/form', :locals => {:form => @login_form}
+  .span4
+    %h3= t('order.register')
+    = render :partial => 'user/register/form', :locals => {:form => @register_form}
+  .span4
+    %h3= t('order.no_registration')
