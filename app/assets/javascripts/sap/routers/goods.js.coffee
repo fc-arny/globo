@@ -10,13 +10,13 @@ class Sap.Routers.Goods extends Support.SwappingRouter
 
   # -------------------------------------------------- Routers
   routes:
-    ":store"              : 'store'
+    ":store"              : 'index'
     ":store/:category"    : 'list'
 
   # -------------------------------------------------- Best offers of given store
-  store: (store) ->
+  index: (store) ->
     store_model = Sap.collections.stores.getByUrl(store)
-    view = new Sap.Views.Store(model:store_model)
+    view = new Sap.Views.GoodsIndex(model:store_model)
     this.swap(view)
 
   ###

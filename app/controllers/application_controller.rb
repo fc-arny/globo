@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :user
 
-  before_filter :current_store
+  before_filter :current_store#, :miniprofiler
 
   unless config.consider_all_requests_local
     #rescue_from Exception, :with => :render_error
@@ -35,5 +35,11 @@ class ApplicationController < ActionController::Base
   # -------------------------------------------------------------
   def current_user
     @current_user ||= Sap::User.find(session[:user_id]) if session[:user_id]
+  end
+
+  private
+
+  def miniprofiler
+    Rack::MiniProfiler.authorize_request # if user.admin?
   end
 end

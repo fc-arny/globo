@@ -1,4 +1,5 @@
 %h1 Checkout
+%h2 Step 1: Who you are?
 .row-fluid
   .span4
     %h3= t('order.login')
@@ -8,3 +9,20 @@
     = render :partial => 'user/register/form', :locals => {:form => @register_form}
   .span4
     %h3= t('order.no_registration')
+    = render :partial => 'partials/forms/user_contact', :locals => {:form => @contact_form}
+
+%h2 Step 2: Delivery
+.row-fluid
+  .span12
+    = render :partial => 'partials/forms/order_delivery', :locals => {:form => @delivery_form}
+
+%h2 Step 3: Payment
+.row-fluid
+  = radio_button_tag :payment_type, 'card'
+  = label_tag :payment_type_card, 'Credit/Debit card'
+
+  = radio_button_tag :payment_type, 'qiwi'
+  = label_tag :payment_type_qiwi, 'Qiwi walet'
+
+  = radio_button_tag :payment_type, 'yandex'
+  = label_tag :payment_type_yandex, 'Yandex.Dengi'

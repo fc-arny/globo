@@ -18,6 +18,8 @@
       var order = #{@order.to_json};
 
       Sap.initialize(data);
+      Sap.views.basket.render();
+      Sap.initRoute();
 
       $(document).on("click", "a[href^='/goods']", function(evt) {
         evt.preventDefault();

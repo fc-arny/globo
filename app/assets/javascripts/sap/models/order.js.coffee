@@ -22,5 +22,3 @@ class   Sap.Models.Order extends Sap.Models.Base
       @unset('order_items', silent:true)
 
       @total = @items.calcSum()
-
-      console.log @total

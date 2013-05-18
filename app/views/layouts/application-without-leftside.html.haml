@@ -1,20 +1,13 @@
 = content_for :content do
   / Content
-  #wrapper.without-leftside.container-fluid
-    / Content
-    .content-main
-      = content_for?(:main) ? yield(:main) : yield
+  #wrapper.container-fluid
+    .without-leftside
+      /  Right menu
+      .content-right
+        = basket
 
-    /  Right menu
-    .content-right
-      .basket
-        %h2
-          = t('goods.basket')
-          %span.sum 0
-        %ul.basket-items
-        %a{:href => ''}= t('goods._basket.buy')
-
-
-
+      / Content
+      .content-main
+        = content_for?(:main) ? yield(:main) : yield
 
 = render :template => 'layouts/application'

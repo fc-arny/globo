@@ -29,8 +29,6 @@
 
     // Main Content
     .content-main {
-      margin: 0 150px 0 150px;
-
       // Equal columns height
       @include equal-columns;
     }
@@ -53,6 +51,13 @@
 
       // Equal columns height
       @include equal-columns;
+    }
+
+    .with-sidebars {
+      .content-main {
+        margin-right: 150px;
+        margin-left: 150px;
+      }
     }
   }
 }

@@ -37,8 +37,11 @@ Sap =
     # Render basket if order exist
     if @models.order
       @views.basket = new Sap.Views.Basket collection: @models.order.items
-      @views.basket.render()
 
+    @
+
+  # -------------------------------------------------- Init route
+  initRoute: ->
     # Setup routers
     @routers.goods = new Sap.Routers.Goods
 
@@ -49,9 +52,6 @@ Sap =
         root: '/goods'
       )
       Backbone.history.started = true
-
-    @
-
   # -------------------------------------------------- Error handler
   errorHandler: ->
 

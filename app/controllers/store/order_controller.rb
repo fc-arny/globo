@@ -8,6 +8,8 @@ class Store::OrderController < ApplicationController
   def index
     @login_form     = LoginForm.new
     @register_form  = RegisterForm.new
+    @contact_form   = UserContactForm.new
+    @delivery_form  = OrderDeliveryForm.new
   end
 
   # -------------------------------------------------------------

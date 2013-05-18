@@ -14,6 +14,7 @@ gem 'rails_config'          # Configure app
 gem 'jsend-rails'           # API format specification
 
 # Profiling, Monitoring
+gem 'rack-mini-profiler'
 gem 'newrelic_rpm'
 gem 'ruby-prof'
 gem 'airbrake'
