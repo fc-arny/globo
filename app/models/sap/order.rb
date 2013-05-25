@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: sap.orders
+#
+#  id         :integer          not null, primary key
+#  state      :string(255)
+#  hash_str   :string(255)
+#  sum        :decimal(, )
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # -------------------------------------------------------------
 # Total order
 # == Fields:
@@ -9,7 +22,7 @@
 # -------------------------------------------------------------
 class Sap::Order < SapModel
   # Constants
-  STATE_NEW = 'new'
+  STATES = {STATE_NEW: 'new', STATE_PAID: 'paid', STATE_PACK: 'pack', SATE_DELIVERY: 'delivery', STATE_FINISHED: 'finished'}
 
   # Fields
   attr_accessible :id, :state, :sum, :user_id, :hash_str

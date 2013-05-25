@@ -12,10 +12,13 @@ class Sap.Views.Basket extends Support.CompositeView
 
   # -------------------------------------------------- Constructor
   initialize: (options) ->
+
     # Events
     Sap.vent.bind Sap.E_ORDER_ADD_TO_BASKET, @addToBasket, @
     Sap.vent.bind Sap.E_ORDER_UPDATE_COUNT, @updateCount, @
 
+  cleanup: ->
+    @undelegateEvents()
 
   # -------------------------------------------------- Add good to basket
   addToBasket: (orderItemId) ->
@@ -24,18 +27,23 @@ class Sap.Views.Basket extends Support.CompositeView
 
   # -------------------------------------------------- Render basket
   render: ->
+    console.log 'render'
+
     self = @
 
     # Render order items
     @collection.each ((model)->
+
       self.renderItem model
     )
+#    console.log @$el
+#    $('.basket').html(@$el.html())
     @updateSum()
     @
 
   # -------------------------------------------------- Render basket item
   renderItem:(model) ->
-#    unless @$el.find("basket_item_#{model.get('good_item_id')}")
+    #unless @$el.find("basket_item_#{model.get('good_item_id')}")
     $li = $(JST['orders/item'](item:model))
     @$el.find('.basket-items').append $li
 
@@ -75,6 +83,8 @@ class Sap.Views.Basket extends Support.CompositeView
 
   # -------------------------------------------------- Trigger event for updating count
   _triggerUpdateCount:(event, operation)->
+    console.log 'trigger'
+#    event.stopPropagation()
     $basketItem = $(event.currentTarget).closest '.basket-item'
     orderItem   = Sap.models.order.items.get $basketItem.data 'id'
 

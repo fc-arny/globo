@@ -9,16 +9,8 @@
     $(function(){
 
       //TODO: Cache it
-      var data = {
-        order     : #{@order.to_json},
-        stores    : #{@stores.to_json},
-        categories: #{@categories.to_json}
-      };
 
-      var order = #{@order.to_json};
-
-      Sap.initialize(data);
-      Sap.views.basket.render();
+      //Sap.views.basket.render();
       Sap.initRoute();
 
       $(document).on("click", "a[href^='/goods']", function(evt) {

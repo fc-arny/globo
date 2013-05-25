@@ -13,6 +13,7 @@ class Sap.Views.GoodsList extends Support.CompositeView
 
   # -------------------------------------------------- Initialization view
   initialize: (options) ->
+    console.log 'Init goods'
     @category = options.category
 
     @_cache()
@@ -24,7 +25,7 @@ class Sap.Views.GoodsList extends Support.CompositeView
   render: () ->
     @renderLayout()
     @renderGoods(@collection)
-    this
+    @
 
   # -------------------------------------------------- Render container for goods
   renderLayout: ()->

@@ -1,7 +1,7 @@
 # -------------------------------------------------------------
 # Register customer
 # -------------------------------------------------------------
-class User::RegisterController < ApplicationController
+class User::RegisterController < FrontendController
 
   layout 'application-without-leftside'
 

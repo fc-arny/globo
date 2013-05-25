@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: sap.categories
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)      not null
+#  url        :string(255)      not null
+#  order_pos  :integer          default(0)
+#  parent_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # -------------------------------------------------------------
 # Categories for goods. We have two-level categorization!
 #

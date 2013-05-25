@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: sap.category_good
+#
+#  id          :integer          not null, primary key
+#  category_id :integer
+#  good_id     :integer
+#
+
 # -------------------------------------------------------------
 # Many-to-many relationship Sap::Goods and Sap::Categories
 # -------------------------------------------------------------

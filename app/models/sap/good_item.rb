@@ -1,11 +1,25 @@
+# == Schema Information
+#
+# Table name: sap.good_items
+#
+#  id         :integer          not null, primary key
+#  good_id    :integer          not null
+#  price      :decimal(, )      not null
+#  store_id   :integer          not null
+#  order_pos  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # -------------------------------------------------------------
 # Stores' goods
 # -------------------------------------------------------------
 # ==Fields:
-# good_id       - link to Sap::Good
-# order_pos     - for sorting
-# price         - product's price
-# store_id      - link to store
+# good_id                 - link to Sap::Good
+# good_id_in_store        - identificator in store system
+# order_pos               - for sorting
+# price                   - product's price
+# store_id                - link to store
 # -------------------------------------------------------------
 class Sap::GoodItem < SapModel
   # Fields

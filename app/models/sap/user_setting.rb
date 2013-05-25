@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: sap.user_settings
+#
+#  id      :integer          not null, primary key
+#  user_id :integer          not null
+#  key     :string(255)
+#  value   :string(255)
+#
+
 # -------------------------------------------------------------
 # Model for saving pair kay:value
 # -------------------------------------------------------------

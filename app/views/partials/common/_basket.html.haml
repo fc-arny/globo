@@ -12,12 +12,12 @@
           %span.plus +
 
   %a{:href => ''}= t('goods._basket.buy')
-= content_for :js do
-  :javascript
-    $(function(){
-      var data = {
-        order : #{order.to_json}
-      }
 
-      Sap.initialize(data);
-    });
+= content_for :js do
+  :coffeescript
+    $ ->
+      Sap.views.basket = new Sap.Views.Basket collection: Sap.models.order.items
+
+
+
+

@@ -35,8 +35,9 @@ Sap =
     @models.order = new Sap.Models.Order data.order if data.order
 
     # Render basket if order exist
-    if @models.order
-      @views.basket = new Sap.Views.Basket collection: @models.order.items
+#    if @models.order
+#      @views.basket = new Sap.Views.Basket collection: @models.order.items
+#      @views.basket.render()
 
     @
 

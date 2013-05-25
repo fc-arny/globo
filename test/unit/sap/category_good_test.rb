@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: sap.category_good
+#
+#  id          :integer          not null, primary key
+#  category_id :integer
+#  good_id     :integer
+#
+
 require 'test_helper'
 
 class Sap::CategoryGoodTest < ActiveSupport::TestCase

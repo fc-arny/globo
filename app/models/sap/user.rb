@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: sap.users
+#
+#  id             :integer          not null, primary key
+#  name           :string(255)      not null
+#  login          :string(255)      not null
+#  password       :string(255)      not null
+#  salt           :string(255)      not null
+#  token          :string(255)
+#  valid_token_to :datetime
+#  role_id        :integer
+#  role_type      :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
 # -------------------------------------------------------------
 # Base model for users
 # -------------------------------------------------------------

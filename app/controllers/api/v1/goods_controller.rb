@@ -63,13 +63,18 @@ class Api::V1::GoodsController < ApiController
           'sap.good_items.price AS price',
           'sap.good_items.store_id AS store_id',
 
-          # Order Data
-          'sap.order_items.count AS count'
+
       ]
 
       order = Sap::Order.get_by_hash(params[:order_id])
-      order_item_cond = "LEFT OUTER JOIN sap.order_items ON sap.order_items.good_item_id = sap.good_items.id"
-      order_item_cond += " AND sap.order_items.order_id = #{order.id}" if order
+      if order
+        @fields.push 'sap.order_items.count AS count'
+
+        order_item_cond = "LEFT OUTER JOIN sap.order_items ON sap.order_items.good_item_id = sap.good_items.id"
+        order_item_cond += " AND sap.order_items.order_id = #{order.id}"
+      else
+        @fields.push 'NULL AS count'
+      end
 
       # Create relation
       @relation = Sap::GoodItem.

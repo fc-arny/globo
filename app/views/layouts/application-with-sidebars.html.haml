@@ -6,12 +6,7 @@
 
     /  Right menu
     .content-right
-      .basket
-        %h2
-          = t('goods.basket')
-          %span.sum 0
-        %ul.basket-items
-        %a{:href => order_path}= t('goods._basket.buy')
+      = basket_sidebar @order
 
     / Content
     .content-main

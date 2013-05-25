@@ -4,6 +4,7 @@ source 'http://gems.github.com'
 gem 'rails', '3.2.8'
 
 gem 'pg'
+gem 'annotate', ">=2.5.0" # Generate model annotation
 gem 'unicorn', :platform => :ruby
 gem 'haml-rails'
 gem 'rails-i18n'
@@ -34,8 +35,8 @@ group :assets do
 
   gem 'jquery-rails'                # jQuery
   gem 'rails-backbone'              # Backbone
+  gem 'bootstrap-sass'              # Twitter bootstrap
   gem 'backbone-support'            # Backbone Support
-  gem 'bootstrap-sass'              # Twitter bootstrap\
   gem 'haml_coffee_assets'          # JS Templates for backbone
 end
 
