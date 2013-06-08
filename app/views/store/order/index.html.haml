@@ -1,28 +1,37 @@
-%h1 Checkout
-%h2 Step 1: Who you are?
-.row-fluid
-  .span4
-    %h3= t('order.login')
-    = render :partial => 'user/login/form', :locals => {:form => @login_form}
-  .span4
-    %h3= t('order.register')
-    = render :partial => 'user/register/form', :locals => {:form => @register_form}
-  .span4
-    %h3= t('order.no_registration')
-    = render :partial => 'partials/forms/user_contact', :locals => {:form => @contact_form}
+.checkout
+  %h1= t('order.checkout')
+  .row-fluid
+    %a.step.n1 Step 1
+    \|
+    %a.step.n2 Step 2
+    \|
+    %a.step.n3 Step 3
 
-%h2 Step 2: Delivery
-.row-fluid
-  .span12
-    = render :partial => 'partials/forms/order_delivery', :locals => {:form => @delivery_form}
+  .row-fluid.step-item.n1
+    %h2 Step 1: Who you are?
+    .row-fluid
+      .span4
+        %h3= t('order.login')
+        = render :partial => 'user/login/form', :locals => {:form => @login_form}
+      .span4
+        %h3= t('order.register')
+        = render :partial => 'user/partials/new_customer_form', :locals => {:form => @register_form}
+      .span4
+        %h3= t('order.no_registration')
+        = render :partial => 'user/partials/new_customer_temp_form', :locals => {:form => @contact_form, :ajax => true}
 
-%h2 Step 3: Payment
-.row-fluid
-  = radio_button_tag :payment_type, 'card'
-  = label_tag :payment_type_card, 'Credit/Debit card'
+  .row-fluid.step-item.n2
+    .span12
+      %h2 Step 2: Delivery
+      = render :partial => 'partials/forms/order_delivery', :locals => {:form => @delivery_form}
 
-  = radio_button_tag :payment_type, 'qiwi'
-  = label_tag :payment_type_qiwi, 'Qiwi walet'
+  .row-fluid.step-item.n3
+    %h2 Step 3: Payment
+    = radio_button_tag :payment_type, 'card'
+    = label_tag :payment_type_card, 'Credit/Debit card'
 
-  = radio_button_tag :payment_type, 'yandex'
-  = label_tag :payment_type_yandex, 'Yandex.Dengi'
+    = radio_button_tag :payment_type, 'qiwi'
+    = label_tag :payment_type_qiwi, 'Qiwi walet'
+
+    = radio_button_tag :payment_type, 'yandex'
+    = label_tag :payment_type_yandex, 'Yandex.Dengi'

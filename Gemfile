@@ -4,7 +4,7 @@ source 'http://gems.github.com'
 gem 'rails', '3.2.8'
 
 gem 'pg'
-gem 'annotate', ">=2.5.0" # Generate model annotation
+#
 gem 'unicorn', :platform => :ruby
 gem 'haml-rails'
 gem 'rails-i18n'
@@ -41,6 +41,9 @@ group :assets do
 end
 
 group :development do
+  # Annotate models
+  gem 'migration_comments'
+  gem 'annotate', ">=2.5.0" # Generate model annotation
   # Errors
   gem 'better_errors'
   gem 'binding_of_caller'

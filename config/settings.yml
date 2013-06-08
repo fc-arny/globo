@@ -1,6 +1,9 @@
+# SmsGates
 smsgate:
+  # Class:    /lib/sms_gate/smsc.rb
+  # Website:  smsc.ru
   smsc:
-    login: 'fc_arny'
-    password: 'fhctyfk2301'
+    login: ''
+    password: ''
     debug: 0
 

@@ -1,0 +1,15 @@
+= form_for form, :as => :customer, :url => {:controller => 'api/v1/user', :action => :create},
+                :remote => true,  :method => :post, :id => 'register'  do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :phone, t('Phone')
+    = f.text_field :phone
+  .field
+    = f.label :password, t('Password')
+    = f.password_field :password
+    - form.errors[:password].each do |mes|
+      = mes
+  .submit
+    = f.submit 'Sign Up'

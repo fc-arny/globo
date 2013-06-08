@@ -10,7 +10,7 @@ class User::RegisterController < FrontendController
   # GET /login
   # -------------------------------------------------------------
   def form
-    @form = RegisterForm.new
+    @form = CustomerForm.new
   end
 
   # -------------------------------------------------------------
@@ -18,7 +18,7 @@ class User::RegisterController < FrontendController
   # GET /register
   # -------------------------------------------------------------
   def create
-    @form = RegisterForm.new(params[:register_form])
+    @form = CustomerForm.new(params[:register_form])
     form_params = params[:register_form]
 
     if @form.valid?
@@ -31,11 +31,11 @@ class User::RegisterController < FrontendController
         customer.user = Sap::User.new do |user|
           # Email is login for customer
           user.login = @form.login
-          user.name = customer.name = @form.name
-          # Set Random password and Salt
+          # Set password and Salt
           user.salt = ApplicationHelper::get_random_string
           user.password = user.hash_password(password)
         end
+        customer.name = @form.name
         customer.phone = @form.login
       end
 

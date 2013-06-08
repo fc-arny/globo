@@ -3,7 +3,6 @@
 # Table name: sap.users
 #
 #  id             :integer          not null, primary key
-#  name           :string(255)      not null
 #  login          :string(255)      not null
 #  password       :string(255)      not null
 #  salt           :string(255)      not null
@@ -13,13 +12,14 @@
 #  role_type      :string(255)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  is_temporary   :boolean          default(TRUE)
 #
 
 # -------------------------------------------------------------
 # Base model for users
 # -------------------------------------------------------------
 # ==Fields:
-# login           - login string (email for customer)
+# login           - login string (email or phone for customer)
 # password        - secret key = md5(md5(password) + salt)
 # salt            - increase secure for password
 # role_id         - role type: Admin, Manager and Customer
@@ -31,7 +31,7 @@ class Sap::User < SapModel
   include Perms::Model
 
   # Fields
-  attr_accessible :id, :login, :password, :salt, :token, :valid_token_to, :name
+  attr_accessible :id, :login, :password, :salt, :token, :valid_token_to, :name, :is_temporary
 
   # Relationships
   belongs_to :role, :polymorphic => true
@@ -43,13 +43,7 @@ class Sap::User < SapModel
     can [:view, :create, :update]
   end
 
-  # -------------------------------------------------------------
-  # Generate salt and set password
-  # -------------------------------------------------------------
-  def set_password (password)
-    self.salt = ApplicationHelper::get_random_string
-    self.password = hash_password(password)
-  end
+
 
   # -------------------------------------------------------------
   # Auth user by password
@@ -59,14 +53,10 @@ class Sap::User < SapModel
     result = ( hash == self.password )
   end
 
-  # -------------------------------------------------------------
-  # Get hash-string for password
-  # -------------------------------------------------------------
-  def hash_password(password)
-    Digest::MD5.hexdigest( Digest::MD5.hexdigest(password) + self.salt )
-  end
+
 
   class << self
+
     # -------------------------------------------------------------
     # Generate token
     # -------------------------------------------------------------

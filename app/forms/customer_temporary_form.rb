@@ -1,13 +1,13 @@
 # -------------------------------------------------------------
-# Form model for user login
+# Form model temporary user account
 # -------------------------------------------------------------
-class UserContactForm < ActiveForm
+class CustomerTemporaryForm < ActiveForm
 
   # Fields
-  attr_accessor :phone, :name
+  attr_accessor :login, :name
 
   # Validators
-  validates :phone,
+  validates :login,
             :presence => true
 
   validates :name,

@@ -20,11 +20,9 @@ Sap::Application.routes.draw do
   # User module
   scope :module => 'user' do
     get   '/login' => 'login#form'                 # Login form
-    post  '/login' => 'login#do_login'             # Login
     get   '/logout' => 'logout#do_logout'          # Logout
 
     get   '/register' => 'register#form'           # Register form
-    post  '/register' => 'register#create'         # Register action
 
     get '/password'  => 'index#password'             # Restore password form
     post '/password'  => 'index#password_create'     # Restore password

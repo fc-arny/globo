@@ -57,12 +57,25 @@ Sap =
   errorHandler: ->
 
 
+  log: ()->
+    unless Sap.debug
+      return
+
+    message = Array.prototype.join.call(arguments,'')
+
+    if window.console && window.console.log
+      window.console.log message
+    else if window.opera && window.opera.postError
+      window.opera.postError message
 
 window.Sap = Sap
 
 
 # Document load
 $(()->
+  # Apply plugin
+  $('form[data-remote=true]').ajaxForm()
+
   $('li.item').mainMenu()
 
   GOODS_URL = '/goods'

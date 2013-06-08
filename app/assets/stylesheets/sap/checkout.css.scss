@@ -1,0 +1,10 @@
+.checkout {
+  .step-item {
+
+    display: none;
+
+    &.n1 {
+      display: block;
+    }
+  }
+}

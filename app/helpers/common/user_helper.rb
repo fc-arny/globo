@@ -33,4 +33,11 @@ module Common::UserHelper
 
     session[:settings][key.to_sym] = value
   end
+
+  # -------------------------------------------------------------
+  #
+  # -------------------------------------------------------------
+  def generate_guset_user_login
+
+  end
 end

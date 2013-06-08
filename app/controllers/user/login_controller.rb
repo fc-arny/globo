@@ -12,7 +12,7 @@ class User::LoginController < ApplicationController
   def form
     # Redirect if logged in
     if !current_user.nil?
-      flash[:alert] = 'You are already logged in. Please Log out.'
+      flash[:alert] = t('You are already logged in. Please Log out.')
       redirect_to root_path
     end
 
