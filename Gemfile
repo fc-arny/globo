@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'http://gems.github.com'
 
-gem 'rails', '3.2.8'
+gem 'rails', '4.0.0.rc1'
 
 gem 'pg'
 #
@@ -15,10 +15,10 @@ gem 'rails_config'          # Configure app
 gem 'jsend-rails'           # API format specification
 
 # Profiling, Monitoring
-gem 'rack-mini-profiler'
-gem 'newrelic_rpm'
-gem 'ruby-prof'
-gem 'airbrake'
+#gem 'rack-mini-profiler'
+#gem 'newrelic_rpm'
+#gem 'ruby-prof'
+#gem 'airbrake'
 
 
 # Sidekiq
@@ -29,9 +29,9 @@ gem 'slim'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails',   '~> 4.0.0.rc1'
+  gem 'coffee-rails', '~> 4.0.0'
+  gem 'uglifier', '>= 1.3.0'
 
   gem 'jquery-rails'                # jQuery
   gem 'rails-backbone'              # Backbone

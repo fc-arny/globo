@@ -12,7 +12,7 @@
 #  role_type      :string(255)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  is_temporary   :boolean          default(TRUE)
+#  is_temporary   :boolean          default(FALSE)
 #
 
 # -------------------------------------------------------------
@@ -29,6 +29,7 @@
 class Sap::User < SapModel
 
   include Perms::Model
+  include ApplicationHelper
 
   # Fields
   attr_accessible :id, :login, :password, :salt, :token, :valid_token_to, :name, :is_temporary
@@ -49,7 +50,7 @@ class Sap::User < SapModel
   # Auth user by password
   # -------------------------------------------------------------
   def auth_by_password(password)
-    hash = hash_password(password)
+    hash = hash_password(password, self.salt)
     result = ( hash == self.password )
   end
 

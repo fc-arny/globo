@@ -1,0 +1,9 @@
+.row-fluid.step-item.n1
+  %h2 Step 1: Who you are?
+  .row-fluid
+    .span6
+      %h3= t('order.login')
+      = render :partial => 'user/p/forms/login', :locals => {:form => @login_form}
+    .span6
+      %h3= t('order.register')
+      = render :partial => 'user/p/forms/new_customer', :locals => {:form => @register_form}

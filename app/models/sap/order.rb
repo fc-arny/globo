@@ -25,7 +25,7 @@ class Sap::Order < SapModel
   STATES = {STATE_NEW: 'new', STATE_PAID: 'paid', STATE_PACK: 'pack', SATE_DELIVERY: 'delivery', STATE_FINISHED: 'finished'}
 
   # Fields
-  attr_accessible :id, :state, :sum, :user_id, :hash_str
+  attr_accessible :id, :state, :sum, :user_id, :hash_str, :created_at, :updated_at
 
   # Reletionships
   has_many :order_items, :class_name => 'Sap::OrderItem'

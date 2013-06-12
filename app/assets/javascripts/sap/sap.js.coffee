@@ -11,8 +11,9 @@ Sap =
   E_ORDER_UPDATE_COUNT  : 'order.updateCount'
 
   # API statuses
-  API_STATUS_ERROR    : 'error'
-  API_STATUS_SUCCESS  : 'success'
+  API_STATUS_SUCCESS  : 'success' # Evething ok
+  API_STATUS_FAIL     : 'fail'    # Not valid data
+  API_STATUS_ERROR    : 'error'   # Fatal/unexpected errors
 
   # Instances
   views       : {}
@@ -58,7 +59,7 @@ Sap =
 
 
   log: ()->
-    unless Sap.debug
+    unless DEBUG
       return
 
     message = Array.prototype.join.call(arguments,'')
@@ -74,7 +75,7 @@ window.Sap = Sap
 # Document load
 $(()->
   # Apply plugin
-  $('form[data-remote=true]').ajaxForm()
+  $('form[data-remote=true]').AjaxForm()
 
   $('li.item').mainMenu()
 

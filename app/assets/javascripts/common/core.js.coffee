@@ -1,17 +1,10 @@
-###
-# Create jQueryPlugin
-###
-window.createjQueryPlugin = (Class) ->
-  className = Class.toString().match(/^function ([^(]+)/)[1]
-  pluginName = className.slice(0, 1).toLowerCase() + className.slice(1)
-  $.fn[pluginName] = (options) ->
-    args = undefined
-    args = Array::slice.call(arguments, 1)
-    @each ->
-      obj = undefined
-      obj = $(this).data(pluginName)
-      unless obj instanceof Class
-        obj = new Class($(this), options)
-        $(this).data pluginName, obj
-      obj[options].apply obj, args  if typeof options is "string"
+# Global error handler
+window.onerror = (message, url, line_number) ->
+  if DEBUG
+    alert "Url: " + url + "\nLine: " + line_number + "\nDetails: " + message
+  else
+    alert "We are sorry, but something wrong ;-("
 
+$ ->
+  $(document).ajaxError (event, jqxhr, settings, exception)->
+    throw new Error jqxhr.responseText

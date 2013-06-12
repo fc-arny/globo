@@ -1,37 +1,18 @@
-.checkout
-  %h1= t('order.checkout')
-  .row-fluid
-    %a.step.n1 Step 1
-    \|
-    %a.step.n2 Step 2
-    \|
-    %a.step.n3 Step 3
-
-  .row-fluid.step-item.n1
-    %h2 Step 1: Who you are?
+- content_for :content do
+  .checkout
+    %h1= t('order.checkout')
     .row-fluid
-      .span4
-        %h3= t('order.login')
-        = render :partial => 'user/login/form', :locals => {:form => @login_form}
-      .span4
-        %h3= t('order.register')
-        = render :partial => 'user/partials/new_customer_form', :locals => {:form => @register_form}
-      .span4
-        %h3= t('order.no_registration')
-        = render :partial => 'user/partials/new_customer_temp_form', :locals => {:form => @contact_form, :ajax => true}
+      %a.step.n1 Step 1
+      \|
+      %a.step.n2 Step 2
+      \|
+      %a.step.n3 Step 3
 
-  .row-fluid.step-item.n2
-    .span12
-      %h2 Step 2: Delivery
-      = render :partial => 'partials/forms/order_delivery', :locals => {:form => @delivery_form}
+    = render :partial => 'store/order/p/order_step_auth'
 
-  .row-fluid.step-item.n3
-    %h2 Step 3: Payment
-    = radio_button_tag :payment_type, 'card'
-    = label_tag :payment_type_card, 'Credit/Debit card'
+    = render :partial => 'store/order/p/order_step_delivery'
 
-    = radio_button_tag :payment_type, 'qiwi'
-    = label_tag :payment_type_qiwi, 'Qiwi walet'
+    = render :partial => 'store/order/p/order_step_payment'
 
-    = radio_button_tag :payment_type, 'yandex'
-    = label_tag :payment_type_yandex, 'Yandex.Dengi'
+- content_for :js do
+  - javascript_include_tag 'included/order'

@@ -2,8 +2,11 @@
 # Order model containing goods from basket
 ###
 class   Sap.Models.Order extends Sap.Models.Base
-  url: '/api/v1/orders'
   total : 0
+
+  # -------------------------------------------------- Generate order url with order hash
+  url: ->
+    '/api/v1/orders/' + @hash()
 
   # -------------------------------------------------- Constructor
   initialize: ->
@@ -11,7 +14,11 @@ class   Sap.Models.Order extends Sap.Models.Base
 
   # -------------------------------------------------- Return hash string for order
   hash: ->
-    @get('id') + 'x' + @get('hash_str')
+    _hash = ''
+    if @get('id')
+      _hash = @get('id') + 'x' + @get('hash_str')
+
+    return _hash
 
   # -------------------------------------------------- Parse order's goods
   _parseOrderItems: ->

@@ -1,6 +1,6 @@
 .user-state
   -if user
-    %a{href: '/'}= user.name
+    %a{href: '/'}= user.login
     \|
     %a{href: logout_path} Log Out
   - else

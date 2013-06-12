@@ -37,6 +37,19 @@ class Api::V1::OrdersController < ApiController
   end
 
   # -------------------------------------------------------------
+  # Update order model
+  # -------------------------------------------------------------
+  def update
+    order = Sap::Order.get_by_hash(params[:id]) or raise ActiveRecord::RecordNotFound
+
+    order.update_attributes(params[:order])
+
+    render_jsend :success => order
+  rescue ActiveRecord::RecordNotFound
+    render_jsend :error => t('No this good in your basket')
+  end
+
+  # -------------------------------------------------------------
   # Add good to order
   # -------------------------------------------------------------
   def add_good

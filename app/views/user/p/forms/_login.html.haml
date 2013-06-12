@@ -1,0 +1,11 @@
+= form_for form, :url => {:controller => 'api/v1/user', :action => :auth}, :remote => true do |f|
+  %div
+    = f.label :login, t('Login')
+    = f.text_field :login
+  %div
+    = f.label :password
+    = f.password_field :password
+  %div
+    =f.submit t('Login', :rescue_format => :inline)
+%div
+  %a{:href => password_path, :target => '_blank'}= t('Reset password')

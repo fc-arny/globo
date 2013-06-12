@@ -32,7 +32,7 @@ module ApplicationHelper
   # -------------------------------------------------------------
   # Get hash-string for password   md5(md5(password) + salt)
   # -------------------------------------------------------------
-  def hash_password(password, salt)
+  def hash_password(password, salt = '')
     Digest::MD5.hexdigest( Digest::MD5.hexdigest(password) + salt )
   end
 
