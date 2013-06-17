@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'http://gems.github.com'
 
-gem 'rails', '4.0.0.rc1'
+gem 'rails', '4.0.0.rc2'
 
 gem 'pg'
 #
@@ -28,17 +28,21 @@ gem 'slim'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 4.0.0.rc1'
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.3.0'
 
-  gem 'jquery-rails'                # jQuery
-  gem 'rails-backbone'              # Backbone
-  gem 'bootstrap-sass'              # Twitter bootstrap
-  gem 'backbone-support'            # Backbone Support
-  gem 'haml_coffee_assets'          # JS Templates for backbone
-end
+gem 'sass-rails',   '~> 4.0.0.rc1'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+
+gem 'jquery-rails', '~>3.0.1'     # jQuery
+gem 'rails-backbone'              # Backbone
+gem 'bootstrap-sass'              # Twitter bootstrap
+gem 'backbone-support'            # Backbone Support
+gem 'haml_coffee_assets'          # JS Templates for backbone
+
+# Rails 4
+gem 'protected_attributes'
+gem 'activerecord-session_store'
+
 
 group :development do
   # Annotate models

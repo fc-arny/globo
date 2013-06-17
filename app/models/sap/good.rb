@@ -27,10 +27,9 @@ class Sap::Good < SapModel
 
   # Associations
   has_many :good_items, :class_name => 'Sap::GoodItem'
-  has_many :category_goods, :class_name => 'Sap::CategoryGood'
-  has_many :categories, :class_name => 'Sap::Category', :through => :category_goods
-  # TODO: Заменать на has_and_belongs_to_many
-  belongs_to :vandor, :class_name => 'Sap::Vendor'
+  has_and_belongs_to_many :categories, :join_table => 'sap.category_good'
+
+  #belongs_to :vandor, :class_name => 'Sap::Vendor'
 
   # -------------------------------------------------------------
   # Get list of goods by store
