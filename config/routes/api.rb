@@ -11,6 +11,13 @@ Sap::Application.routes.draw do
       resources :orders do
         resources :items, :controller => 'order_items'
       end
+
+      # User
+      resources :user do
+        post 'auth', :on => :collection
+      end
+
+
     end
   end
 end

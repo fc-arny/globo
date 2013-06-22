@@ -32,6 +32,8 @@ module ApplicationHelper
   # -------------------------------------------------------------
   # Get hash-string for password   md5(md5(password) + salt)
   # -------------------------------------------------------------
+  # @param [String] password
+  # @param [String] salt
   def hash_password(password, salt = '')
     Digest::MD5.hexdigest( Digest::MD5.hexdigest(password) + salt )
   end
@@ -39,6 +41,8 @@ module ApplicationHelper
 
   # -------------------------------------------------------------
   # Generate random string
+  #
+  # @param [Numeric] length
   # -------------------------------------------------------------
   def get_random_string (length = 6)
     str = ''
@@ -53,6 +57,23 @@ module ApplicationHelper
       str << code.chr
     end
     return str
+  end
+
+  # -------------------------------------------------------------
+  # JSend api response
+  #
+  # @param [Jbuilder] json is JBuilder object
+  # @param [Hash] params for jsend response
+  # -------------------------------------------------------------
+  def response_jsend(json, params = {})
+    status  =  params[:status] || :success
+    message = params[:message] || nil
+
+    json.status status
+    json.message message
+    json.data do
+      yield if block_given?
+    end
   end
 
 end

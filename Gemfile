@@ -58,8 +58,9 @@ end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# Use Jbuilder & draper for JSON
+gem 'jbuilder'
+gem 'draper', '~> 1.0'
 
 # Deploy with Capistrano
 # gem 'capistrano'

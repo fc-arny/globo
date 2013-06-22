@@ -3,6 +3,7 @@
 # -------------------------------------------------------------
 class Api::V1::OrdersController < ApiController
 
+  after_action :foo
   # -------------------------------------------------------------
   # Get order list
   # -------------------------------------------------------------
@@ -40,11 +41,8 @@ class Api::V1::OrdersController < ApiController
   # Update order model
   # -------------------------------------------------------------
   def update
-    order = Sap::Order.get_by_hash(params[:id]) or raise ActiveRecord::RecordNotFound
-
-    order.update_attributes(params[:order])
-
-    render_jsend :success => order
+    @order = Sap::Order.get_by_hash(params[:id]) or raise ActiveRecord::RecordNotFound
+    t = 1
   rescue ActiveRecord::RecordNotFound
     render_jsend :error => t('No this good in your basket')
   end
@@ -61,5 +59,15 @@ class Api::V1::OrdersController < ApiController
   # -------------------------------------------------------------
   def show
     render :json => 1
+  end
+
+  private
+
+  def to_json(options)
+     t = 1
+  end
+
+  def foo
+    t = 1
   end
 end
