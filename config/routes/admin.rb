@@ -1,3 +1,6 @@
+# -------------------------------------------------------------
+# Admin panel routes
+# -------------------------------------------------------------
 Sap::Application.routes.draw do
   namespace "admin" do
     get '/' => 'index#index'

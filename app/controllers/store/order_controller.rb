@@ -28,9 +28,10 @@ class Store::OrderController < FrontendController
   end
 
   # -------------------------------------------------------------
-  # Return order
+  # View ordered products
   # -------------------------------------------------------------
-  def show
+  def list
+
 
   end
 end

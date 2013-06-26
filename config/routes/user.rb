@@ -1,3 +1,6 @@
+# -------------------------------------------------------------
+# User routes
+# -------------------------------------------------------------
 Sap::Application.routes.draw do
   scope :module => 'user' do
     get   '/login' => 'login#form'                 # Login form

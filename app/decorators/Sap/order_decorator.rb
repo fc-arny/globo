@@ -1,12 +1,14 @@
-module Sap
-  class OrderDecorator < ApplicationDecorator
-    decorates Order
+# -------------------------------------------------------------
+# Order model decorator
+# -------------------------------------------------------------
+class Sap::OrderDecorator < ApplicationDecorator
+  decorates Order
 
-    # -------------------------------------------------------------
-    #
-    # -------------------------------------------------------------
-    def index_set(json)
-      json.(model, :id, :state)
-    end
+  # -------------------------------------------------------------
+  #
+  # -------------------------------------------------------------
+  def index_set(json)
+    json.(model, :id, :state)
   end
 end
+

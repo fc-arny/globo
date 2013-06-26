@@ -1,3 +1,6 @@
+# -------------------------------------------------------------
+# Api routes
+# -------------------------------------------------------------
 Sap::Application.routes.draw do
   namespace 'api' do
     # API v1.0
@@ -16,8 +19,6 @@ Sap::Application.routes.draw do
       resources :user do
         post 'auth', :on => :collection
       end
-
-
     end
   end
 end
