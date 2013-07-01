@@ -41,6 +41,7 @@ gem 'haml_coffee_assets'          # JS Templates for backbone
 
 # Sap gems
 gem 'sap_core', :path => 'sap_core'
+gem 'sap_api', :path => 'sap_api'
 
 # @TODO: Rails 4 - проверка параметров должна быть в контроллере  http://habrahabr.ru/company/engineyard/blog/170473/
 # Сессию хранить в кеше и получать данные по id
