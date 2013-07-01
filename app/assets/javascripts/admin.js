@@ -3,7 +3,7 @@
 //= require jquery
 //= require jquery_ujs
 
-// Core ---------------------------
+// SapCore ---------------------------
 //---------------------------------
 //= require_tree ./common
 //= require_tree ./admin

@@ -4,7 +4,7 @@
 
 class Store::GoodsController < FrontendController
 
-  layout 'application-with-sidebars'
+  layout 'application_with_basket'
 
   # -------------------------------------------------------------
   # SPA for goods

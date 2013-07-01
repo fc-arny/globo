@@ -1,8 +1,12 @@
-# Base controller for all controllers
+# -------------------------------------------------------------
+# 
+# -------------------------------------------------------------
 class ApplicationController < ActionController::Base
-
   # Check access
   include Perms::Resource
+
+  # Include helpers
+  include ApplicationHelper
 
   # CSRF protection
   protect_from_forgery
@@ -25,8 +29,8 @@ class ApplicationController < ActionController::Base
   # Getting current store or return default value
   # -------------------------------------------------------------
   def current_store
-    @current_store = session[:store_id].nil? ? Sap::Store.first : Sap::Store.find(session[:store_id])
-    session[:store_id] = @current_store.id
+    #@current_store = session[:store_id].nil? ? Sap::Store.first : Sap::Store.find(session[:store_id])
+    #session[:store_id] = @current_store.id
   end
 
   # -------------------------------------------------------------
@@ -37,9 +41,5 @@ class ApplicationController < ActionController::Base
     @current_user ||= Sap::User.find(session[:user_id]) if session[:user_id]
   end
 
-  private
 
-  def miniprofiler
-    Rack::MiniProfiler.authorize_request # if user.admin?
-  end
 end

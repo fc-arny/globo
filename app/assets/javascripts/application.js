@@ -11,7 +11,7 @@
 //= require backbone
 //= require backbone-support
 
-// Core ---------------------------
+// SapCore ---------------------------
 //---------------------------------
 //= require_tree ./common
 //= require_directory ./sap

@@ -3,20 +3,23 @@
     = t('goods.basket')
     %span.sum= sum
   %ul.basket-items
-    - order.order_items.each do |item|
-      %li.basket-item{:'data-id' => item.id, :id => "basket-good_item_#{item.good_item.id}"}
-        = item.good_item.good.name
-        %span.spin
-          %span.minus -
-          %span.count= item.count
-          %span.plus +
+    - unless order.nil?
+      - order.order_items.each do |item|
+        %li.basket-item{:'data-id' => item.id, :id => "basket-good_item_#{item.good_item.id}"}
+          = item.good_item.good.name
+          %span.spin
+            %span.minus -
+            %span.count= item.count
+            %span.plus +
 
   %a{:href => ''}= t('goods._basket.buy')
 
 = content_for :js do
   :coffeescript
     $ ->
-      Sap.views.basket = new Sap.Views.Basket collection: Sap.models.order.items
+      Sap.views.basket = new Sap.Views.Basket
+      Sap.Views.Basket.collection = Sap.models.order.items if Sap.models.order
+
 
 
 

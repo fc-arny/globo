@@ -1,9 +1,9 @@
-module Common
+
   # -------------------------------------------------------------
   # Controller for save/remove user settings
   # -------------------------------------------------------------
-  class SettingsController < ApplicationController
-    include UserHelper
+  class Common::SettingsController < ApplicationController
+    include Common::UserHelper
     # -------------------------------------------------------------
     # Set setting for current user
     # -------------------------------------------------------------
@@ -17,4 +17,3 @@ module Common
       end
     end
   end
-end

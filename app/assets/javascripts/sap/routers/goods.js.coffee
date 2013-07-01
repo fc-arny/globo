@@ -5,7 +5,7 @@ class Sap.Routers.Goods extends Support.SwappingRouter
 
   # -------------------------------------------------- Init router
   initialize: (data) ->
-    @el = $('.content-main')
+    @el = $('.goods')
     @collection = data.goods
 
   # -------------------------------------------------- Routers

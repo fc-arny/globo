@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  area_id: 1
-  adress: MyString
-  user_id: 1
-  is_default: false
+  id: 1
+  region_id: 1
+  street: MyString
+  title: MyString
+  comment: MyString
 
 two:
-  area_id: 1
-  adress: MyString
-  user_id: 1
-  is_default: false
+  id: 1
+  region_id: 1
+  street: MyString
+  title: MyString
+  comment: MyString

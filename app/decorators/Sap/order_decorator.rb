@@ -2,7 +2,7 @@
 # Order model decorator
 # -------------------------------------------------------------
 class Sap::OrderDecorator < ApplicationDecorator
-  decorates Order
+  decorates Sap::Order
 
   # -------------------------------------------------------------
   #

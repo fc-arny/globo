@@ -1,8 +1,8 @@
-module Common
+
   # -------------------------------------------------------------
   # Show base or static pages
   # -------------------------------------------------------------
-  class IndexController < ApplicationController
+  class Common::IndexController < ApplicationController
     layout 'base'
     # -------------------------------------------------------------
     # Show main page
@@ -11,4 +11,4 @@ module Common
       @stores = Sap::Store.get_store_list
     end
   end
-end
+

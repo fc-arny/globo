@@ -1,5 +1,6 @@
 # Ignore bundler config
 /.bundle
+/bin
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -24,4 +25,7 @@ config/environments/*.local.yml
 # Ignore Gemfile.lock
 Gemfile.lock
 
+# Ignore sap gems
+/sap_core
+/sap_api
 

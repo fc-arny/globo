@@ -39,14 +39,18 @@ gem 'bootstrap-sass'              # Twitter bootstrap
 gem 'backbone-support'            # Backbone Support
 gem 'haml_coffee_assets'          # JS Templates for backbone
 
-# Rails 4
+# Sap gems
+gem 'sap_core', :path => 'sap_core'
+
+# @TODO: Rails 4 - проверка параметров должна быть в контроллере  http://habrahabr.ru/company/engineyard/blog/170473/
+# Сессию хранить в кеше и получать данные по id
 gem 'protected_attributes'
 gem 'activerecord-session_store'
 
 
 group :development do
   # Annotate models
-  gem 'migration_comments'
+  gem 'migration_comments', :github => 'pinnymz/migration_comments'
   gem 'annotate', ">=2.5.0" # Generate model annotation
   # Errors
   gem 'better_errors'
