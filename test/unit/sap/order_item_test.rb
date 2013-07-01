@@ -1,13 +1,13 @@
 # == Schema Information
 #
-# Table name: sap.order_items
+# Table name: sap_order_items
 #
 #  id           :integer          not null, primary key
 #  order_id     :integer
 #  good_item_id :integer
 #  count        :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 require 'test_helper'

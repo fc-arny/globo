@@ -1,15 +1,14 @@
 # == Schema Information
 #
-# Table name: sap.addresses
+# Table name: sap_addresses
 #
 #  id         :integer          not null, primary key
-#  area_id    :integer
-#  address    :string(255)
-#  name       :string(255)
-#  user_id    :integer
-#  is_default :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  region_id  :integer
+#  street     :string(255)
+#  title      :string(255)
+#  comment    :string(255)
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 require 'test_helper'

@@ -1,13 +1,13 @@
 # == Schema Information
 #
-# Table name: sap.admins
+# Table name: sap_admins
 #
 #  id         :integer          not null, primary key
 #  city_id    :integer
 #  name       :string(255)      not null
 #  position   :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 require 'test_helper'
