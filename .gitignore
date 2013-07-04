@@ -26,6 +26,5 @@ config/environments/*.local.yml
 Gemfile.lock
 
 # Ignore sap gems
-/sap_core
-/sap_api
+/sap
 

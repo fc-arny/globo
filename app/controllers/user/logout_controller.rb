@@ -6,7 +6,7 @@
     # -------------------------------------------------------------
     # Logout user
     # -------------------------------------------------------------
-    def do_logout
+    def logout
       session[:user_id] = nil
       # TODO: Delete order id from session
       flash[:success]   = 'You are logged out now.'
