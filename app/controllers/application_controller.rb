@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   # Getting current store or return default value
   # -------------------------------------------------------------
   def current_store
-    #@current_store = session[:store_id].nil? ? Sap::Store.first : Sap::Store.find(session[:store_id])
+    @current_store = session[:store_id].nil? ? Sap::Store.first : Sap::Store.find(session[:store_id])
     #session[:store_id] = @current_store.id
   end
 
