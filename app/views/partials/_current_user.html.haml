@@ -4,6 +4,6 @@
     \|
     %a{href: logout_path} Log Out
   - else
-    %a{href: login_path}= t 'login'
+    %a{href: Rails.application.routes.url_helpers.login_path}= t 'login'
     \|
     %a{href: register_path}= t 'signup'

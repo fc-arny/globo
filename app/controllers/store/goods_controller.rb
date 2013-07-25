@@ -14,7 +14,7 @@ class Store::GoodsController < FrontendController
 
     # Redirect to current store
     if store_url.nil?
-      return redirect_to goods_path + '/' + @current_store.url
+      return redirect_to '/' + @current_store.url
     end
 
     # Set up current store

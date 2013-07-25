@@ -77,7 +77,7 @@ $(()->
   # Apply plugin
   $('form[data-remote=true]').AjaxForm()
 
-  $('li.item').mainMenu()
+#  $('li.item').mainMenu()
 
   GOODS_URL = '/goods'
   $('#select-store').on 'change', ()->

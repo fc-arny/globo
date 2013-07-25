@@ -1,20 +1,21 @@
 Sap::Application.routes.draw do
 
     # User routes
+
     scope :module => 'user' do
+      get   'login' => 'login#form'                 # Login form
+      get   'logout' => 'logout#logout'            # Logout
 
-      get   '/login' => 'login#form'                 # Login form
-      get   '/logout' => 'logout#logout'            # Logout
+      get   'register' => 'user/register#form'           # Register form
 
-      get   '/register' => 'register#form'           # Register form
+      get 'password'  => 'index#password'             # Restore password form
+      post 'password'  => 'index#password_create'     # Restore password
+      post 'password_reset' => 'index#password_reset' # Generate token for reset
+      get 'password_reset_sent' => 'index#password_reset_sent'
 
-      get '/password'  => 'index#password'             # Restore password form
-      post '/password'  => 'index#password_create'     # Restore password
-      post '/password_reset' => 'index#password_reset' # Generate token for reset
-      get '/password_reset_sent' => 'index#password_reset_sent'
 
-      get '/account', :to => 'account#index'              # View profile
-      match '/account/:action', :to => 'account#:action',:via => [:get]
+      get 'account', :to => 'account#index'              # View profile
+      match 'account/:action', :to => 'account#:action',:via => [:get]
     end
 
     # Store
@@ -36,16 +37,18 @@ Sap::Application.routes.draw do
 
 
   # API
-  mount Sap::Core::Engine => '/sap'
-
-
+  mount Sap::Core::Engine => '/', :as => 'sap'
 
 
   # Main page
   root :to => 'common/index#main'
 
+  # If JS is disabled
+  get 'badbrowser' => 'common/index#badbrowser'
+
   # Common route
   match '/:controller/:action(.:format)', :defaults => {:action => 'index'}, :via => :get
+
   #require 'sidekiq/web'
   #
   #

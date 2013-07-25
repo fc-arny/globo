@@ -1,7 +1,7 @@
 # -------------------------------------------------------------
 # All login actions
 # -------------------------------------------------------------
-class User::LoginController < ApplicationController
+class User::LoginController < FrontendController
 
   layout 'application_with_basket'
 

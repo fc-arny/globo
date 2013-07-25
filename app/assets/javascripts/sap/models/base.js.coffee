@@ -3,7 +3,7 @@
 ###
 class Sap.Models.Base extends Backbone.Model
   error: ->
-    console.log 'er'
+    console.log 'Error: in Sap.Models.Base'
   # -------------------------------------------------- Parse API response
   parse: (response)->
     if response.status is Sap.API_STATUS_SUCCESS

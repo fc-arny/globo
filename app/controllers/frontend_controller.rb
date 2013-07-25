@@ -4,7 +4,7 @@
 
   class FrontendController < ApplicationController
 
-    before_filter :fetch_store_data
+    before_filter :bootstrap
 
     layout 'application_with_basket'
 
@@ -14,13 +14,14 @@
     # Fetch stores, categories, order, order items and
     # other needle data
     # -------------------------------------------------------------
-    def fetch_store_data
+    def bootstrap
+      # TODO: Cache it!
       # Set up current order
-      #@order = session[:order_id] ? Sap::Order.find(session[:order_id]) : nil
-      #
+      @order = session[:order_id] ? Sap::Order.find(session[:order_id]) : nil
+
       ## Data for backbone
-      #@stores = Sap::Store.select('id, name, url')
-      #@categories = Sap::Category.select('id, url, name')
+      @stores = Sap::Store.select('id, name, url')
+      @categories = Sap::Category.select('id, url, name')
     end
 
   end
