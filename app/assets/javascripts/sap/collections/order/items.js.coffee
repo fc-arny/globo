@@ -12,7 +12,7 @@ class Sap.Collections.OrderItems extends Backbone.Collection
   calcSum: ->
     sum = 0
     @each((item)->
-      sum += item.get('count')*item.goodItem.get('price')
+      sum += item.get('value')*item.goodItem.get('price')
     )
     sum
 

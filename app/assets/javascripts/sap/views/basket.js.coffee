@@ -15,7 +15,7 @@ class Sap.Views.Basket extends Support.CompositeView
 
     # Events
     Sap.vent.bind Sap.E_ORDER_ADD_TO_BASKET, @addToBasket, @
-    Sap.vent.bind Sap.E_ORDER_UPDATE_COUNT, @updateCount, @
+    Sap.vent.bind Sap.E_ORDER_UPDATE_VALUE, @updateValue, @
 
   cleanup: ->
     @undelegateEvents()
@@ -54,19 +54,19 @@ class Sap.Views.Basket extends Support.CompositeView
     @$el.find('.sum').html(sum + ' р.')
 
   # -------------------------------------------------- Update order item count
-  updateCount:(goodItemId, count) ->
+  updateValue:(goodItemId, value) ->
     $basketItem = @$el.find "#basket-good_item_#{goodItemId}"
 
     # Update model data
     orderItem = Sap.models.order.items.get $basketItem.data('id')
-    orderItem.set(count:count)
+    orderItem.set(value:value)
 
     # Update markup and send data to server
-    if count == 0
+    if value == 0
       $basketItem.closest('.basket-item').remove()
       orderItem.destroy()
     else
-      $basketItem.find('.spin .count').html count
+      $basketItem.find('.spin .count').html value
       orderItem.save()
 
     # Update order sum
@@ -74,25 +74,25 @@ class Sap.Views.Basket extends Support.CompositeView
 
   # -------------------------------------------------- Decrease good count
   _onMinusClick:(event)->
-    @_triggerUpdateCount event, '-'
+    @_triggerUpdateValue event, '-'
 
 
   # --------------------------------------------------Increase good count
   _onPlusClick: (event)->
-    @_triggerUpdateCount event, '+'
+    @_triggerUpdateValue event, '+'
 
   # -------------------------------------------------- Trigger event for updating count
-  _triggerUpdateCount:(event, operation)->
+  _triggerUpdateValue:(event, operation)->
     console.log 'trigger'
 #    event.stopPropagation()
     $basketItem = $(event.currentTarget).closest '.basket-item'
     orderItem   = Sap.models.order.items.get $basketItem.data 'id'
 
-    count       = new Number(orderItem.get 'count')
+    value       = new Number(orderItem.get 'value')
     goodItemId  = orderItem.goodItem.get 'id'
 
     switch operation
-      when '+' then count += 1
-      when '-' then count -= 1
+      when '+' then value += 1
+      when '-' then value -= 1
 
-    Sap.vent.trigger Sap.E_ORDER_UPDATE_COUNT, goodItemId, count
+    Sap.vent.trigger Sap.E_ORDER_UPDATE_VALUE, goodItemId, value

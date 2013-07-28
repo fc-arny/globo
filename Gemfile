@@ -49,9 +49,6 @@ gem 'activerecord-session_store'
 
 
 group :development do
-  # Annotate models
-  gem 'migration_comments'
-  gem 'annotate', ">=2.5.0" # Generate model annotation
   # Errors
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -61,10 +58,6 @@ end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use Jbuilder & draper for JSON
-gem 'jbuilder'
-gem 'draper', '~> 1.0'
 
 # Deploy with Capistrano
 # gem 'capistrano'

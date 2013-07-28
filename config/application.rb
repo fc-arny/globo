@@ -23,8 +23,7 @@ module Sap
                             #{config.root}/models/**
                             #{config.root}/lib
                             #{config.root}/forms/**
-                            #{config.root}/workers
-                            #{config.root}/decorator/**)
+                            #{config.root}/workers)
 
     # Assets
     config.assets.paths += %W(

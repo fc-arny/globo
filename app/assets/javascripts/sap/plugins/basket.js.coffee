@@ -103,7 +103,7 @@
       item = new Sap.Models.OrderItem(order_hash: @order.hash())
 
       item.save(
-        count         : 1
+        value         : 1
         good_item_id  : id
       ,
         success: ->
@@ -114,43 +114,43 @@
     ###
     # Update order item count
     ###
-    _updateCount:(orderItemId, count) ->
+    _updateValue:(orderItemId, value) ->
       orderItem = @order.items.where(id:orderItemId)
 
       orderItem = orderItem[0]
-      orderItem.set(count:count)
+      orderItem.set(value:value)
       orderItem.save()
 
     ###
-    # Decrese good count
+    # Decrese good value
     ###
     _onGoodMinusClick:(event)->
       # Update markup
-      $count = $(event.currentTarget).closest('.spin').find('.count')
-      count = new Number( $count.text() ) - 1
+      $value = $(event.currentTarget).closest('.spin').find('.count')
+      value = new Number( $value.text() ) - 1
 
-      $count.html count
+      $value.html value
 
-      if count == 0
-        $count.closest('.basket-item').remove()
+      if value == 0
+        $value.closest('.basket-item').remove()
 
       # Update data
       orderItemId = $(event.currentTarget).closest('.basket-item').data('order_item_id')
-      @_updateCount( orderItemId, count )
+      @_updateValue( orderItemId, value )
 
 
     ###
-    # Increase goods count
+    # Increase goods value
     ###
     _onGoodPlusClick: (event)->
       # Update html
-      $count = $(event.currentTarget).closest('.spin').find('.count')
-      count = new Number( $count.text() ) + 1
-      $count.html count
+      $value = $(event.currentTarget).closest('.spin').find('.count')
+      value = new Number( $value.text() ) + 1
+      $value.html value
 
       # Update data
       orderItemId = $(event.currentTarget).closest('.basket-item').data('order_item_id')
-      @_updateCount( orderItemId, count )
+      @_updateValue( orderItemId, value )
 
     ###
     # Remove good from basket
@@ -160,7 +160,7 @@
       orderItemId = $basketItem.data('order_item_id')
       $basketItem.remove()
 
-      @_updateCount( orderItemId, 0 )
+      @_updateValue( orderItemId, 0 )
 
   # Create plugin
 #  Sap.createjQueryPlugin Basket

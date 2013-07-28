@@ -8,7 +8,7 @@ Sap =
 
   # Events' name
   E_ORDER_ADD_TO_BASKET : 'order.addToBasket'
-  E_ORDER_UPDATE_COUNT  : 'order.updateCount'
+  E_ORDER_UPDATE_VALUE  : 'order.updateValue'
 
   # API statuses
   API_STATUS_SUCCESS  : 'success' # Evething ok

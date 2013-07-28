@@ -5,5 +5,5 @@ class Sap.Collections.Goods extends  Backbone.Collection
 
   # First request return goods and info for pagination
   parse : (resp, xhr)->
-    @count = resp.data.count
+    @count = resp.data.value
     resp.data.goods

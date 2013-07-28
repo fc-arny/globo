@@ -19,7 +19,7 @@ class Sap.Views.GoodsList extends Support.CompositeView
     @_cache()
 
     # Events
-    Sap.vent.bind Sap.E_ORDER_UPDATE_COUNT, @updateCount, @
+    Sap.vent.bind Sap.E_ORDER_UPDATE_VALUE, @updateValue, @
 
   # -------------------------------------------------- Render good list
   render: () ->
@@ -56,19 +56,19 @@ class Sap.Views.GoodsList extends Support.CompositeView
     Sap.routers.goods.list store, category, true
 
   # -------------------------------------------------- Update order item count
-  updateCount:(goodItemId, count) ->
+  updateValue:(goodItemId, value) ->
     $goodItem = @$el.find "#good_item_#{goodItemId}"
 
-    if count == 0
+    if value == 0
       $goodItem.closest('.basket-item').remove()
     else
-      $goodItem.find('.actions .count').html count
+      $goodItem.find('.actions .caount').html value
 
   # -------------------------------------------------- Create makup for event 'addToBasket'
   addToBasket:(goodItemId) ->
     orderItem = new Sap.Models.OrderItem(
       good_item_id  : goodItemId
-      count         : 1
+      value         : 1
     )
 
     orderItem.save(null, success:(response)->
@@ -100,24 +100,24 @@ class Sap.Views.GoodsList extends Support.CompositeView
 
   # -------------------------------------------------- Increase good count
   _onPlusClick:(event) ->
-    @_triggerUpdateCount event, '+'
+    @_triggerUpdateValue event, '+'
 
   # -------------------------------------------------- Decrease good count
   _onMinusClick:(event) ->
-    @_triggerUpdateCount event, '-'
+    @_triggerUpdateValue event, '-'
 
   # -------------------------------------------------- Trigger event for updating count
-  _triggerUpdateCount:(event, operation)->
+  _triggerUpdateValue:(event, operation)->
     $goodItem = $(event.currentTarget).closest('.good-item')
 
-    count = new Number($goodItem.find('.count').text())
+    value = new Number($goodItem.find('.count').text())
     goodItemId = $goodItem.data 'good_item_id'
 
     switch operation
-      when '+' then count += 1
-      when '-' then count -= 1
+      when '+' then value += 1
+      when '-' then value -= 1
 
-    Sap.vent.trigger Sap.E_ORDER_UPDATE_COUNT, goodItemId, count
+    Sap.vent.trigger Sap.E_ORDER_UPDATE_VALUE, goodItemId, value
 
   _cache: ->
     @$basket = $('.basket')

@@ -11,7 +11,7 @@ module Common::BasketHelper
 
     unless order.nil?
       order.order_items.inject(0) do |sum,item|
-        sum + (item.count*item.good_item.price).to_f
+        sum + (item.value*item.good_item.price).to_f
       end
     end
 
