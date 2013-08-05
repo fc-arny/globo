@@ -1,7 +1,7 @@
-- unless @good.get('count')
+- unless @good.get('value')
   %a.add-to-basket{:href => 'javascript:void(0)', :'data-good_item_id' => @good.get('id')} Add to Basket
 - else
   %span.minus [-]
   %span.count
-    = @good.get('count')
+    = @good.get('value')
   %span.plus [+]
