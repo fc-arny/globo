@@ -35,7 +35,6 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails', '~>3.0.1'     # jQuery
 gem 'rails-backbone'              # Backbone
-gem 'bootstrap-sass'              # Twitter bootstrap
 gem 'backbone-support'            # Backbone Support
 gem 'haml_coffee_assets'          # JS Templates for backbone
 
@@ -54,6 +53,8 @@ group :development do
   gem 'binding_of_caller'
   # Debug
   #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
+
+  gem 'jbuilder', :path => './sap/jbuilder'
 end
 
 # To use ActiveModel has_secure_password
