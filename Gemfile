@@ -54,7 +54,7 @@ group :development do
   # Debug
   #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
 
-  gem 'jbuilder', :path => './sap/jbuilder'
+  gem 'jbuilder'
 end
 
 # To use ActiveModel has_secure_password
