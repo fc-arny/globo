@@ -1,5 +1,6 @@
 Sap::Application.routes.draw do
 
+
     # User routes
 
     scope :module => 'user' do

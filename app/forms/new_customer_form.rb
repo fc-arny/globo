@@ -18,16 +18,12 @@ class NewCustomerForm < ActiveForm
   # Callbacks
   before_validation :filter_params
 
-  # -------------------------------------------------------------
   # Get customer model
-  # -------------------------------------------------------------
   def customer
     @customer ||= Sap::Customer.new
   end
 
-  # -------------------------------------------------------------
   #  Get user model
-  # -------------------------------------------------------------
   def user
     @user ||= customer.build_user
   end
