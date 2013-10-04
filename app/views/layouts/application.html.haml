@@ -3,15 +3,15 @@
 
 = content_for :bottom do
   = javascript_include_tag :application
-  :javascript
-    // Init Sap Application
-    var data = {
-      order     : #{@order.to_json},
-      stores    : #{@stores.to_json},
-      categories: #{@categories.to_json}
-    };
-
-    Sap.initialize(data);
+  -#:javascript
+  -#  // Init Sap Application
+  -#  var data = {
+  -#    order     : #{@order.to_json},
+  -#    stores    : #{@stores.to_json},
+  -#    categories: #{@categories.to_json}
+  -#  };
+  -#
+  -#  Sap.initialize(data);
 
 = content_for :base_content do
   / Logo, menu, user

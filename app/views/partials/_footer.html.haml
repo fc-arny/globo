@@ -1,6 +1,55 @@
-#footer.clearfix
-  .menu Меню
-  .copyright.clearfix
-    = t('layouts.copyright')
-    &copy;
-    = Time.now.year
+%footer.footer
+  .footer__in
+    .footer__left
+      %a.logo{href: "#"}
+        %span.logo__pic
+        %span.logo__txt
+          %span Globo
+          %span Market
+      .social
+        %a.social__ok{href: "#"}
+          %i
+        %a.social__fb{href: "#"}
+          %i
+        %a.social__vk{href: "#"}
+          %i
+        %a.social__tw{href: "#"}
+          %i
+        %a.social__rss{href: "#"}
+          %i
+    %nav.footer__nav
+      %ul
+        %li Информация
+        %li
+          %a{href: "#"} О нас
+        %li
+          %a{href: "#"} Безопасность
+        %li
+          %a{href: "#"} Советы
+        %li
+          %a{href: "#"} Карта сайта
+        %li
+          %a{href: "#"} Помощь
+        %li
+          %a{href: "#"} Контактная информация
+      %ul
+        %li Магазины
+        %li
+          %a{href: "#"} Глобус Гурме
+        %li
+          %a{href: "#"} Перекресток
+        %li
+          %a{href: "#"} Азбука Вкуса
+        %li
+          %a{href: "#"} Алые Паруса
+      %ul
+        %li Дополнительно
+        %li
+          %a{href: "#"} Форум
+        %li
+          %a{href: "#"} Обсуждения
+        %li
+          %a{href: "#"} Аналитика
+        %li
+          %a{href: "#"} Рецепты
+    .copyright © GLOBO Market 2010-2012

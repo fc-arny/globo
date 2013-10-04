@@ -1,0 +1,20 @@
+@import "base";
+
+//styles for layouts
+.layout {
+  position: relative;
+}
+
+.layout_mod {
+  padding-right: 260px;
+  @include clr;
+}
+
+.left {
+  float: left;
+  width: 180px;
+}
+
+.center {
+  margin-left: 210px;
+}

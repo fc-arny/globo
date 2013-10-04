@@ -17,7 +17,7 @@
     = csrf_meta_tag
 
 
-  %body{:class => content_for?(:body_class) ? yield(:body_class) : 'market'}
+  %body
     = content_for?(:base_content) ? yield(:base_content) : yield
 
     / JS Files anf page script

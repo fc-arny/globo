@@ -1,13 +1,14 @@
 @charset "utf-8";
-// Reset
-@import "common/normalize";
 
-// SapCore
-@import "common/sap_variable";
-@import "common/sap_mixins";
+// this one just agregates all the libs
+@import "compass";
 
-//Lib
-//@import "bootstrap";
+// Commons
+@import "common/_variable";
+@import "common/_mixins";
 
-// Sap Frontend
-@import "sap/*";
+// Globo Frontend
+@import "frontend/common";
+@import "frontend/layouts";
+@import "frontend/main";
+@import "frontend/inner";
