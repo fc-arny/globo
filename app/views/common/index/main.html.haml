@@ -74,17 +74,8 @@
           %a{href: "#"} новости
           %a{href: "#"} FAQ
           %a{href: "#"} Акции
-      / BEGIN .m-shops
-      .m-shops
-        .container
-          %a{href: "#"}
-            %img{alt: "", src: "/assets/shop4-b.png"}/
-          %a{href: "#"}
-            %img{alt: "", src: "/assets/shop3-b.png"}/
-          %a{href: "#"}
-            %img{alt: "", src: "/assets/shop1-b.png"}/
-          %a{href: "#"}
-            %img{alt: "", src: "/assets/shop2-b.png"}/
+      = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}
+
       / BEGIN .m-benefits
       .m-benefits
         %ul.container

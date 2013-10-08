@@ -8,7 +8,7 @@
     # Show main page
     # -------------------------------------------------------------
     def main
-      @stores = Sap::Store.get_store_list
+      @stores = Sap::Store.active
     end
 
     # -------------------------------------------------------------

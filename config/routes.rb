@@ -1,5 +1,9 @@
 Sap::Application.routes.draw do
 
+  # Store
+  get 'store/list' => 'store/index#index' # View stores list
+  get 'store/:url' => 'store/index#show'  # View stores list
+
 
     # User routes
 
