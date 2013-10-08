@@ -5,7 +5,142 @@
   = javascript_include_tag :application
 
 = content_for :base_content do
+  / BEGIN .page
+  .page
+    / BEGIN .wrap
+    .wrap.wrap_main
+      / BEGIN .m-header
+      .m-header
+        .container
+          %a.logo{href: "#"}
+            %span.logo__pic
+            %span.logo__txt
+              %span Globo
+              %span Market
+          .login
+            %a{href: "#"} John Doe
+            %button.js-login
+              %i
+            %ul.login__links
+              %li
+                %a.login__link-1{href: "#"}
+                  Настройки
+                  %i
+              %li
+                %a.login__link-2{href: "#"}
+                  Избранное
+                  %i
+              %li
+                %a.login__link-3{href: "#"}
+                  Выход
+                  %i
+          .social.social_blue
+            %a.social__ok{href: "#"}
+              %i
+            %a.social__fb{href: "#"}
+              %i
+            %a.social__vk{href: "#"}
+              %i
+            %a.social__tw{href: "#"}
+              %i
+            %a.social__rss{href: "#"}
+              %i
+      / BEGIN .m-slider
+      .m-slider.js-m-slider
+        .container
+          .m-slider__cart
+            %strong
+              Итого
+              %span
+                5246
+                %sup 00
+                %i.rub Р
+              %em
+            %button.m-slider__btn к покупкам
+          .m-slider__pager
+          .cycle-slideshow{"data-cycle-fx" => "fade", "data-cycle-pager" => ".m-slider__pager", "data-cycle-slides" => "> div", "data-cycle-timeout" => "3000"}
+            .m-slider__item{style: "background-image: url(/assets/slider-pic.png);"}
+              .m-slider__title-1 ВКУСНЫЕ ИДЕИ ДЛЯ ЛЕТНЕГО МЕНЮ
+              .m-slider__title-2 С НОВЫМИ МОРЕПРОДУКТАМИ ОТ ГЛОБУС ГУРМЭ
+              %button.m-slider__btn к покупкам
+            .m-slider__item{style: "background-image: url(/assets/slider-pic1.png);"}
+              .m-slider__title-1 С МОРЕПРОДУКТАМИ ОТ ГЛОБУС ГУРМЭ
+              .m-slider__title-2 ВКУСНЫЕ ИДЕИ ДЛЯ ЛЕТНЕГО МЕНЮ
+              %button.m-slider__btn к покупкам
+      / BEGIN .m-nav
+      .m-nav
+        %nav.container
+          %a{href: "#"} Рецепты
+          %a{href: "#"} новости
+          %a{href: "#"} FAQ
+          %a{href: "#"} Акции
+      / BEGIN .m-shops
+      .m-shops
+        .container
+          %a{href: "#"}
+            %img{alt: "", src: "/assets/shop4-b.png"}/
+          %a{href: "#"}
+            %img{alt: "", src: "/assets/shop3-b.png"}/
+          %a{href: "#"}
+            %img{alt: "", src: "/assets/shop1-b.png"}/
+          %a{href: "#"}
+            %img{alt: "", src: "/assets/shop2-b.png"}/
+      / BEGIN .m-benefits
+      .m-benefits
+        %ul.container
+          %li.m-benefits__item-1
+            %i
+            %span 18 супермаркетов и 98 различных минимаркетов одном месте
+          %li.m-benefits__item-2
+            %i
+            %span Покупаете не выходя из дома, не тратя время на поезду. Лишь 20 мин на выбор и заказ товара
+          %li.m-benefits__item-3
+            %i
+            %span Доставка в удобный для вас день и время
+          %li.m-benefits__item-4
+            %i
+            %span Мы любим наших клиентов и постоянно дарим им подарки
+      / BEGIN .m-info
+      .m-info
+        %ul.container
+          %li Сохраняются данные - адреса, список покупок, избранное и всегда можно повторить заказ
+          %li При регистрации вы получаете приятный бонус в размере 400 рублей на ваш счет!
+          %li Сохраняются данные - адреса, список покупок, избранное и всегда можно повторить заказ
+          %li
+            %button.btn РЕГИСТРАЦИЯ
+      .container.container_cols
+        .m-about
+          .title О НАС
+          .m-about__in
+            %p mySupermarket is a new type of supermarket that allows you to compare prices and shop online from the main UK retailers in one place. Our aim is to help you save time and money while giving you the best possible online shopping experience.
+            %p We offer 2 types of shop: Groceries and Health and Beauty. All you have to do is select your favourite retailer - Tesco, ASDA, Sainsbury's, Waitrose, Ocado, Boots or Superdrug and start shopping!
+            %p It's up to you how you use our site: You can order your basket online, print your basket as a shopping list and take it with you to your local supermarket or simply just compare different supermarket prices online.
+        .m-news
+          .title НОВОСТИ
+          %ul.m-news__list
+            %li
+              %a{href: "#"} Мастер-класс по Испанским сырам LA ANTIGUA DE FUENTESAUCO
+              %span 10.06.2013
+              %p 6 и 7 июня в 18:00 расскажем о культуре и тонкостях потребления сыра
+            %li
+              %a{href: "#"} Мастер-класс по Греческой фасоли Arosis («Аросис»)
+              %span 10.06.2013
+              %p 30 мая в 18:00 мы развеем миф о том, что фасоль очень трудно и долго готовить
+            %li
+              %a{href: "#"} Мастер-класс по Испанским сырам LA ANTIGUA DE FUENTESAUCO
+              %span 10.06.2013
+              %p 6 и 7 июня в 18:00 расскажем о культуре и тонкостях потребления сыра
+            %li
+              %a{href: "#"} Мастер-класс по Греческой фасоли Arosis («Аросис»)
+              %span 10.06.2013
+              %p 30 мая в 18:00 мы развеем миф о том, что фасоль очень трудно и долго готовить
+      .push
+    / BEGIN .footer
+    = render :partial => 'partials/footer'
+    / BEGIN .overlay
+    .overlay
 
 
-  = render :partial => 'partials/footer'
+
+
 

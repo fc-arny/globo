@@ -21,6 +21,7 @@ development:
   password: fhybfhyb
   host: localhost
   port: 5432
+  search_path: 'public, globo, sap'
 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
