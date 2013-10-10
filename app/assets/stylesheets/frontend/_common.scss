@@ -206,22 +206,11 @@ table {
 .logo__pic {
   display: inline-block;
   margin: 0 12px 5px 0;
-  @include s(logo-new);
-}
-
-.logo__txt {
-  display: block;
-  span {
-    display: inline-block;
-    font-family: Georgia;
-    color: #444444;
-    text-align: right;
-    text-transform: uppercase;
-    font-size: 15px;
-    &:first-letter {
-      font-size: 18px;
-    }
+  @include s(logo);
+  &.logo__pic_white {
+    @include s(logo-white);
   }
+
 }
 
 .login {

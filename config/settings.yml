@@ -7,3 +7,10 @@ smsgate:
     password: ''
     debug: 0
 
+# Links
+links:
+  vk_group: http://vk.com/globomarket
+  fb_group: https://www.facebook.com/globom
+  ok_group: http://www.odnoklassniki.ru/group/52067362734261
+  twitter: https://twitter/fc_arny
+  rss:  /rss

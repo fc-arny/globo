@@ -2,21 +2,9 @@
   .footer__in
     .footer__left
       %a.logo{href: "#"}
-        %span.logo__pic
-        %span.logo__txt
-          %span Globo
-          %span Market
+        %span.logo__pic.logo__pic_white
       .social
-        %a.social__ok{href: "#"}
-          %i
-        %a.social__fb{href: "#"}
-          %i
-        %a.social__vk{href: "#"}
-          %i
-        %a.social__tw{href: "#"}
-          %i
-        %a.social__rss{href: "#"}
-          %i
+        = render :partial => "partials/common/social"
     %nav.footer__nav
       %ul
         %li Информация
