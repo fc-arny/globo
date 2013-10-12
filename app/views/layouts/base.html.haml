@@ -2,7 +2,10 @@
 %html{'lang' => "ru"}
 
   %head
-    %title= @title || APP_DEFAULT_NAME
+    %title
+      =  content_for?(:title) ? yield(:title) : Settings.common.title
+      \|
+      = Settings.common.page_title
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     %link(rel="icon" href="/favicon.ico" type="image/x-icon")
 

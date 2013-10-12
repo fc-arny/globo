@@ -3,6 +3,11 @@
 # -------------------------------------------------------------
 module ApplicationHelper
 
+  # Title
+  def title(page_title)
+    content_for :title, page_title.to_s
+  end
+
   # -------------------------------------------------------------
   # Display flash messages - :error, :info, :success
   # :info - default message type

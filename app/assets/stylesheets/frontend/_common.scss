@@ -205,7 +205,7 @@ table {
 
 .logo__pic {
   display: inline-block;
-  margin: 0 12px 5px 0;
+  margin: 0 0 5px 0;
   @include s(logo);
   &.logo__pic_white {
     @include s(logo-white);
@@ -755,15 +755,11 @@ table {
     margin: 2px 15px 18px 15px;
     border-bottom: 2px dotted white;
   }
-  .logo__txt {
-    span {
-      color: white;
-    }
-  }
 }
 
 .social {
   font-size: 0;
+  text-align: center;
   a {
     display: inline-block;
     margin-left: 25px;
