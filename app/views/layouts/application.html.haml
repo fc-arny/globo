@@ -18,6 +18,7 @@
     .wrap
       = header_menu
       = content_for?(:content) ? yield(:content) : yield
+      .push
 
     / Footer
     = render :partial => 'partials/footer'
