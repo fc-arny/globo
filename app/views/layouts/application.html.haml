@@ -14,10 +14,12 @@
   -#  Sap.initialize(data);
 
 = content_for :base_content do
-  = header_menu
-  = content_for?(:content) ? yield(:content) : yield
+  .page
+    .wrap
+      = header_menu
+      = content_for?(:content) ? yield(:content) : yield
 
-
-  = render :partial => 'partials/footer'
+    / Footer
+    = render :partial => 'partials/footer'
 
 = render :template => 'layouts/base'

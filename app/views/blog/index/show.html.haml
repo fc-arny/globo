@@ -1,0 +1,127 @@
+.title
+  %a{href: "#"} БЛОГ
+  Lorem ipsum dolor sit amet,  ipsum dolor sit
+/ BEGIN .blog
+.blog
+  .blog__comm
+    / BEGIN .comment
+    .comment
+      .comment__text Приятного аппетита, любители экзотики! Надеюсь, Вам понравился наш рецепт. Мы с женой каждую неделю готовим данное блюдо.  Детишки также в восторге)
+      .comment__person
+        %img{alt: "", src: "img/pic7.jpg"}/
+        %strong Васькин Василий Ли
+        %span Генеральный директор "Азбука Вкуса"
+    / END .comment
+    / BEGIN .share
+    .share
+      %a.share__vk{href: "#"}
+      %a.share__fb{href: "#"}
+      %a.share__gp{href: "#"}
+      %a.share__mr{href: "#"}
+      %a.share__ok{href: "#"}
+      %a.share__tb{href: "#"}
+      %a.share__rss{href: "#"}
+      %a.share__tw{href: "#"}
+    / END .share
+  .blog__list
+    .blog__item
+      .blog__item-in
+        .blog__meta.blog__meta_right
+          %span 02 июня 2013
+          %a.blog__comms{href: "#"}
+            114
+            %i
+        .blog__txt
+          %img{alt: "", src: "img/pic10.jpg"}/
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, sed alias dignissimos nobis modi. Labore, repudiandae tempore voluptates voluptatum voluptatibus quisquam illo itaque error sit corporis suscipit rerum velit accusantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, exercitationem nesciunt impedit numquam ipsum! Doloribus, hic, sint aut earum facilis cupiditate officiis incidunt ex necessitatibus a? Debitis fugit ipsam quaerat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, recusandae, itaque, consectetur doloribus voluptatem neque eum commodi sed voluptatum mollitia in nulla repudiandae dignissimos fugiat aliquam cupiditate excepturi obcaecati fuga.
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, sed alias dignissimos nobis modi. Labore, repudiandae tempore voluptates voluptatum voluptatibus quisquam illo itaque error sit corporis suscipit rerum velit accusantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, exercitationem nesciunt impedit numquam ipsum! Doloribus, hic, sint aut earum facilis cupiditate officiis incidunt ex necessitatibus a? Debitis fugit ipsam quaerat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, neque, necessitatibus corporis magni incidunt ex inventore illo suscipit hic similique commodi eaque consequatur placeat voluptatem quas dolores ea totam. Ducimus!
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, sed alias dignissimos nobis modi. Labore, repudiandae tempore voluptates voluptatum voluptatibus quisquam illo itaque error sit corporis suscipit rerum velit accusantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, exercitationem nesciunt impedit numquam ipsum! Doloribus, hic, sint aut earum facilis cupiditate officiis incidunt ex necessitatibus a? Debitis fugit ipsam quaerat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, obcaecati, iste aliquid sunt totam est ipsa modi culpa error at facere maiores alias consequatur reprehenderit voluptates porro illum. Facere, impedit!
+          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, sed alias dignissimos nobis modi. Labore, repudiandae tempore voluptates voluptatum voluptatibus quisquam illo itaque error sit corporis suscipit rerum velit accusantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, exercitationem nesciunt impedit numquam ipsum! Doloribus, hic, sint aut earum facilis cupiditate officiis incidunt ex necessitatibus a? Debitis fugit ipsam quaerat.
+        / BEGIN .comm
+        .comm
+          .title.title_small КОММЕНТАРИИ
+          .comm__form
+            .comm__head
+              %label.label
+                %input.label__txt{placeholder: "Ваше имя", tabindex: "1", type: "text"}/
+              .comm__login
+                %button.btn-dashed Вход
+                %span /
+                %button.btn-dashed Регистрация
+            %label.label
+              %textarea.label__area{placeholder: "Текст комментария", tabindex: "2"}
+            .comm__btn
+              %button.btn ОТПРАВИТЬ
+          .comm__list
+            .comm__item
+              .comm__ava
+                %a{href: "#"}
+                  %img{alt: "", src: "img/pic7.jpg"}/
+              .comm__detail
+                .comm__meta
+                  %a{href: "#"} Николай
+                  %span •
+                  %span 13 апреля 2013 | 10:04
+                .comm__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, aliquam, nam, quod voluptatem quibusdam maxime pariatur tempora cupiditate asperiores omnis architecto expedita laboriosam natus veritatis dolor doloremque sed nulla. Ipsam.
+            .comm__reply
+              .comm__item
+                .comm__ava
+                  %a{href: "#"}
+                    %img{alt: "", src: "img/pic7.jpg"}/
+                .comm__detail
+                  .comm__meta
+                    %a{href: "#"} Николай
+                    %span •
+                    %span 13 апреля 2013 | 10:04
+                    %span •
+                    %span ответ
+                    %a{href: "#"} Николай
+                  .comm__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, aliquam, nam, quod voluptatem quibusdam maxime pariatur tempora cupiditate asperiores omnis architecto expedita laboriosam natus veritatis dolor doloremque sed nulla. Ipsam.
+                  .comm__form
+                    .comm__head
+                      %label.label
+                        %input.label__txt{placeholder: "Ваше имя", tabindex: "1", type: "text"}/
+                      .comm__login
+                        %button.btn-dashed Вход
+                        %span /
+                        %button.btn-dashed Регистрация
+                    %label.label
+                      %textarea.label__area{placeholder: "Текст комментария", tabindex: "2"}
+                    .comm__btn
+                      %button.btn ОТПРАВИТЬ
+            .comm__item
+              .comm__ava
+                %a{href: "#"}
+                  %img{alt: "", src: "img/pic7.jpg"}/
+              .comm__detail
+                .comm__meta
+                  %a{href: "#"} Николай
+                  %span •
+                  %span 13 апреля 2013 | 10:04
+                .comm__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, aliquam, nam, quod voluptatem quibusdam maxime pariatur tempora cupiditate asperiores omnis architecto expedita laboriosam natus veritatis dolor doloremque sed nulla. Ipsam.
+                .comm__btn-reply
+                  %button.btn-dashed Ответить
+            .comm__item
+              .comm__ava
+                %a{href: "#"}
+                  %img{alt: "", src: "img/pic7.jpg"}/
+              .comm__detail
+                .comm__meta
+                  %a{href: "#"} Николай
+                  %span •
+                  %span 13 апреля 2013 | 10:04
+                .comm__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, aliquam, nam, quod voluptatem quibusdam maxime pariatur tempora cupiditate asperiores omnis architecto expedita laboriosam natus veritatis dolor doloremque sed nulla. Ipsam.
+                .comm__form
+                  .comm__head
+                    %label.label
+                      %input.label__txt{placeholder: "Ваше имя", tabindex: "1", type: "text"}/
+                    .comm__login
+                      %button.btn-dashed Вход
+                      %span /
+                      %button.btn-dashed Регистрация
+                  %label.label
+                    %textarea.label__area{placeholder: "Текст комментария", tabindex: "2"}
+                  .comm__btn
+                    %button.btn ОТПРАВИТЬ
+        / END .comm
+/ END .blog
