@@ -10,4 +10,9 @@ class Recipes::IndexController < FrontendController
   def show
 
   end
+
+  # Search
+  def search
+
+  end
 end

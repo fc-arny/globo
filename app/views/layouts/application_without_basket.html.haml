@@ -1,8 +1,6 @@
 = content_for :content do
-  .without-leftside
-    / Content
-    .content-main
-      = content_for?(:main) ? yield(:main) : yield
+  .layout
+    = content_for?(:main) ? yield(:main) : yield
 
 
 = render :template => 'layouts/application'

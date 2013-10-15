@@ -1,10 +1,8 @@
 = content_for :content do
-  /  Right menu
-  .content-right
-    = basket_sidebar @order
-
   / Content
-  .content-main
+  .layout.layout_mod
     = content_for?(:main) ? yield(:main) : yield
+
+  = basket_sidebar @order
 
 = render :template => 'layouts/application'

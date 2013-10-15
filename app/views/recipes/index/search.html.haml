@@ -1,0 +1,658 @@
+.title ПОИСК
+/ BEGIN .prosearch
+.prosearch.prosearch_many
+  .prosearch__in
+    .prosearch__shop.js-shop-search
+      %span
+        %img{alt: "", src: "img/shop2-l.png"}/
+      %ul
+        %li
+          %img{alt: "", src: "img/shop1-l.png"}/
+        %li
+          %img{alt: "", src: "img/shop2-l.png"}/
+        %li
+          %img{alt: "", src: "img/shop3-l.png"}/
+        %li
+          %img{alt: "", src: "img/shop4-l.png"}/
+    .prosearch__txt
+      %input{placeholder: "Молоко", type: "text"}/
+  %button.btn ИСКАТЬ
+/ END .prosearch
+/ BEGIN .result
+.result.result_recipe
+  .result__cols
+    .result__filter
+      / BEGIN .ingreds
+      .ingreds
+        .ingreds__in
+          / BEGIN .prompt
+          .prompt
+            %span ?
+            .prompt__in Вам не хватает ингредиентов для приготовления блюда? Никаких проблем, просто отметьте недостающие продукты, и найдите их в нашем магазине!
+          / END .prompt
+          .ingreds__title Список ингредиентов
+          .ingreds__list
+            %label
+              %span Утиная грудка
+              %input{checked: "checked", type: "checkbox"}/
+              %i
+            %label
+              %span Рыбный соус
+              %input{type: "checkbox"}/
+              %i
+            %label
+              %span Тамариндовая паста
+              %input{type: "checkbox"}/
+              %i
+            %label
+              %span Острый соус для морепродуктов
+              %input{checked: "checked", type: "checkbox"}/
+              %i
+            %label
+              %span Перец чили
+              %input{checked: "checked", type: "checkbox"}/
+              %i
+            %label
+              %span Рисовые крекеры
+              %input{type: "checkbox"}/
+              %i
+            %label
+              %span Салат руккола произв. ”Белая Дача”
+              %input{type: "checkbox"}/
+              %i
+            %label
+              %span Лук “Шалот”
+              %input{type: "checkbox"}/
+              %i
+          .ingreds__choice-all
+            %button.btn-dashed Выбрать все
+        .ingreds__search
+          .ingreds__title Поиск по:
+          %ul.ingreds__search-list
+            %li Утиная грудка
+            %li Перец чили
+            %li Острый соус для морепродуктов
+        %button.btn НАЙТИ
+      / END .ingreds
+    .result__list
+      .result__item
+        .result__stats
+          %span Результаты поиска по запросу:
+          %strong Молоко
+          %span (1-4 из 24)
+          %button.btn-dashed Посмотреть все
+        .result__catalog
+          / BEGIN .catalog
+          %section.catalog.js-scroll
+            .catalog__list
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+          / END .catalog
+      .result__item
+        .result__stats
+          %span Результаты поиска по запросу:
+          %strong Молоко
+          %span (1-4 из 24)
+          %button.btn-dashed Посмотреть все
+        .result__catalog
+          / BEGIN .catalog
+          %section.catalog.js-scroll
+            .catalog__list
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like.is-active
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+              .catalog__item
+                .catalog__item-in
+                  .catalog__pic.js-prod-open
+                    %img{alt: "", src: "img/pic1.jpg"}/
+                    %i.like
+                  .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                  .catalog__price
+                    %span Цена (за 50 гр):
+                    %strong
+                      75
+                      %sup 00
+                      %i.rub P
+                  .catalog__down
+                    .catalog__down-in
+                      .catalog__down-item
+                        .weight.js-weight
+                          %button.weight__btn-minus
+                            %i
+                          .weight__val
+                            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                            %span гр
+                          %button.weight__btn-plus
+                            %i
+                        .catalog__sum
+                          %strong
+                            750
+                            %sup 00
+                            %i.rub P
+                          %button.js-del-prod Удалить
+                      .catalog__down-item
+                        %button.catalog__buy-btn.js-add-prod В корзину
+          / END .catalog
+/ END .result
