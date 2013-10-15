@@ -1,7 +1,9 @@
-# -------------------------------------------------------------
-# 
-# -------------------------------------------------------------
 module Common::MenuHelper
+  # Main menu 
+  def header_menu
+    render :partial => 'partials/header'
+  end
+
   # -------------------------------------------------------------
   # Render stores
   # -------------------------------------------------------------
@@ -26,7 +28,7 @@ module Common::MenuHelper
   # Render category tree. We use only two-level categorization
   # -------------------------------------------------------------
   def category_list
-    categories = Sap::Category.get_category_tree
+    categories = Sap::Category.all #get_category_tree
     CategoryRenderer.new(categories, self).render
   end
 
@@ -40,7 +42,7 @@ module Common::MenuHelper
       @categories = categories
 
       # Get current store
-      @current_store = Sap::Store.find(session[:store_id])
+      #@current_store = Sap::Store.all.first #find(session[:store_id])
     end
 
     # -------------------------------------------------------------

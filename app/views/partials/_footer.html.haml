@@ -1,43 +1,37 @@
 %footer.footer
   .footer__in
     .footer__left
-      %a.logo{href: "#"}
+      %a.logo{href: Settings.common.domain.main_link}
         %span.logo__pic.logo__pic_white
       .social
-        = render :partial => "partials/common/social"
+        = render :partial => 'partials/common/social'
     %nav.footer__nav
       %ul
         %li Информация
         %li
-          %a{href: "#"} О нас
+          %a{href: contacts_path} Конткты
         %li
-          %a{href: "#"} Безопасность
+          %a{href: about_path} О проекте
         %li
-          %a{href: "#"} Советы
+          %a{href: '/blog'} Блог
         %li
-          %a{href: "#"} Карта сайта
-        %li
-          %a{href: "#"} Помощь
-        %li
-          %a{href: "#"} Контактная информация
+          %a{href: help_path} Помощь
+
       %ul
         %li Магазины
-        %li
-          %a{href: "#"} Глобус Гурме
-        %li
-          %a{href: "#"} Перекресток
-        %li
-          %a{href: "#"} Азбука Вкуса
-        %li
-          %a{href: "#"} Алые Паруса
+        - @stores.each do |store|
+          %li
+            %a{href: "/goods/#{store.url}"}= store.name
+
       %ul
         %li Дополнительно
         %li
-          %a{href: "#"} Форум
-        %li
-          %a{href: "#"} Обсуждения
-        %li
-          %a{href: "#"} Аналитика
-        %li
-          %a{href: "#"} Рецепты
-    .copyright © GLOBO Market 2010-2012
+          %a{href: '/recipes'} Рецепты
+
+    .copyright
+      = Time.now.year
+      ©
+      = Settings.common.title
+
+/ BEGIN .overlay
+.overlay

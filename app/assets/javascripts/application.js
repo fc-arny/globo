@@ -21,10 +21,19 @@
 
 $(document).ready(function() {
 
+	var overlay = $('.overlay');
 	var body = $('body');
 	var page = $('.page');
 	var wrap = $('.wrap');
 	var header = $('.header');
+	var $fWelcome = $('.popup_welcome');
+
+// Main
+	$('.user-state__login').on('click', function(event){
+		event.preventDefault();
+		overlay.show();
+		$fWelcome.show();
+	});
 
 	var btn_login = $('.js-login');
 	btn_login.click(function() {
@@ -69,7 +78,7 @@ $(document).ready(function() {
 		event.stopPropagation();
 	});
 
-	var overlay = $('.overlay');
+
 	var cart_el =  $('.cart');
 	var cart_popup = $('.cart__popup');
 	var cart_close = $('.js-cart-close');
@@ -511,8 +520,8 @@ $(document).ready(function() {
 	$(window).resize(function() {
 		//init
 		slidermenu_responsive();
-		$(window).scrollTo(page_top + 'px', 0);
-		body.removeAttr('style');
+//		$(window).scrollTo(page_top + 'px', 0);
+//		body.removeAttr('style');
 		scroll_init();
 	});
 

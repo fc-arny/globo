@@ -20,7 +20,7 @@
       @order = session[:order_id] ? Sap::Order.find(session[:order_id]) : nil
 
       ## Data for backbone
-      @stores = Sap::Store.select('id, name, url')
+      @stores = Sap::Store.active
       @categories = Sap::Category.select('id, url, name')
     end
 

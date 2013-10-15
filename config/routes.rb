@@ -1,4 +1,8 @@
 Sap::Application.routes.draw do
+  # Pages
+  get 'about'  => 'common/index#about'        # About project and tean
+  get 'contacts'  => 'common/index#contacts'  # Contacts
+  get 'help'  => 'common/index#help'          # Help page
 
   # Store
   get 'store/list' => 'store/index#index' # View stores list

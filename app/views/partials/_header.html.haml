@@ -1,0 +1,343 @@
+/ BEGIN .header
+%header.header
+  .header__top
+    %a.logo{href: "#"}
+      %span.logo__pic
+      %span.logo__txt
+        %span Globo
+        %span Market
+    .login
+      %a{href: "#"} John Doe
+      %button.js-login
+        %i
+      .login__links
+        %ul
+          %li
+            %a{href: "#"} Настройки
+          %li
+            %a{href: "#"} Избранное
+          %li
+            %a{href: "#"} Выход
+    %nav.nav
+      %a{href: "#"} Каталог
+      %a{href: "#"} Контакты
+      %a{href: "#"} Рецепты
+      %a{href: "#"} Новости
+      %a{href: "#"} Компания
+  .header__down
+    .sel-shop.js-shops
+      .sel-shop__list
+        %button Выбраный магазин
+        %ul
+          %li
+            %img{alt: "", src: "img/shop2-s.png"}/
+          %li
+            %img{alt: "", src: "img/shop1-s.png"}/
+          %li
+            %img{alt: "", src: "img/shop3-s.png"}/
+      .sel-shop__pic
+        %img{alt: "", src: "img/shop1-s.png"}/
+    / BEGIN .menu
+    .menu
+      .menu__list
+        %button.menu__btn-prev
+          %i
+        %button.menu__btn-next
+          %i
+        %ul.menu__list-in
+          %li{"data-item" => "menu-item-1"}
+            %a.menu__item-1{href: "#"}
+              Выпечка
+              %i
+          %li{"data-item" => "menu-item-2"}
+            %a.menu__item-2{href: "#"}
+              Овощи и фрукты
+              %i
+          %li{"data-item" => "menu-item-3"}
+            %a.menu__item-3.is-active{href: "#"}
+              Молочные и яйца
+              %i
+          %li{"data-item" => "menu-item-4"}
+            %a.menu__item-4{href: "#"}
+              Мясо и рыба
+              %i
+          %li{"data-item" => "menu-item-5"}
+            %a.menu__item-5{href: "#"}
+              Морозилка
+              %i
+          %li{"data-item" => "menu-item-6"}
+            %a.menu__item-6{href: "#"}
+              Кулинария
+              %i
+          %li{"data-item" => "menu-item-7"}
+            %a.menu__item-7{href: "#"}
+              Консервы и приправы
+              %i
+          %li{"data-item" => "menu-item-8"}
+            %a.menu__item-8{href: "#"}
+              Бакалея
+              %i
+          %li{"data-item" => "menu-item-9"}
+            %a.menu__item-9{href: "#"}
+              Закуски и сладости
+              %i
+          %li{"data-item" => "menu-item-10"}
+            %a.menu__item-10{href: "#"}
+              Напитки
+              %i
+          %li{"data-item" => "menu-item-11"}
+            %a.menu__item-11{href: "#"}
+              Для дома
+              %i
+          %li{"data-item" => "menu-item-12"}
+            %a.menu__item-12{href: "#"}
+              Детское
+              %i
+          %li{"data-item" => "menu-item-13"}
+            %a.menu__item-13{href: "#"}
+              Гигиена
+              %i
+          %li{"data-item" => "menu-item-14"}
+            %a.menu__item-14{href: "#"}
+              Для животных
+              %i
+      .menu__sub-arr
+      .menu__sub-wrap
+        #menu-item-1.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+            %ul
+              %li
+                %a{href: "#"} Блюда из птицы
+              %li
+                %a{href: "#"} Блюда из рыбы и морепродуктов
+              %li
+                %a{href: "#"} Овощные блюда, гарниры
+              %li
+                %a{href: "#"} Супы
+        #menu-item-2.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-3.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+            %ul
+              %li
+                %a{href: "#"} Блюда из птицы
+              %li
+                %a{href: "#"} Блюда из рыбы и морепродуктов
+              %li
+                %a{href: "#"} Овощные блюда, гарниры
+              %li
+                %a{href: "#"} Супы
+        #menu-item-4.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-5.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-6.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+            %ul
+              %li
+                %a{href: "#"} Блюда из птицы
+              %li
+                %a{href: "#"} Блюда из рыбы и морепродуктов
+              %li
+                %a{href: "#"} Овощные блюда, гарниры
+              %li
+                %a{href: "#"} Супы
+        #menu-item-7.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-8.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+            %ul
+              %li
+                %a{href: "#"} Блюда из птицы
+              %li
+                %a{href: "#"} Блюда из рыбы и морепродуктов
+              %li
+                %a{href: "#"} Овощные блюда, гарниры
+              %li
+                %a{href: "#"} Супы
+        #menu-item-9.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-10.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+            %ul
+              %li
+                %a{href: "#"} Блюда из птицы
+              %li
+                %a{href: "#"} Блюда из рыбы и морепродуктов
+              %li
+                %a{href: "#"} Овощные блюда, гарниры
+              %li
+                %a{href: "#"} Супы
+        #menu-item-11.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-12.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-13.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+        #menu-item-14.menu__sub
+          .menu__sub-in
+            %ul
+              %li.is-selected
+                %a{href: "#"} Блюда японской кухни
+              %li
+                %a{href: "#"} Cалаты
+              %li
+                %a{href: "#"} Холодные закуски
+              %li
+                %a{href: "#"} Соусы собственного приготовления
+              %li
+                %a{href: "#"} Мясные блюда
+            %ul
+              %li
+                %a{href: "#"} Блюда из птицы
+              %li
+                %a{href: "#"} Блюда из рыбы и морепродуктов
+              %li
+                %a{href: "#"} Овощные блюда, гарниры
+              %li
+                %a{href: "#"} Супы
+    / END .menu
+/ END .header

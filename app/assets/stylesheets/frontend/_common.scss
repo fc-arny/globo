@@ -206,13 +206,27 @@ table {
 .logo__pic {
   display: inline-block;
   margin: 0 0 5px 0;
+  opacity: 0.95;
   @include s(logo);
+  &:hover {
+    opacity: 1;
+  }
   &.logo__pic_white {
     @include s(logo-white);
   }
-
 }
+.user-state {
+  position: relative;
+  float: right;
+  margin: 40px 0 0 55px;
+  padding: 2px 0 2px 6px;
 
+  .user-state__login {
+    span {
+      color: #5e5e5e;
+    }
+  }
+}
 .login {
   position: relative;
   float: right;
@@ -311,6 +325,8 @@ table {
     }
   }
 }
+
+
 
 .nav {
   float: right;
@@ -1573,6 +1589,7 @@ a {
 
 //popup
 .popup {
+  display: none;
   position: absolute;
   top: 100px;
   left: 50%;

@@ -1,9 +1,0 @@
-.user-state
-  -if user
-    %a{href: '/'}= user.login
-    \|
-    %a{href: logout_path} Log Out
-  - else
-    %a{href: Rails.application.routes.url_helpers.login_path}= t 'login'
-    \|
-    %a{href: register_path}= t 'signup'

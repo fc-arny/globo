@@ -2,6 +2,8 @@
 common:
   title: GloboMarket
   page_title: Все ведущие ритейлеры России в одном месте
+  domain:
+    main_link: http://globomarket.ru
 
 
 # SmsGates

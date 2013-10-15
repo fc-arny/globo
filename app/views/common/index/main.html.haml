@@ -12,28 +12,10 @@
       / BEGIN .m-header
       .m-header
         .container
-          %a.logo{href: "#"}
+          %a.logo{href: Settings.common.domain.main_link, title: Settings.common.title }
             %span.logo__pic
-            %span.logo__txt
-              %span Globo
-              %span Market
-          .login
-            %a{href: "#"} John Doe
-            %button.js-login
-              %i
-            %ul.login__links
-              %li
-                %a.login__link-1{href: "#"}
-                  Настройки
-                  %i
-              %li
-                %a.login__link-2{href: "#"}
-                  Избранное
-                  %i
-              %li
-                %a.login__link-3{href: "#"}
-                  Выход
-                  %i
+          = render :partial => 'partials/user_state'
+
           .social.social_blue
             = render :partial => "partials/common/social"
       / BEGIN .m-slider
