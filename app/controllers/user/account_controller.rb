@@ -9,7 +9,7 @@ class User::AccountController < FrontendController
   def index
     Sap::Order.table_name()
   end
-                                  \
+
   # -------------------------------------------------------------
   # Customer's favorites - goods, posts, recipes
   # -------------------------------------------------------------
