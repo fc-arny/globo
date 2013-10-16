@@ -1,1 +1,286 @@
-profile
+.title личный кабинет
+/ BEGIN .cabinet
+.cabinet
+  .cabinet__nav
+    %button.is-active{"data-tab" => "cabinet__content-1"} Личные данные
+    %button{"data-tab" => "cabinet__content-2"} Избранное
+    %button{"data-tab" => "cabinet__content-3"} Мои покупки
+    %button{"data-tab" => "cabinet__content-4"} Адреса
+  .cabinet__in
+    .cabinet__content.cabinet__content-1
+      .cabinet__personal
+        .cabinet__row
+          .cabinet__col
+            %label.label
+              %span.label__title ФИО
+              %input.label__txt{placeholder: "Иванов", type: "text"}/
+          .cabinet__col
+            %label.label.label_no-title
+              %input.label__txt{placeholder: "Иван", type: "text"}/
+          .cabinet__col
+            %label.label.label_no-title
+              %input.label__txt{placeholder: "Иванович", type: "text"}/
+        .cabinet__row.cabinet__row_mod
+          .cabinet__col
+            %label.label
+              %span.label__title Пароль
+              %input.label__txt{placeholder: "•••••••••", type: "password"}/
+              %span.label__help Текущий пароль
+          .cabinet__col
+            %label.label.label_no-title
+              %input.label__txt{placeholder: "•••••••••", type: "password"}/
+              %span.label__help Новый пароль. Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
+          .cabinet__col
+            %label.label.label_no-title
+              %input.label__txt{placeholder: "•••••••••", type: "password"}/
+              %span.label__help Повторите пароль
+        .cabinet__row
+          .cabinet__col
+            %label.label.label_mod
+              %span.label__title Email
+              %input.label__txt{placeholder: "yourmail@mail.com", type: "password"}/
+            %label.label-check
+              %input{checked: "checked", type: "checkbox"}/
+              %i
+              %span Подписаться на новости
+          .cabinet__phone
+            %span Телефон
+            .cabinet__phone-in
+              %strong +7 (987) 654-32-10
+              %button.btn-dashed Изменить телефон
+      .cabinet__btn
+        %button.btn СОХРАНИТЬ
+    .cabinet__content.cabinet__content-2
+      .cabinet__order
+        .order
+          .order__table
+            .order__head
+              .order__title Цена за 100 г.
+              .order__title Название
+            .order__row-top.js-accord-order.is-open
+              .order__row-top-in
+                .order__shop
+                  %img{alt: "", src: "img/shop2.png"}/
+                  .order__shop-name ГЛОБУС ГУРМЕ
+            .order__row-items{style: "display: block"}
+              .order__row-prod
+                .order__pic
+                  %button.order__favorite
+                  %a{href: "#"}
+                    %img{alt: "", src: "img/pic4.jpg"}/
+                .order__price
+                  %span
+                    400
+                    %i.rub Р
+                .order__prod
+                  %a{href: "#"} Ролл с крабовыми палочками Калифорния
+              .order__row-prod
+                .order__pic
+                  %button.order__favorite
+                  %a{href: "#"}
+                    %img{alt: "", src: "img/pic4.jpg"}/
+                .order__price
+                  %span
+                    400
+                    %i.rub Р
+                .order__prod
+                  %a{href: "#"} Ролл с крабовыми палочками Калифорния с крабовыми палочками очень вкусный
+            .order__row-top.js-accord-order
+              .order__row-top-in
+                .order__shop
+                  %img{alt: "", src: "img/shop2.png"}/
+                  .order__shop-name ГЛОБУС ГУРМЕ
+            .order__row-items
+              .order__row-prod
+                .order__pic
+                  %button.order__favorite
+                  %a{href: "#"}
+                    %img{alt: "", src: "img/pic4.jpg"}/
+                .order__price
+                  %span
+                    400
+                    %i.rub Р
+                .order__prod
+                  %a{href: "#"} Ролл с крабовыми палочками Калифорния с крабовыми палочками очень вкусный
+    .cabinet__content.cabinet__content-3
+      .purchases
+        .purchases__head
+          .purchases__cell Номер заказа
+          .purchases__cell Статус заказа
+          .purchases__cell Сумма заказа
+          .purchases__cell Дата доставки
+        .purchases__row.js-purchases
+          .purchases__cell
+            %button.btn-dashed 144567
+          .purchases__cell В обработке
+          .purchases__cell
+            12 400
+            %i.rub Р
+          .purchases__cell --.--.----
+        .purchases__row-down
+          .purchases__cell
+            %ul.purchases__prods
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Ролл с крабовыми палочками Калифорния
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Унаги. Ролл с копчёным угрём
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Плов с мясом баранины
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %strong Доставка
+            .purchases__delivery
+              %ul
+                %li
+                  %span Способ оплаты
+                  %strong Кредитная карточка
+                %li
+                  %span Адрес доставки
+                  %strong Москва. ул. Победы, д.6, кв 4.
+              %button.btn-arr ПОВТОРИТЬ ЗАКАЗ
+        .purchases__row.js-purchases
+          .purchases__cell
+            %button.btn-dashed.is-active 144567
+          .purchases__cell В обработке
+          .purchases__cell
+            12 400
+            %i.rub Р
+          .purchases__cell 12.06.2013
+        .purchases__row-down{style: "display: block"}
+          .purchases__cell
+            %ul.purchases__prods
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Ролл с крабовыми палочками Калифорния
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Унаги. Ролл с копчёным угрём
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Плов с мясом баранины
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %strong Доставка
+            .purchases__delivery
+              %ul
+                %li
+                  %span Способ оплаты
+                  %strong Кредитная карточка
+                %li
+                  %span Адрес доставки
+                  %strong Москва. ул. Победы, д.6, кв 4.
+              %button.btn-arr ПОВТОРИТЬ ЗАКАЗ
+        .purchases__row.js-purchases
+          .purchases__cell
+            %button.btn-dashed 144567
+          .purchases__cell В обработке
+          .purchases__cell
+            12 400
+            %i.rub Р
+          .purchases__cell 12.06.2013
+        .purchases__row-down
+          .purchases__cell
+            %ul.purchases__prods
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Ролл с крабовыми палочками Калифорния
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Унаги. Ролл с копчёным угрём
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %a{href: "#"} Плов с мясом баранины
+              %li
+                %span
+                  400
+                  %i.rub Р
+                %strong Доставка
+            .purchases__delivery
+              %ul
+                %li
+                  %span Способ оплаты
+                  %strong Кредитная карточка
+                %li
+                  %span Адрес доставки
+                  %strong Москва. ул. Победы, д.6, кв 4.
+              %button.btn-arr ПОВТОРИТЬ ЗАКАЗ
+        .purchases__back
+          %a{href: "#"} Вернуться к заказам
+    .cabinet__content.cabinet__content-4
+      .cabinet__address
+        .cabinet__address-list.js-address-list
+          .cabinet__row
+            .cabinet__col
+              %label.label
+                %span.label__title Название
+                %input.label__txt{placeholder: "Дом", type: "text"}/
+            .cabinet__col
+              .label
+                %span.label__title Город
+                .label__select.js-select
+                  %span
+                    Москва
+                    %i
+                  %ul
+                    %li Москва
+                    %li Киев
+                    %li Санкт-Петербург
+                    %li Одесса
+            .cabinet__col
+              %label.label
+                %span.label__title Адрес
+                %input.label__txt{placeholder: "ул. Победы, д.6, кв.4", type: "text"}/
+        .js-address-template{style: "display: none"}
+          .cabinet__row
+            .cabinet__col
+              %label.label
+                %span.label__title Название
+                %input.label__txt{placeholder: "Дом", type: "text"}/
+            .cabinet__col
+              .label
+                %span.label__title Город
+                .label__select.js-select
+                  %span
+                    Москва
+                    %i
+                  %ul
+                    %li Москва
+                    %li Киев
+                    %li Санкт-Петербург
+                    %li Одесса
+            .cabinet__col
+              %label.label
+                %span.label__title Адрес
+                %input.label__txt{placeholder: "ул. Победы, д.6, кв.4", type: "text"}/
+            .cabinet__col.cabinet__col_btn
+              %button.btn-dashed.js-address-del Удалить
+        .cabinet__row-btn
+          %button.btn-dashed.js-address-add Добавить адрес
+      .cabinet__btn
+        %button.btn СОХРАНИТЬ
+/ END .cabinet

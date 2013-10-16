@@ -46,7 +46,7 @@
     left: 0;
     right: 0;
     height: 8px;
-    background: url(../img/icons/wave.png) repeat-x;
+    background: url(icons/wave.png) repeat-x;
   }
 }
 
@@ -315,7 +315,7 @@
     left: 0;
     right: 0;
     height: 8px;
-    background: url(../img/icons/wave.png) repeat-x;
+    background: url(icons/wave.png) repeat-x;
   }
   &.is-selected {
     background: #edf8fe;
@@ -325,7 +325,7 @@
       }
     }
     .catalog__price {
-      background: url(../img/icons/bg-line-gray.png) repeat-x 0 0, url(../img/icons/bg-line-gray.png) repeat-x 0 100%;
+      background: url(icons/bg-line-gray.png) repeat-x 0 0, url(icons/bg-line-gray.png) repeat-x 0 100%;
       strong {
         color: #666666;
       }
@@ -336,7 +336,7 @@
       }
     }
     &:after {
-      background: url(../img/icons/wave-blue.png) repeat-x;
+      background: url(icons/wave-blue.png) repeat-x;
     }
   }
 }
@@ -376,7 +376,7 @@
 
 .catalog__price {
   padding: 11px 10px;
-  background: url(../img/icons/bg-line.png) repeat-x 0 0, url(../img/icons/bg-line.png) repeat-x 0 100%;
+  background: url(icons/bg-line.png) repeat-x 0 0, url(icons/bg-line.png) repeat-x 0 100%;
   @include clr;
   span {
     float: left;
@@ -666,7 +666,7 @@
     left: 0;
     right: 0;
     height: 8px;
-    background: url(../img/icons/wave.png) repeat-x;
+    background: url(icons/wave.png) repeat-x;
   }
   button {
     width: 100%;
