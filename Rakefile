@@ -3,6 +3,6 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
-$: << File.expand_path('../app/models/sap', __FILE__)
+#$: << File.expand_path('../app/models/sap', __FILE__)
 
-Sap::Application.load_tasks
+Gm::Application.load_tasks

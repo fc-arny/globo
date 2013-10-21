@@ -21,3 +21,11 @@ links:
   fb_group: https://www.facebook.com/globom
   ok_group: http://www.odnoklassniki.ru/group/52067362734261
   rss:  /rss
+
+social:
+  vk:
+    app_id: 3947810
+    serret_key: ACZqc3hV1JzzBt8CUuoL
+  fb:
+    app_id: 526078840817508
+    secret: a5144e64e47cac190ab638a9e87f3137

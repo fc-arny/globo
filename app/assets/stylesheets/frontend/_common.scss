@@ -916,12 +916,12 @@ table {
   float: right;
   ul {
     float: left;
-    &:first-child {
-      margin-right: 35px;
-      & + ul {
-        margin-right: 85px;
-      }
-    }
+    //&:first-child {
+    margin-right: 35px;
+      //& + ul {
+      //  margin-right: 85px;
+      //}
+    //}
   }
   li {
     margin-bottom: 4px;

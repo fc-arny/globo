@@ -4,7 +4,7 @@ source 'http://gems.github.com'
 gem 'rails', '4.0.0'
 
 gem 'pg'
-#
+
 gem 'unicorn', :platform => :ruby
 gem 'haml-rails'
 gem 'rails-i18n'
@@ -26,9 +26,7 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 
-# Gems used only for assets and not required
-# in production environments by default.
-
+# Assets
 gem 'sass-rails',   '~> 4.0.0.rc1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
@@ -42,11 +40,6 @@ gem 'haml_coffee_assets'          # JS Templates for backbone
 # Sap gems
 gem 'sap', :path => 'sap'
 
-# @TODO: Rails 4 - проверка параметров должна быть в контроллере  http://habrahabr.ru/company/engineyard/blog/170473/
-# Сессию хранить в кеше и получать данные по id
-gem 'activerecord-session_store'
-
-
 group :development do
   # Errors
   gem 'better_errors'
@@ -57,11 +50,18 @@ group :development do
   gem 'jbuilder'
 end
 
+# Blog Engine
+#gem 'monologue'
+
+# Deploy with Capistrano
+#gem 'capistrano'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+
 
 # To use debugger
 # gem 'debugger'
+
+

@@ -165,7 +165,6 @@
 
 .m-about, .m-news {
   float: left;
-  width: 50%;
   @include box;
   .title {
     margin-bottom: 10px;
@@ -179,6 +178,7 @@
 .m-about {
   position: relative;
   padding-right: 60px;
+  width: 70%;
   &:after {
     content: "";
     position: absolute;
@@ -198,6 +198,7 @@
 
 .m-news {
   padding-left: 60px;
+  width: 30%;
   @include rt(1120) {
     padding-left: 0;
   }
