@@ -1,0 +1,16 @@
+ru:
+  popup:
+    enter: Вход
+    welcome: ДОБРО ПОЖАЛОВАТЬ
+    register: Регистрация
+    required_fields: Поля обьязательные для заполнения
+    forget_password: Забыли ваш пароль?
+    label:
+      name: Имя
+      login: Логин
+      phone: Телефон
+      password: Пароль
+      remember_me: Запомнить меня
+    button:
+      enter: ВХОД
+      ready: ГОТОВО

@@ -1,4 +1,10 @@
 Gm::Application.routes.draw do
+  # Main page
+  root :to => 'common/index#main'
+
+  # If JS is disabled
+  get 'badbrowser' => 'common/index#badbrowser'
+
   # Pages
   get 'about'  => 'common/index#about'        # About project and tean
   get 'contacts'  => 'common/index#contacts'  # Contacts
@@ -46,14 +52,10 @@ Gm::Application.routes.draw do
 
 
   # API
-  mount Sap::Core::Engine => '/', :as => 'sap'
+  mount Sap::Core::Engine => '/', as: 'sap'
 
 
-  # Main page
-  root :to => 'common/index#main'
 
-  # If JS is disabled
-  get 'badbrowser' => 'common/index#badbrowser'
 
   # Common route
   match '/:controller/:action(.:format)', :defaults => {:action => 'index'}, :via => :get

@@ -1,0 +1,55 @@
+/ BEGIN .popup-welcome
+.popup__top
+  %button.popup__btn-close
+  .popup__title= t 'popup.welcome'
+.popup__in
+  .popup__row
+    .popup__col
+      = form_for @form, url: sap.user_session_path, remote: true do |f|
+        .popup__message
+          %h2= t 'popup.enter'
+        %label.label
+          %span.label__title= t 'popup.label.login'
+          %span.label__in
+            %i.ico-login
+            %input.label__txt{type: 'text'}/
+        %label.label
+          %span.label__title= t 'popup.label.password'
+          %span.label__in
+            %i.ico-pass
+            %input.label__txt{type: 'password'}/
+        %label.label-check
+          %input{checked: 'checked', type: 'checkbox'}/
+          %i
+          %span= t 'popup.label.remember_me'
+        %button.btn= t 'popup.button.enter'
+        .popup__pass-forgot
+          %a{href: '#'}= t 'popup.forget_password'
+        .popup__pass-help
+          *
+          = t 'popup.required_fields'
+    .popup__col
+      .popup__message
+        %h2= t 'popup.register'
+      %label.label
+        %span.label__title
+          = t 'popup.label.name'
+          *
+        %span.label__in
+          %i.ico-login
+          %input.label__txt{type: 'text'}/
+      %label.label
+        %span.label__title
+          = t 'popup.label.phone'
+          *
+        %span.label__in
+          %i.ico-phone
+          %input.label__txt{type: 'text'}/
+      %label.label
+        %span.label__title
+          = t 'popup.label.password'
+        %span.label__in
+          %i.ico-pass
+          %input.label__txt{type: 'password'}/
+      %button.btn= t 'popup.button.ready'
+/ END .popup-welcome

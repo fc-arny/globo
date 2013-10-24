@@ -75,7 +75,7 @@ window.Sap = Sap
 # Document load
 $(()->
   # Apply plugin
-  $('form[data-remote=true]').AjaxForm()
+
 
 #  $('li.item').mainMenu()
 

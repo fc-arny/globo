@@ -3,11 +3,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require hamlcoffee
+
 //= require jquery/jquery.cycle2
 //= require jquery/ui/jquery.ui.custom.min
 //= require jquery/jquery.mousewheel.min
 //= require jquery/jquery.scrollTo
 //= require jquery/jquery.jscrollpane
+
+//= require common/pluginBase
+//= require common/plugins/ajaxForm
+//= require common/plugins/ajaxPopup
 
 // Backbone Lib -------------------
 //---------------------------------
@@ -20,6 +25,9 @@
 //---------------------------------
 
 $(document).ready(function() {
+// Init
+	$('form[data-remote=true]').AjaxForm();
+	$('[data-popup=true]').AjaxPopup();
 
 	var overlay = $('.overlay');
 	var body = $('body');
@@ -28,11 +36,13 @@ $(document).ready(function() {
 	var header = $('.header');
 	var $fWelcome = $('.popup_welcome');
 
+
+
 // Main
 	$('.user-state__login').on('click', function(event){
-		event.preventDefault();
-		overlay.show();
-		$fWelcome.show();
+//		event.preventDefault();
+//		overlay.show();
+//		$fWelcome.show();
 	});
 
 	var btn_login = $('.js-login');
@@ -520,8 +530,8 @@ $(document).ready(function() {
 	$(window).resize(function() {
 		//init
 		slidermenu_responsive();
-//		$(window).scrollTo(page_top + 'px', 0);
-//		body.removeAttr('style');
+		$(window).scrollTo(page_top + 'px', 0);
+		body.removeAttr('style');
 		scroll_init();
 	});
 
