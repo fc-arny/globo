@@ -5,19 +5,19 @@
 .popup__in
   .popup__row
     .popup__col
-      = form_for @form, url: sap.user_session_path, remote: true do |f|
+      = form_for :user, url: sap.user_session_path, remote: true do |f|
         .popup__message
           %h2= t 'popup.enter'
         %label.label
           %span.label__title= t 'popup.label.login'
           %span.label__in
             %i.ico-login
-            %input.label__txt{type: 'text'}/
+            = f.text_field :login, {class: 'label__txt'}
         %label.label
           %span.label__title= t 'popup.label.password'
           %span.label__in
             %i.ico-pass
-            %input.label__txt{type: 'password'}/
+            = f.password_field :password, {class: 'label__txt'}
         %label.label-check
           %input{checked: 'checked', type: 'checkbox'}/
           %i
@@ -29,27 +29,28 @@
           *
           = t 'popup.required_fields'
     .popup__col
-      .popup__message
-        %h2= t 'popup.register'
-      %label.label
-        %span.label__title
-          = t 'popup.label.name'
-          *
-        %span.label__in
-          %i.ico-login
-          %input.label__txt{type: 'text'}/
-      %label.label
-        %span.label__title
-          = t 'popup.label.phone'
-          *
-        %span.label__in
-          %i.ico-phone
-          %input.label__txt{type: 'text'}/
-      %label.label
-        %span.label__title
-          = t 'popup.label.password'
-        %span.label__in
-          %i.ico-pass
-          %input.label__txt{type: 'password'}/
-      %button.btn= t 'popup.button.ready'
+      = form_for :user, url: sap.user_registration_path, remote: true do |f|
+        .popup__message
+          %h2= t 'popup.register'
+        %label.label
+          %span.label__title
+            = t 'popup.label.name'
+            *
+          %span.label__in
+            %i.ico-login
+            = f.text_field :name, {class: 'label__txt'}
+        %label.label
+          %span.label__title
+            = t 'popup.label.phone'
+            *
+          %span.label__in
+            %i.ico-phone
+            = f.text_field :phone, {class: 'label__txt'}
+        %label.label
+          %span.label__title
+            = t 'popup.label.password'
+          %span.label__in
+            %i.ico-pass
+            = f.password_field :name, {class: 'label__txt'}
+        %button.btn= t 'popup.button.ready'
 / END .popup-welcome
