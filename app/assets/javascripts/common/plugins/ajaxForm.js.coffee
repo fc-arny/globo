@@ -1,5 +1,11 @@
 ###
 # Base for all ajax form
+# Options:
+#   name - name of params array. For ex.: user[name], user[phone], here 'user' is 'name'
+#   field:
+#     wrapper   - class wrapping input, error, etc
+#     has_error - class add to 'wrapper' if validation failed
+#
 ###
 class AjaxForm extends PluginBase
 
@@ -10,12 +16,13 @@ class AjaxForm extends PluginBase
     success : ->
     fail    : ->
     error   : ->
+    name: 'form'
     field:
-      wrapper : 'div'
-      error   : 'error'
+      wrapper   : 'label'
+      has_error : 'has-error'
     error:
       separator : ';<br/>'
-      message   : 'error-message'
+      message   : 'label__error'
     selectors:
       submit_btn: '.btn'
 
@@ -67,25 +74,25 @@ class AjaxForm extends PluginBase
 
   # -------------------------------------------------- Show form errors by field
   _showErrors: (errors) ->
-    for form of errors
-      for input of errors[form]
-        message = errors[form][input].join @options.error.separator
+    for input of errors
+      # Show only first error
+      message = "<span>#{errors[input][0]}</span>"
 
-        $input  = @$node.find("[name='#{form}[#{input}]']")
-        $field  = $input.closest(@options.field.wrapper)
+      $input  = @$node.find("[name='#{@options.name}[#{input}]']")
+      $field  = $input.closest( ".#{@options.field.wrapper}")
 
-        $field.addClass @options.field.error
-        $message = $field.find ".#{@options.error.message}"
+      $field.addClass @options.field.has_error
+      $message = $field.find ".#{@options.error.message}"
 
-        unless $message.length
-          $message = $('<div />').addClass @options.error.message
-          $message.insertAfter $input
+      unless $message.length
+        $message = $('<span />').addClass @options.error.message
+        $message.appendTo $field
 
-        $message.html message
+      $message.html message
 
   # -------------------------------------------------- Clear all form errors
   _clearErrors: ->
-    @$node.find(".#{@options.field.error}").removeClass @options.field.error
+    @$node.find(".#{@options.field.has_error}").removeClass @options.field.has_error
     @$node.find(".#{@options.error.message}").html ''
 
 

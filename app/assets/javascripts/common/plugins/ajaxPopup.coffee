@@ -44,16 +44,15 @@ class AjaxPopup extends PluginBase
     @$popup.show()
     @$overlay.show()
 
-    @$popup.addClass _class
+    unless @$popup.hasClass _class
+      @$popup.addClass _class
 
-    _self   = @
-
-    $.ajax(
-      url:       _url
-      type:      'get'
-      dataType:  'html'
-      success: (response)->
-        _self.$popup.html response
-    )
+      $.ajax(
+        url:       _url
+        type:      'get'
+        dataType:  'html'
+        success: (response)=>
+          @$popup.html response
+      )
 
 AjaxPopup.installAsjQueryPlugIn()

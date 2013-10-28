@@ -5,7 +5,7 @@
 .popup__in
   .popup__row
     .popup__col
-      = form_for :user, url: sap.user_session_path, remote: true do |f|
+      = form_for :user, url: sap.user_session_path, remote: true, :html => {id: 'popup_signin_form'} do |f|
         .popup__message
           %h2= t 'popup.enter'
         %label.label
@@ -29,7 +29,7 @@
           *
           = t 'popup.required_fields'
     .popup__col
-      = form_for :user, url: sap.user_registration_path, remote: true do |f|
+      = form_for :user, url: sap.user_registration_path, remote: true, :html => {id: 'popup_signup_form'} do |f|
         .popup__message
           %h2= t 'popup.register'
         %label.label
@@ -51,6 +51,18 @@
             = t 'popup.label.password'
           %span.label__in
             %i.ico-pass
-            = f.password_field :name, {class: 'label__txt'}
+            = f.password_field :password, {class: 'label__txt'}
         %button.btn= t 'popup.button.ready'
 / END .popup-welcome
+
+:javascript
+  $(function(){
+    $('#popup_signup_form').AjaxForm({
+      name: 'user'
+    });
+
+    $('#popup_signin_form').AjaxForm({
+      name: 'user'
+    });
+  });
+

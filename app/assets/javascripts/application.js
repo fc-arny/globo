@@ -26,9 +26,9 @@ $(document).ready(function() {
 	// Init
 	$('[data-popup=true]').AjaxPopup();
 
-	$(document).on('click', 'form[data-remote=true] .btn', function(event){
-		$(this).closest('form').AjaxForm();
-	});
+//	$(document).on('click', 'form[data-remote=true] .btn', function(event){
+//		$(this).closest('form').AjaxForm();
+//	});
 
 //	function init() {
 //		console.log('Init');
