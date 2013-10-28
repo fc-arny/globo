@@ -2,7 +2,7 @@
 .popup__top
   %button.popup__btn-close
   .popup__title= t 'popup.welcome'
-.popup__in
+.popup__in{style: 'opacity:0'}
   .popup__row
     .popup__col
       = form_for :user, url: sap.user_session_path, remote: true, :html => {id: 'popup_signin_form'} do |f|
@@ -57,6 +57,8 @@
 
 :javascript
   $(function(){
+    $('.popup_welcome .popup__in').animate({opacity: 1}, 500);
+
     $('#popup_signup_form').AjaxForm({
       name: 'user'
     });

@@ -6,7 +6,7 @@ class AjaxPopup extends PluginBase
   # Defaults
   @defaultOptions:
     class: ''
-    loader: '/assets/loader-fruit.gif'
+    loader: '/assets/loaders/arrows32x32.gif'
 
 
   # -------------------------------------------------- Constructor
@@ -47,11 +47,15 @@ class AjaxPopup extends PluginBase
     unless @$popup.hasClass _class
       @$popup.addClass _class
 
+      background = @$popup.css 'background'
+      @$popup.css "background", "url(#{@options.loader}) no-repeat center center #ffffff"
+
       $.ajax(
         url:       _url
         type:      'get'
         dataType:  'html'
         success: (response)=>
+          @$popup.css 'background', background
           @$popup.html response
       )
 
