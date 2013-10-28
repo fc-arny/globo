@@ -10,7 +10,7 @@
 //= require jquery/jquery.scrollTo
 //= require jquery/jquery.jscrollpane
 
-//= require common/pluginBase
+//= require_tree ./core
 //= require common/plugins/ajaxForm
 //= require common/plugins/ajaxPopup
 
@@ -20,14 +20,25 @@
 //= require json2
 //= require backbone
 
-
-// SapCore ---------------------------
 //---------------------------------
 
 $(document).ready(function() {
-// Init
-	$('form[data-remote=true]').AjaxForm();
+	// Init
 	$('[data-popup=true]').AjaxPopup();
+
+	$(document).on('click', 'form[data-remote=true] .btn', function(event){
+		$(this).closest('form').AjaxForm();
+	});
+
+//	function init() {
+//		console.log('Init');
+//		$('form[data-remote=true]').AjaxForm();
+
+//	}
+
+// Init
+//	init();
+//	$(document).ajaxComplete(init);
 
 	var overlay = $('.overlay');
 	var body = $('body');

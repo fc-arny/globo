@@ -16,6 +16,9 @@ class AjaxForm extends PluginBase
     error:
       separator : ';<br/>'
       message   : 'error-message'
+    selectors:
+      submit_btn: '.btn'
+
 
   # When create plugin
   constructor:(@node, options = {}) ->
@@ -38,10 +41,10 @@ class AjaxForm extends PluginBase
   # -------------------------------------------------- Before send request
   _onBeforeSend: (evt, xhr, settings) ->
     @_clearErrors()
-    @_setInProgress()
+    @_setInProgress(evt.currentTarget)
 
   _onComplete: (evt, xhr, status) ->
-    @_setInProgress false
+    @_setInProgress evt.currentTarget, false
 
 
   _onError: (evt, xhr, status, error) ->
@@ -53,9 +56,9 @@ class AjaxForm extends PluginBase
     @_setInProgress false
 
     if response
-      if response.status is Sap.API_STATUS_SUCCESS
+      if response.status is API_STATUS_SUCCESS
         @options.success response
-      else if response.status is Sap.API_STATUS_FAIL
+      else if response.status is API_STATUS_FAIL
         @_showErrors response.data.errors
       else
         throw new Error('Response error')
@@ -91,10 +94,10 @@ class AjaxForm extends PluginBase
     @InPoccess = inProgress
 
     if @InPoccess
-      @$node.addClass('loading')
+      @$node.find(@options.selectors.submit_btn).addClass('load')
       @$node.find('input, textarea').attr('disabled', true)
     else
-      @$node.removeClass('loading')
+      @$node.find('.load').removeClass('load')
       @$node.find('input, textarea').attr('disabled', false)
 
 

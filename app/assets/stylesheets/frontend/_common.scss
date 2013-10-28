@@ -1133,8 +1133,9 @@ table {
     background: #0484c6;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
   }
-  &.is-load {
-    background: #65b1d7;
+  &.load {
+    background: url("/assets/loader-s.gif") no-repeat 10px center #65b1d7;
+    padding: 0px 35px;
     img {
       margin-left: 10px;
     }
