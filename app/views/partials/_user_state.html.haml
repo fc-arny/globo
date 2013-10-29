@@ -1,22 +1,21 @@
 .user-state
   -if current_user
-    .login
-      %a{href: "#"} John Doe
-      %button.js-login
-        %i
-      %ul.login__links
-        %li
-          %a.login__link-1{href: "#"}
-            Настройки
-            %i
-        %li
-          %a.login__link-2{href: "#"}
-            Избранное
-            %i
-        %li
-          %a.login__link-3{href: "#"}
-            Выход
-            %i
+    %a{href: ''}= current_user.name
+    %button.js-login
+      %i
+    %ul.login__links
+      %li
+        %a.login__link-1{href: "#"}
+          Настройки
+          %i
+      %li
+        %a.login__link-2{href: "#"}
+          Избранное
+          %i
+      %li
+        %a.login__link-3{href: "#"}
+          Выход
+          %i
   - else
     %a.user-state__login{href: login_path, popup_class: 'popup_welcome', url: login_path, :'data-popup' => 'true'}
       Вход

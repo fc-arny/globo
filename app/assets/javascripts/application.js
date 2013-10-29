@@ -25,20 +25,8 @@
 $(document).ready(function() {
 	// Init
 	$('[data-popup=true]').AjaxPopup();
+    $('form[data-remote=true]').AjaxForm();
 
-//	$(document).on('click', 'form[data-remote=true] .btn', function(event){
-//		$(this).closest('form').AjaxForm();
-//	});
-
-//	function init() {
-//		console.log('Init');
-//		$('form[data-remote=true]').AjaxForm();
-
-//	}
-
-// Init
-//	init();
-//	$(document).ajaxComplete(init);
 
 	var overlay = $('.overlay');
 	var body = $('body');
@@ -56,21 +44,21 @@ $(document).ready(function() {
 //		$fWelcome.show();
 	});
 
-	var btn_login = $('.js-login');
-	btn_login.click(function() {
-		$(this).next().show();
-	});
-	btn_login.next().hover(
-		function() {
-			clearTimeout(timeout);
-		},
-		function() {
-			//$(this).hide();
-			var timeout = setTimeout(function(){
-				btn_login.next().hide();
-			}, 2000);
-		}
-	);
+//	var btn_login = $('.js-login');
+//	btn_login.click(function() {
+//		$(this).next().show();
+//	});
+//	btn_login.next().hover(
+//		function() {
+//			clearTimeout(timeout);
+//		},
+//		function() {
+//			//$(this).hide();
+//			var timeout = setTimeout(function(){
+//				btn_login.next().hide();
+//			}, 2000);
+//		}
+//	);
 	btn_login.click(function(event){
 		event.stopPropagation();
 	});
