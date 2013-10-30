@@ -25,7 +25,7 @@
 $(document).ready(function() {
 	// Init
 	$('[data-popup=true]').AjaxPopup();
-    $('form[data-remote=true]').AjaxForm();
+//    $('form[data-remote=true]').AjaxForm();
 
 
 	var overlay = $('.overlay');
@@ -44,7 +44,7 @@ $(document).ready(function() {
 //		$fWelcome.show();
 	});
 
-//	var btn_login = $('.js-login');
+	var btn_login = $('.js-login');
 //	btn_login.click(function() {
 //		$(this).next().show();
 //	});

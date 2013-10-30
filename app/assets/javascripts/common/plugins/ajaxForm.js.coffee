@@ -5,6 +5,13 @@
 #   field:
 #     wrapper   - class wrapping input, error, etc
 #     has_error - class add to 'wrapper' if validation failed
+#   error:
+#     separator - error messages separator
+#     message   - class for error html-element
+#     direction - corner position in error bubble
+#
+#
+#
 #
 ###
 class AjaxForm extends PluginBase
@@ -16,13 +23,14 @@ class AjaxForm extends PluginBase
     success : ->
     fail    : ->
     error   : ->
-    name: 'form'
+    form_name: 'form'
     field:
       wrapper   : 'label'
       has_error : 'has-error'
     error:
       separator : ';<br/>'
       message   : 'label__error'
+      direction : 'left'
     selectors:
       submit_btn: '.btn'
 
@@ -30,7 +38,7 @@ class AjaxForm extends PluginBase
   # When create plugin
   constructor:(@node, options = {}) ->
     super @node, options
-
+#    console.log options
     @_bindEvents()
 
   # Init and updae plugin options
@@ -78,7 +86,7 @@ class AjaxForm extends PluginBase
       # Show only first error
       message = "<span>#{errors[input][0]}</span>"
 
-      $input  = @$node.find("[name='#{@options.name}[#{input}]']")
+      $input  = @$node.find("[name='#{@options.form_name}[#{input}]']")
       $field  = $input.closest( ".#{@options.field.wrapper}")
 
       $field.addClass @options.field.has_error
@@ -86,6 +94,8 @@ class AjaxForm extends PluginBase
 
       unless $message.length
         $message = $('<span />').addClass @options.error.message
+        if @options.error.direction is 'right'
+          $message.addClass 'label__error_right'
         $message.appendTo $field
 
       $message.html message

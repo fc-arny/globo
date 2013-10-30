@@ -19,10 +19,12 @@ class window.PluginBase
   # Install a class as a jQuery plugin. Assuming that myClass extends PluginBase it can than be installed with:
   # myClass.installAsjQueryPlugIn()
   @installAsjQueryPlugIn: (pluginName = @name) ->
-
     pluginClass = @
     $.fn[pluginName] = (options = {}, args...) ->
-      options = $.extend pluginClass.defaultOptions, options or {} if $.type(options) is "object"
+      if $.type(options) is "object"
+        _defaults = $.extend true, {}, pluginClass.defaultOptions
+        options = $.extend true, _defaults, options
+
       return @each () ->
         $this = $(this)
         instance = $this.data pluginName
