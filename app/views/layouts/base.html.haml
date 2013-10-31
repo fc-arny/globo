@@ -26,6 +26,11 @@
 
     .popup.js-popup{style: 'display:none'}
 
+    %span#flash_messages
+      .alert{style: 'display: none'}
+        %button.alert__close{type: 'button'} &times;
+        %span.alert__message
+
     / JS Files anf page script
     .js-scripts
       = yield :bottom # Include js-files

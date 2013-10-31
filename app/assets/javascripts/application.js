@@ -13,6 +13,7 @@
 //= require_tree ./core
 //= require common/plugins/ajaxForm
 //= require common/plugins/ajaxPopup
+//= require common/plugins/flashMessage
 
 // Backbone Lib -------------------
 //---------------------------------
@@ -24,8 +25,9 @@
 
 $(document).ready(function() {
 	// Init
-	$('[data-popup=true]').AjaxPopup();
-//    $('form[data-remote=true]').AjaxForm();
+	$('[data-popup=true]').ajaxPopup();
+	$('#flash_messages').flashMessage();
+    $('form[data-remote=true]').AjaxForm();
 
 
 	var overlay = $('.overlay');

@@ -20,6 +20,8 @@ class window.PluginBase
   # myClass.installAsjQueryPlugIn()
   @installAsjQueryPlugIn: (pluginName = @name) ->
     pluginClass = @
+    pluginName = pluginName.charAt(0).toLowerCase() + pluginName.slice(1);
+
     $.fn[pluginName] = (options = {}, args...) ->
       if $.type(options) is "object"
         _defaults = $.extend true, {}, pluginClass.defaultOptions
@@ -36,10 +38,10 @@ class window.PluginBase
         else
           plugin = new pluginClass $this, options, args...
           $this.data pluginName, plugin
-          $this.addClass pluginName
+          $this.addClass 'gm_' + pluginName
           $this.bind "destroyed.#{pluginName}", () ->
             $this.removeData pluginName
-            $this.removeClass pluginName
+            $this.removeClass 'gm_' + pluginName
             $this.unbind pluginName
             plugin.destructor()
           plugin
