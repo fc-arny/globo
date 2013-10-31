@@ -5,6 +5,13 @@
   message   - selector of error/success/notice message
   container - selector of message's container
   classes   - classes for different messages types
+
+  Example:
+    # Init plugin
+    fm = $('#flash-message').flashMessage()
+
+    # Using
+    fm.show 'Danger!!! Go away!', 'error'
 ###
 class FlashMessage extends PluginBase
   @defaultOptions:
@@ -65,7 +72,7 @@ class FlashMessage extends PluginBase
 
   # -------------------------------------------------- Click on 'close' button
   _onCloseClick: (event) ->
-    @_close(500)
+    @_close(100)
 
   # -------------------------------------------------- Don't hide message when mouseenter event
   _onContainerMouseEnter:(event) ->
