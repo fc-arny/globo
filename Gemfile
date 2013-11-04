@@ -7,15 +7,18 @@ gem 'pg'
 
 gem 'unicorn', :platform => :ruby
 gem 'haml-rails'
-gem 'rails-i18n'
 gem 'unicode'
 gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
 gem 'jsend-rails'           # API format specification
 
+# I18n
+gem 'rails-i18n'
+gem 'i18n-js'
+
 # Profiling, Monitoring
-#gem 'rack-mini-profiler'
+gem 'rack-mini-profiler'
 #gem 'newrelic_rpm'
 #gem 'ruby-prof'
 #gem 'airbrake'

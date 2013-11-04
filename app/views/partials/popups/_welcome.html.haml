@@ -1,6 +1,6 @@
 / BEGIN .popup-welcome
 .popup__top
-  %button.popup__btn-close
+  %button.popup__btn-close &times;
   .popup__title= t 'popup.welcome'
 .popup__in{style: 'opacity:0'}
   .popup__row
@@ -18,10 +18,7 @@
           %span.label__in
             %i.ico-pass
             = f.password_field :password, {class: 'label__txt'}
-        %label.label-check
-          %input{checked: 'checked', type: 'checkbox'}/
-          %i
-          %span= t 'popup.label.remember_me'
+
         %button.btn= t 'popup.button.enter'
         .popup__pass-forgot
           %a{href: '#'}= t 'popup.forget_password'
@@ -59,14 +56,27 @@
   $(function(){
     $('.popup_welcome .popup__in').animate({opacity: 1}, 500);
 
-    $('._popup_signup_form').AjaxForm({
-      form_name: 'user'
+    $('._popup_signup_form').ajaxForm({
+      form_name: 'user',
+      onSuccess: function(response){
+        // Скрываем popup
+        // Обновляем user_state
+        // Generate event
+      },
+      onError: function(response) {
+        // FM - we have some problem
+      }
     });
 
-    $('._popup_signin_form').AjaxForm({
+    $('._popup_signin_form').ajaxForm({
       form_name: 'user',
       error: {
         direction: 'right'
+      },
+      onSuccess: function(response){
+        location.reload();
+        // Generate event
+        // FM - You are logged in
       }
     });
   });

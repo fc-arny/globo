@@ -25,9 +25,10 @@
 
 $(document).ready(function() {
 	// Init
+	var fMessage = $(document).flashMessage();
+//	$(document).flashMessage('show', 'errrr', 'warning');
+
 	$('[data-popup=true]').ajaxPopup();
-	$('#flash_messages').flashMessage();
-    $('form[data-remote=true]').AjaxForm();
 
 
 	var overlay = $('.overlay');
@@ -100,10 +101,10 @@ $(document).ready(function() {
 	var popup_close = $('.popup__btn-close');
 	var datepicker_el = $('.datepicker__wrap');
 
-	popup_close.click(function() {
-		popup_el.hide();
-		overlay.hide();
-	});
+//	popup_close.click(function() {
+//		popup_el.hide();
+//		overlay.hide();
+//	});
 
 	cart_popup_open.click(function() {
 		var pos_top = $(this).position().top;
@@ -130,14 +131,14 @@ $(document).ready(function() {
 		cart_el.addClass('is-move');
 	});
 
-	overlay.click(function() {
-		$(this).hide();
-		cart_popup.hide();
-		prod.hide();
-		popup_el.hide();
-		cart_el.removeClass('is-open');
-		body.removeClass('no-scroll');
-	});
+//	overlay.click(function() {
+//		$(this).hide();
+//		cart_popup.hide();
+//		prod.hide();
+//		popup_el.hide();
+//		cart_el.removeClass('is-open');
+//		body.removeClass('no-scroll');
+//	});
 
 //product popup
 	var prod = $('.prod');

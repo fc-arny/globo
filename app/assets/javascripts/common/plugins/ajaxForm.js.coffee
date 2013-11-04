@@ -16,14 +16,19 @@
 ###
 class AjaxForm extends PluginBase
 
+  API_STATUS_SUCCESS  = 'success' # Evething ok
+  API_STATUS_FAIL     = 'fail'    # Not valid data
+  API_STATUS_ERROR    = 'error'   # Fatal/unexpected errors
+
   InPoccess: false
 
   # Defaults
   @defaultOptions:
-    success : ->
-    fail    : ->
-    error   : ->
+    onSuccess : ->
+    onFail    : ->
+    onError   : ->
     form_name: 'form'
+    showErrors: true
     field:
       wrapper   : 'label'
       has_error : 'has-error'
@@ -38,12 +43,14 @@ class AjaxForm extends PluginBase
   # When create plugin
   constructor:(@node, options = {}) ->
     super @node, options
-#    console.log options
+    @_cache()
     @_bindEvents()
 
   # Init and updae plugin options
   initialize: (@options)->
     super @options
+  # -------------------------------------------------- Cache DOM-elements
+  _cache: ->
 
 
   # -------------------------------------------------- Bind events
@@ -72,13 +79,18 @@ class AjaxForm extends PluginBase
 
     if response
       if response.status is API_STATUS_SUCCESS
-        @options.success response
+        @options.onSuccess response
       else if response.status is API_STATUS_FAIL
-        @_showErrors response.data.errors
+        @options.onFail response
+        @_showErrors response.data.errors if @options.showErrors
       else
-        throw new Error('Response error')
+        @options.onError response
     else
-      throw new Error('No response')
+      @options.onError()
+
+  # -------------------------------------------------- Hide error
+  _hideError: ->
+
 
   # -------------------------------------------------- Show form errors by field
   _showErrors: (errors) ->
@@ -93,10 +105,14 @@ class AjaxForm extends PluginBase
       $message = $field.find ".#{@options.error.message}"
 
       unless $message.length
-        $message = $('<span />').addClass @options.error.message
+        $message = $('<span />')
+        $message.appendTo $field
+
         if @options.error.direction is 'right'
           $message.addClass 'label__error_right'
-        $message.appendTo $field
+
+        $message.addClass @options.error.message
+
 
       $message.html message
 

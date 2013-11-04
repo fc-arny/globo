@@ -27,11 +27,7 @@ module ApplicationHelper
       message = flash[:info]
     end
 
-    if message
-      haml_tag :div, :class => "alert-#{type}" do
-        haml_concat message
-      end
-    end
+    render :partial => 'partials/helpers/flash_message', :locals => {message: message, type: type}
   end
 
 end

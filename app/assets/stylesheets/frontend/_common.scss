@@ -1733,12 +1733,13 @@ a {
 }
 
 .popup__btn-close {
+  padding: 3px;
   position: absolute;
   top: 8px;
   right: 8px;
-  @include s(close);
+
   &:hover {
-    @include s(close-h);
+    color: #222222;
   }
 }
 

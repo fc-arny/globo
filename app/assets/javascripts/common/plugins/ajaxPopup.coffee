@@ -7,6 +7,7 @@ class AjaxPopup extends PluginBase
   @defaultOptions:
     class: ''
     loader: '/assets/loaders/arrows32x32.gif'
+    close_btn: '.popup__btn-close'
 
 
   # -------------------------------------------------- Constructor
@@ -21,6 +22,12 @@ class AjaxPopup extends PluginBase
   initialize: (@options)->
     super @options
 
+  hide: =>
+    @_hidePopup()
+
+  show: =>
+    @_showPopup()
+
   # -------------------------------------------------- Cache objects
   _cache: ->
     @$overlay  = $ '.overlay'
@@ -31,6 +38,13 @@ class AjaxPopup extends PluginBase
   # -------------------------------------------------- Bind events
   _bindEvents: ->
     @$node.on 'click', (event) => @_showPopup(event)
+    @$popup.on 'click', @options.close_btn, (event)=> @_hidePopup(event)
+    @$overlay.on 'click', (event) => @_hidePopup(event)
+
+  _hidePopup: ->
+    @$popup.hide()
+    @$overlay.hide()
+    @$body.removeClass 'no-scroll'
 
 
   # -------------------------------------------------- Show popup

@@ -33,19 +33,22 @@ class FlashMessage extends PluginBase
     @_init()
 
   # -------------------------------------------------- Show message
-  show: (message, type = 'notice') =>
+  show: (message, type = 'notice') ->
     @$message.html message
     @$container.addClass @options.classes[type]
     @$container.show()
     @$container.animate {opacity: 1}, 500
 
     @timer = setTimeout(=>
-      @_close(2000)
+      @_close()
     , 3000)
 
   # -------------------------------------------------- Init plugin
   _init: ->
-    @$container.css 'opacity', 0
+    # hide message if it's exist
+    @timer = setTimeout(=>
+      @_close()
+    , 3000)
 
   # -------------------------------------------------- Cache objects
   _cache: ->
@@ -55,12 +58,14 @@ class FlashMessage extends PluginBase
 
   # -------------------------------------------------- Bind events
   _bindEvents: ->
+    @$node.on 'ajaxComplete', (event, request) => @_onAjaxComplete(event, request)
+
     @$close.on 'click', (event) => @_onCloseClick(event)
     @$container.on 'mouseenter', (event) => @_onContainerMouseEnter(event)
     @$container.on 'mouseleave', (event) => @_onContainerMouseLeave(event)
 
   # -------------------------------------------------- Close
-  _close: (animateTime = 1500)->
+  _close: (animateTime = 1000)->
     @$container.animate {opacity: 0}, animateTime, =>
       @$container.hide()
       @$container.css 'opacity', 1
@@ -74,6 +79,15 @@ class FlashMessage extends PluginBase
   _onCloseClick: (event) ->
     @_close(100)
 
+  # -------------------------------------------------- On Ajax Complete
+  _onAjaxComplete: (event, request) ->
+    message = request.getResponseHeader 'X-Message'
+    type = request.getResponseHeader 'X-Message-Type'
+
+    if message?
+      @$node.flashMessage 'show', message, type
+
+
   # -------------------------------------------------- Don't hide message when mouseenter event
   _onContainerMouseEnter:(event) ->
     clearTimeout @timer
@@ -83,7 +97,7 @@ class FlashMessage extends PluginBase
   # -------------------------------------------------- Start new timer when mouseleave event
   _onContainerMouseLeave:(event) ->
     @timer = setTimeout(=>
-      @_close(2000)
+      @_close()
     , 3000)
 
 FlashMessage.installAsjQueryPlugIn()

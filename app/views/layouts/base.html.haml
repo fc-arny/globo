@@ -26,10 +26,7 @@
 
     .popup.js-popup{style: 'display:none'}
 
-    %span#flash_messages
-      .alert{style: 'display: none'}
-        %button.alert__close{type: 'button'} &times;
-        %span.alert__message
+    = display_flash_message
 
     / JS Files anf page script
     .js-scripts
