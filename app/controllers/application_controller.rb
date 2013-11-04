@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
     end
 
     unless message.blank?
-      response.headers['X-Message'] = message
+      response.headers['X-Message'] = URI::encode message
       response.headers['X-Message-Type'] = message_type
       flash.discard
     end

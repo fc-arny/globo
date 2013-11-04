@@ -85,7 +85,7 @@ class FlashMessage extends PluginBase
     type = request.getResponseHeader 'X-Message-Type'
 
     if message?
-      @$node.flashMessage 'show', message, type
+      @$node.flashMessage 'show', decodeURIComponent(message), type
 
 
   # -------------------------------------------------- Don't hide message when mouseenter event
