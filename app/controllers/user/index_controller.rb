@@ -3,10 +3,8 @@
 # -------------------------------------------------------------
 class User::IndexController < ApplicationController
 
-  # -------------------------------------------------------------
   # New password form
   # GET /password
-  # -------------------------------------------------------------
   def password
     @token = params[:token]
     @user = Sap::User.where('token = ? AND valid_token_to > ?',  @token, Time.now.utc).first

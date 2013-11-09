@@ -8,9 +8,6 @@ class ApplicationController < ActionController::Base
   # Include helpers
   include Sap::Core::ControllerHelpers::Common
 
-  # Check access
-  include Perms::Resource
-
   # CSRF protection
   protect_from_forgery
 

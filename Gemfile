@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'http://gems.github.com'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.1'
 
 gem 'pg'
 
@@ -30,10 +30,11 @@ gem 'sinatra', require: false
 gem 'slim'
 
 # Assets
-gem 'sass-rails',   '~> 4.0.0.rc1'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails'
+gem 'coffee-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'oily_png'
 
 gem 'jquery-rails', '~>3.0.1'     # jQuery
 gem 'rails-backbone'              # Backbone

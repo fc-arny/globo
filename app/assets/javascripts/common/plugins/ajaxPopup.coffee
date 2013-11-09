@@ -14,6 +14,10 @@ class AjaxPopup extends PluginBase
   constructor:(@node, options = {}) ->
     super @node, options
 
+    # Preload loader
+    loaderImage = new Image()
+    loaderImage.src = @options.loader
+
     @_cache()
     @_bindEvents()
 
@@ -22,6 +26,7 @@ class AjaxPopup extends PluginBase
   initialize: (@options)->
     super @options
 
+  # -------------------------------------------------- Hide popup
   hide: =>
     @_hidePopup()
 
@@ -31,18 +36,20 @@ class AjaxPopup extends PluginBase
   # -------------------------------------------------- Cache objects
   _cache: ->
     @$overlay  = $ '.overlay'
-    @$popup    = $ '.popup'
     @$body     = $ 'body'
 
 
   # -------------------------------------------------- Bind events
   _bindEvents: ->
-    @$node.on 'click', (event) => @_showPopup(event)
-    @$popup.on 'click', @options.close_btn, (event)=> @_hidePopup(event)
+    @$body.on 'click', '[data-popup=true]', (event) => @_showPopup(event)
+    @$body.on 'keyup', (event) => @_onKeyUp(event)
+
+    @$node.on 'click', @options.close_btn, (event)=> @_hidePopup(event)
     @$overlay.on 'click', (event) => @_hidePopup(event)
 
+  # -------------------------------------------------- Hide popup
   _hidePopup: ->
-    @$popup.hide()
+    @$node.hide()
     @$overlay.hide()
     @$body.removeClass 'no-scroll'
 
@@ -50,27 +57,35 @@ class AjaxPopup extends PluginBase
   # -------------------------------------------------- Show popup
   _showPopup: (event)->
     event.preventDefault()
+    @$node.html ''
+    el = event.currentTarget
 
-    _url    = @$node.attr 'url'
-    _class  = @$node.attr 'popup_class'
+    _url    = $(el).attr 'url'
 
     @$body.addClass 'no-scroll'
-    @$popup.show()
+    @$node.show()
     @$overlay.show()
 
-    unless @$popup.hasClass _class
-      @$popup.addClass _class
+    background = @$node.css 'background'
+    @$node.css "background", "url(#{@options.loader}) no-repeat center center transparent"
 
-      background = @$popup.css 'background'
-      @$popup.css "background", "url(#{@options.loader}) no-repeat center center #ffffff"
+    $.ajax(
+      url:       _url
+      type:      'get'
+      dataType:  'html'
+      success: (response)=>
+        @$node.css 'background', background
+        @$node.html response
+    )
 
-      $.ajax(
-        url:       _url
-        type:      'get'
-        dataType:  'html'
-        success: (response)=>
-          @$popup.css 'background', background
-          @$popup.html response
-      )
+  ###
+  # Events
+  ###
+
+  # -------------------------------------------------- On key up
+  _onKeyUp: (event) ->
+    if event.keyCode == 27
+      @_hidePopup()
+
 
 AjaxPopup.installAsjQueryPlugIn()

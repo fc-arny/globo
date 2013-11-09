@@ -58,7 +58,7 @@ class FlashMessage extends PluginBase
 
   # -------------------------------------------------- Bind events
   _bindEvents: ->
-    @$node.on 'ajaxComplete', (event, request) => @_onAjaxComplete(event, request)
+    $(document).on 'ajaxComplete', (event, request) => @_onAjaxComplete(event, request)
 
     @$close.on 'click', (event) => @_onCloseClick(event)
     @$container.on 'mouseenter', (event) => @_onContainerMouseEnter(event)

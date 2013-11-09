@@ -51,7 +51,7 @@ class AjaxForm extends PluginBase
     super @options
   # -------------------------------------------------- Cache DOM-elements
   _cache: ->
-
+    @$body = $('body')
 
   # -------------------------------------------------- Bind events
   _bindEvents: ->

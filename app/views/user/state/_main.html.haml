@@ -1,0 +1,28 @@
+.login.login-main
+  -if current_user
+    %a{href: '/account'}= current_user.name
+    %button.user-state__settings
+      %i
+    .login__links
+      %ul
+        %li
+          %a.login__link-2{href: "#"}
+            Избранное
+            %i
+        %li
+          %a.login__link-2{href: "#"}
+            Мои заказы
+            %i
+        %li
+          %a.login__link-1{href: "#"}
+            Настройки
+            %i
+        %li
+          %a.login__link-3{href: "#"}
+            Выход
+            %i
+  - else
+    %a.user-state__login{href: login_path, popup_class: 'popup_welcome', url: login_path, :'data-popup' => 'true'}
+      Вход
+      %span /
+      Регистрация

@@ -24,7 +24,7 @@
   %body
     = content_for?(:base_content) ? yield(:base_content) : yield
 
-    .popup.js-popup{style: 'display:none'}
+    .popup-container{style: 'display:none'}
 
     = display_flash_message
 

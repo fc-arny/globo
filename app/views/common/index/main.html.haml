@@ -14,10 +14,11 @@
         .container
           %a.logo{href: Settings.common.domain.main_link, title: Settings.common.title }
             %span.logo__pic
-          = render :partial => 'partials/user_state'
+          ._user_state_wrapper
+            = render :partial => 'user/state/main'
 
           .social.social_blue
-            = render :partial => "partials/common/social"
+            = render :partial => 'partials/common/social'
       / BEGIN .m-slider
       .m-slider.js-m-slider
         .container
@@ -72,7 +73,7 @@
             %li При регистрации вы получаете приятный бонус в размере 400 рублей на ваш счет!
             %li Сохраняются данные - адреса, список покупок, избранное и всегда можно повторить заказ
             %li
-              %button.btn{popup_class: 'popup_welcome', url: login_path, :'data-popup' => 'true'} РЕГИСТРАЦИЯ
+              %button.btn{url: login_path, :'data-popup' => 'true'} РЕГИСТРАЦИЯ
       .container.container_cols
         .m-about
           .title О НАС
