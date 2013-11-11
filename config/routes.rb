@@ -15,23 +15,22 @@ Gm::Application.routes.draw do
   get 'store/:url' => 'store/index#show'  # View stores list
 
 
-    # User routes
+  # User routes
 
-    scope :module => 'user' do
-      get   'login' => 'login#form'                 # Login form
-      get   'logout' => 'logout#logout'            # Logout
+  scope :module => 'user' do
+    get   'login' => 'login#form'                 # Login form
+    get   'logout' => 'logout#logout'            # Logout
 
-      get   'register' => 'user/register#form'           # Register form
+    get 'remember'  => 'password#form'             # Restore password form
 
-      get 'password'  => 'index#password'             # Restore password form
-      post 'password'  => 'index#password_create'     # Restore password
-      post 'password_reset' => 'index#password_reset' # Generate token for reset
-      get 'password_reset_sent' => 'index#password_reset_sent'
+    post 'password'  => 'index#password_create'     # Restore password
+    post 'password_reset' => 'index#password_reset' # Generate token for reset
+    get 'password_reset_sent' => 'index#password_reset_sent'
 
 
-      get 'account', :to => 'account#index'              # View profile
-      match 'account/:action', :to => 'account#:action',:via => [:get]
-    end
+    get 'account', :to => 'account#index'              # View profile
+    match 'account/:action', :to => 'account#:action',:via => [:get]
+  end
 
     # Store
     scope :module => 'store' do

@@ -99,6 +99,12 @@ class AjaxForm extends PluginBase
       message = "<span>#{errors[input][0]}</span>"
 
       $input  = @$node.find("[name='#{@options.form_name}[#{input}]']")
+
+      console.log $input.length
+
+      unless $input.length
+        $input  = @$node.find("[alias='#{input}']")
+
       $field  = $input.closest( ".#{@options.field.wrapper}")
 
       $field.addClass @options.field.has_error

@@ -45,7 +45,6 @@ class AjaxPopup extends PluginBase
     @$body.on 'keyup', (event) => @_onKeyUp(event)
 
     @$node.on 'click', @options.close_btn, (event)=> @_hidePopup(event)
-    @$overlay.on 'click', (event) => @_hidePopup(event)
 
   # -------------------------------------------------- Hide popup
   _hidePopup: ->
@@ -57,6 +56,7 @@ class AjaxPopup extends PluginBase
   # -------------------------------------------------- Show popup
   _showPopup: (event)->
     event.preventDefault()
+
     @$node.html ''
     el = event.currentTarget
 
@@ -67,7 +67,8 @@ class AjaxPopup extends PluginBase
     @$overlay.show()
 
     background = @$node.css 'background'
-    @$node.css "background", "url(#{@options.loader}) no-repeat center center transparent"
+    @$node.css 'background', "url(#{@options.loader}) no-repeat center center transparent"
+#    @$node.css 'opacity', 0
 
     $.ajax(
       url:       _url
@@ -76,6 +77,7 @@ class AjaxPopup extends PluginBase
       success: (response)=>
         @$node.css 'background', background
         @$node.html response
+#        @$node.animate(opacity: 1, 500)
     )
 
   ###

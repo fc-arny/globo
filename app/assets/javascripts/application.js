@@ -10,7 +10,11 @@
 //= require jquery/jquery.scrollTo
 //= require jquery/jquery.jscrollpane
 
+// Common
 //= require_tree ./core
+//= require common/init
+
+// Plugins
 //= require common/plugins/ajaxForm
 //= require common/plugins/ajaxPopup
 //= require common/plugins/flashMessage
@@ -23,19 +27,12 @@
 //= require backbone
 
 //---------------------------------
-var $flashMessage, $userState, $popup;
 
 
+gmCurUserState = 'common';
 $(document).ready(function() {
 	// Init
-	$flashMessage = $('#flash_messages');
-	$flashMessage.flashMessage();
 
-	$userState = $('._user_state_wrapper');
-	$userState.userState({type: 'main'});
-
-	$popup = $('.popup-container');
-	$popup.ajaxPopup();
 
 
 
@@ -52,31 +49,31 @@ $(document).ready(function() {
 
 
 // Main
-	$('.user-state__login').on('click', function(event){
-//		event.preventDefault();
-//		overlay.show();
-//		$fWelcome.show();
-	});
+//	$('.user-state__login').on('click', function(event){
+////		event.preventDefault();
+////		overlay.show();
+////		$fWelcome.show();
+//	});
 
-	var btn_login = $('.user-state__settings');
-	var timeout;
-		btn_login.click(function() {
-		$(this).next().show();
-	});
-	btn_login.next().hover(
-		function() {
-//			clearTimeout(timeout);
-		},
-		function() {
-			//$(this).hide();
-//			timeout = setTimeout(function(){
-//				btn_login.next().hide();
-//			}, 2000);
-		}
-	);
-	btn_login.click(function(event){
-		event.stopPropagation();
-	});
+//	var btn_login = $('.user-state__settings');
+//	var timeout;
+//		btn_login.click(function() {
+//		$(this).next().show();
+//	});
+//	btn_login.next().hover(
+//		function() {
+////			clearTimeout(timeout);
+//		},
+//		function() {
+//			//$(this).hide();
+////			timeout = setTimeout(function(){
+////				btn_login.next().hide();
+////			}, 2000);
+//		}
+//	);
+//	btn_login.click(function(event){
+//		event.stopPropagation();
+//	});
 
 	var btn_shop = $('.js-shops');
 	btn_shop.click(function() {

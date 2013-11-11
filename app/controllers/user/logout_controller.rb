@@ -1,16 +1,14 @@
+# -------------------------------------------------------------
+# Logout controller
+# -------------------------------------------------------------
+class User::LogoutController < ApplicationController
 
-  # -------------------------------------------------------------
-  # Logout controller
-  # -------------------------------------------------------------
-  class User::LogoutController < ApplicationController
-    # -------------------------------------------------------------
-    # Logout user
-    # -------------------------------------------------------------
-    def logout
-      session[:user_id] = nil
-      # TODO: Delete order id from session
-      flash[:success]   = 'You are logged out now.'
+  # Logout user
+  def logout
+    sign_out :user
+    flash[:success]   = t('sap.api.user.message.log_out')
 
-      redirect_to root_path
-    end
+    redirect_to root_path
   end
+
+end

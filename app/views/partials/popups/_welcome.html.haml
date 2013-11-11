@@ -3,7 +3,7 @@
   .popup__top
     %button.popup__btn-close &times;
     .popup__title= t 'popup.welcome'
-  .popup__in{style: 'opacity:0'}
+  .popup__in
     .popup__row
       .popup__col.popup__col_left
         = form_for :user, url: sap.user_session_path, remote: true, :html => {class: '_popup_signin_form'} do |f|
@@ -22,7 +22,7 @@
 
           %button.btn= t 'popup.button.enter'
           .popup__pass-forgot
-            %a{href: '#'}= t 'popup.forget_password'
+            %a{href: remember_path, target: '_blank'}= t 'popup.forget_password'
           .popup__pass-help
             *
             = t 'popup.required_fields'
@@ -43,7 +43,7 @@
               *
             %span.label__in
               %i.ico-phone
-              = f.text_field :phone, {class: 'label__txt'}
+              = f.text_field :phone, {class: 'label__txt', alias: :login}
           %label.label
             %span.label__title
               = t 'popup.label.password'
@@ -55,12 +55,12 @@
 
 :javascript
   $(function(){
-    $('.popup_welcome .popup__in').animate({opacity: 1}, 500);
 
     $('._popup_signup_form').ajaxForm({
       form_name: 'user',
       onSuccess: function(response){
         $(document).trigger(UserState.prototype.EVT_UPDATE);
+        window.$gmPopup.ajaxPopup('hide');
       }
     });
 
@@ -71,7 +71,7 @@
       },
       onSuccess: function(response){
         $(document).trigger(UserState.prototype.EVT_UPDATE);
-        $popup.ajaxPopup('hide');
+        window.$gmPopup.ajaxPopup('hide');
       }
     });
   });
