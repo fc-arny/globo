@@ -1,6 +1,6 @@
 .login.login-main
-  -if current_user
-    %a{href: '/account'}= current_user.name
+  - if current_user
+    %a{href: account_path}= current_user.name
     %button.user-state__settings
       %i
     .login__links

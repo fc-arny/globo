@@ -2,54 +2,13 @@
 / BEGIN .cabinet
 .cabinet
   .cabinet__nav
-    %button.is-active{"data-tab" => "cabinet__content-1"} Личные данные
+    %button.is-active{"data-tab" => "cabinet__content-account"} Личные данные
     %button{"data-tab" => "cabinet__content-2"} Избранное
     %button{"data-tab" => "cabinet__content-3"} Мои покупки
     %button{"data-tab" => "cabinet__content-4"} Адреса
   .cabinet__in
-    .cabinet__content.cabinet__content-1
-      .cabinet__personal
-        .cabinet__row
-          .cabinet__col
-            %label.label
-              %span.label__title ФИО
-              %input.label__txt{placeholder: "Иванов", type: "text"}/
-          .cabinet__col
-            %label.label.label_no-title
-              %input.label__txt{placeholder: "Иван", type: "text"}/
-          .cabinet__col
-            %label.label.label_no-title
-              %input.label__txt{placeholder: "Иванович", type: "text"}/
-        .cabinet__row.cabinet__row_mod
-          .cabinet__col
-            %label.label
-              %span.label__title Пароль
-              %input.label__txt{placeholder: "•••••••••", type: "password"}/
-              %span.label__help Текущий пароль
-          .cabinet__col
-            %label.label.label_no-title
-              %input.label__txt{placeholder: "•••••••••", type: "password"}/
-              %span.label__help Новый пароль. Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
-          .cabinet__col
-            %label.label.label_no-title
-              %input.label__txt{placeholder: "•••••••••", type: "password"}/
-              %span.label__help Повторите пароль
-        .cabinet__row
-          .cabinet__col
-            %label.label.label_mod
-              %span.label__title Email
-              %input.label__txt{placeholder: "yourmail@mail.com", type: "password"}/
-            %label.label-check
-              %input{checked: "checked", type: "checkbox"}/
-              %i
-              %span Подписаться на новости
-          .cabinet__phone
-            %span Телефон
-            .cabinet__phone-in
-              %strong +7 (987) 654-32-10
-              %button.btn-dashed Изменить телефон
-      .cabinet__btn
-        %button.btn СОХРАНИТЬ
+    .cabinet__content.cabinet__content-account
+      = render partial: 'user/account/account'
     .cabinet__content.cabinet__content-2
       .cabinet__order
         .order

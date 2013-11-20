@@ -290,6 +290,9 @@ table {
     & > button {
       border-left: none;
       margin-left: 0px;
+      i {
+        @include s(login-settings);
+      }
     }
     &:before {
       border-style: none;
@@ -302,7 +305,6 @@ table {
   }
   & > a {
     color: white;
-    opacity: 0.7;
     &:hover {
       opacity: 1;
     }
@@ -314,14 +316,7 @@ table {
     background: none;
     i {
       display: block;
-      opacity: 0.9;
-      @include s(login-settings);
-    }
-    &:hover {
-      i {
-        opacity: 1;
-        @include s(login-settings-h);
-      }
+      @include s(login);
     }
   }
   &:before {
@@ -1346,7 +1341,7 @@ a {
   border: 1px solid $gr;
   background: white;
   font-size: 16px;
-  color: #afafaf;
+  color: #4e4e4e;
   border-radius: 2px;
   @include trans(box-shadow 0.2s linear);
   @include box;

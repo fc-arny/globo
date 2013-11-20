@@ -48,10 +48,21 @@ group :development do
   # Errors
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Debug
-  #gem "coffee-script-redux-debugger", :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
-
   gem 'jbuilder'
+
+  #gem 'middleman'
+  #gem 'middleman-sprockets'
+  #gem 'middleman-smusher'
+  #gem 'middleman-bourbon'
+  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
+  gem 'disable_assets_logger'
+  #gem 'rails-dev-tweaks', '~> 0.6.1'
+
+  # Debug
+  #gem 'coffee-script-redux-debugger', :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
+  #gem 'ruby-debug-base', '>= 0.10.5.rc3'
+  #gem 'ruby-debug-ide', '>= 0.4.17.beta14'
+
 end
 
 # Blog Engine

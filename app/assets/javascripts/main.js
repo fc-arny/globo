@@ -16,6 +16,7 @@
 //= require common/plugins/userState
 
 gmCurUserState = 'main';
+
 $(function(){
 
 });

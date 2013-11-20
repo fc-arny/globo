@@ -3,11 +3,12 @@
 # -------------------------------------------------------------
 class User::AccountController < FrontendController
 
-  # -------------------------------------------------------------
+  before_action :authenticate_user!
+
   #  Customer info
-  # -------------------------------------------------------------
   def index
-    Sap::Order.table_name()
+    @main_form = AccountMainForm.new(name: current_user.name)
+    @phone_form = AccountPhoneForm.new()
   end
 
   # -------------------------------------------------------------

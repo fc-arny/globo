@@ -1,11 +1,18 @@
 # Russian
 ru:
+  common:
+    btn:
+      save: Сохранить
+      change: Изменить
+
   #Global translations
   market_name: 'Глобо'
 
   #Common
   login: Войти
   signup: Регистрация
+
+
 
   #Index
   main:

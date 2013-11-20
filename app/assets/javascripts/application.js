@@ -26,17 +26,10 @@
 //= require json2
 //= require backbone
 
-//---------------------------------
-
-
 gmCurUserState = 'common';
+
 $(document).ready(function() {
 	// Init
-
-
-
-
-
 	var overlay = $('.overlay');
 	var body = $('body');
 	var page = $('.page');
@@ -564,7 +557,7 @@ $(document).ready(function() {
 
 //click document
 	$(document).click(function() {
-		btn_login.next().hide();
+//		btn_login.next().hide();
 		btn_shop.removeClass('is-open');
 		btn_sort.next().hide();
 		datepicker_el.hide();

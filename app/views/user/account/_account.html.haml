@@ -1,0 +1,52 @@
+.cabinet__personal
+  / FirstName, LastName  etc
+  %h3.cabinet__header= t('account.title.main')
+  = form_for @main_form, as: :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
+    .cabinet__row
+      .cabinet__col
+        %label.label
+          %span.label__title= t('account.lable.name')
+          = f.text_field :name, {class: 'label__txt'}
+
+      .cabinet__btn
+        %button.btn= t('common.btn.save')
+
+  / Phones
+  %h3.cabinet__header= t('account.lable.phone')
+  .cabinet__row
+    .cabinet__phone
+      .cabinet__phone-in
+        %strong +7 (987) 654-32-10
+        %button.btn-dashed= t('common.btn.change')
+
+  / Password
+  %h3.cabinet__header Изменить пароль
+  .cabinet__row
+    .cabinet__col
+      %label.label
+        %span.label__title Текущий пароль
+        %input.label__txt{type: "password"}/
+        %span.label__help
+    .cabinet__col
+      %label.label
+        %span.label__title Новый пароль
+        %input.label__txt{type: "password"}/
+        %span.label__help Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
+    .cabinet__col
+      %label.label
+        %span.label__title Повторите пароль
+        %input.label__txt{type: "password"}/
+        %span.label__help
+    .cabinet__btn
+      %button.btn зменить пароль
+
+
+/
+  .cabinet__col
+    %label.label.label_mod
+      %span.label__title Email
+      %input.label__txt{placeholder: "yourmail@mail.com", type: "password"}/
+    %label.label-check
+      %input{checked: "checked", type: "checkbox"}/
+      %i
+      %span Подписаться на новости
