@@ -4,25 +4,30 @@
 class User::AccountController < FrontendController
 
   before_action :authenticate_user!
+  before_action :prepare
 
-  #  Customer info
+  #  Profile
   def index
-    @main_form = AccountMainForm.new(name: current_user.name)
-    @phone_form = AccountPhoneForm.new()
+    @title = t('account.title.page_edit_account')
+    @page = :account
   end
 
   # -------------------------------------------------------------
   # Customer's favorites - goods, posts, recipes
   # -------------------------------------------------------------
   def favorites
-
+    @title = t('account.title.page_favorites')
+    @page = :favorites
+    render :index
   end
 
   # -------------------------------------------------------------
   # Customer's orders
   # -------------------------------------------------------------
   def orders
-
+    @title = t('account.title.page_orders')
+    @page = :orders
+    render :index
   end
 
   # -------------------------------------------------------------
@@ -31,4 +36,11 @@ class User::AccountController < FrontendController
   def addresses
 
   end
+  
+  private
+
+  # Prepare 
+    def prepare
+      @main_form = AccountMainForm.new(current_user.attributes)
+    end
 end

@@ -12,6 +12,9 @@ window.gmCurUserState  = 'common'
 
 # Document ready
 $ ->
+  # Ajax Form
+  $('[data-remote=true]').ajaxForm()
+
   # Flash messsages
   $gmFlashMessage = $('#flash_messages')
   $gmFlashMessage.flashMessage()

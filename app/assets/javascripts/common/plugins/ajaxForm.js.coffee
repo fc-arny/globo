@@ -21,6 +21,7 @@ class AjaxForm extends PluginBase
   API_STATUS_ERROR    = 'error'   # Fatal/unexpected errors
 
   InPoccess: false
+  HasErrors: false
 
   # Defaults
   @defaultOptions:
@@ -55,23 +56,34 @@ class AjaxForm extends PluginBase
 
   # -------------------------------------------------- Bind events
   _bindEvents: ->
+    @$node.on 'ajax:before',  (evt, xhr, settings) => @_onBefore(evt, xhr, settings)
     @$node.on 'ajax:beforeSend',  (evt, xhr, settings) => @_onBeforeSend(evt, xhr, settings)
     @$node.on 'ajax:beforeComplete', (evt, xhr, status) => @_onComplete(evt, xhr, status)
     @$node.on 'ajax:success', (evt, response, status, xhr) => @_onSuccess(evt, response, status, xhr)
     @$node.on 'ajax:error', (evt, xhr, status, error) => @_onError(evt, xhr, status, error)
+
+  # ------------------------------------------------- Before
+  _onBefore: (evt, xhr, settings) ->
+    @$node.find('.required').each((index, item)=>
+      @_validateInput $(item)
+    )
+
+    if @HasErrors
+      false
 
   # -------------------------------------------------- Before send request
   _onBeforeSend: (evt, xhr, settings) ->
     @_clearErrors()
     @_setInProgress(evt.currentTarget)
 
+
   _onComplete: (evt, xhr, status) ->
     @_setInProgress evt.currentTarget, false
 
 
-  _onError: (evt, xhr, status, error) ->
+  _onError: (response) ->
     @_setInProgress false
-    throw new Error error
+    throw new Error response.message
 
   # -------------------------------------------------- Success AJAX request
   _onSuccess:  (evt, response, status, xhr) ->
@@ -84,9 +96,7 @@ class AjaxForm extends PluginBase
         @options.onFail response
         @_showErrors response.data.errors if @options.showErrors
       else
-        @options.onError response
-    else
-      @options.onError()
+        @_onError response
 
   # -------------------------------------------------- Hide error
   _hideError: ->
@@ -131,13 +141,26 @@ class AjaxForm extends PluginBase
   # -------------------------------------------------- Manage form state
   _setInProgress:(inProgress = true)->
     @InPoccess = inProgress
-
     if @InPoccess
       @$node.find(@options.selectors.submit_btn).addClass('load')
       @$node.find('input, textarea').attr('disabled', true)
     else
       @$node.find('.load').removeClass('load')
       @$node.find('input, textarea').attr('disabled', false)
+
+  # -------------------------------------------------- Valid input value
+  _validateInput: ($input) ->
+    @HasErrors = false
+    if !$input.val().trim() && $input.hasClass('required')
+      @HasErrors = true
+      $input.addClass('active-error')
+      $input.focus()
+
+      setTimeout(->
+        $input.removeClass('active-error')
+      , 150)
+
+      return false
 
 
 AjaxForm.installAsjQueryPlugIn()

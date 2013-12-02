@@ -18,8 +18,10 @@ Gm::Application.routes.draw do
   # User routes
 
   scope :module => 'user' do
-    get   'login' => 'login#form'                 # Login form
-    get   'logout' => 'logout#logout'            # Logout
+    get 'account' => 'account#index'         # View profile
+
+    get 'login' => 'login#form'                 # Login form
+    get 'logout' => 'logout#logout'             # Logout
 
     get 'remember'  => 'password#form'             # Restore password form
 
@@ -28,7 +30,7 @@ Gm::Application.routes.draw do
     get 'password_reset_sent' => 'index#password_reset_sent'
 
 
-    get 'account', :to => 'account#index'              # View profile
+
     match 'account/:action', :to => 'account#:action',:via => [:get]
   end
 

@@ -1,4 +1,4 @@
-@import "base";
+@import "common/base";
 
 //search
 .search {
@@ -1823,7 +1823,7 @@
     margin: 10px 0 25px 25px;
 
     .cabinet__col {
-      width: 28%;
+      max-width: 300px;
       margin-right: 2%;
     }
   }
@@ -1833,7 +1833,7 @@
 
     text-align: left;
     .btn {
-      width: 240px;
+      max-width: 240px;
     }
   }
 
@@ -1842,7 +1842,7 @@
     padding: 25px 20px;
     margin-right: -180px;
     width: 140px;
-    button {
+    a {
       display: block;
       margin-bottom: 8px;
       background: none;

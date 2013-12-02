@@ -1,44 +1,63 @@
-.cabinet__personal
-  / FirstName, LastName  etc
-  %h3.cabinet__header= t('account.title.main')
-  = form_for @main_form, as: :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
-    .cabinet__row
-      .cabinet__col
-        %label.label
-          %span.label__title= t('account.lable.name')
-          = f.text_field :name, {class: 'label__txt'}
+.cabinet__content.cabinet__content-account
+  .cabinet__personal
+    / FirstName, LastName  etc
+    %h3.cabinet__header= t('account.title.main')
+    = form_for @main_form, as: :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
+      .cabinet__row
+        .cabinet__col
+          %label.label
+            %span.label__title= t('account.lable.name')
+            = f.text_field :name, {class: 'label__txt'}
+        .cabinet__col
+          %label.label
+            %span.label__title= t('account.lable.phone')
+            = f.text_field :phone, {class: 'label__txt'}
 
-      .cabinet__btn
-        %button.btn= t('common.btn.save')
+        .cabinet__btn
+          %button.btn= t('common.btn.save')
+    / Addresses
+    %h3.cabinet__header= t('account.title.delivary_address')
+    = form_for :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
+      .cabinet__row
+        .cabinet__col{style: 'display:none'}
+          %label.label
+            %span.label__title Название
+            %input.label__txt{placeholder: 'Дом', type: 'text'}/
 
-  / Phones
-  %h3.cabinet__header= t('account.lable.phone')
-  .cabinet__row
-    .cabinet__phone
-      .cabinet__phone-in
-        %strong +7 (987) 654-32-10
-        %button.btn-dashed= t('common.btn.change')
+        .cabinet__col
+          %label.label
+            %span.label__title= t('account.title.city')
+            %select{name: :city, class: 'form-control'}
+              %option= t('common.city.moscow')
 
-  / Password
-  %h3.cabinet__header Изменить пароль
-  .cabinet__row
-    .cabinet__col
-      %label.label
-        %span.label__title Текущий пароль
-        %input.label__txt{type: "password"}/
-        %span.label__help
-    .cabinet__col
-      %label.label
-        %span.label__title Новый пароль
-        %input.label__txt{type: "password"}/
-        %span.label__help Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
-    .cabinet__col
-      %label.label
-        %span.label__title Повторите пароль
-        %input.label__txt{type: "password"}/
-        %span.label__help
-    .cabinet__btn
-      %button.btn зменить пароль
+        .cabinet__col
+          %label.label
+            %span.label__title Адрес
+            %input.label__txt{placeholder: "ул. Победы, д.6, кв.4", type: "text"}/
+        .cabinet__btn
+          %button.btn= t('common.btn.save')
+
+    / Password
+    %h3.cabinet__header= t('account.title.change_password')
+    = form_for :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
+      .cabinet__row
+        .cabinet__col
+          %label.label
+            %span.label__title= t('account.lable.current_password')
+            = f.password_field :current_password, {class: 'label__txt required'}
+            %span.label__help
+        .cabinet__col
+          %label.label
+            %span.label__title= t('account.lable.new_password')
+            = f.password_field :password, {class: 'label__txt required'}
+            %span.label__help
+        .cabinet__col
+          %label.label
+            %span.label__title= t('account.lable.confirm_password')
+            = f.password_field :password_confirmation, {class: 'label__txt required'}
+            %span.label__help
+        .cabinet__btn
+          %button.btn= t('common.btn.change')
 
 
 /

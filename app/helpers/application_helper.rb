@@ -30,4 +30,14 @@ module ApplicationHelper
     render :partial => 'partials/helpers/flash_message', :locals => {message: message, type: type}
   end
 
+  # Check controller name
+  def controller?(*controller)
+    controller.include?(params[:controller])
+  end
+
+  # Check action name
+  def action?(*action)
+    action.include?(params[:action])
+  end
+
 end

@@ -65,6 +65,9 @@ group :development do
 
 end
 
+
+gem 'virtus'
+gem 'devise'
 # Blog Engine
 #gem 'monologue'
 
@@ -78,5 +81,6 @@ end
 
 # To use debugger
 # gem 'debugger'
+
 
 

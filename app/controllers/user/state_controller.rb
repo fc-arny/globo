@@ -5,7 +5,7 @@ class User::StateController < FrontendController
   # GET /show
   # Show user state partial 
   def show
-    path = '/user/state/' + params[:type]
-    render partial: path
+    @type = params[:type]
+    render layout: false
   end
 end

@@ -4,6 +4,12 @@ ru:
     btn:
       save: Сохранить
       change: Изменить
+    city:
+      moscow: Москва
+    menu:
+      order: Заказ
+      settings: Настройки
+      logout: Выход
 
   #Global translations
   market_name: 'Глобо'

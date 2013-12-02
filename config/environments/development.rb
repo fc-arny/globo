@@ -43,8 +43,8 @@ Gm::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = false
-  config.sass.debug_info = false
+  config.assets.debug = true
+  config.sass.debug_info = true
 
   #config.consider_all_requests_local = false
 

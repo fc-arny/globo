@@ -15,8 +15,8 @@
     = yield :head
 
     / Add development styles
-    - if Rails.env == "development"
-      = stylesheet_link_tag "common/development"
+    - if Rails.env == 'development'
+      = stylesheet_link_tag 'common/development'
 
     = csrf_meta_tag
 

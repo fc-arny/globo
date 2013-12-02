@@ -15,7 +15,7 @@
           %a.logo{href: Settings.common.domain.main_link, title: Settings.common.title }
             %span.logo__pic
           ._user_state_wrapper
-            = render :partial => 'user/state/main'
+            = user_state 'main'
 
           .social.social_blue
             = render :partial => 'partials/common/social'

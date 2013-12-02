@@ -1,3 +1,3 @@
 class AccountMainForm < ActiveForm
-  attr_accessor :name
+  attr_accessor :name, :phone
 end

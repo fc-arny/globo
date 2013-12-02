@@ -1,7 +1,23 @@
 ru:
   account:
-    title:
-      main: Основное
     lable:
       name: Имя
       phone: Телефон
+      current_password: Текущий пароль
+      new_password: Новый пароль
+      confirm_password: Повторите пароль
+    link:
+      private_main: Основное
+      favorites: Избранное
+      orders: Мои покупки
+    message:
+      password_help: Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
+    title:
+      main: Личные данные
+      change_password: Изменить пароль
+      city: Город
+      delivary_address: Адрес доставки
+      page_main: Личный кабинет
+      page_edit_account: Редактирование
+      page_favorites: Избранные товары
+      page_orders: Заказы

@@ -1,0 +1,2 @@
+- @links.each do |item|
+  = link_to item[:title], {action: item[:action]}, {class: "#{'is-active' if action?(item[:action].to_s) }"}
