@@ -4,14 +4,17 @@
     %h3.cabinet__header= t('account.title.main')
     = form_for @main_form, as: :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
       .cabinet__row
+        .cabinet__phone
+          %label.label
+            %span.label__title= t('account.lable.phone')
+            .cabinet__phone-in
+
+              %button.btn-dashed
+                %strong +7 (987) 654-32-10
         .cabinet__col
           %label.label
             %span.label__title= t('account.lable.name')
             = f.text_field :name, {class: 'label__txt'}
-        .cabinet__col
-          %label.label
-            %span.label__title= t('account.lable.phone')
-            = f.text_field :phone, {class: 'label__txt'}
 
         .cabinet__btn
           %button.btn= t('common.btn.save')

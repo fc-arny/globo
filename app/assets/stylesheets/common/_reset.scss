@@ -1,0 +1,86 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  //box-shadow: 0 0 5px red
+  -webkit-text-size-adjust: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-width: 78px;
+  background: asset_url('icons/bg.jpg');
+  overflow-y: scroll;
+  font-family: Arial, Tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #444444;
+  line-height: 1.2;
+  //-webkit-transform: translate3d(0,0,0)
+  //-weblit-backface-visibility: hidden
+}
+
+// resets
+a img, fieldset {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: $bl;
+  &:hover {
+    color: $blh;
+  }
+}
+
+p {
+  line-height: 1.2;
+}
+
+li {
+  list-style: none;
+}
+
+textarea, button, select, input {
+  border: none;
+  outline: none;
+  font-family: Arial, Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+select {
+  margin: 0;
+  text-transform: none;
+}
+
+button {
+  line-height: 1;
+  cursor: pointer;
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+input, textarea {
+  &.active-error {
+    background-attachment: scroll !important;
+    background-clip: border-box !important;
+    background-color: rgba(255, 218, 222, 0.46) !important;
+    background-image: none !important;
+    background-origin: padding-box !important;
+    background-position: 0 0 !important;
+    background-repeat: repeat !important;
+    background-size: auto auto !important;
+  }
+}

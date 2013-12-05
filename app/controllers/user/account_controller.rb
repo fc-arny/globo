@@ -12,34 +12,23 @@ class User::AccountController < FrontendController
     @page = :account
   end
 
-  # -------------------------------------------------------------
   # Customer's favorites - goods, posts, recipes
-  # -------------------------------------------------------------
   def favorites
     @title = t('account.title.page_favorites')
     @page = :favorites
     render :index
   end
 
-  # -------------------------------------------------------------
   # Customer's orders
-  # -------------------------------------------------------------
   def orders
     @title = t('account.title.page_orders')
     @page = :orders
     render :index
   end
 
-  # -------------------------------------------------------------
-  # Customer's addresses
-  # -------------------------------------------------------------
-  def addresses
-
-  end
-  
   private
 
-  # Prepare 
+    # Prepare
     def prepare
       @main_form = AccountMainForm.new(current_user.attributes)
     end

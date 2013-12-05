@@ -3,6 +3,7 @@ require 'active_support/core_ext/hash/except'
 require 'active_model'
 
 class ActiveForm
+
   include ActiveModel::Validations
   include ActiveModel::Validations::Callbacks
 
@@ -27,6 +28,15 @@ class ActiveForm
 
   def []=(key, value)
     instance_variable_set("@#{key}", value)
+  end
+
+  def to_hash
+    hash = {}
+    self.instance_variables.each do |var|
+      field = var.to_s.delete('@').to_sym
+      hash[field] = self.instance_variable_get(var) unless [:errors, :validation_context].include? field
+    end
+    hash
   end
 
   def method_missing(method_id, *params)

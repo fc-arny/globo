@@ -54,9 +54,10 @@ group :development do
   #gem 'middleman-sprockets'
   #gem 'middleman-smusher'
   #gem 'middleman-bourbon'
-  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git'
-  gem 'disable_assets_logger'
-  #gem 'rails-dev-tweaks', '~> 0.6.1'
+  gem 'guard', '>= 2.2.2',       :require => false
+  gem 'guard-livereload',        :require => false
+  gem 'rack-livereload'
+  gem 'rb-fsevent',              :require => false
 
   # Debug
   #gem 'coffee-script-redux-debugger', :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"

@@ -46,7 +46,7 @@
     left: 0;
     right: 0;
     height: 8px;
-    background: url(icons/wave.png) repeat-x;
+    background: asset_url('icons/wave.png') repeat-x;
   }
 }
 
@@ -315,7 +315,7 @@
     left: 0;
     right: 0;
     height: 8px;
-    background: url(icons/wave.png) repeat-x;
+    background: asset_url('icons/wave.png') repeat-x;
   }
   &.is-selected {
     background: #edf8fe;
@@ -666,7 +666,7 @@
     left: 0;
     right: 0;
     height: 8px;
-    background: url(icons/wave.png) repeat-x;
+    background: asset_url('icons/wave.png') repeat-x;
   }
   button {
     width: 100%;
@@ -1887,13 +1887,6 @@
     margin-bottom: 20px;
   }
 
-  //.cabinet__col, .cabinet__phone {
-  //  display: inline-block;
-  //  vertical-align: top;
-  //}
-
-
-
   .cabinet__col_btn {
     padding-top: 35px;
   }
@@ -1919,17 +1912,14 @@
 
   .cabinet__phone-in {
     padding-top: 6px;
+    .btn-dashed {
+      padding-bottom: 3px;
+    }
     strong {
-      margin-right: 10px;
       font-size: 16px;
-      color: #888888;
     }
   }
-
-
 }
-
-
 
 //purchases
 .purchases__row {
@@ -2188,11 +2178,11 @@
   }
   &:before {
     left: 0;
-    @include background-image(linear-gradient(left, rgba(251, 251, 251, 1), rgba(251, 251, 251, 0.5), rgba(251, 251, 251, 0)));
+//    @include background-image(linear-gradient(left, rgba(251, 251, 251, 1), rgba(251, 251, 251, 0.5), rgba(251, 251, 251, 0)));
   }
   &:after {
     right: 170px;
-    @include background-image(linear-gradient(left, rgba(251, 251, 251, 0), rgba(251, 251, 251, 0.5), rgba(251, 251, 251, 1)));
+//    @include background-image(linear-gradient(left, rgba(251, 251, 251, 0), rgba(251, 251, 251, 0.5), rgba(251, 251, 251, 1)));
   }
   .catalog {
     height: 445px;
