@@ -9,13 +9,23 @@
             %span.label__title= t('account.lable.phone')
             .cabinet__phone-in
 
-              %button.btn-dashed
-                %strong +7 (987) 654-32-10
+              %button{:class => 'btn-dashed', :'data-popup' => '#edit-phone-content', :'data-title' => t('account.lable.phone_edit')}
+                %strong= format('+%<first>s (xxx) xxx - %<last>s', {first: @main_form.phone[0], last: @main_form.phone[-4..-1] })
+
         .cabinet__col
           %label.label
             %span.label__title= t('account.lable.name')
             = f.text_field :name, {class: 'label__txt'}
 
+        .cabinet__btn
+          %button.btn= t('common.btn.save')
+    #edit-phone-content{:style => 'display: none;'}
+      %p.text-center= t('account.lable.phone_edit_desc_html')
+      .cabinet__row
+
+        %label.label
+          %span.label__title= t('account.lable.name')
+          %input.label__txt{value: @main_form.phone}
         .cabinet__btn
           %button.btn= t('common.btn.save')
     / Addresses

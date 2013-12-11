@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'http://gems.github.com'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.2'
 
 gem 'pg'
 
@@ -36,10 +36,11 @@ gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'oily_png'
 
-gem 'jquery-rails', '~>3.0.1'     # jQuery
-gem 'rails-backbone'              # Backbone
-gem 'backbone-support'            # Backbone Support
-gem 'haml_coffee_assets'          # JS Templates for backbone
+gem 'jquery-rails', '~>3.0.1'       # jQuery
+gem 'rails-backbone'                # Backbone
+gem 'backbone-support'              # Backbone Support
+gem 'bootstrap-sass', '~> 3.0.3.0'  # Bootsrap
+gem 'haml_coffee_assets'            # JS Templates for backbone
 
 # Sap gems
 gem 'sap', :path => 'sap'
@@ -65,9 +66,6 @@ group :development do
   #gem 'ruby-debug-ide', '>= 0.4.17.beta14'
 
 end
-
-
-gem 'virtus'
 gem 'devise'
 # Blog Engine
 #gem 'monologue'

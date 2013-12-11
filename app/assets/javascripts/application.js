@@ -4,11 +4,12 @@
 //= require jquery_ujs
 //= require hamlcoffee
 
-//= require jquery/jquery.cycle2
-//= require jquery/ui/jquery.ui.custom.min
-//= require jquery/jquery.mousewheel.min
-//= require jquery/jquery.scrollTo
-//= require jquery/jquery.jscrollpane
+//= require common/jquery/jquery.maskedInput.js
+//= require common/jquery/jquery.cycle2
+//= require common/jquery/ui/jquery.ui.custom.min
+//= require common/jquery/jquery.mousewheel.min
+//= require common/jquery/jquery.scrollTo
+//= require common/jquery/jquery.jscrollpane
 
 // Common
 //= require_tree ./core

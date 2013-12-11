@@ -742,7 +742,7 @@
 
 //footer
 .footer {
-  height: 188px;
+  height: 215px;
   padding-top: 22px;
   background: #2d3537;
   border-top: 2px solid white;
@@ -1109,14 +1109,16 @@
 
 //btn
 .btn {
-  width: 100%;
   background: $bl;
   border-radius: 2px;
-  height: 30px;
+//  height: 30px;
   font-size: 16px;
   color: white;
-  text-transform: uppercase;
+//  text-transform: uppercase;
   font-weight: bold;
+  &:hover, &:active, &:focus {
+    color: #ffffff !important;
+  }
   &:hover {
     background: $blh;
   }
@@ -1125,8 +1127,8 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
   }
   &.load {
-    background: url("/assets/loaders/loader-s.gif") no-repeat 10px center #65b1d7;
-    padding: 0px 35px;
+    background: asset_url('loaders/loader-s.gif') no-repeat center center #65b1d7;
+    color: transparent !important;
     img {
       margin-left: 10px;
     }
@@ -1186,6 +1188,7 @@ a {
 .label {
   display: block;
   margin-bottom: 20px;
+  text-align: left;
   &.is-disabled {
     .label__title {
       color: #c9c9c9;
@@ -1212,8 +1215,10 @@ a {
       span {
         display: inline-block;
         vertical-align: middle;
-        font-size: 12px;
+        font: normal 12px Arial;
         line-height: 1.2;
+        color: #555555;
+        white-space: normal;
       }
       &:before, &:after {
         content: "";
@@ -1609,118 +1614,123 @@ a {
   right: 0;
   top: 0;
   z-index: 500;
-}
 
-.popup {
-  display: block;
-  position: relative;
-  top: 100px;
-  width: auto;
-  padding: 10px;
-  margin-right: auto;
-  margin-left: auto;
-  background: white;
-  border: 1px solid #e7e7e7;
-  box-shadow: 0 0 7px 0px #888888;
-  z-index: 600;
-
-  .popup__in {
-    padding: 15px 30px 20px;
-  }
-
-  .popup__top {
+  .popup {
+    display: block;
     position: relative;
-    padding: 15px;
-    background: #fcfcfc;
-    border-bottom: 1px solid #e7e7e7;
-  }
-
-  .popup__title {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .popup__btn-close {
-    background: #FCFCFC;
-    padding: 3px;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-
-    &:hover {
-      color: #222222;
-    }
-  }
-
-  .popup__row {
-    @include clr;
-  }
-
-  .popup__col {
-    float: left;
-    width: 50%;
-    padding: 0 70px;
-    @include box;
-    border-left: 1px solid #e7e7e7;
-    &:first-child {
-      margin-right: -1px;
-      border-left: none;
-      border-right: 1px solid #e7e7e7;
-    }
-    .label {
-      margin-bottom: 15px;
-    }
-  }
-
-  .popup__message {
-    margin-bottom: 20px;
-    margin-left: -15px;
-    font-size: 12px;
-    color: #555555;
-  }
-
-  .popup__pass-help {
-    padding-top: 17px;
-    font-size: 12px;
-    color: #989898;
-  }
-
-  .popup__pass-forgot {
-    margin-top: 16px;
-  }
-
-  &.popup_welcome {
-    height: 410px;
-    width: 760px;
+    top: 100px;
+    width: 450px;
+    padding: 2px;
+    margin-right: auto;
+    margin-left: auto;
+    background: white;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 0 7px 0px #888888;
+    z-index: 600;
 
     .popup__in {
-      padding: 30px 0 60px;
+      padding: 15px 30px 20px;
     }
-    @include rt(1120) {
-      width: 600px;
-      .popup__in {
-        padding: 30px 0;
-      }
-      .popup__col {
-        padding: 0 30px;
+
+    .popup__top {
+      position: relative;
+      overflow: hidden;
+      padding: 15px;
+      background: #fcfcfc;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .popup__title {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .popup__btn-close {
+      background: #FCFCFC;
+      color: #888888;
+      cursor: pointer;
+      font-size: 20px;
+      padding: 3px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+
+      &:hover {
+        color: #222222;
       }
     }
+
+    .popup__row {
+      @include clr;
+    }
+
     .popup__col {
-      &.popup__col_right {
-        .label__error {
-          left: 255px;
+      float: left;
+      width: 50%;
+      padding: 0 45px;
+      @include box;
+      border-left: 1px solid #e7e7e7;
+      &:first-child {
+        margin-right: -1px;
+        border-left: none;
+        border-right: 1px solid #e7e7e7;
+      }
+      .label {
+        margin-bottom: 15px;
+      }
+    }
+
+    .popup__message {
+      margin-bottom: 20px;
+      margin-left: -15px;
+      font-size: 12px;
+      color: #555555;
+    }
+
+    .popup__pass-help {
+      padding-top: 17px;
+      font-size: 12px;
+      color: #989898;
+    }
+
+    .popup__pass-forgot {
+      margin-top: 16px;
+    }
+
+    &.popup_welcome {
+      width: 760px;
+
+      .popup__in {
+        padding: 10px 0 20px;
+      }
+      @include rt(1120) {
+        width: 600px;
+        .popup__in {
+          padding: 30px 0;
+        }
+        .popup__col {
+          padding: 0 30px;
         }
       }
-      &.popup__col_left {
-        .label__error {
-          left: -220px;
+      .popup__col {
+        &.popup__col_right {
+          .label__error {
+            left: 255px;
+          }
+        }
+        &.popup__col_left {
+          .label__error {
+            left: -220px;
+          }
         }
       }
     }
   }
 }
+
+
 
 //prompt
 .prompt {

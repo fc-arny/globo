@@ -3,8 +3,9 @@
 //= require jquery
 //= require jquery_ujs
 
-//= require jquery/jquery.cycle2
-//= require jquery/ui/jquery.ui.custom.min
+//= require common/jquery/jquery.maskedInput.js
+//= require common/jquery/jquery.cycle2
+//= require common/jquery/ui/jquery.ui.custom.min
 
 //= require_tree ./core
 //= require common/init

@@ -3,6 +3,9 @@ ru:
     lable:
       name: Имя
       phone: Телефон
+      phone_edit: Изменение номера
+      phone_edit_desc_html: |
+        Вход в Глобо происходит именно с помощью телефона, поэтому указывайте <strong>Ваш личный</strong> номер.
       current_password: Текущий пароль
       new_password: Новый пароль
       confirm_password: Повторите пароль

@@ -1,7 +1,8 @@
 /**
+// Lib
+  *= require 'bootstrap'
 // Globo Frontend
   *= require "frontend/common"
   *= require "frontend/layouts"
-
   *= require "frontend/main"
 **/

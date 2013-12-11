@@ -41,7 +41,7 @@ class AjaxPopup extends PluginBase
 
   # -------------------------------------------------- Bind events
   _bindEvents: ->
-    @$body.on 'click', '[data-popup=true]', (event) => @_showPopup(event)
+    @$body.on 'click', '[data-popup]', (event) => @_showPopup(event)
     @$body.on 'keyup', (event) => @_onKeyUp(event)
 
     @$node.on 'click', @options.close_btn, (event)=> @_hidePopup(event)
@@ -60,7 +60,11 @@ class AjaxPopup extends PluginBase
     @$node.html ''
     el = event.currentTarget
 
-    _url    = $(el).attr 'url'
+    _title    = $(el).data 'title'
+    _source   = $(el).data 'popup'
+    _classes  = $(el).data 'classes'
+
+    @title = $(el).data 'title'
 
     @$body.addClass 'no-scroll'
     @$node.show()
@@ -68,17 +72,22 @@ class AjaxPopup extends PluginBase
 
     background = @$node.css 'background'
     @$node.css 'background', "url(#{@options.loader}) no-repeat center center transparent"
-#    @$node.css 'opacity', 0
 
-    $.ajax(
-      url:       _url
-      type:      'get'
-      dataType:  'html'
-      success: (response)=>
-        @$node.css 'background', background
-        @$node.html response
-#        @$node.animate(opacity: 1, 500)
-    )
+    if _source.indexOf('/') isnt -1
+      $.ajax(
+        url:       _source
+        type:      'get'
+        dataType:  'html'
+        success: (response)=>
+          @$node.css 'background', background
+          @$node.html response
+
+          @_renderContent(response, _title, _classes)
+      )
+    else
+      @$node.css('background', background)
+      @_renderContent($(_source).html(), _title, _classes)
+
 
   ###
   # Events
@@ -89,5 +98,17 @@ class AjaxPopup extends PluginBase
     if event.keyCode == 27
       @_hidePopup()
 
+  #
+  _renderContent: (content, title = '', classes = '') ->
+    html_content = """
+<div class="popup #{classes}">
+  <div class="popup__top">
+    <buttom class="popup__btn-close">&times;</buttom>
+    <div class="popup__title">#{title}</div>
+  </div>
+  <div class='popup__in'>#{content}</div>
+</div>
+"""
+    @$node.html html_content
 
 AjaxPopup.installAsjQueryPlugIn()
