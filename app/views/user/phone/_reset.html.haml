@@ -1,0 +1,17 @@
+= form_for :phone, remote: true, method: 'POST', url: sap.reset_api_v1_phones_path, html: {class: '_edit_phone_form'} do |f|
+  = f.hidden_field :act, value: 'reset'
+  %p.text-center= t('account.label.phone_edit_desc_html')
+  .cabinet__row
+    %label.label
+      %span.label__title= t('account.label.new_phone')
+      = f.text_field :phone, class: 'label__txt'
+    %label.label
+      %span.label__title= t('account.label.current_phone')
+      = f.password_field :password, class: 'label__txt'
+    %label.label
+      %span.label__title= t('account.label.code')
+      = f.text_field :code, class: 'label__txt'
+    .cabinet__btn
+      %button.btn= t('common.btn.save')
+:javascript
+  $('._edit_phone_form').ajaxForm({form_name: 'phone'});

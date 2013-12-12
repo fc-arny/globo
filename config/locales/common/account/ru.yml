@@ -1,6 +1,6 @@
 ru:
   account:
-    lable:
+    label:
       name: Имя
       phone: Телефон
       phone_edit: Изменение номера

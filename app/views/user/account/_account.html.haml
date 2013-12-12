@@ -1,35 +1,26 @@
 .cabinet__content.cabinet__content-account
   .cabinet__personal
     / FirstName, LastName  etc
-    %h3.cabinet__header= t('account.title.main')
+    %h4.cabinet__header= t('account.title.main')
     = form_for @main_form, as: :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
       .cabinet__row
         .cabinet__phone
           %label.label
-            %span.label__title= t('account.lable.phone')
+            %span.label__title= t('account.label.phone')
             .cabinet__phone-in
 
-              %button{:class => 'btn-dashed', :'data-popup' => '#edit-phone-content', :'data-title' => t('account.lable.phone_edit')}
-                %strong= format('+%<first>s (xxx) xxx - %<last>s', {first: @main_form.phone[0], last: @main_form.phone[-4..-1] })
+              %button{:class => 'btn-dashed', :'data-popup' => '/user/phone/reset', :'data-title' => t('account.label.phone_edit')}
+                %strong= format('+%<first>s *** *** ** - %<last>s', {first: @main_form.phone[0], last: @main_form.phone[-2..-1] })
 
         .cabinet__col
           %label.label
-            %span.label__title= t('account.lable.name')
+            %span.label__title= t('account.label.name')
             = f.text_field :name, {class: 'label__txt'}
 
         .cabinet__btn
           %button.btn= t('common.btn.save')
-    #edit-phone-content{:style => 'display: none;'}
-      %p.text-center= t('account.lable.phone_edit_desc_html')
-      .cabinet__row
-
-        %label.label
-          %span.label__title= t('account.lable.name')
-          %input.label__txt{value: @main_form.phone}
-        .cabinet__btn
-          %button.btn= t('common.btn.save')
     / Addresses
-    %h3.cabinet__header= t('account.title.delivary_address')
+    %h4.cabinet__header= t('account.title.delivary_address')
     = form_for :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
       .cabinet__row
         .cabinet__col{style: 'display:none'}
@@ -51,22 +42,22 @@
           %button.btn= t('common.btn.save')
 
     / Password
-    %h3.cabinet__header= t('account.title.change_password')
+    %h4.cabinet__header= t('account.title.change_password')
     = form_for :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
       .cabinet__row
         .cabinet__col
           %label.label
-            %span.label__title= t('account.lable.current_password')
+            %span.label__title= t('account.label.current_password')
             = f.password_field :current_password, {class: 'label__txt required'}
             %span.label__help
         .cabinet__col
           %label.label
-            %span.label__title= t('account.lable.new_password')
+            %span.label__title= t('account.label.new_password')
             = f.password_field :password, {class: 'label__txt required'}
             %span.label__help
         .cabinet__col
           %label.label
-            %span.label__title= t('account.lable.confirm_password')
+            %span.label__title= t('account.label.confirm_password')
             = f.password_field :password_confirmation, {class: 'label__txt required'}
             %span.label__help
         .cabinet__btn

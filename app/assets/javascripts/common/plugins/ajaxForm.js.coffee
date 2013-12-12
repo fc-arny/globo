@@ -94,7 +94,7 @@ class AjaxForm extends PluginBase
         @options.onSuccess response
       else if response.status is API_STATUS_FAIL
         @options.onFail response
-        @_showErrors response.data.errors if @options.showErrors
+        @_showErrors response.errors if @options.showErrors
       else
         @_onError response
 
