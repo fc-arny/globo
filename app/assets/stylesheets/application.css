@@ -1,9 +1,14 @@
 /**
 // Lib
   *= require 'bootstrap'
-// Globo Frontend
+
+// Globo Common
   *= require 'frontend/common'
   *= require 'frontend/layouts'
   *= require 'frontend/inner'
+
+// Globo pages
   *= require 'frontend/catalog'
+  *= require 'frontend/account'
+
 **/

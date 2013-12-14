@@ -1,18 +1,23 @@
 ###
-# Base for all ajax form
-# Options:
-#   name - name of params array. For ex.: user[name], user[phone], here 'user' is 'name'
-#   field:
-#     wrapper   - class wrapping input, error, etc
-#     has_error - class add to 'wrapper' if validation failed
-#   error:
-#     separator - error messages separator
-#     message   - class for error html-element
-#     direction - corner position in error bubble
-#
-#
-#
-#
+  Base for all ajax form
+  ___________________________________________
+  Options:
+    name - name of params array. For ex.: user[name], user[phone], here 'user' is 'name'
+    field:
+      wrapper   - class wrapping input, error, etc
+      has_error - class add to 'wrapper' if validation failed
+    error:
+      separator - error messages separator
+      message   - class for error html-element
+      direction - corner position in error bubble
+
+  ___________________________________________
+  Filters:
+    Inputs may have saome filters setup via data-attribute (ex.: <input data-filters="digits, regexp" />).
+    This mean that before validation will call method '_flter*FilterName*' (ex.: _filterDigits, _filterRegexp etc.).
+    If you need pass params to filter you should add data-attribute: data-filter-*filterName*="param" (ex.: data-filter-regexp="/A-Z0-9/")
+
+
 ###
 class AjaxForm extends PluginBase
 
@@ -64,7 +69,8 @@ class AjaxForm extends PluginBase
 
   # ------------------------------------------------- Before
   _onBefore: (evt, xhr, settings) ->
-    @$node.find('.required').each((index, item)=>
+
+    @$node.find('input').each((index, item)=>
       @_validateInput $(item)
     )
 
@@ -110,8 +116,6 @@ class AjaxForm extends PluginBase
 
       $input  = @$node.find("[name='#{@options.form_name}[#{input}]']")
 
-      console.log $input.length
-
       unless $input.length
         $input  = @$node.find("[alias='#{input}']")
 
@@ -151,7 +155,9 @@ class AjaxForm extends PluginBase
   # -------------------------------------------------- Valid input value
   _validateInput: ($input) ->
     @HasErrors = false
-    if !$input.val().trim() && $input.hasClass('required')
+    value = @_applyFilters($input)
+
+    if !value.trim() && $input.hasClass('required') && !$input.closest('.hidden').length
       @HasErrors = true
       $input.addClass('active-error')
       $input.focus()
@@ -161,6 +167,30 @@ class AjaxForm extends PluginBase
       , 150)
 
       return false
+  ###
+   Filters
+  ###
+
+  # -------------------------------------------------- Apply all filters
+  _applyFilters: ($input)->
+    value   =  $input.val()
+    filters = $input.data('filters')
+
+    if filters
+      for filter in filters.split ','
+        method = "filter__#{filter.trim()}"
+        value = @[method](value)
+
+    value
+
+
+  # -------------------------------------------------- Only digits
+  filter__digits: (value)->
+    value.replace(/\D/g,'')
+
+  # -------------------------------------------------- Only digits
+  filter__test: (value) ->
+    value
 
 
 AjaxForm.installAsjQueryPlugIn()

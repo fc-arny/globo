@@ -9,10 +9,17 @@ ru:
       current_password: Текущий пароль
       new_password: Новый пароль
       confirm_password: Повторите пароль
+      new_phone: Новый телефон
+      current_password: Текущий пароль
+      code: Код подтверждения
     link:
       private_main: Основное
       favorites: Избранное
       orders: Мои покупки
+    button:
+      get_code: Получить код
+      send_code: Отправить код
+      change_phone: Изменить телефон
     message:
       password_help: Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
     title:

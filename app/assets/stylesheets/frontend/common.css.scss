@@ -6,6 +6,10 @@
   margin-right: 13px;
 }
 
+input[disabled], textarea[disabled] {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
 
 .page {
   min-height: 100%;

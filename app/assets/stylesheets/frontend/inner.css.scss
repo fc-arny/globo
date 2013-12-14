@@ -1803,32 +1803,32 @@
   }
 }
 
-//cabinet
-.cabinet {
+//account
+.account {
   margin-bottom: 20px;
   border: 1px solid #e7e7e7;
   border-radius: 2px;
   @include clr;
 
-  .cabinet__header {
+  .account__header {
     border-bottom: 1px dashed #e7e7e7;
     padding-bottom: 5px;
   }
 
-  .cabinet__content {
+  .account__content {
     border-left: 1px solid #e7e7e7;
   }
 
-  .cabinet__row {
+  .account__row {
     margin: 10px 0 25px 25px;
 
-    .cabinet__col {
+    .account__col {
       max-width: 300px;
       margin-right: 2%;
     }
   }
 
-  .cabinet__btn {
+  .account__btn {
     padding: 0 0 20px;
 
     text-align: left;
@@ -1837,7 +1837,7 @@
     }
   }
 
-  .cabinet__nav {
+  .account__nav {
     float: left;
     padding: 25px 20px;
     margin-right: -180px;
@@ -1856,7 +1856,7 @@
     }
   }
 
-  .cabinet__in {
+  .account__in {
     border-left: 180px;
     border-left: 180px solid #fcfcfc;
     background: white;
@@ -1864,34 +1864,34 @@
 
 
 
-  .cabinet__personal, .cabinet__address {
+  .account__personal, .account__address {
     padding: 25px;
   }
 
-  .cabinet__address {
-    .cabinet__col {
+  .account__address {
+    .account__col {
       &:first-child {
         width: 15%;
       }
-      &.cabinet__col_btn {
+      &.account__col_btn {
         width: 10%;
       }
     }
   }
 
-  .cabinet__row, .cabinet__row-btn {
+  .account__row, .account__row-btn {
     font-size: 0;
   }
 
-  .cabinet__row_mod {
+  .account__row_mod {
     margin-bottom: 20px;
   }
 
-  .cabinet__col_btn {
+  .account__col_btn {
     padding-top: 35px;
   }
 
-  .cabinet__order {
+  .account__order {
     .order {
       padding: 0;
     }
@@ -1901,7 +1901,7 @@
     }
   }
 
-  .cabinet__phone {
+  .account__phone {
     span {
       display: block;
       margin-bottom: 6px;
@@ -1910,7 +1910,7 @@
     }
   }
 
-  .cabinet__phone-in {
+  .account__phone-in {
     padding-top: 6px;
     .btn-dashed {
       padding-bottom: 3px;

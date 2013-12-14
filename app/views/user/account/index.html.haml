@@ -1,11 +1,11 @@
 - title (@title.blank? ? '' : @title + ' | ') + t('account.title.page_main')
 / Content
 .title личный кабинет
-/ BEGIN .cabinet
-.cabinet
-  .cabinet__nav
+/ BEGIN .account
+.account
+  .account__nav
     = user_account_menu
-  .cabinet__in
+  .account__in
     = render partial: "user/account/#{@page}"
 
 

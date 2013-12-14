@@ -35,6 +35,7 @@ gem 'coffee-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'oily_png'
+gem 'remotipart', '~> 1.2'
 
 gem 'jquery-rails', '~>3.0.1'       # jQuery
 gem 'rails-backbone'                # Backbone

@@ -2,6 +2,7 @@
 //---------------------------------
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require hamlcoffee
 
 //= require common/jquery/jquery.maskedInput.js
@@ -20,6 +21,8 @@
 //= require common/plugins/ajaxPopup
 //= require common/plugins/flashMessage
 //= require common/plugins/userState
+//= require common/plugins/resetPhone
+
 
 // Backbone Lib -------------------
 //---------------------------------
@@ -225,10 +228,10 @@ $(document).ready(function() {
 		});
 	};
 
-//cabinet
-	function cabinet() {
-		var el = $('.cabinet__nav');
-		var item = $('.cabinet__content');
+//account
+	function account() {
+		var el = $('.account__nav');
+		var item = $('.account__content');
 		item.hide();
 		item.first().show();
 		el.find('button').click(function() {
@@ -525,7 +528,7 @@ $(document).ready(function() {
 	choice_date();
 	payment();
 	steps();
-	cabinet();
+	account();
 	search_shop();
 	scroll_init();
 	vacancy();

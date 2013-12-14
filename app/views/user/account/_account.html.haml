@@ -1,71 +1,71 @@
-.cabinet__content.cabinet__content-account
-  .cabinet__personal
+.account__content.account__content-account
+  .account__personal
     / FirstName, LastName  etc
-    %h4.cabinet__header= t('account.title.main')
+    %h4.account__header= t('account.title.main')
     = form_for @main_form, as: :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
-      .cabinet__row
-        .cabinet__phone
+      .account__row
+        .account__phone
           %label.label
             %span.label__title= t('account.label.phone')
-            .cabinet__phone-in
+            .account__phone-in
 
               %button{:class => 'btn-dashed', :'data-popup' => '/user/phone/reset', :'data-title' => t('account.label.phone_edit')}
                 %strong= format('+%<first>s *** *** ** - %<last>s', {first: @main_form.phone[0], last: @main_form.phone[-2..-1] })
 
-        .cabinet__col
+        .account__col
           %label.label
             %span.label__title= t('account.label.name')
             = f.text_field :name, {class: 'label__txt'}
 
-        .cabinet__btn
+        .account__btn
           %button.btn= t('common.btn.save')
     / Addresses
-    %h4.cabinet__header= t('account.title.delivary_address')
+    %h4.account__header= t('account.title.delivary_address')
     = form_for :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
-      .cabinet__row
-        .cabinet__col{style: 'display:none'}
+      .account__row
+        .account__col{style: 'display:none'}
           %label.label
             %span.label__title Название
             %input.label__txt{placeholder: 'Дом', type: 'text'}/
 
-        .cabinet__col
+        .account__col
           %label.label
             %span.label__title= t('account.title.city')
             %select{name: :city, class: 'form-control'}
               %option= t('common.city.moscow')
 
-        .cabinet__col
+        .account__col
           %label.label
             %span.label__title Адрес
             %input.label__txt{placeholder: "ул. Победы, д.6, кв.4", type: "text"}/
-        .cabinet__btn
+        .account__btn
           %button.btn= t('common.btn.save')
 
     / Password
-    %h4.cabinet__header= t('account.title.change_password')
+    %h4.account__header= t('account.title.change_password')
     = form_for :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
-      .cabinet__row
-        .cabinet__col
+      .account__row
+        .account__col
           %label.label
             %span.label__title= t('account.label.current_password')
             = f.password_field :current_password, {class: 'label__txt required'}
             %span.label__help
-        .cabinet__col
+        .account__col
           %label.label
             %span.label__title= t('account.label.new_password')
             = f.password_field :password, {class: 'label__txt required'}
             %span.label__help
-        .cabinet__col
+        .account__col
           %label.label
             %span.label__title= t('account.label.confirm_password')
             = f.password_field :password_confirmation, {class: 'label__txt required'}
             %span.label__help
-        .cabinet__btn
+        .account__btn
           %button.btn= t('common.btn.change')
 
 
 /
-  .cabinet__col
+  .account__col
     %label.label.label_mod
       %span.label__title Email
       %input.label__txt{placeholder: "yourmail@mail.com", type: "password"}/

@@ -1,17 +1,19 @@
-= form_for :phone, remote: true, method: 'POST', url: sap.reset_api_v1_phones_path, html: {class: '_edit_phone_form'} do |f|
+= form_for @phone_form, as: :phone, remote: true, method: 'POST', url: sap.reset_api_v1_phones_path, html: {class: 'reset_phone_form'} do |f|
   = f.hidden_field :act, value: 'reset'
   %p.text-center= t('account.label.phone_edit_desc_html')
-  .cabinet__row
-    %label.label
+  .account__row
+    %label.label.phone
       %span.label__title= t('account.label.new_phone')
-      = f.text_field :phone, class: 'label__txt'
-    %label.label
-      %span.label__title= t('account.label.current_phone')
-      = f.password_field :password, class: 'label__txt'
-    %label.label
+      = f.text_field :phone, class: 'label__txt required', autocomplete: 'off', :'data-filters' => 'digits'
+      %button.change_phone_link.btn-link.hidden= t('account.button.change_phone')
+    %label.label.password.hidden
+      %span.label__title= t('account.label.current_password')
+      = f.password_field :password, class: 'label__txt required', autocomplete: 'off'
+    %label.label.code.hidden
       %span.label__title= t('account.label.code')
-      = f.text_field :code, class: 'label__txt'
-    .cabinet__btn
-      %button.btn= t('common.btn.save')
+      = f.text_field :code, class: 'label__txt required'
+    .account__btn
+      %button.btn{:'data-reset' => t('account.button.get_code'), :'data-check' => t('account.button.send_code')}
+        = t('account.button.get_code')
 :javascript
-  $('._edit_phone_form').ajaxForm({form_name: 'phone'});
+  $('.reset_phone_form').resetPhone();
