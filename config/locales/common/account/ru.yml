@@ -2,6 +2,7 @@ ru:
   account:
     label:
       name: Имя
+      email: Email
       phone: Телефон
       phone_edit: Изменение номера
       phone_edit_desc_html: |

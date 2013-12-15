@@ -28,8 +28,11 @@ class User::AccountController < FrontendController
 
   private
 
-    # Prepare
-    def prepare
-      @main_form = AccountMainForm.new(current_user.attributes)
-    end
+  # Prepare
+  def prepare
+    @forms = {
+      private:  Sap::Account::PrivateForm.new(current_user.attributes),
+      password: Sap::Account::ChangePasswordForm.new
+    }
+  end
 end

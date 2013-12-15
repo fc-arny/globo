@@ -110,31 +110,32 @@ class AjaxForm extends PluginBase
 
   # -------------------------------------------------- Show form errors by field
   _showErrors: (errors) ->
-    for input of errors
-      # Show only first error
-      message = "<span>#{errors[input][0]}</span>"
+    for form of errors
+      for input of errors[form]
+        # Show only first error
+        message = "<span>#{errors[form][input][0]}</span>"
 
-      $input  = @$node.find("[name='#{@options.form_name}[#{input}]']")
+        $input  = @$node.find("[name='#{form}[#{input}]']")
 
-      unless $input.length
-        $input  = @$node.find("[alias='#{input}']")
+        unless $input.length
+          $input  = @$node.find("[alias='#{input}']")
 
-      $field  = $input.closest( ".#{@options.field.wrapper}")
+        $field  = $input.closest( ".#{@options.field.wrapper}")
 
-      $field.addClass @options.field.has_error
-      $message = $field.find ".#{@options.error.message}"
+        $field.addClass @options.field.has_error
+        $message = $field.find ".#{@options.error.message}"
 
-      unless $message.length
-        $message = $('<span />')
-        $message.appendTo $field
+        unless $message.length
+          $message = $('<span />')
+          $message.appendTo $field
 
-        if @options.error.direction is 'right'
-          $message.addClass 'label__error_right'
+          if @options.error.direction is 'right'
+            $message.addClass 'label__error_right'
 
-        $message.addClass @options.error.message
+          $message.addClass @options.error.message
 
 
-      $message.html message
+        $message.html message
 
   # -------------------------------------------------- Clear all form errors
   _clearErrors: ->
