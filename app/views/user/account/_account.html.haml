@@ -68,15 +68,15 @@
             %span.label__help
         .account__btn
           %button.btn= t('common.btn.change')
-
-:javascript
-  $(function(){
-    $('#new_password').ajaxForm({
-      onSuccess: function() {
-        console.log($(this));
-      }
+= content_for :js do
+  :javascript
+    $(function(){
+      $('#new_password').ajaxForm({
+        onSuccess: function() {
+          console.log($(this));
+        }
+      });
     });
-  });
 /
   .account__col
     %label.label.label_mod

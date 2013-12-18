@@ -4,11 +4,6 @@
 
 class Store::GoodsController < FrontendController
 
-  layout 'application_with_basket'
-
-  # -------------------------------------------------------------
-  # SPA for goods
-  # -------------------------------------------------------------
   def index
     store_url = params[:store]
 

@@ -336,7 +336,7 @@
       }
     }
     &:after {
-      background: url(icons/wave-blue.png) repeat-x;
+      background: asset_url('icons/wave-blue.png') repeat-x;
     }
   }
 }
@@ -1800,124 +1800,6 @@
   }
   .label__txt {
     width: 70px;
-  }
-}
-
-//account
-.account {
-  margin-bottom: 20px;
-  border: 1px solid #e7e7e7;
-  border-radius: 2px;
-  @include clr;
-
-  .account__header {
-    border-bottom: 1px dashed #e7e7e7;
-    padding-bottom: 5px;
-  }
-
-  .account__content {
-    border-left: 1px solid #e7e7e7;
-  }
-
-  .account__row {
-    margin: 10px 0 25px 25px;
-
-    .account__col {
-      max-width: 300px;
-      margin-right: 2%;
-    }
-  }
-
-  .account__btn {
-    padding: 0 0 20px;
-
-    text-align: left;
-    .btn {
-      max-width: 240px;
-    }
-  }
-
-  .account__nav {
-    float: left;
-    padding: 25px 20px;
-    margin-right: -180px;
-    width: 140px;
-    a {
-      display: block;
-      margin-bottom: 8px;
-      background: none;
-      font-size: 16px;
-      color: #444444;
-      &.is-active {
-        color: $bl;
-        font-weight: bold;
-        cursor: default;
-      }
-    }
-  }
-
-  .account__in {
-    border-left: 180px;
-    border-left: 180px solid #fcfcfc;
-    background: white;
-  }
-
-
-
-  .account__personal, .account__address {
-    padding: 25px;
-  }
-
-  .account__address {
-    .account__col {
-      &:first-child {
-        width: 15%;
-      }
-      &.account__col_btn {
-        width: 10%;
-      }
-    }
-  }
-
-  .account__row, .account__row-btn {
-    font-size: 0;
-  }
-
-  .account__row_mod {
-    margin-bottom: 20px;
-  }
-
-  .account__col_btn {
-    padding-top: 35px;
-  }
-
-  .account__order {
-    .order {
-      padding: 0;
-    }
-    .order__table {
-      margin: 0;
-      border: 0;
-    }
-  }
-
-  .account__phone {
-    span {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 16px;
-      color: #888888;
-    }
-  }
-
-  .account__phone-in {
-    padding-top: 6px;
-    .btn-dashed {
-      padding-bottom: 3px;
-    }
-    strong {
-      font-size: 16px;
-    }
   }
 }
 

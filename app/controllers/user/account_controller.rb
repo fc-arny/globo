@@ -13,11 +13,11 @@ class User::AccountController < FrontendController
   end
 
   # Customer's favorites - goods, posts, recipes
-  def favorites
-    @title = t('account.title.page_favorites')
-    @page = :favorites
-    render :index
-  end
+  #def favorites
+  #  @title = t('account.title.page_favorites')
+  #  @page = :favorites
+  #  render :index
+  #end
 
   # Customer's orders
   def orders

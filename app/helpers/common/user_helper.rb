@@ -17,7 +17,7 @@ module Common::UserHelper
   def user_account_menu
     @links = [
       {action: :index, title: t('account.link.private_main')},
-      {action: :favorites, title: t('account.link.favorites')},
+      #{action: :favorites, title: t('account.link.favorites')},
       {action: :orders, title: t('account.link.orders')},
     ]
     render partial: 'user/account/menu'

@@ -1,5 +1,5 @@
 class Blog::IndexController < FrontendController
-  layout 'application_without_basket'
+
   # List
   def index
 

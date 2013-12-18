@@ -12,6 +12,7 @@ gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
 gem 'jsend-rails'           # API format specification
+gem 'carrierwave'           # Image unloader
 
 # I18n
 gem 'rails-i18n'
@@ -56,6 +57,7 @@ group :development do
   #gem 'middleman-sprockets'
   #gem 'middleman-smusher'
   #gem 'middleman-bourbon'
+  # TODO: remove unneeded gems
   gem 'guard', '>= 2.2.2',       :require => false
   gem 'guard-livereload',        :require => false
   gem 'rack-livereload'

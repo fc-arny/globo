@@ -44,10 +44,10 @@
       / BEGIN .m-nav
       .m-nav
         %nav.container
-          %a{href: "#"} Рецепты
-          %a{href: "#"} новости
-          %a{href: "#"} FAQ
-          %a{href: "#"} Акции
+          %a{href: help_path}= t('index.nav.help')
+          %a{href: blog_index_path(:news)}= t('index.nav.news')
+          %a{href: "#"}= t('index.nav.search')
+          %a{href: "#"}= t('index.nav.promo')
       = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}
 
       / BEGIN .m-benefits
@@ -75,27 +75,8 @@
             %li
               %button.btn{:'data-popup' => login_path} РЕГИСТРАЦИЯ
       .container.container_cols
-        .m-about
-          .title О НАС
-          .m-about__in
-            %p
-              %b GloboMarket
-              это новый тип супермаркета, который позволяет сравнить цены и заказать продукты в Вашем любимом супермаркете. Наша цель, чтобы помочь вам сэкономить время и деньги, давая вам наилучшие опыт покупок в Интернете.
-            %p Мы предлагаем товвары ведущих ретейлеров России. Все, что вам нужно сделать, это выбрать свой любимый супермаркет - Азбука Вкуса, Алые Паруса, Зеленый Перекресток и вперед за покупками!
-            %p Это зависит от вас, как вы используете наш сайт: Вы можете заказать Вашу корзину онлайн, распечатать Вашу корзину как список покупок и взять его с собой при походе в ближайщий супермаркет или просто сравнить цены онлайн.
-        .m-news
-          .title НОВОСТИ
-          %ul.m-news__list
-            %li
-              = render :partial => 'partials/widgets/vk_group'
-            -#%li
-            -#  %a{href: "#"} Мастер-класс по Испанским сырам LA ANTIGUA DE FUENTESAUCO
-            -#  %span 10.06.2013
-            -#  %p 6 и 7 июня в 18:00 расскажем о культуре и тонкостях потребления сыра
-            -#%li
-            -#  %a{href: "#"} Мастер-класс по Греческой фасоли Arosis («Аросис»)
-            -#  %span 10.06.2013
-            -#  %p 30 мая в 18:00 мы развеем миф о том, что фасоль очень трудно и долго готовить
+        = render partial: 'common/index/partials/main_about'
+        = render partial: 'common/index/partials/main_news'
 
       .push
     / BEGIN .footer

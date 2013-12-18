@@ -1,0 +1,18 @@
+.m-news
+  .title НОВОСТИ
+  %ul.m-news__list
+    - Sap::BlogPost.last_news.each do |post|
+      %li
+        %span.m-news__date= I18n.l post.created_at, format: '%d %B'
+        = link_to(post.title, blog_post_path(post.category.url, post.id))
+        %p= post.cut
+    -#%li
+    -#
+    -#%li
+    -#  %a{href: "#"} Мастер-класс по Испанским сырам LA ANTIGUA DE FUENTESAUCO
+    -#  %span 10.06.2013
+    -#  %p 6 и 7 июня в 18:00 расскажем о культуре и тонкостях потребления сыра
+    -#%li
+    -#  %a{href: "#"} Мастер-класс по Греческой фасоли Arosis («Аросис»)
+    -#  %span 10.06.2013
+    -#  %p 30 мая в 18:00 мы развеем миф о том, что фасоль очень трудно и долго готовить

@@ -52,25 +52,25 @@ $(document).ready(function() {
 ////		$fWelcome.show();
 //	});
 
-//	var btn_login = $('.user-state__settings');
-//	var timeout;
-//		btn_login.click(function() {
-//		$(this).next().show();
-//	});
-//	btn_login.next().hover(
-//		function() {
-////			clearTimeout(timeout);
-//		},
-//		function() {
-//			//$(this).hide();
-////			timeout = setTimeout(function(){
-////				btn_login.next().hide();
-////			}, 2000);
-//		}
-//	);
-//	btn_login.click(function(event){
-//		event.stopPropagation();
-//	});
+	var btn_login = $('.user-state__settings');
+	var timeout;
+		btn_login.click(function() {
+		$(this).next().show();
+	});
+	btn_login.next().hover(
+		function() {
+			clearTimeout(timeout);
+		},
+		function() {
+			$(this).hide();
+			timeout = setTimeout(function(){
+				btn_login.next().hide();
+			}, 2000);
+		}
+	);
+	btn_login.click(function(event){
+		event.stopPropagation();
+	});
 
 	var btn_shop = $('.js-shops');
 	btn_shop.click(function() {
