@@ -1,0 +1,6 @@
+ru:
+  views:
+    common:
+      pagination:
+        next: Вперед
+        previous: Назад

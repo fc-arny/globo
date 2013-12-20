@@ -754,7 +754,7 @@ input[disabled], textarea[disabled] {
 }
 
 .footer__in {
-  width: 760px;
+  max-width: 760px;
   margin: 0 auto;
   @include clr;
 }
@@ -1903,6 +1903,101 @@ a {
     padding: 10px;
     background: #f9f6f6;
     border: 1px solid #e7e7e7;
+  }
+}
+
+//pagination
+.pagination {
+  margin-bottom: 45px;
+  text-align: center;
+  font-size: 0;
+
+  .pagination__in {
+    display: inline-block;
+    min-width: 760px;
+    height: 32px;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+    line-height: 32px;
+    @include rt(1120) {
+      min-width: 0;
+      padding: 0 50px;
+    }
+
+    a, span {
+      display: inline-block;
+      padding: 0 11px;
+      border-left: 1px solid #e7e7e7;
+      vertical-align: top;
+      font-size: 16px;
+      color: #444444;
+      &:first-child {
+        border: none;
+      }
+      &:hover {
+        color: $bl;
+      }
+      &.is-active {
+        font-weight: bold;
+        color: $bl;
+      }
+    }
+    .pagination__prev, .pagination__next {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+      }
+    }
+    .pagination__prev {
+      padding-left: 13px;
+      &:before {
+        top: 10px;
+        left: 0;
+        border-width: 6px 6px 6px 0;
+        border-color: transparent #444444 transparent transparent;
+      }
+      &:hover {
+        &:before {
+          border-color: transparent $bl transparent transparent;
+        }
+      }
+    }
+    .pagination__next {
+      padding-right: 13px;
+      &:before {
+        top: 11px;
+        right: 0;
+        border-width: 6px 0 6px 6px;
+        border-color: transparent transparent transparent #444444;
+
+
+      }
+      &.disabled {
+        &:before {
+          border-color: transparent transparent transparent #777777;
+          &:hover {
+            color: #777777;
+          }
+        }
+        &:hover {
+          color: #777777;
+        }
+      }
+
+      &:hover {
+        &:before {
+          border-color: transparent transparent transparent $bl;
+        }
+      }
+    }
+    .disabled {
+      cursor: default;
+    }
   }
 }
 

@@ -6,8 +6,12 @@ Gm::Application.routes.draw do
   root :to => 'common/index#main'
 
   # Blog
-  get 'blog(/:category)' => 'blog/index#index', as: :blog_index
-  get 'blog/:category/:post' => 'blog/index#show', as: :blog_post
+  namespace :blog do
+    get 'post/:post' => 'post#show', as: :post
+    get '(:category)' => 'index#index', as: :list
+  end
+  #get 'blog(/:category)' => 'blog/index#index', as: :blog_index
+  #get 'blog/:category/:post' => 'blog/index#show', as: :blog_post
 
 
   # Pages

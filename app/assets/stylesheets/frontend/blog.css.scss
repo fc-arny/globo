@@ -1,0 +1,122 @@
+@import "common/base";
+.blog {
+  .blog__item, .faq__item {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 2px dashed #d9d9d9;
+  }
+
+  .blog__item-in {
+    @include clr;
+  }
+
+  .blog__pic {
+    float: left;
+    margin-right: 40px;
+  }
+
+  .blog__detail {
+    display: table;
+  }
+
+  .blog__title, .faq__question {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $bl;
+  }
+
+  .blog__meta {
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #888888;
+  }
+
+  .blog__meta_right {
+    text-align: right;
+  }
+
+  .blog__comms {
+    position: relative;
+    padding-left: 18px;
+    margin-left: 18px;
+    i {
+      position: absolute;
+      top: 1px;
+      left: 0;
+      @include s(comm);
+    }
+  }
+
+  .blog__txt, .faq__answer {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .blog {
+    @include clr;
+  }
+
+  .blog__comm {
+    float: right;
+    width: 315px;
+    margin-left: 20px;
+    @include rt(1120) {
+      float: none;
+      width: auto;
+      margin: 0 0 20px 0;
+      .comment {
+        max-width: 500px;
+      }
+    }
+
+    .share {
+      margin-top: 40px;
+    }
+  }
+
+  .blog__list {
+    overflow: hidden;
+  }
+
+  .blog__list {
+    .pagination {
+      display: block;
+    }
+    .blog__item {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed #e7e7e7;
+      &:last-child {
+        border: none;
+      }
+    }
+    .blog__item-in {
+      padding: 40px;
+      border: 1px solid #e7e7e7;
+      border-radius: 3px;
+      background: white;
+    }
+    .blog__txt {
+      margin-bottom: 10px;
+      @include clr;
+      img {
+        float: left;
+        margin-right: 25px;
+        border-radius: 5px;
+      }
+      p {
+        margin-bottom: 5px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .blog__btns {
+    span {
+      color: $bl;
+    }
+  }
+
+}

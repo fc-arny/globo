@@ -8,7 +8,7 @@
   *= require 'frontend/inner'
 
 // Globo pages
-  *= require 'frontend/catalog'
   *= require 'frontend/account'
-
+  *= require 'frontend/blog'
+  *= require 'frontend/catalog'
 **/
