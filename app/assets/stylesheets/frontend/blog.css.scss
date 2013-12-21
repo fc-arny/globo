@@ -1,4 +1,5 @@
 @import "common/base";
+
 .blog {
   .blog__item, .faq__item {
     padding-bottom: 15px;
@@ -60,7 +61,7 @@
 
   .blog__comm {
     float: right;
-    width: 315px;
+    width: 215px;
     margin-left: 20px;
     @include rt(1120) {
       float: none;
@@ -68,6 +69,19 @@
       margin: 0 0 20px 0;
       .comment {
         max-width: 500px;
+      }
+    }
+    h4 {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .list-group-item {
+      border: none;
+      background: none;
+      font-size: 16px;
+      &:hover {
+        color: #555555;
+        background-color: #E5F1F7;
       }
     }
 
@@ -114,9 +128,21 @@
   }
 
   .blog__btns {
-    span {
-      color: $bl;
+    a:hover {
+      text-decoration: none;
+      border-bottom: none;
     }
   }
 
+  .blog__view {
+
+    .blog__item-in {
+      padding-top: 10px;
+
+      .blog__title {
+        color: #444444;
+        font-size: 30px;
+      }
+    }
+  }
 }

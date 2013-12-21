@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 source 'http://gems.github.com'
 
-gem 'rails', '4.0.2'
+gem 'rails', '~>4.1.beta1'
 
 gem 'pg'
 
@@ -35,7 +35,7 @@ gem 'slim'
 # Assets
 gem 'sass-rails'
 gem 'coffee-rails'
-#gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', '~> 1.1.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'oily_png'
 gem 'remotipart', '~> 1.2'
@@ -74,7 +74,7 @@ end
 
 group :test do
   gem 'factory_girl'
-  gem 'zeus', '~>0.13.4.pre2'
+  #gem 'zeus', '~>0.13.4.pre2'
 end
 
 # Blog Engine

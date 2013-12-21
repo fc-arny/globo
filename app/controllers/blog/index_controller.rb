@@ -2,15 +2,13 @@ class Blog::IndexController < FrontendController
 
   # List
   def index
-    @posts = Sap::BlogPost.recent.page(params[:page]).per(5)
+    relation = Sap::BlogPost.recent
 
     if params[:category]
-      @posts.last_posts params[:category].strip
+      @category = Sap::BlogCategory.where('url = ?', params[:category].strip).first
+      relation = relation.last_posts @category.url
     end
-  end
 
-  # Show
-  def show
-
+    @posts = relation.page params[:page]
   end
 end

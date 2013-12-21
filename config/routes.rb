@@ -7,7 +7,7 @@ Gm::Application.routes.draw do
 
   # Blog
   namespace :blog do
-    get 'post/:post' => 'post#show', as: :post
+    get 'post/:post' => 'posts#show', as: :post
     get '(:category)' => 'index#index', as: :list
   end
   #get 'blog(/:category)' => 'blog/index#index', as: :blog_index

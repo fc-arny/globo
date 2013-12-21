@@ -1,7 +1,10 @@
-.title= t('blog.blog')
+.title
+  =  @category ? link_to(t('blog.blog')) : t('blog.blog')
+  = "/ #{@category.name}" if @category
 / BEGIN .blog
 .blog
   .blog__comm
+    = render 'blog/partials/category_list'
     / BEGIN .comment
     .comment
       .comment__text Приятного аппетита, любители экзотики! Надеюсь, Вам понравился наш рецепт. Мы с женой каждую неделю готовим данное блюдо.  Детишки также в восторге)
@@ -10,17 +13,6 @@
         %strong Васькин Василий Ли
         %span Генеральный директор "Азбука Вкуса"
     / END .comment
-    / BEGIN .share
-    .share
-      %a.share__vk{href: "#"}
-      %a.share__fb{href: "#"}
-      %a.share__gp{href: "#"}
-      %a.share__mr{href: "#"}
-      %a.share__ok{href: "#"}
-      %a.share__tb{href: "#"}
-      %a.share__rss{href: "#"}
-      %a.share__tw{href: "#"}
-    / END .share
   .blog__list
     - @posts.each do |post|
       .blog__item
@@ -40,11 +32,9 @@
             .blog__btns
               %a.btn-dashed{href: "#{blog_post_path(post)}#globocut"}= t('blog.read_next')
               %span /
-              %a.btn-dashed{href: "#{blog_post_path(post)}#comments"}= t('blog.read_next')
+              %a.btn-dashed{href: "#{blog_post_path(post)}#comments"}= t('blog.add_comment')
 
-    / BEGIN .pagination
-    .pagination
-      .pagination__in
-        = paginate @posts, :window => 2
+    /.pagination
+    = paginate @posts, :window => 2
 
 / END .blog
