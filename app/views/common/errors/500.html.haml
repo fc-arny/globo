@@ -1,0 +1,32 @@
+!!!
+/[if IE 8] <html lang="ru-RU" class="ie8">
+/ [if gt IE 8]><!
+%html{lang: "ru-RU"}
+  / <![endif]
+  %head
+    %meta{charset: "utf-8"}/
+    %title Globo
+    %link{href: "/assets/application.css", media: "screen", rel: "stylesheet"}/
+  %body
+    / BEGIN .page
+    .page
+      / BEGIN .layout
+      .layout
+        / BEGIN .static
+        .static.static_500
+          .container
+            .static__in
+              .title.title_big Ошибка 500.
+              .title Упс... Что-то пошло совсем не так...
+              .static__pic
+                %img{alt: "", src: "/assets/pic13.png"}/
+              .static__help
+                %p Кажется, произошла ошибка. Попробуйте позже
+          %a.logo{href: "#"}
+            %span.logo__pic
+            %span.logo__txt
+              %span Globo
+              %span Market
+        / END .static
+      / END .layout
+    / END .page

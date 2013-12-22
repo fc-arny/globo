@@ -5,7 +5,7 @@ class Blog::IndexController < FrontendController
     relation = Sap::BlogPost.recent
 
     if params[:category]
-      @category = Sap::BlogCategory.where('url = ?', params[:category].strip).first
+      @category = Sap::BlogCategory.where('url = ?', params[:category].strip).first!
       relation = relation.last_posts @category.url
     end
 

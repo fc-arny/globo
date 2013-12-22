@@ -49,6 +49,10 @@ gem 'haml_coffee_assets'            # JS Templates for backbone
 # Sap gems
 gem 'sap', :path => 'sap'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
+
 group :development do
   # Errors
   gem 'better_errors'
@@ -74,7 +78,6 @@ end
 
 group :test do
   gem 'factory_girl'
-  #gem 'zeus', '~>0.13.4.pre2'
 end
 
 # Blog Engine

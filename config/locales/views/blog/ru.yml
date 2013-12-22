@@ -1,4 +1,8 @@
 ru:
   views:
     blog:
+      blog: Блог
       category_list: Темы
+      read_next: Читать далее
+      add_comment: Оставить комментарий
+      no_posts: Тут нет статей :-(

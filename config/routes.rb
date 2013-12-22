@@ -1,4 +1,8 @@
 Gm::Application.routes.draw do
+  namespace :common do
+  get "errors/show"
+  end
+
   # If JS is disabled
   get 'badbrowser' => 'common/index#badbrowser'
 
@@ -62,7 +66,6 @@ Gm::Application.routes.draw do
 
   # Common route
   match '/:controller/:action(.:format)', :defaults => {:action => 'index'}, :via => :get
-
   #require 'sidekiq/web'
   #
   #
@@ -70,5 +73,5 @@ Gm::Application.routes.draw do
   #mount Sidekiq::Web, at: '/admin/sidekiq'
   ## /newrelic - open profiler
 
-
+  match '(errors)/:status', to: 'common/errors#show', constraints: {status: /\d{3}/}, via: :all
 end

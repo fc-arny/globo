@@ -45,7 +45,7 @@
       .m-nav
         %nav.container
           %a{href: help_path}= t('index.nav.help')
-          %a{href: blog_index_path(:news)}= t('index.nav.news')
+          %a{href: blog_list_path(:news)}= t('index.nav.news')
           %a{href: "#"}= t('index.nav.search')
           %a{href: "#"}= t('index.nav.promo')
       = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}

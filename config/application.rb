@@ -11,6 +11,7 @@ end
 
 module Gm
   class Application < Rails::Application
+    config.exceptions_app = self.routes
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -30,10 +31,6 @@ module Gm
                             #{config.root}/assets/fonts/**
                             #{config.root}/assets/templates/**)
 
-    # I18n
-    config.i18n.load_path +=
-        Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-
     # Secret key
     config.secret_key_base = '8cf293c11460a9a14f357bf8060ff91f9e439ac6574f6a7c9809aa6900c4bf2a14b5c55c39258117410f7f2ff30d3e9cf3316ea6d473df31065dccd76aeb069f'
 
@@ -49,8 +46,8 @@ module Gm
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :ru
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
