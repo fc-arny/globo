@@ -17,9 +17,11 @@ smsgate:
 
 # Links
 links:
-  vk_group: http://vk.com/globomarket
-  fb_group: https://www.facebook.com/globom
-  ok_group: http://www.odnoklassniki.ru/group/52067362734261
+  vk_group:  http://vk.com/globomarket
+  fb_group:  https://www.facebook.com/globomarketru
+  ok_group:  http://www.odnoklassniki.ru/group/52067362734261
+  twitter:   https://twitter.com/globomarketru
+  instagram: http://instagram.com/globomarketru
   rss:  /rss
 
 social:
@@ -35,3 +37,4 @@ contacts:
   email: info@globomarket.ru
   skype: arthur.shcheglov
   address: г.Москва, ул. Новослободская 54/56, 5 этаж
+

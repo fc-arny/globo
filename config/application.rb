@@ -31,9 +31,6 @@ module Gm
                             #{config.root}/assets/fonts/**
                             #{config.root}/assets/templates/**)
 
-    # Secret key
-    config.secret_key_base = '8cf293c11460a9a14f357bf8060ff91f9e439ac6574f6a7c9809aa6900c4bf2a14b5c55c39258117410f7f2ff30d3e9cf3316ea6d473df31065dccd76aeb069f'
-
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
