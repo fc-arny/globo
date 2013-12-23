@@ -1,8 +1,4 @@
 Gm::Application.routes.draw do
-  namespace :common do
-  get "errors/show"
-  end
-
   # If JS is disabled
   get 'badbrowser' => 'common/index#badbrowser'
 
@@ -14,23 +10,15 @@ Gm::Application.routes.draw do
     get 'post/:post' => 'posts#show', as: :post
     get '(:category)' => 'index#index', as: :list
   end
-  #get 'blog(/:category)' => 'blog/index#index', as: :blog_index
-  #get 'blog/:category/:post' => 'blog/index#show', as: :blog_post
 
+  # Resipes
+  namespace :recipes do
 
-  # Pages
-  get 'about'  => 'common/index#about'        # About project and tean
-  get 'contacts'  => 'common/index#contacts'  # Contacts
-  get 'help'  => 'common/index#help'          # Help page
-
-  # Store
-  get 'store/list' => 'store/index#index' # View stores list
-  get 'store/:url' => 'store/index#show'  # View stores list
-
+  end
 
   # User routes
   scope :module => 'user' do
-    get 'account' => 'account#index'         # View profile
+    get 'account' => 'account#index'            # View profile
 
     get 'login' => 'login#form'                 # Login form
     get 'logout' => 'logout#logout'             # Logout
@@ -45,6 +33,9 @@ Gm::Application.routes.draw do
   end
 
   # Store
+  get 'store/list' => 'store/index#index' # View stores list
+  get 'store/:url' => 'store/index#show'  # View stores list
+
   scope :module => 'store' do
     match '/goods/(:store(/*categories))'  => 'goods#index', :via => :get      # Goods
 
@@ -65,13 +56,18 @@ Gm::Application.routes.draw do
   mount Sap::Core::Engine => '/', as: 'sap'
 
   # Common route
-  match '/:controller/:action(.:format)', :defaults => {:action => 'index'}, :via => :get
+  match '/:controller/:action(.:format)', :defaults => {action: 'index'}, :via => :all
+
+  # Error handler
+  match '(errors)/:status', to: 'common/errors#show', constraints: {status: /\d{3}/}, via: :all
+
+  # Staic pages
+  get '/:page'  => 'common/static#show', as: :static_page
+
   #require 'sidekiq/web'
   #
   #
   ## For Developers
   #mount Sidekiq::Web, at: '/admin/sidekiq'
   ## /newrelic - open profiler
-
-  match '(errors)/:status', to: 'common/errors#show', constraints: {status: /\d{3}/}, via: :all
 end

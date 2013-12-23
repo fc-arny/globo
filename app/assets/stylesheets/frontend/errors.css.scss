@@ -1,0 +1,81 @@
+@import "common/base";
+
+//static
+.static {
+  position: relative;
+  padding: 55px 0;
+  text-align: center;
+  .logo {
+    float: none;
+    display: inline-block;
+    padding-top: 30px;
+    margin: 0;
+  }
+}
+
+.static_browsers {
+  .title {
+    margin-bottom: 30px;
+  }
+  .static__help {
+    margin-bottom: 100px;
+  }
+}
+
+.static_404, .static_500 {
+  .title {
+    margin-bottom: 45px;
+  }
+  .title_big {
+    margin-bottom: 0;
+  }
+}
+.static_404 {
+  padding: 0 0 30px 0;
+}
+
+.static__in {
+  padding: 70px;
+  background: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  @include rt(1380) {
+    padding: 50px;
+  }
+
+  @include rt(1120) {
+    padding: 40px;
+  }
+
+  @include rt(1000) {
+    padding: 30px;
+  }
+
+  .title {
+    text-transform: none;
+  }
+}
+
+.static__help {
+  padding: 0 150px;
+  @include rt(1380) {
+    padding: 0 100px;
+  }
+
+  @include rt(1120) {
+    padding: 0 50px;
+  }
+
+  @include rt(1000) {
+    padding: 0 20px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+.static__pic {
+  margin-bottom: 55px;
+}

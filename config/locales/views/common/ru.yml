@@ -4,3 +4,17 @@ ru:
       pagination:
         next: Вперед
         previous: Назад
+      errors:
+        error_500_title: Ошибка 500
+        error_404_title: Ошибка 404
+      footer:
+        menu:
+          information: Информация
+          contacts:  Контаты
+          abount: О проекте
+          help: Помощь
+          stores: Магазины
+          addition: Дополнительно
+          recipes: Рецепты
+          blog: Блог
+          promo: Акции

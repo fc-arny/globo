@@ -7,28 +7,28 @@
         = render :partial => 'partials/common/social'
     %nav.footer__nav
       %ul
-        %li Информация
+        %li= t('views.common.footer.menu.information')
         %li
-          %a{href: contacts_path} Конткты
+          %a{href: static_page_path(:contacts)}= t('views.common.footer.menu.contacts')
         %li
-          %a{href: about_path} О проекте
+          %a{href: static_page_path(:about)}= t('views.common.footer.menu.abount')
         %li
-          %a{href: help_path} Помощь
+          %a{href: static_page_path(:help)}= t('views.common.footer.menu.help')
 
       %ul
-        %li Магазины
+        %li= t('views.common.footer.menu.stores')
         - @stores.each do |store|
           %li
             %a{href: "/goods/#{store.url}"}= store.name
 
       %ul
-        %li Дополнительно
+        %li= t('views.common.footer.menu.addition')
         %li
-          %a{href: '/recipes'} Рецепты
+          %a{href: '/recipes'}= t('views.common.footer.menu.recipes')
         %li
-          %a{href: '/blog'} Блог
+          %a{href: blog_list_path}= t('views.common.footer.menu.blog')
         %li
-          %a{href: '/promo'} Акции
+          %a{href: static_page_path(:promo)}= t('views.common.footer.menu.promo')
 
     .copyright
       = Time.now.year

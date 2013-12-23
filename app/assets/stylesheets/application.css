@@ -6,6 +6,7 @@
   *= require 'frontend/common'
   *= require 'frontend/layouts'
   *= require 'frontend/inner'
+  *= require 'frontend/errors'
 
 // Globo pages
   *= require 'frontend/account'

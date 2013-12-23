@@ -1,12 +1,9 @@
 !!!
-/[if IE 8] <html lang="ru-RU" class="ie8">
-/ [if gt IE 8]><!
-%html{lang: "ru-RU"}
-  / <![endif]
+%html
   %head
-    %meta{charset: "utf-8"}/
-    %title Globo
-    %link{href: "/assets/application.css", media: "screen", rel: "stylesheet"}/
+    %meta{charset: 'utf-8'}/
+    %title= t('views.common.errors.error_500_title')
+    %link{href: '/assets/application.css', media: 'screen', rel: 'stylesheet'}/
   %body
     / BEGIN .page
     .page
@@ -19,14 +16,8 @@
               .title.title_big Ошибка 500.
               .title Упс... Что-то пошло совсем не так...
               .static__pic
-                %img{alt: "", src: "/assets/pic13.png"}/
+                %img{alt: '', src: '/assets/pic13.png'}/
               .static__help
                 %p Кажется, произошла ошибка. Попробуйте позже
-          %a.logo{href: "#"}
-            %span.logo__pic
-            %span.logo__txt
-              %span Globo
-              %span Market
-        / END .static
-      / END .layout
-    / END .page
+                %a.logo{href: '#'}
+                  %span.logo__pic

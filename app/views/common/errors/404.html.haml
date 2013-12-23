@@ -1,41 +1,21 @@
-!!!
-/[if IE 8] <html lang="ru-RU" class="ie8">
-/ [if gt IE 8]><!
-%html{lang: "ru-RU"}
-  / <![endif]
-  %head
-    %meta{charset: "utf-8"}/
-    %title Globo
-    %link{href: "/assets/application.css", media: "screen", rel: "stylesheet"}/
-  %body
-    / BEGIN .page
-    .page
-      / BEGIN .layout
-      .layout
-        / BEGIN .static
-        .static.static_404
-          .container
-            .static__in
-              .title.title_big Ошибка 404.
-              .title Извините, мы ничего не нашли
-              .static__pic
-                %img{alt: "", src: "/assets/pic11.png"}/
-                %img{alt: "", src: "/assets/pic12.png"}/
-              .static__help
-                %p Возможно, страница которую вы ищите временно не доступна, удалена либо сменила адрес.
-                %p
-                  Попробовать позже, либо пройти по следующим ссылкам:
-                  = succeed "," do
-                    %a{href: "#"} Главная
-                  = succeed "," do
-                    %a{href: "#"} Новости
-                  = succeed "." do
-                    %a{href: "#"} Магазины
-          %a.logo{href: "#"}
-            %span.logo__pic
-            %span.logo__txt
-              %span Globo
-              %span Market
-        / END .static
-      / END .layout
-    / END .page
+- title t('views.common.errors.error_404_title')
+.static.static_404
+  .container
+    .static__in
+      .title.title_big Ошибка 404.
+      .title Извините, мы ничего не нашли
+      .static__pic
+        %img{alt: "", src: "/assets/pic11.png"}/
+        %img{alt: "", src: "/assets/pic12.png"}/
+      .static__help
+        %p Возможно, страница которую вы ищите временно не доступна, удалена либо сменила адрес.
+        %p
+          Попробовать позже, либо пройти по следующим ссылкам:
+          = succeed "," do
+            %a{href: "#"} Главная
+          = succeed "," do
+            %a{href: "#"} Новости
+          = succeed "." do
+            %a{href: "#"} Магазины
+        %a.logo{href: root_path}
+          %span.logo__pic
