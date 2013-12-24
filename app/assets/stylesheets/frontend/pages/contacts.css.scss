@@ -1,0 +1,147 @@
+@import "common/base";
+
+//contacts
+.contacts {
+  position: relative;
+  padding-bottom: 420px;
+
+  .contacts__cols {
+    position: relative;
+    border: 1px solid #e1e1e1;
+    background: white;
+    box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.2);
+    @include clr;
+    z-index: 10;
+  }
+
+  .contacts__column {
+    float: left;
+    width: 33%;
+    padding: 35px 40px 45px;
+    @include box;
+    &:first-child {
+      border: none;
+    }
+    &:nth-child(2) {
+      border: 1px dashed #e1e1e1;
+      border-width: 0 1px;
+      @include rt(1120) {
+        border-width: 1px 0;
+      }
+    }
+    .title {
+      margin-bottom: 30px;
+    }
+    @include rt(1120) {
+      float: none;
+      width: 100%;
+      padding: 20px 30px;
+    }
+  }
+
+  .contacts__desc {
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #888888;
+    line-height: 1.5;
+    p {
+      line-height: 1.5;
+    }
+  }
+
+  .contacts__feedback {
+    .label__txt, .label__help {
+      width: 220px;
+    }
+  }
+
+  .contacts__item {
+    margin-bottom: 10px;
+    font-size: 16px;
+    @include clr;
+  }
+
+  .contacts__type {
+    float: left;
+    width: 100px;
+    color: #888888;
+  }
+
+  .contacts__detail {
+    display: table;
+    strong {
+      color: #888888;
+    }
+    a {
+      font-weight: bold;
+    }
+  }
+}
+
+
+
+//vacancy
+.vacancy__item {
+  margin-bottom: 30px;
+  &.is-active {
+    .vacancy__top {
+      button {
+        border: none;
+        font-weight: bold;
+        &:hover {
+          color: $bl;
+        }
+      }
+    }
+  }
+}
+
+.vacancy__top {
+  font-size: 16px;
+  button {
+    margin-right: 20px;
+    background: none;
+    border-bottom: 1px dashed;
+    color: $bl;
+    font-size: 16px;
+    &:hover {
+      color: $blh;
+    }
+  }
+  strong {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .rub {
+    font-weight: normal;
+    &:before, &:after {
+      height: 1px;
+      background: #444444;
+    }
+    &:before {
+      top: 9px;
+    }
+    &:after {
+      top: 11px;
+    }
+  }
+}
+
+.vacancy__desc {
+  display: none;
+  padding-top: 10px;
+  p {
+    padding-bottom: 5px;
+    font-size: 12px;
+    color: #666666;
+  }
+}
+
+//map
+.map {
+  position: absolute;
+  left: -20px;
+  right: -20px;
+  bottom: 0;
+  z-index: 5;
+}

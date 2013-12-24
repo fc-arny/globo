@@ -2,8 +2,9 @@ Gm::Application.routes.draw do
   # If JS is disabled
   get 'badbrowser' => 'common/index#badbrowser'
 
-  # Main page
+  # Main and other pages
   root :to => 'common/index#main'
+  post '/feedback' => 'common/static#feedback', as: :feedback
 
   # Blog
   namespace :blog do

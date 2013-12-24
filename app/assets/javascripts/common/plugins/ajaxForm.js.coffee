@@ -70,17 +70,21 @@ class AjaxForm extends PluginBase
   # ------------------------------------------------- Before
   _onBefore: (evt, xhr, settings) ->
 
+    return false if @InProgress
+    @_setInProgress()
+
     @$node.find('input').each((index, item)=>
       @_validateInput $(item)
     )
 
     if @HasErrors
+      @_setInProgress false
       false
 
   # -------------------------------------------------- Before send request
   _onBeforeSend: (evt, xhr, settings) ->
     @_clearErrors()
-    @_setInProgress(evt.currentTarget)
+
 
 
   _onComplete: (evt, xhr, status) ->

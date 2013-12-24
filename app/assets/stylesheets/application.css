@@ -9,7 +9,5 @@
   *= require 'frontend/errors'
 
 // Globo pages
-  *= require 'frontend/account'
-  *= require 'frontend/blog'
-  *= require 'frontend/catalog'
+  *= require_tree './frontend/pages'
 **/

@@ -28,36 +28,33 @@
           .social.social_blue
             = render :partial => 'partials/common/social'
     .contacts__column
-      .title.title_small Напишите нам
-      .contacts__desc Воспользуйтесь этой формой быстрой связи, для того, чтобы сразу задать нам интересующие вас вопросы.
-      .contacts__feedback
-        %label.label
-          %span.label__title Как вас зовут?
-          %input.label__txt{placeholder: "Вася Иванов", type: "text"}/
-        %label.label
-          %span.label__title Ваш Email
-          %input.label__txt{placeholder: "mail@mail.com", type: "text"}/
-          %span.label__help На вышлем ответы на все ваши вопросы на указанный Email
-        %label.label
-          %span.label__title Ваше сообщения
-          %textarea.label__area{placeholder: "Текст вашего сообщения", type: "text"}
-        %button.btn отправить
+      = form_for FeedbackForm.new, as: :feedback, url: feedback_path, remote: true do |f|
+        .title.title_small= t('views.feedback.write_to_us')
+        .contacts__desc= t('views.feedback.ask_us_about_some_thing_interesting')
+        .contacts__feedback
+          %label.label
+            %span.label__title= t('views.feedback.labels.name')
+            = f.text_field :name, class: 'label__txt required'
+          %label.label
+            %span.label__title= t('views.feedback.labels.email')
+            = f.text_field :email, class: 'label__txt required'
+          %label.label
+            = f.text_area :message, class: 'label__area required', placeholder: t('views.feedback.labels.message')
+          %button.btn= t('views.feedback.labels.send')
     .contacts__column
-      .title.title_small Наши вакансии
-      .contacts__desc Мы постоянно ищем таланты для того чтобы пополнить ряды нашей команды. Не стесняйтесь слать нам свои резюме!
-      -#.vacancy
-        -#.vacancy__item.is-active
-        -#  .vacancy__top
-        -#    %button Frontend-разработчик
-        -#    %strong
-        -#      от 85 000
-        -#      %i.rub Р
-        -#  .vacancy__desc{style: "display: block;"}
-        -#    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        -#    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      .title.title_small= t('views.vacancies.our_vacancies')
+      .contacts__desc= t('views.vacancies.we_are_finding_talants_html')
+      .vacancy
+        - ['RubyOnRails разработчик', 'Креативный дизайнер', 'Frontent разработчик'].each do |vacancy|
+          .vacancy__item
+            .vacancy__top
+              %button= vacancy
+            .vacancy__desc{style: 'display: none; padding-left: 10px'}
+              %span Присылате резюме на адрес
+              %a{href: "mailto:#{Settings.contacts.hr_email}"}= Settings.contacts.hr_email
 
   / BEGIN .map
   .map
-    %iframe{frameborder: "0", height: "630", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.ru/maps?f=q&source=s_q&hl=ru&geocode=&q=%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0&aq=0&oq=%D0%BA%D0%B8%D0%B5%D0%B2&sll=55.354135,40.297852&sspn=21.27986,67.631836&ie=UTF8&hq=&hnear=%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0&t=m&ll=50.438757,30.578899&spn=0.034439,0.162992&z=14&output=embed", width: "100%"}
+    %iframe{frameborder: '0', height: '630', marginheight: '0', marginwidth: '0', scrolling: 'no', src: "https://maps.google.ru/maps?f=q&source=s_q&hl=ru&geocode=&q=%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0&aq=0&oq=%D0%BA%D0%B8%D0%B5%D0%B2&sll=55.354135,40.297852&sspn=21.27986,67.631836&ie=UTF8&hq=&hnear=%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0&t=m&ll=50.438757,30.578899&spn=0.034439,0.162992&z=14&output=embed", width: '100%'}
   / END .map
 / END .contacts

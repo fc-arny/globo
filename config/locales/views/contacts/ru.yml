@@ -9,3 +9,17 @@ ru:
       skype: Skype
       social: Мы в социальных сетях
       office: Офис "Globo Market"
+    feedback:
+      write_to_us: Напишите нам
+      ask_us_about_some_thing_interesting:  Воспользуйтесь этой формой быстрой связи, для того, чтобы сразу задать нам интересующие вас вопросы
+      labels:
+        name: Как вас зовут?
+        email: Ваш Email
+        message: Текст вашего сообщения
+        send: Отправить
+    vacancies:
+      our_vacancies: Наши вакансии
+      we_are_finding_talants_html: |
+        <p>Мы постоянно ищем таланты для того чтобы пополнить ряды нашей команды.</p>
+        <p>Мы готовы рассмотреть резюме следующих специалистов:</p>
+
