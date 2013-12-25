@@ -5,24 +5,18 @@
     .about__in
       .title.title_small Немного о нас
       .about__column
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, temporibus facere quaerat cumque libero tenetur autem animi id neque tempore. Beatae, mollitia rerum repellendus ducimus fuga quam. Officia, architecto non? lorem
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, temporibus facere quaerat cumque libero tenetur autem animi id neque tempore. Beatae, mollitia rerum repellendus ducimus fuga quam. Officia, architecto non? lorem
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, temporibus facere quaerat cumque libero tenetur autem animi id neque tempore. Beatae, mollitia rerum repellendus ducimus fuga quam. Officia, architecto non? lorem
+        %p
+          %b GloboMarket
+          это новый тип супермаркета, который позволяет сравнить цены и заказать продукты в Вашем любимом супермаркете. Наша цель, чтобы помочь вам сэкономить время и деньги, давая вам наилучшие опыт покупок в Интернете.
+          %p Мы предлагаем товвары ведущих ретейлеров России. Все, что вам нужно сделать, это выбрать свой любимый супермаркет - Азбука Вкуса, Алые Паруса, Зеленый Перекресток и вперед за покупками!
+          %p Это зависит от вас, как вы используете наш сайт: Вы можете заказать Вашу корзину онлайн, распечатать Вашу корзину как список покупок и взять его с собой при походе в ближайщий супермаркет или просто сравнить цены онлайн.
 / END .about
 
 / BEGIN .we-work
 .we-work
   .title.title_small С кем мы работаем
   .we-work__in
-    .container
-      %a{href: "#"}
-        %img{alt: "", src: "/assets/stores/main_azbuka.png"}/
-      %a{href: "#"}
-        %img{alt: "", src: "/assets/stores/main_globus.png"}/
-      %a{href: "#"}
-        %img{alt: "", src: "/assets/stores/main_parusa.png"}/
-      %a{href: "#"}
-        %img{alt: "", src: "/assets/stores/main_metro.png"}/
+    = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}
 / END .we-work
 
 / BEGIN .team
@@ -31,85 +25,10 @@
   .team__in
     .container
       .team__list
-        = 8.times do
+        - @team.each do |key, person|
           .team__person
-            %img{alt: "", src: '/assets/pic5.jpg'}/
-            %strong Chuck Norris
-            %span Big boss
+            = image_tag("/assets/faces/#{key}.png")
+            %strong= person[:name]
+            %span= person[:title]
 
 / END .team
-/ BEGIN .columns
-.columns
-  .container
-    .columns__item
-      .title блог
-      .columns__in
-        / BEGIN .blog
-        .blog
-          .blog__item
-            .blog__title
-              %a{href: "#"} Lorem ipsum dolor sit amet,  ipsum dolor sit
-            .blog__meta
-              Эту статью подготовил
-              %a{href: "#"} Username
-              |
-              %span 02.06.2013
-              %a.blog__comms{href: "#"}
-                114
-                %i
-            .blog__txt Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          .blog__item
-            .blog__title
-              %a{href: "#"} Lorem ipsum dolor sit amet,  ipsum dolor sit
-            .blog__meta
-              Эту статью подготовил
-              %a{href: "#"} Username
-              |
-              %span 02.06.2013
-              %a.blog__comms{href: "#"}
-                114
-                %i
-            .blog__txt Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        / END .blog
-        .column__down
-          %a{href: "#"} Читать все записи из блога
-    .columns__item
-      .title faq
-      .columns__in
-        / BEGIN .faq
-        .faq
-          .faq__item
-            .faq__question
-              %a{href: "#"} Q: Lorem ipsum dolor sit amet
-            .faq__answer A: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, iste, ullam, blanditiis repudiandae tempora nihil nobis consequatur non magnam explicabo laborum.
-          .faq__item
-            .faq__question
-              %a{href: "#"} Q: Lorem ipsum dolor sit amet
-            .faq__answer A: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, iste, ullam, blanditiis repudiandae tempora nihil nobis consequatur non magnam explicabo laborum.
-        / END .faq
-        .column__down
-          %a{href: "#"} Читать все ответы на ваши вопросы
-    .columns__item
-      .title twitter
-      .columns__in
-        / BEGIN .twitter
-        .twitter
-          .twitter__item
-            RT
-            %a{href: "#"} @gbmarket:
-            в рубрике "Гудсайт!" промосайт мясокомбината "Клинский" от Доминиона
-            %a{href: "#"} @doinimod http://t.co/WERTWETR
-          .twitter__item
-            RT
-            %a{href: "#"} @gbmarket:
-            в рубрике "Гудсайт!" промосайт мясокомбината "Клинский" от Доминиона
-            %a{href: "#"} @doinimod http://t.co/WERTWETR
-          .twitter__item
-            RT
-            %a{href: "#"} @gbmarket:
-            в рубрике "Гудсайт!" промосайт мясокомбината "Клинский" от Доминиона
-            %a{href: "#"} @doinimod http://t.co/WERTWETR
-        / END .twitter
-        .column__down
-          %a{href: "#"} Присоединяйтесь к нам!
-/ END .columns
