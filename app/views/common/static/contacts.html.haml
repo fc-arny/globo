@@ -28,28 +28,16 @@
           .social.social_blue
             = render :partial => 'partials/common/social'
     .contacts__column
-      = form_for FeedbackForm.new, as: :feedback, url: feedback_path, remote: true do |f|
-        .title.title_small= t('views.feedback.write_to_us')
-        .contacts__desc= t('views.feedback.ask_us_about_some_thing_interesting')
-        .contacts__feedback
-          %label.label
-            %span.label__title= t('views.feedback.labels.name')
-            = f.text_field :name, class: 'label__txt required'
-          %label.label
-            %span.label__title= t('views.feedback.labels.email')
-            = f.text_field :email, class: 'label__txt required'
-          %label.label
-            = f.text_area :message, class: 'label__area required', placeholder: t('views.feedback.labels.message')
-          %button.btn= t('views.feedback.labels.send')
+      = render :partial => 'feedback_form'
     .contacts__column
       .title.title_small= t('views.vacancies.our_vacancies')
       .contacts__desc= t('views.vacancies.we_are_finding_talants_html')
-      .vacancy
+      .vacancy.accordion
         - ['RubyOnRails разработчик', 'Креативный дизайнер', 'Frontent разработчик'].each do |vacancy|
-          .vacancy__item
-            .vacancy__top
+          .vacancy__item.accordion__item
+            .vacancy__top.accordion__top
               %button= vacancy
-            .vacancy__desc{style: 'display: none; padding-left: 10px'}
+            .vacancy__desc.accordion__content{style: 'display: none; padding-left: 10px'}
               %span Присылате резюме на адрес
               %a{href: "mailto:#{Settings.contacts.hr_email}"}= Settings.contacts.hr_email
 

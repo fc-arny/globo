@@ -1,0 +1,17 @@
+.container-white-bg
+  .container
+    .title= t('views.help.help')
+    .container-white-bg__in
+      %h3{style: 'margin-top: 0px'}= t('views.help.how_use_globo')
+      .help
+        %p= t('views.help.how_use_globo_html')
+
+      %h3= t('views.help.questions')
+      .faq.accordion
+        - Feedback.faq.each do |item|
+          .faq__item.accordion__item
+            .faq__top.accordion__top
+              %button= item.message
+            .faq__message.accordion__content{style: 'display: none'}
+              = item.answer
+

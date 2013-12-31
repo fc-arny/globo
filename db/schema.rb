@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20131223013411) do
   enable_extension "plpgsql"
 
   create_table "feedbacks", force: true do |t|
-    t.string   "name",                   null: false
-    t.string   "email",                  null: false
-    t.text     "message",                null: false
-    t.text     "answer",                 null: false
+    t.string   "name",                        null: false
+    t.string   "email",                       null: false
+    t.text     "message",                     null: false
+    t.text     "answer"
     t.integer  "user_id"
-    t.integer  "status",     default: 1
+    t.boolean  "show_in_faq", default: false
+    t.integer  "order",       default: 0
+    t.integer  "status",      default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

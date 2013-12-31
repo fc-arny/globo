@@ -1,8 +1,8 @@
 / BEGIN .about
-.about
+.container-white-bg
   .container
     .title о проекте
-    .about__in
+    .container-white-bg__in
       .title.title_small Немного о нас
       .about__column
         %p
@@ -27,7 +27,7 @@
       .team__list
         - @team.each do |key, person|
           .team__person
-            = image_tag("/assets/faces/#{key}.png")
+            %span.image= image_tag("/assets/faces/#{key}.png")
             %strong= person[:name]
             %span= person[:title]
 

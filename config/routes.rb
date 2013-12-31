@@ -4,7 +4,7 @@ Gm::Application.routes.draw do
 
   # Main and other pages
   root :to => 'common/index#main'
-  post '/feedback' => 'common/static#feedback', as: :feedback
+  post '/static/:action' => 'common/static#:action', as: :static_post
 
   # Blog
   namespace :blog do

@@ -488,12 +488,11 @@ $(document).ready(function() {
 		});
 	};
 
-//vacancy
-	function vacancy() {
-		var el = $('.vacancy');
-		var items = $('.vacancy__item');
-		var desc = el.find('.vacancy__desc');
-		var btn = el.find('.vacancy__top button');
+	function accordion() {
+		var el = $('.accordion');
+		var items = $('.accordion__item');
+		var desc = el.find('.accordion__content');
+		var btn = el.find('.accordion__top button');
 		btn.click(function() {
 			if (!$(this).parent().parent().hasClass('is-active')) {
 				desc.slideUp(200);
@@ -531,7 +530,7 @@ $(document).ready(function() {
 	account();
 	search_shop();
 	scroll_init();
-	vacancy();
+	accordion(); //TODO: Create plugin or use thirdpart
 	address();
 
 //window resize

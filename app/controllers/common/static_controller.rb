@@ -13,7 +13,20 @@ class Common::StaticController < FrontendController
 
   # POST /feedback
   def feedback
-    sleep(20)
+    feedback_form = FeedbackForm.new feedback_params
+
+
+    if feedback_form.valid?
+      feedback = Feedback.new(feedback_form.to_hash)
+
+      unless feedback.save
+        response[:fails] =  {errors: feedback.errors}
+      end
+    else
+      response[:fails] = {errors: feedback_form.errors}
+    end
+
+    render_jsend response
   end
   
   private
@@ -47,5 +60,12 @@ class Common::StaticController < FrontendController
       },
 
     }
+  end
+
+  private
+
+  # Feedback params
+  def feedback_params
+    params.require(:feedback).permit(:name, :email, :message)
   end
 end
