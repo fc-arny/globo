@@ -1,6 +1,11 @@
 @import "common/base";
 
 //styles for main page(class with prefix "m-")
+.wrap_main {
+  padding: 0;
+  overflow: visible;
+}
+
 .m-header {
   height: 100px;
   background: white;
@@ -132,11 +137,12 @@
 }
 
 .m-info {
-  padding-top: 30px;
-  margin: -1px 0 65px 0;
+  padding: 30px 0 0;
+  margin-bottom: 65px;
   border-top: 2px solid white;
-  .container {
+  ul {
     padding: 40px 30px;
+    margin: auto;
     background: white;
     border: 1px solid #e7e7e7;
     border-radius: 5px;
@@ -242,6 +248,7 @@
   position: relative;
   background: $bl;
   border-bottom: 2px dashed white;
+  height: 522px;
   &:before {
     content: "";
     position: absolute;
@@ -254,128 +261,127 @@
   .container {
     position: relative;
   }
-}
+  .m-slider__item {
+    width: 100%;
+    height: 520px;
+    padding-top: 140px;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    @include box;
+  }
 
-.m-slider__item {
-  width: 100%;
-  height: 520px;
-  padding-top: 140px;
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-  @include box;
-}
+  .m-slider__title-1, .m-slider__title-2 {
+    max-width: 600px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 0 7px $bl, 0 0 7px $bl;
+  }
 
-.m-slider__title-1, .m-slider__title-2 {
-  max-width: 600px;
-  text-transform: uppercase;
-  color: white;
-  text-shadow: 0 0 7px $bl, 0 0 7px $bl;
-}
+  .m-slider__title-1 {
+    font-size: 48px;
+    font-weight: bold;
+  }
 
-.m-slider__title-1 {
-  font-size: 48px;
-  font-weight: bold;
-}
+  .m-slider__title-2 {
+    margin-bottom: 5px;
+    font-size: 36px;
+  }
 
-.m-slider__title-2 {
-  margin-bottom: 5px;
-  font-size: 36px;
-}
-
-.m-slider__btn {
-  position: relative;
-  height: 30px;
-  background: $gr;
-  padding: 0 40px;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: white;
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -8px;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 15px 0 15px 8px;
-    border-color: transparent transparent transparent $gr;
-  }
-  &:hover {
-    background: $grh;
-    &:after {
-      border-color: transparent transparent transparent $grh;
-    }
-  }
-}
-
-.m-slider__pager {
-  position: absolute;
-  left: 0;
-  bottom: 20px;
-  font-size: 0;
-  z-index: 200;
-  span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin-right: 5px;
-    background: $bl;
-    border: 1px solid white;
-    border-radius: 50%;
-    cursor: pointer;
-    &:hover {
-      background: $blh;
-    }
-    &.cycle-pager-active {
-      background: white;
-      cursor: default;
-    }
-  }
-}
-
-.m-slider__cart {
-  position: absolute;
-  top: 15px;
-  right: 0;
-  width: 200px;
-  border: 1px solid #e7e7e7;
-  background: white;
-  border-radius: 5px;
-  display: none;
-  z-index: 200;
-  strong {
-    position: relative;
-    display: block;
-    padding: 15px 0 10px 45px;
-    border-bottom: 1px solid #e7e7e7;
-    font-size: 16px;
-  }
-  sup {
-    margin-left: 2px;
-    font-size: 12px;
-  }
-  span {
-    color: $bl;
-  }
-  .rub {
-    &:before {
-      top: 8px;
-    }
-    &:after {
-      top: 11px;
-      width: 9px;
-    }
-  }
-  em {
-    position: absolute;
-    top: 16px;
-    left: 11px;
-    @include s(cart-ico-bl);
-  }
   .m-slider__btn {
-    padding: 0 35px;
-    margin: 10px;
+    position: relative;
+    height: 30px;
+    background: $gr;
+    padding: 0 40px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -8px;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 15px 0 15px 8px;
+      border-color: transparent transparent transparent $gr;
+    }
+    &:hover {
+      background: $grh;
+      &:after {
+        border-color: transparent transparent transparent $grh;
+      }
+    }
+  }
+
+  .m-slider__pager {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    font-size: 0;
+    z-index: 200;
+    span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background: $bl;
+      border: 1px solid white;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background: $blh;
+      }
+      &.cycle-pager-active {
+        background: white;
+        cursor: default;
+      }
+    }
+  }
+
+  .m-slider__cart {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 200px;
+    border: 1px solid #e7e7e7;
+    background: white;
+    border-radius: 5px;
+    display: none;
+    z-index: 200;
+    strong {
+      position: relative;
+      display: block;
+      padding: 15px 0 10px 45px;
+      border-bottom: 1px solid #e7e7e7;
+      font-size: 16px;
+    }
+    sup {
+      margin-left: 2px;
+      font-size: 12px;
+    }
+    span {
+      color: $bl;
+    }
+    .rub {
+      &:before {
+        top: 8px;
+      }
+      &:after {
+        top: 11px;
+        width: 9px;
+      }
+    }
+    em {
+      position: absolute;
+      top: 16px;
+      left: 11px;
+      @include s(cart-ico-bl);
+    }
+    .m-slider__btn {
+      padding: 0 35px;
+      margin: 10px;
+    }
   }
 }

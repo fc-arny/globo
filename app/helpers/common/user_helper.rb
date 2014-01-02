@@ -3,14 +3,14 @@
 # -------------------------------------------------------------
 module Common::UserHelper
   # User state helper 
-  def user_state(view = 'common')
+  def user_state
     @items = [
       {title: t('common.menu.order'), link: ''},
       {title: t('common.menu.settings'), link: account_path},
       {title: t('common.menu.logout'), link: logout_path},
     ]
 
-    render partial: "user/state/items/#{view}"
+    render partial: 'user/state/items/main'
   end
 
   # MEnu for account

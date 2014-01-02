@@ -15,7 +15,7 @@
           %a.logo{href: Settings.common.domain.main_link, title: Settings.common.title }
             %span.logo__pic
           ._user_state_wrapper
-            = user_state 'main'
+            = user_state
 
           .social.social_blue
             = render :partial => 'partials/common/social'
@@ -44,36 +44,27 @@
       / BEGIN .m-nav
       .m-nav
         %nav.container
-          %a{href: static_page_path(:help)}= t('index.nav.help')
-          %a{href: blog_list_path(:news)}= t('index.nav.news')
-          %a{href: "#"}= t('index.nav.search')
-          %a{href: static_page_path(:promo)}= t('index.nav.promo')
+          %a{href: static_page_path(:help)}= t('views.index.nav.help')
+          %a{href: blog_list_path(:news)}= t('views.index.nav.news')
+          %a{href: "#"}= t('views.index.nav.search')
+          %a{href: static_page_path(:promo)}= t('views.index.nav.promo')
       = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}
 
       / BEGIN .m-benefits
       .m-benefits
         %ul.container
-          %li.m-benefits__item-1
-            %i
-            %span 18 супермаркетов и 98 различных минимаркетов одном месте
-          %li.m-benefits__item-2
-            %i
-            %span Покупаете не выходя из дома, не тратя время на поезду. Лишь 20 мин на выбор и заказ товара
-          %li.m-benefits__item-3
-            %i
-            %span Доставка в удобный для вас день и время
-          %li.m-benefits__item-4
-            %i
-            %span Мы любим наших клиентов и постоянно дарим им подарки
+          - t('views.index.benefits_hash').each do |benefit|
+            %li{class: benefit['class']}
+              %i
+              %span= benefit['text']
       / BEGIN .m-info
-      .m-info
-        - unless current_user
-          %ul.container
-            %li Сохраняются данные - адреса, список покупок, избранное и всегда можно повторить заказ
-            %li При регистрации вы получаете приятный бонус в размере 400 рублей на ваш счет!
-            %li Сохраняются данные - адреса, список покупок, избранное и всегда можно повторить заказ
-            %li
-              %button.btn{:'data-popup' => login_path} РЕГИСТРАЦИЯ
+      .m-info.container
+        .title= t('views.index.titles.registration_reason')
+        %ul
+          - t('views.index.registration_reason_array').each do |reason|
+            %li= reason
+          %li
+            %button.btn{data: {popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'}}= t('views.index.btn.register')
       .container.container_cols
         = render partial: 'common/index/partials/main_about'
         = render partial: 'common/index/partials/main_news'
