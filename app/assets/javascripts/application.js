@@ -3,7 +3,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require hamlcoffee
 
 //= require common/jquery/jquery.maskedInput.js
 //= require common/jquery/jquery.cycle2
@@ -26,13 +25,6 @@
 //= require common/plugins/flashMessage
 //= require common/plugins/userState
 //= require common/plugins/resetPhone
-
-
-// Backbone Lib -------------------
-//---------------------------------
-//= require underscore
-//= require json2
-//= require backbone
 
 gmCurUserState = 'common';
 

@@ -15,9 +15,10 @@
 
     = yield :head
 
-    / Add development styles
+    / Add dev css and js
     - if Rails.env == 'development'
       = stylesheet_link_tag 'common/development/all'
+      = javascript_include_tag 'common/debug'
 
     = csrf_meta_tag
 
@@ -33,7 +34,3 @@
     .js-scripts
       = yield :bottom # Include js-files
       = yield :js     # Page scripts
-
-      / Add development settings
-      - if Rails.env == 'development'
-        = javascript_include_tag 'common/debug'

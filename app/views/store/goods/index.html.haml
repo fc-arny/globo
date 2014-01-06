@@ -388,18 +388,5 @@
               %button.tabs__reviews-more Показать больше отзывов
 / END .prod
 
-
 = content_for :js do
-  :javascript
-    $(function(){
-
-      //TODO: Cache it
-
-      //Sap.views.basket.render();
-      //Sap.initRoute();
-
-      //$(document).on("click", "a[href^='/goods']", function(evt) {
-      //  evt.preventDefault();
-      //  Backbone.history.navigate($(this).attr("href").replace('/goods',''), true);
-      //});
-    });
+  = javascript_include_tag :catalog
