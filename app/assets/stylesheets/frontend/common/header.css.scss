@@ -67,11 +67,20 @@
   float: right;
   margin: 25px 15px 0 20px;
   background: none;
+  max-width: 140px;
   .logged_in {
     margin-top: 10px;
+    & > a {
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-right: 30px;
+    }
   }
 
   .user-state__settings {
+    float: right;
     padding: 1px 5px;
     background: none;
     vertical-align: middle;

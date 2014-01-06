@@ -5,7 +5,7 @@ module Common::UserHelper
   # User state helper 
   def user_state
     @items = [
-      {title: t('common.menu.order'), link: ''},
+      #{title: t('common.menu.order'), link: ''},
       {title: t('common.menu.settings'), link: account_path},
       {title: t('common.menu.logout'), link: logout_path},
     ]
@@ -16,9 +16,9 @@ module Common::UserHelper
   # MEnu for account
   def user_account_menu
     @links = [
-      {action: :index, title: t('account.link.private_main')},
-      #{action: :favorites, title: t('account.link.favorites')},
-      {action: :orders, title: t('account.link.orders')},
+      {action: :index, title: t('views.account.link.private_main')},
+      #{action: :favorites, title: t('views.account.link.favorites')},
+      {action: :orders, title: t('views.account.link.orders')},
     ]
     render partial: 'user/account/menu'
   end

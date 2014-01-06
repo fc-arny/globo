@@ -8,20 +8,20 @@ class User::AccountController < FrontendController
 
   #  Profile
   def index
-    @title = t('account.title.page_edit_account')
+    @title = t('views.account.title.page_edit_account')
     @page = :account
   end
 
   # Customer's favorites - goods, posts, recipes
   #def favorites
-  #  @title = t('account.title.page_favorites')
+  #  @title = t('views.account.title.page_favorites')
   #  @page = :favorites
   #  render :index
   #end
 
   # Customer's orders
   def orders
-    @title = t('account.title.page_orders')
+    @title = t('views.account.title.page_orders')
     @page = :orders
     render :index
   end

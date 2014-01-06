@@ -19,6 +19,8 @@ ru:
           blog: Блог
           promo: Акции
       header:
+        user_state:
+          login: Войти
         nav:
           contacts: Контакты
           news: Новости
