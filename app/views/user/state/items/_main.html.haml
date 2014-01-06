@@ -1,10 +1,11 @@
 .login
   - if current_user
-    %a{href: account_path}= current_user.name
-    %button.user-state__settings
-      %i
-    .login__links
-      %ul
+    .logged_in
+      %a{href: account_path}= current_user.name
+      %button.user-state__settings.dropdown-toggle{data: {toggle: :dropdown}}
+        %i
+
+      %ul.login__links.dropdown-menu.pull-right{role: :menu}
         - @items.each do |item|
           %li
             %a{href: item[:link]}

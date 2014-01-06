@@ -38,13 +38,14 @@
             *
           %span.label__in
             %i.ico-phone
-            = f.text_field :phone, {class: 'label__txt phonenumber', alias: :login}
+            = f.text_field :phone, {class: 'label__txt phonenumber', alias: :login, autocomplete: :off}
         %label.label
           %span.label__title
             = t 'popup.label.password'
+            *
           %span.label__in
             %i.ico-pass
-            = f.password_field :password, {class: 'label__txt'}
+            = f.password_field :password, {class: 'label__txt', autocomplete: :off}
         %button.btn= t 'popup.button.ready'
 
 :javascript
