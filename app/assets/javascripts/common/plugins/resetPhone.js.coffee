@@ -17,7 +17,6 @@ class ResetPhone extends PluginBase
   # -------------------------------------------------- Bind events
   _bindEvents: ->
     @$node.ajaxForm(
-      form_name: 'phone'
       onSuccess: (response) =>
         @_setStep('check')
 

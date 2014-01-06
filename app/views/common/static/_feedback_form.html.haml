@@ -9,6 +9,7 @@
       %span.label__title= t('views.feedback.labels.email')
       = f.text_field :email, class: 'label__txt required'
     %label.label
+      %span.label__title= t('views.feedback.labels.message')
       = f.text_area :message, class: 'label__area required', placeholder: t('views.feedback.labels.message')
     %button.btn= t('views.feedback.labels.send')
   .contacts__feedback{style: 'display: none'}

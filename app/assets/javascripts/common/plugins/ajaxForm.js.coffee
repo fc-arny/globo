@@ -2,14 +2,13 @@
   Base for all ajax form
   ___________________________________________
   Options:
-    name - name of params array. For ex.: user[name], user[phone], here 'user' is 'name'
     field:
-      wrapper   - class wrapping input, error, etc
-      has_error - class add to 'wrapper' if validation failed
+      wrapper_class   - class wrapping input, error, etc
+      has_error_class - class add to 'wrapper' if validation failed
     error:
-      separator - error messages separator
-      message   - class for error html-element
-      direction - corner position in error bubble
+      message_class   - class for error html-element
+    selectors:
+      submit_btn      - submit button
 
   ___________________________________________
   Filters:
@@ -33,7 +32,6 @@ class AjaxForm extends PluginBase
     onSuccess : ->
     onFail    : ->
     onError   : ->
-    form_name: 'form'
     showErrors: true
     field:
       wrapper_class   : 'label'
@@ -111,29 +109,29 @@ class AjaxForm extends PluginBase
 
   # -------------------------------------------------- Show form errors by field
   _showErrors: (errors) ->
-    for input of errors
+    for form of errors
+      for input of errors[form]
+        # Show only first error
+        message = errors[form][input]
 
-      # Show only first error
-      message = errors[input][0]
+        $input  = @$node.find("[name='#{form}[#{input}]']")
 
-      $input  = @$node.find("[name='#{@options.form_name}[#{input}]']")
+        unless $input.length
+          $input  = @$node.find("[alias='#{input}']")
 
-      unless $input.length
-        $input  = @$node.find("[alias='#{input}']")
+        $field  = $input.closest('.' + @options.field.wrapper_class)
 
-      $field  = $input.closest('.' + @options.field.wrapper_class)
+        $field.addClass @options.field.has_error_class
+        $message = $field.find('.' + @options.error.message_class)
 
-      $field.addClass @options.field.has_error_class
-      $message = $field.find('.' + @options.error.message_class)
+        unless $message.length
+          $message = $('<span />')
+          $message.appendTo $field
 
-      unless $message.length
-        $message = $('<span />')
-        $message.appendTo $field
-
-        $message.addClass @options.error.message_class
+          $message.addClass @options.error.message_class
 
 
-      $message.html message
+        $message.html message
 
   # -------------------------------------------------- Clear all form errors
   _clearErrors: ->

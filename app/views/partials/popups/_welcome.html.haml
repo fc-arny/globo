@@ -52,7 +52,6 @@
   $(function(){
 
     $('._popup_signup_form').ajaxForm({
-      form_name: 'user',
       onSuccess: function(response){
         $(document).trigger(UserState.prototype.EVT_UPDATE);
         window.$gmPopup.ajaxPopup('hide');
@@ -60,7 +59,6 @@
     });
 
     $('._popup_signin_form').ajaxForm({
-      form_name: 'user',
       onSuccess: function(response){
         $(document).trigger(UserState.prototype.EVT_UPDATE);
         window.$gmPopup.ajaxPopup('hide');
