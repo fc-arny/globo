@@ -1,6 +1,6 @@
 # Global error handler
 window.onerror = (message, file, line_number) ->
-  if DEBUG
+  if DEBUG?
     console.log "File: [" + line_number + "] - " + file + "\n\n" + message
   else
     alert "We are sorry, but something wrong ;-("

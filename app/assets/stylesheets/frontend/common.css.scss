@@ -275,7 +275,7 @@ input[disabled], textarea[disabled] {
     margin-bottom: 4px;
     font-size: 12px;
     &:first-child {
-      font-weight: bold;
+//      font-weight: bold;
       color: $gr;
     }
   }
@@ -552,64 +552,10 @@ a {
     }
   }
   &.has-error {
-    position: relative;
-    .label__error {
-      display: block;
-      position: absolute;
-      top: 19px;
-      width: 180px;
-      min-height: 20px;
-      padding: 10px;
-      line-height: 20px;
-      background: #fcf2f1;
-      border: 1px solid #F16666;
-      border-radius: 2px;
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-      font-size: 0;
-      span {
-        display: inline-block;
-        vertical-align: middle;
-        font: normal 12px Arial;
-        line-height: 1.2;
-        color: #555555;
-        white-space: normal;
-      }
-      &:before, &:after {
-        content: "";
-        position: absolute;
-        width: 0px;
-        height: 0px;
-        border-style: solid;
-      }
-      &:before {
-        top: 12px;
-        left: -14px;
-        border-width: 8px 14px 8px 0;
-        border-color: transparent #F16666 transparent transparent;
-      }
-      &:after {
-        top: 13px;
-        left: -12px;
-        border-width: 7px 12px 7px 0;
-        border-color: transparent #fcf2f1 transparent transparent;
-      }
-
-      &.label__error_right:after, &.label__error_right:before {
-        left: auto;
-      }
-
-      &.label__error_right:after {
-        top: 13px;
-        right: -12px;
-        border-width: 7px 0 7px 12px;
-        border-color: transparent transparent transparent #fcf2f1;
-      }
-
-      &.label__error_right:before {
-        top: 12px;
-        right: -14px;
-        border-width: 8px 0 8px 14px;
-        border-color: transparent transparent transparent #F16666;
+    .label__txt {
+      border-color: #a94442;
+      &:focus {
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #ce8483;
       }
     }
   }
@@ -621,10 +567,6 @@ a {
 
 .label_mod {
   margin-bottom: 10px;
-}
-
-.label__error {
-  display: none;
 }
 
 .label__txt, .label__area {

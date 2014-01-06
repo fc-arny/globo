@@ -31,7 +31,6 @@ class ApplicationController < ActionController::Base
       unless flash[type].blank?
         message = flash[type]
         message_type = type
-
       end
     end
 

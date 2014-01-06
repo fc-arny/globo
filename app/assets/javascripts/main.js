@@ -7,10 +7,15 @@
 //= require common/jquery/jquery.cycle2
 //= require common/jquery/ui/jquery.ui.custom.min
 
+// Bootstrap ----------------------
+//---------------------------------
+//= require bootstrap/dropdown
+
+
 //= require_tree ./core
 //= require common/init
 
-// Plugins
+// Custom Plugins
 //= require common/plugins/ajaxForm
 //= require common/plugins/ajaxPopup
 //= require common/plugins/flashMessage

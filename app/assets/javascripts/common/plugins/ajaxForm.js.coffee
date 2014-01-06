@@ -36,12 +36,10 @@ class AjaxForm extends PluginBase
     form_name: 'form'
     showErrors: true
     field:
-      wrapper   : 'label'
-      has_error : 'has-error'
+      wrapper_class   : 'label'
+      has_error_class : 'has-error'
     error:
-      separator : ';<br/>'
-      message   : 'label__error'
-      direction : 'left'
+      message_class   : 'help-block'
     selectors:
       submit_btn: '.btn'
 
@@ -113,37 +111,34 @@ class AjaxForm extends PluginBase
 
   # -------------------------------------------------- Show form errors by field
   _showErrors: (errors) ->
-    for form of errors
-      for input of errors[form]
-        # Show only first error
-        message = "<span>#{errors[form][input][0]}</span>"
+    for input of errors
 
-        $input  = @$node.find("[name='#{form}[#{input}]']")
+      # Show only first error
+      message = errors[input][0]
 
-        unless $input.length
-          $input  = @$node.find("[alias='#{input}']")
+      $input  = @$node.find("[name='#{@options.form_name}[#{input}]']")
 
-        $field  = $input.closest( ".#{@options.field.wrapper}")
+      unless $input.length
+        $input  = @$node.find("[alias='#{input}']")
 
-        $field.addClass @options.field.has_error
-        $message = $field.find ".#{@options.error.message}"
+      $field  = $input.closest('.' + @options.field.wrapper_class)
 
-        unless $message.length
-          $message = $('<span />')
-          $message.appendTo $field
+      $field.addClass @options.field.has_error_class
+      $message = $field.find('.' + @options.error.message_class)
 
-          if @options.error.direction is 'right'
-            $message.addClass 'label__error_right'
+      unless $message.length
+        $message = $('<span />')
+        $message.appendTo $field
 
-          $message.addClass @options.error.message
+        $message.addClass @options.error.message_class
 
 
-        $message.html message
+      $message.html message
 
   # -------------------------------------------------- Clear all form errors
   _clearErrors: ->
-    @$node.find(".#{@options.field.has_error}").removeClass @options.field.has_error
-    @$node.find(".#{@options.error.message}").html ''
+    @$node.find('.' + @options.field.has_error_class).removeClass @options.field.has_error_class
+    @$node.find('.' + @options.error.message_class).html ''
 
 
   # -------------------------------------------------- Manage form state

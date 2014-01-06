@@ -12,6 +12,10 @@
 //= require common/jquery/jquery.scrollTo
 //= require common/jquery/jquery.jscrollpane
 
+// Bootstrap ----------------------
+//---------------------------------
+//= require bootstrap
+
 // Common
 //= require_tree ./core
 //= require common/init

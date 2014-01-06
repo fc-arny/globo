@@ -75,7 +75,8 @@
         border-right: 1px solid #e7e7e7;
       }
       .label {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
+        height: 70px;
       }
     }
 
@@ -112,18 +113,6 @@
         }
         .popup__col {
           padding: 0 30px;
-        }
-      }
-      .popup__col {
-        &.popup__col_right {
-          .label__error {
-            left: 255px;
-          }
-        }
-        &.popup__col_left {
-          .label__error {
-            left: -220px;
-          }
         }
       }
     }

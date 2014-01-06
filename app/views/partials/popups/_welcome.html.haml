@@ -60,9 +60,6 @@
 
     $('._popup_signin_form').ajaxForm({
       form_name: 'user',
-      error: {
-        direction: 'right'
-      },
       onSuccess: function(response){
         $(document).trigger(UserState.prototype.EVT_UPDATE);
         window.$gmPopup.ajaxPopup('hide');

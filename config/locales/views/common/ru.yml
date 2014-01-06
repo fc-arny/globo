@@ -18,3 +18,9 @@ ru:
           recipes: Рецепты
           blog: Блог
           promo: Акции
+      header:
+        nav:
+          contacts: Контакты
+          news: Новости
+          about: Компания
+          catalog: Магазины
