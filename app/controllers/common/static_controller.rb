@@ -7,8 +7,6 @@ class Common::StaticController < FrontendController
 
   def show
     render action: params[:page]
-  rescue ActionView::MissingTemplate
-    render_404
   end
 
   # POST /feedback

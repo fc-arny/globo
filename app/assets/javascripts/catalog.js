@@ -20,8 +20,16 @@
 $(function(){
 	//TODO: Cache it
 
-	GM.views.basket.render();
-	GM.initRoute();
+	var data = {
+		//order     : #{@order.to_json},
+		stores    : []//#{@stores.to_json}
+		//categories: #{@categories.to_json}
+	};
+
+	GM.initialize(data);
+
+//	GM.views.basket.render();
+//	GM.initRoute();
 
 	$(document).on("click", "a[href^='/goods']", function(evt) {
 	  evt.preventDefault();

@@ -376,7 +376,7 @@
 
 .catalog__price {
   padding: 11px 10px;
-  background: url(icons/bg-line.png) repeat-x 0 0, url(icons/bg-line.png) repeat-x 0 100%;
+  background: asset_url('icons/bg-line.png') repeat-x 0 0, asset_url('icons/bg-line.png') repeat-x 0 100%;
   @include clr;
   span {
     float: left;

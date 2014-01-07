@@ -11,10 +11,11 @@ gem 'unicode'
 gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
-gem 'jsend-rails'           # API format specification
+gem 'jsend-rails'           # API format specification TODO: remove this gem
 gem 'carrierwave'           # Image unloader
 gem 'kaminari'              # Paginator
 gem 'devise'                # Auth
+gem 'seedbank'
 
 # I18n
 gem 'rails-i18n'
@@ -60,17 +61,7 @@ group :development do
   # Errors
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'jbuilder'
-
-  #gem 'middleman'
-  #gem 'middleman-sprockets'
-  #gem 'middleman-smusher'
-  #gem 'middleman-bourbon'
-  # TODO: remove unneeded gems
-  gem 'guard', '>= 2.2.2',       :require => false
-  gem 'guard-livereload',        :require => false
-  gem 'rack-livereload'
-  gem 'rb-fsevent',              :require => false
+  gem 'jbuilder' # TODO: Need in sap gem
 
   # Debug
   #gem 'coffee-script-redux-debugger', :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"

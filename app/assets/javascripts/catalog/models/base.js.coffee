@@ -2,6 +2,7 @@
 # Base model
 ###
 class GM.Models.Base extends Backbone.Model
+  path: '/api/v1'
   error: ->
     console.log 'Error: in GM.Models.Base'
   # -------------------------------------------------- Parse API response

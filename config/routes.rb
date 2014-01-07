@@ -46,13 +46,6 @@ Gm::Application.routes.draw do
     end
   end
 
-  # Admin
-  namespace "admin" do
-    get '/' => 'index#index'
-    resources :goods
-    resources :good_lists
-  end
-
   # API
   mount Sap::Core::Engine => '/', as: 'sap'
 
