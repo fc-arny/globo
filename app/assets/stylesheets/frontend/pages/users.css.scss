@@ -1,0 +1,18 @@
+@import "common/base";
+
+.sign-in-on-form {
+  input {
+    max-width: 250px;
+  }
+
+  .pass-forgot {
+    margin: 15px 0px;
+  }
+  .sign-in-on-form_auth {
+    border-right: 1px solid #CDCDCD;
+  }
+  .sign-in-on-form_register {
+    border-left: 1px solid #eeeeee;
+  }
+
+}

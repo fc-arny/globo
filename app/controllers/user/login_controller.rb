@@ -10,12 +10,8 @@ class User::LoginController < FrontendController
     if request.xhr?
       render :partial => 'partials/popups/welcome'
     end
-    # Redirect if logged in
-    #if !current_user.nil?
-    #  flash[:alert] = t('You are already logged in. Please Log out.')
-    #end
 
-    #@form = LoginForm.new
+
   end
 
 end

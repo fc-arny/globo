@@ -14,7 +14,7 @@ gem 'rails_config'          # Configure app
 gem 'jsend-rails'           # API format specification TODO: remove this gem
 gem 'carrierwave'           # Image unloader
 gem 'kaminari'              # Paginator
-gem 'devise'                # Auth
+#gem 'devise'                # Auth
 gem 'seedbank'
 
 # I18n
@@ -61,7 +61,6 @@ group :development do
   # Errors
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'jbuilder' # TODO: Need in sap gem
 
   # Debug
   #gem 'coffee-script-redux-debugger', :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"

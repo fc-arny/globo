@@ -4,3 +4,14 @@
 // Core
 @import "variables";
 @import "mixins";
+
+// Bootstrap ext
+[class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.row{
+  overflow: hidden;
+  padding-bottom: 15px;
+}

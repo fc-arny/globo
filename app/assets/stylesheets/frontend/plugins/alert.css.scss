@@ -1,12 +1,4 @@
 .alert {
-  padding: 10px;
-  left: 50%;
-  margin-left: -300px;
-  padding-right: 35px;
-  position: fixed;
-  top: 10px;
-  width: 600px;
-  z-index: 9999;
   border: 1px solid transparent;
   border-radius: 4px;
 
@@ -58,5 +50,17 @@
       opacity: 0.5;
       filter: alpha(opacity=50);
     }
+  }
+}
+
+#flash_messages {
+  .alert {
+    padding: 10px 10px 35px 10px;
+    left: 50%;
+    margin-left: -300px;
+    position: fixed;
+    top: 10px;
+    width: 600px;
+    z-index: 9999;
   }
 }

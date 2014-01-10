@@ -1,11 +1,12 @@
 # -------------------------------------------------------------
 # Application controller
 # -------------------------------------------------------------
-class ApplicationController < ActionController::Base
+class ApplicationController < Sap::BaseController
 
   after_filter :flash_to_headers
 
   # Include helpers
+  helper :all
   include Sap::Core::ControllerHelpers::Common
 
   # CSRF protection
