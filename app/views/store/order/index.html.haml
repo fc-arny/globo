@@ -43,7 +43,7 @@
             %input{checked: "checked", type: "checkbox"}/
             %i
             %span Запомнить меня
-          %button.btn ВОЙТИ
+          %button.btn.btn-globo ВОЙТИ
           .step__pass-forgot
             %a{href: "#"} Забыли ваш пароль?
       .step__col
@@ -66,11 +66,11 @@
               %i.ico-pass
               %input.label__txt{placeholder: "•••••••••", type: "password"}/
             %span.label__help Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
-          %button.btn ГОТОВО
+          %button.btn.btn-globo ГОТОВО
           .step__pass-help * Поля обьязательные для заполнения
     .step__nav
-      %button.btn К ЗАКАЗУ
-      %button.btn.js-step-btn{"data-step" => "step-second"} ПРОДОЛЖИТЬ
+      %button.btn.btn-globo К ЗАКАЗУ
+      %button.btn.btn-globo.js-step-btn{"data-step" => "step-second"} ПРОДОЛЖИТЬ
       .step__nav-help
         Не забывайте, что вам не обьязательно авторизироваться или регистрироваться для совершения заказа на нашем сайте. Вы можете пропустить этот шаг и перейти к шагу “Доставка”. Однако, в таком случае вы лишаетесь следующих преймуществ, согласно
         %a{href: "#"} Пользовательскому соглашению.
@@ -143,8 +143,8 @@
           .label
             %textarea.label__area{placeholder: "Текст комментария"}
     .step__nav
-      %button.btn.js-step-btn{"data-step" => "step-first"} НАЗАД
-      %button.btn.js-step-btn{"data-step" => "step-third"} ПРОДОЛЖИТЬ
+      %button.btn.btn-globo.js-step-btn{"data-step" => "step-first"} НАЗАД
+      %button.btn.btn-globo.js-step-btn{"data-step" => "step-third"} ПРОДОЛЖИТЬ
   / END .step
   / BEGIN .step
   .step.step-third
@@ -192,8 +192,8 @@
       .step__payment-beznal.js-payment-item
         .step__title Безналичный расчет
     .step__nav
-      %button.btn.js-step-btn{"data-step" => "step-second"} НАЗАД
-      %button.btn ПРОДОЛЖИТЬ
+      %button.btn.btn-globo.js-step-btn{"data-step" => "step-second"} НАЗАД
+      %button.btn.btn-globo ПРОДОЛЖИТЬ
   / END .step
 
 - content_for :js do

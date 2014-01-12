@@ -15,7 +15,7 @@
             %i.ico-pass
             = f.password_field :password, {class: 'label__txt'}
 
-        %button.btn= t 'popup.button.enter'
+        %button.btn.btn-globo= t 'popup.button.enter'
         .popup__pass-forgot
           %a{href: remember_path, target: '_blank'}= t 'popup.forget_password'
         .popup__pass-help
@@ -46,7 +46,7 @@
           %span.label__in
             %i.ico-pass
             = f.password_field :password, {class: 'label__txt', autocomplete: :off}
-        %button.btn= t 'popup.button.ready'
+        %button.btn.btn-globo= t 'popup.button.ready'
 
 :javascript
   $(function(){
@@ -65,6 +65,6 @@
       }
     });
 
-    $('.phonenumber').mask('+7(999) 999-99-99')
+    $('.phonenumber').mask('+7(999) 999-99-99');
   });
 

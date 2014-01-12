@@ -14,8 +14,7 @@ gem 'rails_config'          # Configure app
 gem 'jsend-rails'           # API format specification TODO: remove this gem
 gem 'carrierwave'           # Image unloader
 gem 'kaminari'              # Paginator
-#gem 'devise'                # Auth
-gem 'seedbank'
+gem 'seedbank'              # Data for any envivonment
 
 # I18n
 gem 'rails-i18n'

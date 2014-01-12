@@ -4,7 +4,7 @@
       .alert.alert_notice
         %h4{style: 'text-align: center; margin-bottom: 0px;'}= t('views.user.you_are_already_logged_in_html',user: current_user.name )
     - else
-      .col-xs-6.sign-in-on-form_auth
+      .col-xs-5.sign-in-on-form_auth
         %h3= t('views.user.title.login')
         = form_for :user, url: sap.user_session_path, remote: true do |f|
           %label.label
@@ -18,10 +18,11 @@
               %i.ico-pass
               = f.password_field :password, {class: 'label__txt'}
 
-          %button.btn= t 'views.user.button.enter'
+          %button.btn.btn-globo= t 'views.user.button.enter'
           .pass-forgot
             %a{href: remember_path}= t 'views.user.forget_password'
-      .col-xs-6.sign-in-on-form_register
+      .col-xs-2.separator= t('views.user.or')
+      .col-xs-5.sign-in-on-form_register
         %h3= t('views.user.title.register')
         = form_for :user, url: sap.user_registration_path, remote: true do |f|
           %label.label
@@ -45,7 +46,7 @@
             %span.label__in
               %i.ico-pass
               = f.password_field :password, {class: 'label__txt', autocomplete: :off}
-          %button.btn= t('views.user.button.ready')
+          %button.btn.btn-globo= t('views.user.button.ready')
 = content_for :js do
   :javascript
     $(function(){
@@ -60,4 +61,6 @@
           location.href = '/';
         }
       });
+
+      $('.phonenumber').mask('+7(999) 999-99-99');
     });

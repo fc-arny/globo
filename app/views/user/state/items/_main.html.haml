@@ -11,5 +11,5 @@
             %a{href: item[:link]}
               = item[:title]
   - else
-    %a.btn.user-state__login{href: login_path, data: {popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'}}
+    %a.btn.btn-globo.user-state__login{href: login_path, data: {popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'}}
       = t('views.common.header.user_state.login')

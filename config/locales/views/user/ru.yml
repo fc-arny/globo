@@ -3,9 +3,10 @@ ru:
     user:
       forget_password: Забыли пароль?
       required_fields: Поля обязательные для заполнения
+      or: или
       you_are_already_logged_in_html: |
         <p>Вы уже вошли как <a href='/account'>%{user}</a>.</p>
-        <p>Чтобы зарегистрировать нового пользователя нужно <a href='/logout'>выйти</a>.</p>
+        <p>Чтобы зарегистрировать нового пользователя нужно <a href='/logout?back_url=/login'>выйти</a>.</p>
       title:
         login: Вход
         register: Регистрация

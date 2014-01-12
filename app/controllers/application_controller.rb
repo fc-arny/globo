@@ -42,12 +42,25 @@ class ApplicationController < Sap::BaseController
     end
   end
 
+  def render(*args)
+    unless redirect_back
+      super
+    end
+  end
+
   private
 
   def render_404
     respond_to do |format|
       format.html { render 'common/errors/404', status: 404 }
       format.json { render json: {status: 404, error: 'Page not found'} }
+    end
+  end
+
+  # Redirect to back url 
+  def redirect_back
+    if params[:back_url]
+      redirect_to params[:back_url]
     end
   end
 

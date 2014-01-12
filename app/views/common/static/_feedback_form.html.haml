@@ -11,10 +11,10 @@
     %label.label
       %span.label__title= t('views.feedback.labels.message')
       = f.text_area :message, class: 'label__area required', placeholder: t('views.feedback.labels.message')
-    %button.btn= t('views.feedback.labels.send')
+    %button.btn.btn-globo= t('views.feedback.labels.send')
   .contacts__feedback{style: 'display: none'}
     %p.contacts__desc.request-sent= t('views.feedback.thanks_for_you_feedback')
-    %button.btn.send-more-feedback= t('views.feedback.send_feedback_one_more_time')
+    %button.btn.btn-globo.send-more-feedback= t('views.feedback.send_feedback_one_more_time')
 
 
 = content_for(:js) do

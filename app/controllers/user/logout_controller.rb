@@ -8,7 +8,9 @@ class User::LogoutController < ApplicationController
     sign_out :user
     flash[:success]   = t('sap.api.user.message.log_out')
 
-    redirect_to root_path
+    unless params[:back_url]
+      redirect_to root_path
+    end
   end
 
 end
