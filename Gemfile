@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'http://gems.github.com'
 
 gem 'rails', '~> 4.0.0'
 
@@ -11,7 +10,6 @@ gem 'unicode'
 gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
-gem 'jsend-rails'           # API format specification TODO: remove this gem
 gem 'carrierwave'           # Image unloader
 gem 'kaminari'              # Paginator
 gem 'seedbank'              # Data for any envivonment
@@ -41,10 +39,10 @@ gem 'oily_png'
 gem 'remotipart', '~> 1.2'
 
 gem 'jquery-rails', '~>3.0.1'       # jQuery
-gem 'rails-backbone'                # Backbone
-gem 'backbone-support'              # Backbone Support
+#gem 'rails-backbone'                # Backbone
+#gem 'marionette-rails'              # Backbone Marionette
 gem 'bootstrap-sass', '~> 3.0.3.0'  # Bootsrap
-gem 'haml_coffee_assets'            # JS Templates for backbone
+#gem 'haml_coffee_assets'            # JS Templates for backbone
 
 # Sap gems
 gem 'sap', :path => 'sap'

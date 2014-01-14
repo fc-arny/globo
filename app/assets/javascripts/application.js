@@ -25,7 +25,6 @@
 //= require common/plugins/flashMessage
 //= require common/plugins/userState
 //= require common/plugins/resetPhone
-
 gmCurUserState = 'common';
 
 $(document).ready(function() {
