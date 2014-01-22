@@ -60,6 +60,8 @@ group :development do
   gem 'binding_of_caller'
 
   # Debug
+
+  gem 'intellij-coffee-script-debugger', :git => 'git://github.com/JetBrains/intellij-coffee-script-debugger.git'
   #gem 'coffee-script-redux-debugger', :git => "git://github.com/JetBrains/coffee-script-redux-debugger.git"
   #gem 'ruby-debug-base', '>= 0.10.5.rc3'
   #gem 'ruby-debug-ide', '>= 0.4.17.beta14'

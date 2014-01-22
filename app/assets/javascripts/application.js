@@ -1,8 +1,8 @@
 // jQuery -------------------------
 //---------------------------------
-//= require jquery
-//= require jquery_ujs
-//= require jquery.remotipart
+//= require lib/jquery
+//= //require jquery_ujs
+//= //require jquery.remotipart
 
 //= require common/jquery/jquery.maskedInput.js
 //= require common/jquery/jquery.cycle2

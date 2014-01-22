@@ -4,7 +4,6 @@
 // Backbone Lib -------------------
 //---------------------------------
 //= require underscore
-//= require vendor/json2.js
 //= require backbone
 //= require backbone.marionette
 
