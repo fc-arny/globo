@@ -22,7 +22,7 @@ class User::AccountController < FrontendController
   # Customer's orders
   def orders
     @title = t('views.account.title.page_orders')
-    @page = :orders
+    @page = :order
     render :index
   end
 
