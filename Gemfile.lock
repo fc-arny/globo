@@ -8,7 +8,7 @@ GIT
       sprockets
 
 PATH
-  remote: sap
+  remote: ./../sap
   specs:
     sap (0.0.1)
       sap_api (= 0.0.1)
@@ -144,7 +144,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    marionette-rails (1.6.0)
+    marionette-rails (1.6.1)
       rails (>= 3.1.0)
     mime-types (1.25.1)
     minitest (4.7.5)

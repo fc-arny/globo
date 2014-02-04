@@ -45,7 +45,7 @@ gem 'bootstrap-sass', '~> 3.0.3.0'  # Bootsrap
 #gem 'haml_coffee_assets'            # JS Templates for backbone
 
 # Sap gems
-gem 'sap', :path => 'sap'
+gem 'sap', :path => './../sap'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
