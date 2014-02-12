@@ -6,7 +6,7 @@ class ApplicationController < Sap::BaseController
   after_filter :flash_to_headers
   before_filter do
     unless rails_admin_path?
-      Rack::MiniProfiler.authorize_request # if user.admin?
+      Rack::MiniProfiler.authorize_request if current_user && !current_user.role.nil?
     end
   end
 
@@ -70,6 +70,6 @@ class ApplicationController < Sap::BaseController
   end
 
   def rails_admin_path?
-    (params[:controller] =~ /^rails_admin/).nil?
+    !(params[:controller] =~ /^rails_admin/).nil?
   end
 end
