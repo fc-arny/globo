@@ -46,8 +46,9 @@ Gm::Application.routes.draw do
     end
   end
 
-  # API
+  # SAP
   mount Sap::Core::Engine => '/', as: 'sap'
+  get 'logout' => 'logout#logout', as: 'destroy_user_session'
 
   # Common route
   match '/:controller/:action(.:format)', :defaults => {action: 'index'}, :via => :all

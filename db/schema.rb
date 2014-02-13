@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223013411) do
+ActiveRecord::Schema.define(version: 20140213013447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,21 @@ ActiveRecord::Schema.define(version: 20131223013411) do
     t.text     "answer"
     t.integer  "user_id"
     t.boolean  "show_in_faq", default: false
-    t.integer  "order",       default: 0
+    t.integer  "position",    default: 0
     t.integer  "status",      default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "versions", force: true do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end
