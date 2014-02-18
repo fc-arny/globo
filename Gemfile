@@ -10,7 +10,6 @@ gem 'unicode'
 gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
-gem 'carrierwave'           # Image unloader
 gem 'kaminari'              # Paginator
 gem 'seedbank'              # Data for any envivonment
 
