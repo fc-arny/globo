@@ -3,9 +3,9 @@
 
 // Backbone Lib -------------------
 //---------------------------------
-//= require underscore
-//= require backbone
-//= require backbone.marionette
+//= require lib/underscore
+//= require lib/backbone
+//= require lib/backbone/backbone.marionette
 
 // Backbone App -------------------
 //---------------------------------

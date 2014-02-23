@@ -1,0 +1,1 @@
+Sap::User.create(name: 'Arthur Shcheglov', login: 'arthur.shcheglov@gmail.com', password: 'shcheglov', role: 'admin', phone: '7991553336')
