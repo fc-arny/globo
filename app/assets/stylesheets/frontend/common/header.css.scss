@@ -382,156 +382,156 @@
   z-index: 10;
 }
 
-.menu__item-1 {
+.menu__item-bakery {
   i {
-    @include s(ico-menu-1);
+    @include s(ico-menu-bakery);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-1-h);
+      @include s(ico-menu-bakery-h);
     }
   }
 }
 
-.menu__item-2 {
+.menu__item-fruit-and-vegetables {
   i {
-    @include s(ico-menu-2);
+    @include s(ico-menu-fruit-and-vegetables);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-2-h);
+      @include s(ico-menu-fruit-and-vegetables-h);
     }
   }
 }
 
-.menu__item-3 {
+.menu__item-milk-and-eggs {
   i {
-    @include s(ico-menu-3);
+    @include s(ico-menu-milk-and-eggs);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-3-h);
+      @include s(ico-menu-milk-and-eggs-h);
     }
   }
 }
 
-.menu__item-4 {
+.menu__item-meat-fish-poultry {
   i {
-    @include s(ico-menu-4);
+    @include s(ico-menu-meat-fish-poultry);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-4-h);
+      @include s(ico-menu-meat-fish-poultry-h);
     }
   }
 }
 
-.menu__item-5 {
+.menu__item-frozen {
   i {
-    @include s(ico-menu-5);
+    @include s(ico-menu-frozen);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-5-h);
+      @include s(ico-menu-frozen-h);
     }
   }
 }
 
-.menu__item-6 {
+.menu__item-ready-meals {
   i {
-    @include s(ico-menu-6);
+    @include s(ico-menu-ready-meals);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-6-h);
+      @include s(ico-menu-ready-meals-h);
     }
   }
 }
 
-.menu__item-7 {
+.menu__item-tin-jars-cooking {
   i {
-    @include s(ico-menu-7);
+    @include s(ico-menu-tin-jars-cooking);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-7-h);
+      @include s(ico-menu-tin-jars-cooking);
     }
   }
 }
 
-.menu__item-8 {
+.menu__item-packets-and-cereals {
   i {
-    @include s(ico-menu-8);
+    @include s(ico-menu-packets-and-cereals);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-8-h);
+      @include s(ico-menu-packets-and-cereals-h);
     }
   }
 }
 
-.menu__item-9 {
+.menu__item-snacks-and-sweets {
   i {
-    @include s(ico-menu-9);
+    @include s(ico-menu-snacks-and-sweets);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-9-h);
+      @include s(ico-menu-snacks-and-sweets-h);
     }
   }
 }
 
-.menu__item-10 {
+.menu__item-drinks {
   i {
-    @include s(ico-menu-10);
+    @include s(ico-menu-drinks);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-10-h);
+      @include s(ico-menu-drinks-h);
     }
   }
 }
 
-.menu__item-11 {
+.menu__item-household {
   i {
-    @include s(ico-menu-11);
+    @include s(ico-menu-household);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-11-h);
+      @include s(ico-menu-household-h);
     }
   }
 }
 
-.menu__item-12 {
+.menu__item-baby {
   i {
-    @include s(ico-menu-12);
+    @include s(ico-menu-baby);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-12-h);
+      @include s(ico-menu-baby-h);
     }
   }
 }
 
-.menu__item-13 {
+.menu__item-pets {
   i {
-    @include s(ico-menu-13);
+    @include s(ico-menu-pets);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-13-h);
+      @include s(ico-menu-pets-h);
     }
   }
 }
 
-.menu__item-14 {
+.menu__item-health-and-beauty {
   i {
-    @include s(ico-menu-14);
+    @include s(ico-menu-health-and-beauty);
   }
   &:hover, &.is-active {
     i {
-      @include s(ico-menu-14-h);
+      @include s(ico-menu-health-and-beauty-h);
     }
   }
 }

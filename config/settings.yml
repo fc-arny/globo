@@ -39,3 +39,5 @@ contacts:
   address: г.Москва, ул. Новослободская 54/56, 5 этаж
   hr_email: hr@globomarket.ru
 
+cache:
+  main_menu_sec: 86400

@@ -5,6 +5,7 @@ gem 'rails', '~> 4.0.0'
 # Servers
 gem 'pg'
 gem 'unicorn', :platform => :ruby
+gem 'dalli'
 
 # Tools, Utilities
 gem 'foreigner'             # Foreign key
@@ -12,6 +13,8 @@ gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
 gem 'kaminari'              # Paginator
 gem 'resque'                # Delayed Job
+gem 'mailcatcher'           # View sent emails
+gem 'awesome_print'         # Print in console
 
 # I18n
 gem 'rails-i18n'

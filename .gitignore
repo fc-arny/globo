@@ -26,5 +26,4 @@ config/settings/*.local.yml
 config/environments/*.local.yml
 
 # Ignore sap gems
-/sap
-
+./sap

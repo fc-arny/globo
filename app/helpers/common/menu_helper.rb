@@ -1,7 +1,31 @@
 module Common::MenuHelper
+
   # Main menu 
   def header_menu
-    render :partial => 'partials/header'
+    cache_time = Settings.cache.main_menu_sec.to_i
+
+    categories = Rails.cache.fetch([:header, :categories], expires_in: cache_time.seconds) do
+      Sap::Category.where('parent_id IS NULL').to_a
+    end
+
+    subcategories = Rails.cache.fetch([:header, :subcategories], expires_in: cache_time.seconds) do
+      _subcategories = {}
+      categories.each do |parent|
+        _subcategories["menu-item-#{parent.id}"] = Sap::Category.where(parent_id: parent.id).to_a
+      end
+
+      _subcategories
+    end
+
+    render partial: 'partials/header', locals: { categories: categories, subcategories: subcategories }
+  end
+
+  def header_menu_link(*urls)
+    full_url = '/goods/store'
+    urls.each do |url|
+      full_url += "/#{url}"
+    end
+    full_url
   end
 
   # -------------------------------------------------------------
@@ -28,95 +52,7 @@ module Common::MenuHelper
   # Render category tree. We use only two-level categorization
   # -------------------------------------------------------------
   def category_list
-    categories = Sap::Category.all #get_category_tree
-    CategoryRenderer.new(categories, self).render
-  end
-
-  # -------------------------------------------------------------
-  # Main menu categories
-  # -------------------------------------------------------------
-  class CategoryRenderer
-
-    def initialize(categories,template)
-      @template   = template
-      @categories = categories
-
-      # Get current store
-      #@current_store = Sap::Store.all.first #find(session[:store_id])
-    end
-
-    # -------------------------------------------------------------
-    # Render menu
-    # -------------------------------------------------------------
-    def render
-      build_menu
-    end
-
-    private
-
-    # -------------------------------------------------------------
-    # Generate menu
-    # -------------------------------------------------------------
-    def build_menu
-      haml_tag :div, :class => 'categories-menu' do
-        haml_tag :ul, :class => 'categories' do
-          @categories.each do |category|
-            haml_tag :li, :class => 'item' do
-              render_category_item category
-            end
-          end
-        end
-      end
-    end
-
-    # -------------------------------------------------------------
-    # Render category item
-    # -------------------------------------------------------------
-    def render_category_item(category)
-      link = build_link(category[:url])
-
-      haml_tag :strong  do
-        haml_concat category[:name]
-      end
-
-      render_category_subitems(category)
-    end
-
-    # -------------------------------------------------------------
-    # Render sub categories
-    # -------------------------------------------------------------
-    def render_category_subitems(category)
-      haml_tag :ul, :class => 'sub-categories' do
-        category[:children].each do |cat|
-
-          href = build_link(cat[:url])
-          data_url = "#{cat[:url]}"
-
-          haml_tag :li, :class => 'sub-item' do
-            haml_tag :a, :href => href, :'data-url' => data_url do
-              haml_concat cat[:name]
-            end
-          end
-        end
-      end
-    end
-
-    # -------------------------------------------------------------
-    # Create link
-    # -------------------------------------------------------------
-    def build_link(*urls)
-      full_url = "/goods/#{@current_store.url}"
-      urls.each do |url|
-        full_url += "/#{url}"
-      end
-      full_url
-    end
-
-    # -------------------------------------------------------------
-    # If method missing use helpers method of template
-    # -------------------------------------------------------------
-    def method_missing(*args, &block)
-      @template.send(*args, &block)
-    end
+    #categories = Sap::Category.all #get_category_tree
+    #CategoryRenderer.new(categories, self).render
   end
 end
