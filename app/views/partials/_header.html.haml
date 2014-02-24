@@ -53,7 +53,12 @@
         - subcategories.each do |index, sub_categories|
           .menu__sub{id: index}
             .menu__sub-in
-              %ul
-                - sub_categories.each do |category|
-                  %li.iiis-selected
-                    %a{href: header_menu_link(category.url)}= category.name
+              - sub_categories.each_slice(menu_group_count(sub_categories.count)) do |slice|
+                %ul
+                  - slice.each do |category|
+                    - if category.is_a?(Sap::Category)
+                      %li.is-selected
+                        %a{href: header_menu_link(category.url)}= category.name
+                    - else
+                      %li
+                        %img{src: 'http://flickholdr.com/200/200'}

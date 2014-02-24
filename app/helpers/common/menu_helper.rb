@@ -4,20 +4,23 @@ module Common::MenuHelper
   def header_menu
     cache_time = Settings.cache.main_menu_sec.to_i
 
-    categories = Rails.cache.fetch([:header, :categories], expires_in: cache_time.seconds) do
+    cached_categories = Rails.cache.fetch([:header, :categories], expires_in: cache_time.seconds) do
       Sap::Category.where('parent_id IS NULL').to_a
     end
 
-    subcategories = Rails.cache.fetch([:header, :subcategories], expires_in: cache_time.seconds) do
-      _subcategories = {}
-      categories.each do |parent|
-        _subcategories["menu-item-#{parent.id}"] = Sap::Category.where(parent_id: parent.id).to_a
+    cached_subcategories = Rails.cache.fetch([:header, :subcategories], expires_in: cache_time.seconds) do
+      subcategories = {}
+      cached_categories.each do |parent|
+        index = ['menu-item', parent.id].join('-')
+
+        subcategories[index] = Sap::Category.where(parent_id: parent.id).to_a
+        subcategories[index] << 'image'
       end
 
-      _subcategories
+      subcategories
     end
 
-    render partial: 'partials/header', locals: { categories: categories, subcategories: subcategories }
+    render partial: 'partials/header', locals: { categories: cached_categories, subcategories: cached_subcategories }
   end
 
   def header_menu_link(*urls)
@@ -26,6 +29,14 @@ module Common::MenuHelper
       full_url += "/#{url}"
     end
     full_url
+  end
+
+  def menu_group_count(count)
+    d2 = (count / 2.0).ceil.to_i
+    d3 = (count / 3.0).ceil.to_i
+
+    return d2 + 1  if d2 >= 5 && d2 <= 8
+    return d3 > 6 ? d3 + 1 : count - 1
   end
 
   # -------------------------------------------------------------
