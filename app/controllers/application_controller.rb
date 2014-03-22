@@ -4,11 +4,7 @@
 class ApplicationController < Sap::BaseController
 
   after_filter :flash_to_headers
-  before_filter do
-    unless rails_admin_path?
-      Rack::MiniProfiler.authorize_request if current_user && !current_user.role.nil?
-    end
-  end
+  before_filter :mini_profile
 
   # Include helpers
   helper :all
@@ -42,7 +38,7 @@ class ApplicationController < Sap::BaseController
 
     unless message.blank?
       response.headers['X-Message'] = URI::encode message
-      response.headers['X-Message-Type'] = message_type
+      response.headers['X-Message-Type'] = message_type.to_s
       flash.discard
     end
   end
@@ -54,6 +50,12 @@ class ApplicationController < Sap::BaseController
   end
 
   private
+
+  def mini_profile
+    if Rails.env.development? || (current_user && current_user.role)
+      Rack::MiniProfiler.authorize_request # TODO: Only admins
+    end
+  end
 
   def render_404
     respond_to do |format|

@@ -1,9 +1,9 @@
+@import "compass/css3";
 @import "common/base";
 
 // common styles
 .no-scroll {
   overflow: hidden;
-  margin-right: 15px;
 }
 
 input[disabled], textarea[disabled] {

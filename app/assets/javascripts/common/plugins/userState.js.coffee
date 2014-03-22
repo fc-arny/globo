@@ -38,7 +38,7 @@ class window.UserState extends PluginBase
   # -------------------------------------------------- Update user state by AJAX
   _onUpdate: (event) ->
     $.ajax(
-      url: UserState::URL + '?type=' + @options.type
+      url: UserState::URL
       type: 'GET'
       dataType: 'html'
       success: (response) =>

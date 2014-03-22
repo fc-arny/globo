@@ -2,9 +2,9 @@
 # User state controller
 # ----------------------------------------------------------------------
 class User::StateController < FrontendController
-  # GET /show
+  layout false
+
+  # GET /user/state/show
   # Show user state partial 
-  def show
-    render layout: false
-  end
+  def show; end
 end

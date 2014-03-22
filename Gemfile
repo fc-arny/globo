@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.0'
+ruby '2.1.1'
+
+gem 'rails', '~> 4.1.0.rc1'
 
 # Servers
 gem 'pg'
@@ -30,38 +32,39 @@ gem 'rack-mini-profiler'
 #gem 'airbrake'
 
 # Assets
-gem 'sass-rails'
-gem 'coffee-rails'
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 
-gem 'compass-rails', '~> 1.1.2'
-gem 'uglifier', '>= 1.3.0'
+gem 'compass-rails',  '~> 1.1.7'
+gem 'uglifier',       '>= 1.3.0'
 gem 'oily_png'
-gem 'remotipart', '~> 1.2'
+gem 'remotipart',     '~> 1.2'
 
-gem 'jquery-rails', '~>3.0.1'        # jQuery
-gem 'bootstrap-sass', '~> 3.0.3.0'   # Bootsrap
+gem 'jquery-rails',     '~>3.0.1'    # jQuery
+gem 'bootstrap-sass',   '~> 3.1.0'   # Bootsrap
 #gem 'rails-backbone'                # Backbone
 #gem 'marionette-rails'              # Backbone Marionette
 #gem 'haml_coffee_assets'            # JS Templates for backbone
-
-# Deploy
-gem 'capistrano'
-gem 'capistrano_colors'
-gem 'rvm-capistrano'
 
 # Sap
 gem 'sap', :path => './../sap'
 
 group :development, :test do
+  # Deploy
+  gem 'capistrano',         '~> 3.1'
+  gem 'capistrano-rails',   '~> 1.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'zeus', '>=0.13.4.pre2'
+  gem 'minitest'
 end
 
 group :development do
-  #gem 'spring'
-  #gem 'spring-commands-rspec'
-  gem 'quiet_assets'
+  # Optimization
+  gem 'rails_best_practices'
+  gem 'bullet'
 
   # Errors
   gem 'better_errors'
@@ -72,5 +75,9 @@ group :development do
 end
 
 group :test do
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end

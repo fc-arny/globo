@@ -1,1 +1,2 @@
+require File.expand_path('../../../sap/core/app/models/sap', __FILE__)
 Sap::User.create(name: 'Arthur Shcheglov', login: 'arthur.shcheglov@gmail.com', password: 'shcheglov', role: 'admin', phone: '7991553336')
