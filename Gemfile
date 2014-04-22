@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
-gem 'rails', '~> 4.1.0.rc1'
+gem 'rails', '~> 4.1.0'
 
 # Servers
 gem 'pg'
-gem 'unicorn', :platform => :ruby
+gem 'unicorn', platform: :ruby
 gem 'dalli'
 
 # Tools, Utilities
@@ -42,13 +42,14 @@ gem 'oily_png'
 gem 'remotipart',     '~> 1.2'
 
 gem 'jquery-rails',     '~>3.0.1'    # jQuery
-gem 'bootstrap-sass',   '~> 3.1.0'   # Bootsrap
+gem 'bootstrap-sass',   '~> 3.1.0'   # Bootstrap
 #gem 'rails-backbone'                # Backbone
 #gem 'marionette-rails'              # Backbone Marionette
 #gem 'haml_coffee_assets'            # JS Templates for backbone
 
 # Sap
-gem 'sap', :path => './../sap'
+gem 'sap', path: './components/sap'
+gem 'image_thread', github: 'martsoft/image_thread', branch: :master
 
 group :development, :test do
   # Deploy

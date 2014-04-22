@@ -15,7 +15,7 @@ module Gm
     # config.autoload_paths += %W(#{config.root}/extras)
 
     # Autoload
-	  config.autoload_paths += %W(
+    config.autoload_paths += %W(
                             #{config.root}/models/**
                             #{config.root}/lib
                             #{config.root}/forms/**
