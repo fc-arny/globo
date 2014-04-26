@@ -12,6 +12,19 @@
   top: 0;
   z-index: 500;
 
+  .loader {
+    background: asset_url('loaders/arrows32x32.gif') no-repeat center center transparent;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    margin-top: -16px;
+    margin-left: -16px;
+
+    height: 32px;
+    width: 32px;
+  }
+
   .popup {
     display: block;
     position: relative;

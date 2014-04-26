@@ -27,7 +27,7 @@ module ApplicationHelper
       message = flash[:info]
     end
 
-    render :partial => 'partials/helpers/flash_message', :locals => {message: message, type: type}
+    render partial: 'partials/helpers/flash_message', locals: {message: message, type: type}
   end
 
   # Check controller name

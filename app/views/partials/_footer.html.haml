@@ -15,7 +15,7 @@
         %li
           %a{href: static_page_path(:help)}= t('views.common.footer.menu.help')
 
-      %ul
+      %ul.hidden
         %li= t('views.common.footer.menu.stores')
         - @stores.each do |store|
           %li

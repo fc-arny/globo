@@ -6,7 +6,6 @@ class AjaxPopup extends PluginBase
   # Defaults
   @defaultOptions:
     class: ''
-    loader: '/assets/loaders/arrows32x32.gif'
     close_btn: '.popup__btn-close'
 
 
@@ -14,13 +13,8 @@ class AjaxPopup extends PluginBase
   constructor:(@node, options = {}) ->
     super @node, options
 
-    # Preload loader
-    loaderImage = new Image()
-    loaderImage.src = @options.loader
-
     @_cache()
     @_bindEvents()
-
 
   # -------------------------------------------------- Init and updae plugin options
   initialize: (@options)->
@@ -57,7 +51,7 @@ class AjaxPopup extends PluginBase
   _showPopup: (event)->
     event.preventDefault()
 
-    @$node.html ''
+    @$node.html '<div class="loader"></div>'
     el = event.currentTarget
 
     _title    = $(el).data 'title'
@@ -70,22 +64,17 @@ class AjaxPopup extends PluginBase
     @$node.show()
     @$overlay.show()
 
-    background = @$node.css 'background'
-    @$node.css 'background', "url(#{@options.loader}) no-repeat center center transparent"
-
     if _source.indexOf('/') isnt -1
       $.ajax(
         url:       _source
         type:      'get'
         dataType:  'html'
         success: (response)=>
-          @$node.css 'background', background
           @$node.html response
 
           @_renderContent(response, _title, _classes)
       )
     else
-      @$node.css('background', background)
       @_renderContent($(_source).html(), _title, _classes)
 
 

@@ -493,13 +493,13 @@ z-index: 500;
       background: #0484c6;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
     }
-}
 
-&.load {
-  background: asset_url('loaders/loader-s.gif') no-repeat center center #65b1d7;
-    color: transparent !important;
-    img {
-      margin-left: 10px;
+    &.load {
+      background: asset_url('loaders/loader-s.gif') no-repeat center center #65b1d7;
+      color: transparent !important;
+      img {
+        margin-left: 10px;
+      }
     }
   }
 }

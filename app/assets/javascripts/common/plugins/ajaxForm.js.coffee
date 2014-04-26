@@ -16,7 +16,6 @@
     This mean that before validation will call method '_flter*FilterName*' (ex.: _filterDigits, _filterRegexp etc.).
     If you need pass params to filter you should add data-attribute: data-filter-*filterName*="param" (ex.: data-filter-regexp="/A-Z0-9/")
 
-
 ###
 class AjaxForm extends PluginBase
 
@@ -67,7 +66,7 @@ class AjaxForm extends PluginBase
   _onBefore: (evt, xhr, settings) ->
     return false if @InProgress
 
-    @InProgress = true
+    @_setInProgress true
 
     @$node.find('input').each((index, item)=>
       @_validateInput $(item)
@@ -144,10 +143,10 @@ class AjaxForm extends PluginBase
     @InProgress = inProgress
     if @InProgress
       @$node.find(@options.selectors.submit_btn).addClass('load')
-      @$node.find('input, textarea').attr('disabled', true)
+      @$node.find('input, textarea, button').attr('disabled', true)
     else
       @$node.find('.load').removeClass('load')
-      @$node.find('input, textarea').attr('disabled', false)
+      @$node.find('input, textarea, button').attr('disabled', false)
 
   # -------------------------------------------------- Valid input value
   _validateInput: ($input) ->

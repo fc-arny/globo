@@ -144,6 +144,7 @@
   border-right: 1px solid #e1e1e1;
   box-shadow: 1px 0 0 #fcfcfc;
   cursor: pointer;
+  display: none;
   &.is-open {
     ul {
       display: block;
@@ -222,10 +223,10 @@
 //menu
 .menu {
   position: relative;
-  margin-left: 172px;
-  &.is-slider {
-    margin-left: 192px;
-  }
+  margin-left: 20px;
+//  &.is-slider {
+//    margin-left: 20px;
+//  }
 }
 
 .menu__btn-prev, .menu__btn-next {

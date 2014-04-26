@@ -1,41 +1,10 @@
 / BEGIN .header
 %header.header
   .header__top
-    %a.logo{href: "/"}
+    %a.logo{href: root_url}
       %span.logo__pic
     ._user_state_wrapper= user_state
-    %nav
-      %ul.nav.navbar-nav
-        %li
-          %a{href: static_page_path(:contacts)}= t('views.common.header.nav.contacts')
-        %li
-          %a{href: blog_list_path('news')}= t('views.common.header.nav.news')
-        %li
-          %a{href: static_page_path(:about)}= t('views.common.header.nav.about')
-        %li{class: 'dropdown'}
-          %a{href: '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}}
-            = t('views.common.header.nav.catalog')
-            %b{class: 'caret'}
-          %ul{class: 'dropdown-menu pull-right', role: 'menu'}
-            - @stores.each do |store|
-              %li
-                %a{href: ['/goods/', store.url].join}= store.name
-
-
   .header__down
-    .sel-shop.js-shops
-      .sel-shop__list
-        %button Выбраный магазин
-        %ul
-          %li
-            %img{alt: "", src: "/assets/shop2-s.png"}/
-          %li
-            %img{alt: "", src: "/assets/shop1-s.png"}/
-          %li
-            %img{alt: "", src: "/assets/shop3-s.png"}/
-      .sel-shop__pic
-        %img{alt: "", src: "/assets/shop1-s.png"}/
-    / BEGIN .menu
     .menu
       .menu__list
         %button.menu__btn-prev
@@ -61,4 +30,4 @@
                         %a{href: header_menu_link(category.url)}= category.name
                     - else
                       %li
-                        %img{src: 'http://flickholdr.com/200/200'}
+                        - #%img{src: 'http://flickholdr.com/200/200'}
