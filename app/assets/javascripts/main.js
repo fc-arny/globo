@@ -3,9 +3,9 @@
 //= require jquery
 //= require jquery_ujs
 
-//= require common/jquery/jquery.maskedInput.js
-//= require common/jquery/jquery.cycle2
-//= require common/jquery/ui/jquery.ui.custom.min
+//= require jquery/jquery.maskedInput
+//= require jquery/jquery.cycle2
+//= require jquery/ui/jquery.ui.custom.min
 
 // Bootstrap ----------------------
 //---------------------------------

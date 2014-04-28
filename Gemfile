@@ -39,9 +39,9 @@ gem 'haml-rails'
 gem 'compass-rails',  '~> 1.1.7'
 gem 'uglifier',       '>= 1.3.0'
 gem 'oily_png'
-gem 'remotipart',     '~> 1.2'
+# gem 'remotipart',     '~> 1.2'
 
-gem 'jquery-rails',     '~>3.0.1'    # jQuery
+gem 'jquery-rails'                   # jQuery
 gem 'bootstrap-sass',   '~> 3.1.0'   # Bootstrap
 #gem 'rails-backbone'                # Backbone
 #gem 'marionette-rails'              # Backbone Marionette
@@ -50,6 +50,7 @@ gem 'bootstrap-sass',   '~> 3.1.0'   # Bootstrap
 # Sap
 gem 'sap', path: './components/sap'
 gem 'image_thread', github: 'martsoft/image_thread', branch: :master
+gem 'rails_admin', github: 'sferik/rails_admin', branch: :master
 
 group :development, :test do
   # Deploy

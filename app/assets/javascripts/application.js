@@ -1,15 +1,14 @@
 // jQuery -------------------------
 //---------------------------------
-//= require lib/jquery
-//= //require jquery_ujs
-//= //require jquery.remotipart
+//= require jquery
+//= require jquery_ujs
 
-//= require common/jquery/jquery.maskedInput.js
-//= require common/jquery/jquery.cycle2
-//= require common/jquery/ui/jquery.ui.custom.min
-//= require common/jquery/jquery.mousewheel.min
-//= require common/jquery/jquery.scrollTo
-//= require common/jquery/jquery.jscrollpane
+//= require jquery/jquery.maskedInput
+//= require jquery/jquery.cycle2
+//= require jquery/ui/jquery.ui.custom.min
+//= require jquery/jquery.mousewheel.min
+//= require jquery/jquery.scrollTo
+//= require jquery/jquery.jscrollpane
 
 // Bootstrap ----------------------
 //---------------------------------
