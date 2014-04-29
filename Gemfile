@@ -36,9 +36,11 @@ gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 
+gem 'bower-rails'
 gem 'compass-rails',  '~> 1.1.7'
 gem 'uglifier',       '>= 1.3.0'
-gem 'oily_png'
+
+# gem 'oily_png'
 # gem 'remotipart',     '~> 1.2'
 
 gem 'jquery-rails'                   # jQuery

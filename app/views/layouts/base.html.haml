@@ -7,8 +7,8 @@
       = Settings.common.title
       \-
       = Settings.common.page_title
-    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-    %link(rel="icon" href="/favicon.ico" type="image/x-icon")
+    %meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+    %link(rel='icon' href='/favicon.ico' type='image/x-icon')
 
     = yield :head
     = csrf_meta_tag
@@ -24,7 +24,7 @@
       .loader
     = display_flash_message
 
-    / JS Files and page script
+    .js-errors
     .js-scripts
       = yield :bottom # Include js-files
       = yield :js     # Page scripts

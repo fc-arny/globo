@@ -3,6 +3,7 @@
 
 = content_for :bottom do
   = javascript_include_tag :application
+  = javascript_include_tag 'common/debug' if Rails.env.development?
 
 = content_for :base_content do
   .page

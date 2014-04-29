@@ -38,7 +38,7 @@ Gm::Application.routes.draw do
   get 'store/:url' => 'store/index#show'  # View stores list
 
   scope :module => 'store' do
-    match '/goods/(:store(/*categories))'  => 'goods#index', :via => :get      # Goods
+    match '/goods/(/*categories)'  => 'goods#index', via: :get      # Goods
 
     controller :order do
       get 'order/checkout' => :index

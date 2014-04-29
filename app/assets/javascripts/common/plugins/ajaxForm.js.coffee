@@ -19,7 +19,7 @@
 ###
 class AjaxForm extends PluginBase
 
-  API_STATUS_SUCCESS  = 'success' # Evething ok
+  API_STATUS_SUCCESS  = 'success' # Everything ok
   API_STATUS_FAIL     = 'fail'    # Not valid data
   API_STATUS_ERROR    = 'error'   # Fatal/unexpected errors
 
@@ -143,10 +143,10 @@ class AjaxForm extends PluginBase
     @InProgress = inProgress
     if @InProgress
       @$node.find(@options.selectors.submit_btn).addClass('load')
-      @$node.find('input, textarea, button').attr('disabled', true)
+      @$node.find('button, input[type=submit], input[type=button]').attr('disabled', true)
     else
       @$node.find('.load').removeClass('load')
-      @$node.find('input, textarea, button').attr('disabled', false)
+      @$node.find('button, input[type=submit], input[type=button]').attr('disabled', false)
 
   # -------------------------------------------------- Valid input value
   _validateInput: ($input) ->
