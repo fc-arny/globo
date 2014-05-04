@@ -1,7 +1,7 @@
 ###
 # Main class for working with goods, basket ant etc
 ###
-class GM.Views.GoodsList extends Support.CompositeView
+class GM.Views.GoodsList #extends Support.CompositeView
   className: 'goods-content'
 
  # -------------------------------------------------- Bind events

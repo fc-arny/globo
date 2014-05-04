@@ -1,7 +1,7 @@
 ###
 # Main route class
 ###
-class GM.Routers.Goods extends Support.SwappingRouter
+class GM.Routers.Goods #extends Support.SwappingRouter
 
   # -------------------------------------------------- Init router
   initialize: (data) ->

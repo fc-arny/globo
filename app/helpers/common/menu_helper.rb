@@ -23,13 +23,13 @@ module Common::MenuHelper
     render partial: 'partials/header', locals: { categories: cached_categories, subcategories: cached_subcategories }
   end
 
-  def header_menu_link(*urls)
-    full_url = '/goods/store'
-    urls.each do |url|
-      full_url += "/#{url}"
-    end
-    full_url
-  end
+  # def header_menu_link(*urls)
+  #   full_url = '/goods'
+  #   urls.each do |url|
+  #     full_url += "/#{url}"
+  #   end
+  #   full_url
+  # end
 
   def menu_group_count(count)
     d2 = (count / 2.0).ceil.to_i

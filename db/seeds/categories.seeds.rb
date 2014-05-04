@@ -1,3 +1,4 @@
+require File.expand_path('../../../components/sap/core/app/models/sap', __FILE__)
 Sap::Category.create([
   ## -------------------------------------------------------------------------------------------
   {id: 100, name: 'Выпечка', url: 'bakery', order_pos: 100},
@@ -193,4 +194,9 @@ Sap::Category.create([
     {id: 1422, name: 'vitamins-and-supplemets', url: 'vitamins-and-supplemets', parent_id: 1400},
     {id: 1423, name: 'medicine', url: 'medicine', parent_id: 1400},
     {id: 1424, name: 'beauty-gifts-sets', url: 'beauty-gifts-sets', parent_id: 1400},
+  ## -------------------------------------------------------------------------------------------
+  {id: 1500, name: 'Предложения', url: 'offers', order_pos: 1500, show_in_menu: false},
+    {id: 1501, name: 'Нужное', url: 'need', parent_id: 1500, show_in_menu: false},
+    {id: 1502, name: 'Полезное', url: 'useful', parent_id: 1500, show_in_menu: false},
+    {id: 1503, name: 'Скидки', url: 'sales', parent_id: 1500, show_in_menu: false},
 ])

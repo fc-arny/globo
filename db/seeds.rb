@@ -1,1 +1,1 @@
-require File.expand_path('../../../sap/core/app/models/sap', __FILE__)
+require File.expand_path('../../../components/sap/core/app/models/sap', __FILE__)

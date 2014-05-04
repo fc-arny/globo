@@ -2,7 +2,8 @@ ru:
   views:
     index:
       titles:
-        registration_reason: ДЛЯ ЧЕГО НУЖНА РЕГИСТРАЦИЯ
+        registration_reason: ДЛЯ ЧЕГО НУЖНА РЕГИСТРАЦИЯ?
+        benefits: ДЛЯ ЧЕГО НУЖЕН ГЛОБО?
       btn:
         register: РЕГИСТРАЦИЯ
       nav:

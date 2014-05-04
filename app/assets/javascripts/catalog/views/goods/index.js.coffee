@@ -1,7 +1,7 @@
 ###
 # Store View
 ###
-class GM.Views.GoodsIndex extends Support.CompositeView
+class GM.Views.GoodsIndex #extends Support.CompositeView
 
   initialize: (options) ->
 

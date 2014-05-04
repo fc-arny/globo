@@ -1,7 +1,7 @@
 ###
 # Good Item View
 ###
-class GM.Views.GoodsItem extends Support.CompositeView
+class GM.Views.GoodsItem #extends Support.CompositeView
   className: 'good-item'
 
   # -------------------------------------------------- Constructor

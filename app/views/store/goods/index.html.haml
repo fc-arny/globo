@@ -1,38 +1,22 @@
-= content_for :main do
-  %aside.left
-    / BEGIN .search
-    .search
-      %input{placeholder: "Поиск", type: "text"}/
-      %button
-        %i
-    / END .search
-    / BEGIN .filter
-    .filter
-      %label.filter__all
-        %input{name: "filter", type: "radio"}/
-        %span Все категории
-      .filter__list
-        %label.filter__item
-          %input{name: "filter", type: "radio"}/
-          %span Суши
-        %label.filter__item
-          %input{checked: "checked", name: "filter", type: "radio"}/
-          %span Сашими
-        %label.filter__item
-          %input{name: "filter", type: "radio"}/
-          %span Роллы
-        %label.filter__item
-          %input{name: "filter", type: "radio"}/
-          %span Японские супы
-        %label.filter__item
-          %input{name: "filter", type: "radio"}/
-          %span Японские салаты
-        %label.filter__item
-          %input{name: "filter", type: "radio"}/
-          %span Напитки
-    / END .filter
-  .center
-    / BEGIN .breadcrumbs
+= content_for :content do
+  .layout
+    .prosearch
+      .prosearch__in
+        -#.prosearch__shop.js-shop-search
+        -#  %span
+        -#    %img{alt: "", src: "img/shop2-l.png"}/
+        -#  %ul
+        -#    %li
+        -#      %img{alt: "", src: "img/shop1-l.png"}/
+        -#    %li
+        -#      %img{alt: "", src: "img/shop2-l.png"}/
+        -#    %li
+        -#      %img{alt: "", src: "img/shop3-l.png"}/
+        -#    %li
+        -#      %img{alt: "", src: "img/shop4-l.png"}/
+        .prosearch__txt
+          %input{placeholder: "Молоко", type: :text}
+      %button.btn.btn-globo ИСКАТЬ
     .bc
       .bc__links
         %a{href: "#"}
@@ -48,345 +32,68 @@
           %li По производителю
           %li По рейтингу покупателей
       .bc__push
-    / END .breadcrumbs
-    / BEGIN .catalog
-    %section.catalog
-      .catalog__list
-        .catalog__item
-          .catalog__item-in
-            .catalog__pic.js-prod-open
-              %img{alt: "", src: "img/pic1.jpg"}/
-              %i.like.is-active
-            .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
-            .catalog__price
-              %span Цена (за 50 гр):
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            .catalog__down
-              .catalog__down-in
-                .catalog__down-item
-                  .weight.js-weight
-                    %button.weight__btn-minus
-                      %i
-                    .weight__val
-                      %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-                      %span гр
-                    %button.weight__btn-plus
-                      %i
-                  .catalog__sum
-                    %strong
-                      750
-                      %sup 00
-                      %i.rub P
-                    %button.js-del-prod Удалить
-                .catalog__down-item
-                  %button.catalog__buy-btn.js-add-prod В корзину
-        .catalog__item
-          .catalog__item-in
-            .catalog__pic.js-prod-open
-              %img{alt: "", src: "img/pic1.jpg"}/
-              %i.like
-            .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
-            .catalog__price
-              %span Цена (за 50 гр):
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            .catalog__down
-              .catalog__down-in
-                .catalog__down-item
-                  .weight.js-weight
-                    %button.weight__btn-minus
-                      %i
-                    .weight__val
-                      %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-                      %span гр
-                    %button.weight__btn-plus
-                      %i
-                  .catalog__sum
-                    %strong
-                      750
-                      %sup 00
-                      %i.rub P
-                    %button.js-del-prod Удалить
-                .catalog__down-item
-                  %button.catalog__buy-btn.js-add-prod В корзину
-        .catalog__item
-          .catalog__item-in
-            .catalog__pic.js-prod-open
-              %img{alt: "", src: "img/pic1.jpg"}/
-              %i.like.is-active
-            .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
-            .catalog__price
-              %span Цена (за 50 гр):
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            .catalog__down
-              .catalog__down-in
-                .catalog__down-item
-                  .weight.js-weight
-                    %button.weight__btn-minus
-                      %i
-                    .weight__val
-                      %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-                      %span гр
-                    %button.weight__btn-plus
-                      %i
-                  .catalog__sum
-                    %strong
-                      750
-                      %sup 00
-                      %i.rub P
-                    %button.js-del-prod Удалить
-                .catalog__down-item
-                  %button.catalog__buy-btn.js-add-prod В корзину
-        .catalog__item
-          .catalog__item-in
-            .catalog__pic.js-prod-open
-              %img{alt: "", src: "img/pic1.jpg"}/
-              %i.like
-            .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
-            .catalog__price
-              %span Цена (за 50 гр):
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            .catalog__down
-              .catalog__down-in
-                .catalog__down-item
-                  .weight.js-weight
-                    %button.weight__btn-minus
-                      %i
-                    .weight__val
-                      %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-                      %span гр
-                    %button.weight__btn-plus
-                      %i
-                  .catalog__sum
-                    %strong
-                      750
-                      %sup 00
-                      %i.rub P
-                    %button.js-del-prod Удалить
-                .catalog__down-item
-                  %button.catalog__buy-btn.js-add-prod В корзину
-        .catalog__item
-          .catalog__item-in
-            .catalog__pic.js-prod-open
-              %img{alt: "", src: "img/pic1.jpg"}/
-              %i.like
-            .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
-            .catalog__price
-              %span Цена (за 50 гр):
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            .catalog__down
-              .catalog__down-in
-                .catalog__down-item
-                  .weight.js-weight
-                    %button.weight__btn-minus
-                      %i
-                    .weight__val
-                      %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-                      %span гр
-                    %button.weight__btn-plus
-                      %i
-                  .catalog__sum
-                    %strong
-                      750
-                      %sup 00
-                      %i.rub P
-                    %button.js-del-prod Удалить
-                .catalog__down-item
-                  %button.catalog__buy-btn.js-add-prod В корзину
-        .catalog__item
-          .catalog__item-in
-            .catalog__pic.js-prod-open
-              %img{alt: "", src: "img/pic1.jpg"}/
-              %i.like
-            .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
-            .catalog__price
-              %span Цена (за 50 гр):
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            .catalog__down
-              .catalog__down-in
-                .catalog__down-item
-                  .weight.js-weight
-                    %button.weight__btn-minus
-                      %i
-                    .weight__val
-                      %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-                      %span гр
-                    %button.weight__btn-plus
-                      %i
-                  .catalog__sum
-                    %strong
-                      750
-                      %sup 00
-                      %i.rub P
-                    %button.js-del-prod Удалить
-                .catalog__down-item
-                  %button.catalog__buy-btn.js-add-prod В корзину
-      %button.catalog__more-btn
-        Показать ещё
-        %span 567
-        найменований
-    / END .catalog
+    %aside.right
+      .filter
+        %label.filter__all
+          %input{name: "filter", type: "radio"}/
+          %span Все категории
+        .filter__list
+          %label.filter__item
+            %input{name: "filter", type: "radio"}/
+            %span Суши
+          %label.filter__item
+            %input{checked: "checked", name: "filter", type: "radio"}/
+            %span Сашими
+          %label.filter__item
+            %input{name: "filter", type: "radio"}/
+            %span Роллы
+          %label.filter__item
+            %input{name: "filter", type: "radio"}/
+            %span Японские супы
+          %label.filter__item
+            %input{name: "filter", type: "radio"}/
+            %span Японские салаты
+          %label.filter__item
+            %input{name: "filter", type: "radio"}/
+            %span Напитки
+    .center
+      %section.catalog
+        .catalog__list
+          - 25.times do
+            .catalog__item.col-sm-6.col-md-4.col-lg-3
+              .catalog__item-in
+                .catalog__pic.js-prod-open
+                  %img{alt: "", src: '/assets/pic1.jpg'}/
+                  %i.like.is-active
+                .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
+                .catalog__price
+                  %span Цена (за 50 гр):
+                  %strong
+                    75
+                    %sup 00
+                    %i.rub P
+                .catalog__down
+                  .catalog__down-in
+                    .catalog__down-item
+                      .weight.js-weight
+                        %button.weight__btn-minus
+                          %i
+                        .weight__val
+                          %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
+                          %span гр
+                        %button.weight__btn-plus
+                          %i
+                      .catalog__sum
+                        %strong
+                          750
+                          %sup 00
+                          %i.rub P
+                        %button.js-del-prod Удалить
+                    .catalog__down-item
+                      %button.catalog__buy-btn.js-add-prod В корзину
 
-/ Просмотр товара
-/ BEGIN .prod
-.prod
-  .prod__in
-    %button.prod__btn-close.js-prod-close
-    .prod__left
-      .prod__pic
-        %img{alt: "", src: "img/pic3.jpg"}/
-        %i.like
-      %ul.prod__links
-        %li
-          %a{href: "#"} Продукты от производителя
-        %li
-          %a{href: "#"} Роллы других производителей
-        %li
-          %a{href: "#"} Японская кухня
-        %li
-          %a{href: "#"} Рыбные блюда
-        %li
-          %a{href: "#"} Морепродукты
-    .prod__right
-      .prod__title Калифорния с копченым лососем и кунжутом
-      .prod__desc Состав: рис, нори, копченый лосось, авокадо, огурец, майонез, кунжут.
-      .prod__price
-        Цена (за 50 гр):
-        %strong
-          75
-          %sup 00
-        %i.rub P
-      .prod__buy
-        .weight.js-weight
-          %button.weight__btn-minus
-            %i
-          .weight__val
-            %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-            %span гр
-          %button.weight__btn-plus
-            %i
-        .prod__total
-          1460
-          %sup 00
-          %i.rub P
-      .prod__del
-        %button Удалить
-      .tabs.js-tabs
-        .tabs__nav
-          %button.is-active{"data-tab" => "tabs__content-price"} Цена
-          %button{"data-tab" => "tabs__content-compos"} Состав
-          %button{"data-tab" => "tabs__content-views"}
-            Обзоры
-            %span (2)
-        .tabs__content.tabs__content-price
-          .tabs__title Текущие цены
-          %ul.tabs__price
-            %li.is-active
-              %img{alt: "", src: "img/shop1-s.png"}/
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            %li
-              %img{alt: "", src: "img/shop2-s.png"}/
-              %strong
-                75
-                %sup 00
-                %i.rub P
-            %li
-              %img{alt: "", src: "img/shop3-s.png"}/
-              %span Недоступно
-            %li
-              %img{alt: "", src: "img/shop4-s.png"}/
-              %span Недоступно
-          .tabs__title ГРАФИК ЦЕН
-          .tabs__graph
-            %img{alt: "", src: "img/graph.jpg"}/
-          .tabs__stat
-            %li
-              %strong>
-                96
-                %sup 00
-                %i.rub P
-              Максимальная
-              %br>/
-              цена
-            %li
-              %strong>
-                90
-                %sup 00
-                %i.rub P
-              Средняя
-              %br>/
-              цена
-            %li
-              %strong>
-                86
-                %sup 00
-                %i.rub P
-              Минимальная
-              %br>/
-              цена
-        .tabs__content.tabs__content-compos
-          .tabs__graph
-            %img{alt: "", src: "img/graph1.jpg"}/
-          %ul.tabs__compos
-            %li
-              Энергетическая ценность:
-              %span 250 kcal
-            %li
-              От Углеводов
-              %span 98.76
-            %li
-              От Жиров
-              %span 107.46
-            %li
-              От Белков
-              %span 33.12
-        .tabs__content.tabs__content-views
-          %ul.tabs__reviews
-            %li
-              .rating
-                %img{alt: "", src: "img/icons/rating-act.png"}/
-                %img{alt: "", src: "img/icons/rating-act.png"}/
-                %img{alt: "", src: "img/icons/rating-act.png"}/
-                %img{alt: "", src: "img/icons/rating.png"}/
-                %img{alt: "", src: "img/icons/rating.png"}/
-              .tabs__reviews-txt Однажды купили, - думали селедка, а теперь только суши и кушаем!
-              .tabs__reviews-detail
-                %span Николай Васильевич
-                %span 14.05.2013
-            %li
-              .rating
-                %img{alt: "", src: "img/icons/rating-act.png"}/
-                %img{alt: "", src: "img/icons/rating-act.png"}/
-                %img{alt: "", src: "img/icons/rating-act.png"}/
-                %img{alt: "", src: "img/icons/rating.png"}/
-                %img{alt: "", src: "img/icons/rating.png"}/
-              .tabs__reviews-txt Однажды купили, - думали селедка, а теперь только суши и кушаем!
-              .tabs__reviews-detail
-                %span Николай Васильевич
-                %span 14.05.2013
-            %li
-              %button.tabs__reviews-more Показать больше отзывов
-/ END .prod
+
+
 
 = content_for :js do
   = javascript_include_tag :catalog

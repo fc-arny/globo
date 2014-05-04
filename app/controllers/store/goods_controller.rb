@@ -1,18 +1,22 @@
 # -------------------------------------------------------------
 # Goods & Categories
 # -------------------------------------------------------------
-
 class Store::GoodsController < FrontendController
 
   def index
-    # Set up current store
-    # store = Sap::Store.find_by_url(store_url)
-    # session[:store_id] = store.id
+    _curl = params[:category] || 'offers'
+
+    @category = Sap::Category.where(url: _curl).first
+    @children = @category.children
 
     # JSON respond is empty. Need for setting up current store
     respond_to do |format|
       format.html
       format.json{ render :json => '' }
     end
+  end
+
+  def show
+
   end
 end

@@ -10,11 +10,11 @@
   @include clr;
 }
 
-.left {
-  float: left;
-  width: 180px;
+.right {
+  float: right;
+  min-width: 180px;
 }
 
 .center {
-  margin-left: 210px;
+  margin-right: 210px;
 }

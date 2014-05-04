@@ -1,7 +1,7 @@
 ###
 # Basket view
 ###
-class GM.Views.Basket extends Support.CompositeView
+class GM.Views.Basket #extends Support.CompositeView
 
   el: '.basket'
 

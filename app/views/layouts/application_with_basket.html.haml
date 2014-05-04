@@ -1,8 +1,0 @@
-= content_for :content do
-  / Content
-  .layout{klass: 'layout_mod'}
-    = content_for?(:main) ? yield(:main) : yield
-
-  = #basket_sidebar @order
-
-= render :template => 'layouts/application'

@@ -51,8 +51,9 @@
       = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}
 
       / BEGIN .m-benefits
-      .m-benefits
-        %ul.container
+      .m-benefits.container
+        .title= t('views.index.titles.benefits')
+        %ul
           - t('views.index.benefits_hash').each do |benefit|
             %li{class: benefit['class']}
               %i
