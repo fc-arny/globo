@@ -1,61 +1,8 @@
 = content_for :content do
   .layout
-    .prosearch
-      .prosearch__in
-        -#.prosearch__shop.js-shop-search
-        -#  %span
-        -#    %img{alt: "", src: "img/shop2-l.png"}/
-        -#  %ul
-        -#    %li
-        -#      %img{alt: "", src: "img/shop1-l.png"}/
-        -#    %li
-        -#      %img{alt: "", src: "img/shop2-l.png"}/
-        -#    %li
-        -#      %img{alt: "", src: "img/shop3-l.png"}/
-        -#    %li
-        -#      %img{alt: "", src: "img/shop4-l.png"}/
-        .prosearch__txt
-          %input{placeholder: "Молоко", type: :text}
-      %button.btn.btn-globo ИСКАТЬ
-    .bc
-      .bc__links
-        %a{href: "#"}
-          Кулинария
-          %i.bc__ico-1
-        %span Блюда японской кухни
-      .bc__filter
-        %span Сортировать по:
-        %button.js-sort Самое популярное
-        %ul
-          %li По цене
-          %li По рейтингу
-          %li По производителю
-          %li По рейтингу покупателей
-      .bc__push
-    %aside.right
-      .filter
-        %label.filter__all
-          %input{name: "filter", type: "radio"}/
-          %span Все категории
-        .filter__list
-          %label.filter__item
-            %input{name: "filter", type: "radio"}/
-            %span Суши
-          %label.filter__item
-            %input{checked: "checked", name: "filter", type: "radio"}/
-            %span Сашими
-          %label.filter__item
-            %input{name: "filter", type: "radio"}/
-            %span Роллы
-          %label.filter__item
-            %input{name: "filter", type: "radio"}/
-            %span Японские супы
-          %label.filter__item
-            %input{name: "filter", type: "radio"}/
-            %span Японские салаты
-          %label.filter__item
-            %input{name: "filter", type: "radio"}/
-            %span Напитки
+    = goods_search
+    = goods_breadcrumbs @category
+    = category_filter
     .center
       %section.catalog
         .catalog__list
@@ -96,4 +43,4 @@
 
 
 = content_for :js do
-  = javascript_include_tag :catalog
+  = javascript_include_tag :goodsapp

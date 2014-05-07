@@ -1,18 +1,18 @@
 // jQuery -------------------------
 //---------------------------------
-//= require jquery
+//= require jquery/dist/jquery
 //= require jquery_ujs
 
-//= require jquery/jquery.maskedInput
-//= require jquery/jquery.cycle2
-//= require jquery/ui/jquery.ui.custom.min
-//= require jquery/jquery.mousewheel.min
-//= require jquery/jquery.scrollTo
-//= require jquery/jquery.jscrollpane
+//= require jquery-maskedinput/dist/jquery.maskedinput
+//= require jquery-cycle2/build/jquery.cycle2
+//= require jquery-ui/ui/jquery-ui
+//= require jquery-mousewheel/jquery.mousewheel
+//= require jquery.scrollTo/jquery.scrollTo
+//= require jquery.jscrollpane/jquery.jscrollpane
 
 // Bootstrap ----------------------
 //---------------------------------
-//= require bootstrap
+//= require bootstrap/dist/js/bootstrap
 
 // Common
 //= require_tree ./core
@@ -502,10 +502,10 @@ $(document).ready(function() {
 //window resize
 	$(window).resize(function() {
 		//init
-		slidermenu_responsive();
-		$(window).scrollTo(page_top + 'px', 0);
-		body.removeAttr('style');
-		scroll_init();
+//		slidermenu_responsive();
+//		$(window).scrollTo(page_top + 'px', 0);
+//		body.removeAttr('style');
+//		scroll_init();
 	});
 
 //window scroll

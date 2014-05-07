@@ -46,7 +46,7 @@
         %nav.container
           %a{href: static_page_path(:help)}= t('views.index.nav.help')
           %a{href: blog_list_path(:news)}= t('views.index.nav.news')
-          %a{href: "#"}= t('views.index.nav.search')
+          %a{href: goods_path}= t('views.index.nav.goods')
           %a{href: static_page_path(:promo)}= t('views.index.nav.promo')
       = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}
 

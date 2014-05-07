@@ -4,10 +4,10 @@
 class Store::GoodsController < FrontendController
 
   def index
-    _curl = params[:category] || 'offers'
+    _curl = params[:category]
 
     @category = Sap::Category.where(url: _curl).first
-    @children = @category.children
+    @children = @category ? @category.children : nil
 
     # JSON respond is empty. Need for setting up current store
     respond_to do |format|

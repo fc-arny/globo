@@ -44,10 +44,6 @@ gem 'uglifier',       '>= 1.3.0'
 # gem 'remotipart',     '~> 1.2'
 
 gem 'jquery-rails'                   # jQuery
-gem 'bootstrap-sass',   '~> 3.1.0'   # Bootstrap
-#gem 'rails-backbone'                # Backbone
-#gem 'marionette-rails'              # Backbone Marionette
-#gem 'haml_coffee_assets'            # JS Templates for backbone
 
 # Sap
 gem 'sap', path: './components/sap'
