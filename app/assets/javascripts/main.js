@@ -1,15 +1,15 @@
 // jQuery -------------------------
 //---------------------------------
-//= require jquery
+//= require jquery/dist/jquery
 //= require jquery_ujs
 
-//= require jquery/jquery.maskedInput
-//= require jquery/jquery.cycle2
-//= require jquery/ui/jquery.ui.custom.min
+//= require jquery-maskedinput/dist/jquery.maskedinput
+//= require jquery-cycle2/build/jquery.cycle2
+//= require jquery-ui/ui/jquery-ui
 
 // Bootstrap ----------------------
 //---------------------------------
-//= require bootstrap/dropdown
+//= require bootstrap/dist/js/bootstrap
 
 
 //= require_tree ./core

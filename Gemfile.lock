@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/martsoft/image_thread.git
-  revision: 1a79847d617b0e2b1ae08418142956f52a0efa03
+  revision: 7c94dee2f3fc151036f6f05ae0f8de8a8c380c2a
   branch: master
   specs:
     image_thread (0.0.1)
@@ -38,6 +38,13 @@ GIT
       remotipart (~> 1.0)
       safe_yaml (~> 1.0)
       sass-rails (~> 4.0)
+
+GIT
+  remote: git://github.com/thoughtbot/high_voltage.git
+  revision: 2f99d0789d6114982f6390b3cf4e8d2ea271d17d
+  branch: master
+  specs:
+    high_voltage (2.1.0)
 
 PATH
   remote: ./components/sap
@@ -399,7 +406,7 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unicorn (4.8.2)
+    unicorn (4.8.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -433,6 +440,7 @@ DEPENDENCIES
   factory_girl_rails
   foreigner
   haml-rails
+  high_voltage!
   i18n-js
   image_thread!
   intellij-coffee-script-debugger!

@@ -550,21 +550,3 @@ $(document).ready(function() {
 	});
 
 });
-
-
-/**
- * //= require backbone-support
-//= require_tree ./common
-//= require_directory ./sap
-//= require_tree sap/old/plugins
-
-// Backbone App -------------------
-//---------------------------------
-//= require_tree sap/old/models
-//= require_tree sap/old/collections
-//= require_tree sap/old/views
-//= require_tree sap/old/routers
-//= require_tree ../templates
-
-*/
-

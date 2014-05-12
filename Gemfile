@@ -17,6 +17,7 @@ gem 'kaminari'              # Paginator
 gem 'resque'                # Delayed Job
 gem 'mailcatcher'           # View sent emails
 gem 'awesome_print'         # Print in console
+gem 'high_voltage', github: 'thoughtbot/high_voltage', branch: 'master'
 
 # I18n
 gem 'rails-i18n'
@@ -43,7 +44,7 @@ gem 'uglifier',       '>= 1.3.0'
 # gem 'oily_png'
 # gem 'remotipart',     '~> 1.2'
 
-gem 'jquery-rails'                   # jQuery
+gem 'jquery-rails'                   # jQuery UJS
 
 # Sap
 gem 'sap', path: './components/sap'

@@ -3,44 +3,9 @@
     = goods_search
     = goods_breadcrumbs @category
     = category_filter
-    .center
+    #good-app-container.center{'ng:controller' => 'GoodsController', 'ng:init' => 'init()'}
       %section.catalog
         .catalog__list
-          - 25.times do
-            .catalog__item.col-sm-6.col-md-4.col-lg-3
-              .catalog__item-in
-                .catalog__pic.js-prod-open
-                  %img{alt: "", src: '/assets/pic1.jpg'}/
-                  %i.like.is-active
-                .catalog__title.js-prod-open Плов с мясом баранины рецепту Глобус Гурмэ
-                .catalog__price
-                  %span Цена (за 50 гр):
-                  %strong
-                    75
-                    %sup 00
-                    %i.rub P
-                .catalog__down
-                  .catalog__down-in
-                    .catalog__down-item
-                      .weight.js-weight
-                        %button.weight__btn-minus
-                          %i
-                        .weight__val
-                          %input{"data-factor" => "50", maxlength: "4", type: "text", value: "500"}/
-                          %span гр
-                        %button.weight__btn-plus
-                          %i
-                      .catalog__sum
-                        %strong
-                          750
-                          %sup 00
-                          %i.rub P
-                        %button.js-del-prod Удалить
-                    .catalog__down-item
-                      %button.catalog__buy-btn.js-add-prod В корзину
-
-
-
 
 = content_for :js do
-  = javascript_include_tag :goodsapp
+  = javascript_include_tag :store
