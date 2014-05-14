@@ -14,7 +14,7 @@
         %ul.menu__list-in
           - categories.each do |category|
             %li{data: {item: "menu-item-#{category.id}"}}
-              %a{class: "menu__item-#{category.id} menu__item-#{category.url}", href: goods_url(category.url)}
+              %a{class: "menu__item-#{category.id} menu__item-#{category.url}", href: "/goods/#/#{category.url}"}
                 = category.name
                 %i
       .menu__sub-arr

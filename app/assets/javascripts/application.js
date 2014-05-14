@@ -14,6 +14,10 @@
 //---------------------------------
 //= require bootstrap/dist/js/bootstrap
 
+// Underscore ---------------------
+//---------------------------------
+//= require underscore/underscore
+
 // Common
 //= require_tree ./core
 //= require common/init

@@ -42,6 +42,6 @@
         "angular-chosen-localytics": "~1.0.0",
         "angular-bootstrap": "~0.10.0",
 
-        "restangular": "~1.1.8"
+        "restangular": "~1.4.0"
     }
 }

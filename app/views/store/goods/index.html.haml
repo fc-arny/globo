@@ -1,11 +1,11 @@
 = content_for :content do
   .layout
-    = goods_search
-    = goods_breadcrumbs @category
+    = #goods_search
+    .bc
+      = goods_breadcrumbs @category
     = category_filter
     #good-app-container.center{'ng:controller' => 'GoodsController', 'ng:init' => 'init()'}
-      %section.catalog
-        .catalog__list
+      %section.catalog{'ui-view' => 'goodsContainer'}
 
 = content_for :js do
   = javascript_include_tag :store

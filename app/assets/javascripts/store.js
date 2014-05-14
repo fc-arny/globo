@@ -1,12 +1,9 @@
-// Lib
-// ------------------------------------------
-//= require underscore/underscore
-
 // Angular + Plugins
 // ------------------------------------------
 //= require angular/angular
-//= require angular-route/angular-route
 //= require angular-resource/angular-resource
+
+//= require restangular/dist/restangular
 
 //= require angular-cookies/angular-cookies
 //= require angular-animate/angular-animate
@@ -28,4 +25,12 @@
 
 //= require_tree ./apps/store/controllers
 
+// Init app
 angular.bootstrap($('#good-app-container').get(0), ['gm.controllers.store']);
+
+//    console.log('Sta');
+//    //
+    $(document).on("click", "a[href^='/goods']", function(evt) {
+//        evt.preventDefault();
+
+    });
