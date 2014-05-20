@@ -4,7 +4,6 @@
   angular.module('gm.controllers.store', [
     'restangular'
 
-#    'ngRoute'
     'ngSanitize'
 
     'gm.services.store'
@@ -16,9 +15,10 @@
   ]).config([
     '$httpProvider'
     '$urlRouterProvider'
+    '$locationProvider'
     '$stateProvider'
     'RestangularProvider'
-    ($httpProvider, $urlRouterProvider, $stateProvider, RestangularProvider)->
+    ($httpProvider, $urlRouterProvider, $locationProvider, $stateProvider, RestangularProvider)->
       $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest'
 
       # Restangular
@@ -37,22 +37,24 @@
 
       # Routes
       $stateProvider.state('goods',
-        url: '/'
-        controller: 'GoodsController'
-        views:
-          goodsContainer:
-            templateUrl: '/templates/store/goods/list'
-      ).state('goods.list',
-        url: '^/{category}'
+        url: '/:category'
         controller: 'GoodsController'
         views:
           goodsContainer:
             templateUrl: '/templates/store/goods/list'
       ).state 'goods.details',
-        url: '^/item/:id'
+        url: '/item/:id'
         views:
           goodsContainer:
             templateUrl: '/templates/store/goods/detail'
 
+      $urlRouterProvider.otherwise '/'
+
+      $locationProvider.hashPrefix '!'
+
   ])
+#  .run(['$state', '$stateParams',  ($state, $stateParams) ->
+##    console.log $state.current
+##    $state.transitionTo $state.current, $stateParams
+#  ])
 )(window.angular)

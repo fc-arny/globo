@@ -2,18 +2,26 @@
   angular.module('gm.controllers.store').controller('GoodsController', [
     '$scope', 'GoodsService', '$state'
     ($scope, GoodsService, $state)->
-      console.log 'Op'
-
+      $scope.category = ''
       $scope.init = ->
-        GoodsService.getList().then (response)->
-          $scope.goods = response
+#        GoodsService.getList().then (response)->
+#          $scope.goods = response
+
+
+      $scope.more   = true      # Show load more button?
+      $scope.offset = 0         # Offset
 
       $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
-#        console.log toParams
-#        console.log toState
-#        console.log fromParams
-#        console.log fromState
-        $state.go('goods');
+        # Change category
+        $scope.offset = 0 if toParams.category isnt fromParams.category
+
+        # Load goods
+        GoodsService.getList(category: toParams.category, offset: $scope.offset).then (response)->
+          $scope.goods  = response
+          $scope.more   = $scope.goods.meta.count > $scope.goods.meta.limit + $scope.goods.meta.offset
+          $scope.offset += $scope.goods.meta.limit
+
+          console.log response
 #        $($window).scrollTop 0
 #        if toState.name is "main"
 #          mixpanelService.trackEvent "tour-preorder",

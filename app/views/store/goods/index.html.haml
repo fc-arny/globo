@@ -1,3 +1,5 @@
+= content_for :head do
+  %base{href: '/goods/'}
 = content_for :content do
   .layout
     = #goods_search
@@ -6,6 +8,6 @@
     = category_filter
     #good-app-container.center{'ng:controller' => 'GoodsController', 'ng:init' => 'init()'}
       %section.catalog{'ui-view' => 'goodsContainer'}
-
+      %button.catalog__more-btn{'ng:show' => 'more'} Показать ещё
 = content_for :js do
   = javascript_include_tag :store

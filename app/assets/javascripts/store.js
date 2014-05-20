@@ -27,10 +27,3 @@
 
 // Init app
 angular.bootstrap($('#good-app-container').get(0), ['gm.controllers.store']);
-
-//    console.log('Sta');
-//    //
-    $(document).on("click", "a[href^='/goods']", function(evt) {
-//        evt.preventDefault();
-
-    });

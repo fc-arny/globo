@@ -1,5 +1,5 @@
-.catalog__list{'ng:repeat' => 'g_item in goods'}
-  .catalog__item.col-sm-6.col-md-4.col-lg-3
+.catalog__list
+  .catalog__item.col-sm-6.col-md-4.col-lg-3{'ng:repeat' => 'g_item in goods'}
     .catalog__item-in
       .catalog__pic.js-prod-open
         %img{alt: "", src: '/assets/pic1.jpg'}/
