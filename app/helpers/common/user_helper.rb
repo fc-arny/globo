@@ -7,13 +7,13 @@ module Common::UserHelper
     @items = [
       #{title: t('common.menu.order'), link: ''},
       {title: t('common.menu.settings'), link: account_path},
-      {title: t('common.menu.logout'), link: logout_path},
+      {title: t('common.menu.logout'), link: logout_path}
     ]
 
     render partial: 'user/state/items/main'
   end
 
-  # MEnu for account
+  # Menu for account
   def user_account_menu
     @links = [
       {action: :index, title: t('views.account.link.private_main')},

@@ -279,7 +279,7 @@
     display: inline-block;
     max-width: 120px;
     vertical-align: top;
-    & > a {
+    & > span {
       display: block;
       height: 71px;
       padding: 45px 10px 0;
@@ -289,6 +289,7 @@
       text-align: center;
       font-size: 11px;
       color: #666666;
+      cursor: pointer;
       text-transform: uppercase;
       @include box;
       &:hover, &.is-active {

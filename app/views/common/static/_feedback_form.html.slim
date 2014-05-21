@@ -1,0 +1,41 @@
+= form_for FeedbackForm.new, as: :feedback, url: static_post_path(:feedback), remote: true do |f|
+  .title.title_small= t('views.feedback.write_to_us')
+  .contacts__desc= t('views.feedback.ask_us_about_some_thing_interesting')
+  .contacts__feedback
+    label.label
+      span.label__title= t('views.feedback.labels.name')
+      = f.text_field :name, class: 'label__txt required'
+    label.label
+      span.label__title= t('views.feedback.labels.email')
+      = f.text_field :email, class: 'label__txt required'
+    label.label
+      span.label__title= t('views.feedback.labels.message')
+      = f.text_area :message, class: 'label__area required', placeholder: t('views.feedback.labels.message')
+    button.btn.btn-globo= t('views.feedback.labels.send')
+  .contacts__feedback(style='display: none')
+    p.contacts__desc.request-sent= t('views.feedback.thanks_for_you_feedback')
+    button.btn.btn-globo.send-more-feedback= t('views.feedback.send_feedback_one_more_time')
+
+
+= content_for(:js) do
+  javascript:
+     $(function(){
+       var $form = $('#new_feedback'),
+         $button = $('.send-more-feedback'),
+         $feedback = $('.contacts__feedback');
+
+       $form.ajaxForm({
+         onSuccess: function() {
+           $feedback.toggle();
+         }
+       });
+
+       $button.on('click', function(event){
+         event.preventDefault();
+         $feedback.find('input, textarea').each(function(index, item){
+           $(item).val('');
+         });
+         $feedback.toggle();
+       })
+     });
+

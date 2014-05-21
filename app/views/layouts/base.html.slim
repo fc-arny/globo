@@ -1,0 +1,27 @@
+doctype html
+html(lang=:ru)
+  head
+    title
+      = yield(:title) + ' | ' if content_for?(:title)
+      = Settings.common.title
+      |  -
+      = Settings.common.page_title
+    meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+    meta(name='fragment' content='!')
+    link(rel='icon' href='/favicon.ico' type='image/x-icon')
+
+    = yield :head
+    = csrf_meta_tag
+  body
+    - if current_user && current_user.role
+      .inside-block
+        a.btn.btn-danger(href='/admin') admin
+    = content_for?(:base_content) ? yield(:base_content) : yield
+
+    .popup-container(style='display:none')
+      .loader
+    = display_flash_message
+    .js-errors
+    .js-scripts
+      = yield :bottom
+      = yield :js

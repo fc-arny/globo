@@ -1,0 +1,17 @@
+= content_for :head do
+  = stylesheet_link_tag :application, :media => :all
+
+= content_for :bottom do
+  = javascript_include_tag :application
+  = javascript_include_tag 'common/debug' if Rails.env.development?
+
+= content_for :base_content do
+  .page
+    .wrap
+      = header_menu
+      = content_for?(:content) ? yield(:content) : yield
+      .push
+
+    = render 'partials/footer'
+
+= render file: 'layouts/base'

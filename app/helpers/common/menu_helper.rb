@@ -3,9 +3,10 @@ module Common::MenuHelper
   # Main menu 
   def header_menu
     cache_time = Settings.cache.main_menu_sec.to_i
+    base_scope = Sap::Category.menu
 
     cached_categories = Rails.cache.fetch([:header, :categories], expires_in: cache_time.seconds) do
-      Sap::Category.where('parent_id IS NULL').to_a
+      base_scope.where('parent_id IS NULL').to_a
     end
 
     cached_subcategories = Rails.cache.fetch([:header, :subcategories], expires_in: cache_time.seconds) do
@@ -13,7 +14,7 @@ module Common::MenuHelper
       cached_categories.each do |parent|
         index = ['menu-item', parent.id].join('-')
 
-        subcategories[index] = Sap::Category.where(parent_id: parent.id).to_a
+        subcategories[index] = base_scope.where(parent_id: parent.id).to_a
         subcategories[index] << 'image'
       end
 

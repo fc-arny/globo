@@ -1,0 +1,14 @@
+.login
+  - if current_user
+    a href: account_path = current_user.name
+    button.user-state__settings
+      i
+    .login__links
+      ul
+        - @items.each do |item|
+          li
+            a href: "#{item[:link]}" 
+              = item[:title]
+  - else
+    a.user-state__login href: login_path, popup_class: 'popup_welcome', :'data-popup' => login_path 
+      | Вход

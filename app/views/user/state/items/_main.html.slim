@@ -1,0 +1,13 @@
+.login
+  - if current_user
+    .logged_in
+      button.user-state__settings.dropdown-toggle(data={toggle: :dropdown})
+        i
+      a(href=account_path title=current_user.name) current_user.name
+      ul.login__links.dropdown-menu.pull-right(role=:menu)
+        - @items.each do |item|
+          li
+            a(href=item[:link])= item[:title]
+  - else
+    a.btn.btn-globo.user-state__login(href=login_path data={popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'})
+      = t('views.common.header.user_state.login')

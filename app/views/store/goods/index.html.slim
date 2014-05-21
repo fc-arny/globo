@@ -1,0 +1,12 @@
+= content_for :head do
+  base href='/goods/'
+= content_for :content do
+  #good-app-container.layout(ng-controller=:GoodsController ng-init='init()')
+    = goods_search
+    .bc= goods_breadcrumbs(@category)
+    section(ui-view='filterContainer')
+    .center
+      section.catalog(ui-view=:goodsContainer)
+      button.catalog__more-btn(ng-show=:more)  Показать ещё
+= content_for :js do
+  = javascript_include_tag :store

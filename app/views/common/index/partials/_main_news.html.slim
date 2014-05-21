@@ -1,0 +1,8 @@
+.m-news
+  .title НОВОСТИ
+  ul.m-news__list
+    - Sap::BlogPost.recent.last_posts('news').limit(3).each do |post|
+      li
+        span.m-news__date= I18n.l post.published_date, format: '%d %B %Y'
+        = link_to(post.title, blog_post_path(post))
+        p= post.cut

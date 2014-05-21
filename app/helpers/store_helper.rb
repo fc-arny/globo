@@ -3,10 +3,6 @@ module StoreHelper
     render 'partials/helpers/store/goods_search'
   end
 
-  def category_filter
-    render 'partials/helpers/store/category_filter'
-  end
-
   def goods_breadcrumbs(category)
     child  = category ? category : nil
     parent = if child

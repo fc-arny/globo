@@ -1,0 +1,33 @@
+.title
+  = link_to(t('views.blog.blog'), blog_list_path)
+  = '/'
+  = @post.category.name
+
+
+
+.blog
+  .blog__comm
+    = render 'blog/partials/category_list'
+
+    .comment
+      .comment__text Приятного аппетита, любители экзотики! Надеюсь, Вам понравился наш рецепт. Мы с женой каждую неделю готовим данное блюдо.  Детишки также в восторге)
+      .comment__person
+        img alt: '', src= 'img/pic7.jpg' /
+        strong Васькин Василий Ли
+        span Генеральный директор "Азбука Вкуса"
+
+  .blog__list
+    .blog__item.blog__view
+      .blog__item-in
+        .blog__title= @post.title
+        .blog__meta
+          span= I18n.l @post.published_date, format: '%d %B %Y'
+          a.blog__comms href= '#comments'
+            = @post.comments_count
+            i
+        .blog__txt= @post.body
+
+        #comments.comm
+          = render 'partials/widgets/cackle_comments'
+
+

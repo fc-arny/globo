@@ -1,0 +1,32 @@
+.catalog__list
+  .catalog__item.col-sm-6.col-md-4.col-lg-3(ng-repeat='g_item in goods')
+    .catalog__item-in
+      .catalog__pic.js-prod-open
+        img(src='/assets/pic1.jpg')
+        i.like.is-active
+      .catalog__title.js-prod-open= '{{g_item.good.name}}'
+      .catalog__price
+        span Цена (за 50 гр):
+        strong
+          | {{g_item.price}}
+          sup 00
+          i.rub P
+      .catalog__down
+        .catalog__down-in
+          .catalog__down-item
+            .weight.js-weight
+              button.weight__btn-minus
+                i
+              .weight__val
+                input(data={factor:50} maxlength=4 type=:text value=500)
+                span гр
+              button.weight__btn-plus
+                i
+            .catalog__sum
+              strong
+                | 750
+                sup 00
+                i.rub P
+              button.js-del-prod Удалить
+          .catalog__down-item
+            button.catalog__buy-btn.js-add-prod В корзину

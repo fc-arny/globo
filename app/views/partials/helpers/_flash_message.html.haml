@@ -1,5 +1,0 @@
-%span#flash_messages
-  .alert{style:"#{message.nil? ? 'display: none' : '' }",
-      class: "#{type.nil? ? '' : 'alert_' + type}"}
-    %button.alert__close{type: 'button'} &times;
-    %span.alert__message= message

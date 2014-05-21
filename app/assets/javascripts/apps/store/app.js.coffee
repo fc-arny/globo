@@ -42,6 +42,8 @@
         views:
           goodsContainer:
             templateUrl: '/templates/store/goods/list'
+          filterContainer:
+            templateUrl: '/templates/store/goods/filter'
       ).state 'goods.details',
         url: '/item/:id'
         views:

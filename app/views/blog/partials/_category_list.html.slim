@@ -1,0 +1,4 @@
+h4= t('views.blog.category_list')
+.list-group
+  - Sap::BlogCategory.all.each do |category|
+    a.list-group-item href= blog_list_path(category.url) = category.name

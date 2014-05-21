@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.2'
 
 gem 'rails', '~> 4.1.0'
 
@@ -35,7 +35,8 @@ gem 'rack-mini-profiler'
 # Assets
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'haml-rails'
+# gem 'haml-rails'
+gem 'slim-rails'
 
 gem 'bower-rails'
 gem 'compass-rails',  '~> 1.1.7'
@@ -68,8 +69,8 @@ group :development do
   gem 'bullet'
 
   # Errors
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
 
   # Debug
   gem 'intellij-coffee-script-debugger', :git => 'git://github.com/JetBrains/intellij-coffee-script-debugger.git'

@@ -1,0 +1,11 @@
+- title (@title.blank? ? '' : @title + ' | ') + t('views.account.title.page_main')
+/! Content
+.title личный кабинет
+/! BEGIN .account
+.account
+  .account__nav
+    = user_account_menu
+  .account__in
+    = render partial: "user/account/#{@page}"
+
+
