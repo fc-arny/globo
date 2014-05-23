@@ -3,7 +3,7 @@
     .logged_in
       button.user-state__settings.dropdown-toggle(data={toggle: :dropdown})
         i
-      a(href=account_path title=current_user.name) current_user.name
+      a(href=account_path title=current_user.name)= current_user.name
       ul.login__links.dropdown-menu.pull-right(role=:menu)
         - @items.each do |item|
           li

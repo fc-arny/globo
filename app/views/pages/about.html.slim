@@ -14,7 +14,7 @@
 .we-work
   .title.title_small С кем мы работаем
   .we-work__in
-    = render :partial => 'partials/common/stores_main', :locals => {stores: @stores}
+    = render 'partials/common/stores_main', stores: @stores
 
 .team
   .title.title_small Наша команда

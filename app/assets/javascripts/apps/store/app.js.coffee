@@ -44,6 +44,8 @@
             templateUrl: '/templates/store/goods/list'
           filterContainer:
             templateUrl: '/templates/store/goods/filter'
+          breadcrumsContainer:
+            templateUrl: '/templates/store/goods/breadcrumbs'
       ).state 'goods.details',
         url: '/item/:id'
         views:

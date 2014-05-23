@@ -2,36 +2,46 @@
   angular.module('gm.controllers.store').controller('GoodsController', [
     '$scope', 'GoodsService', '$state'
     ($scope, GoodsService, $state)->
-      $scope.category = ''
+
+      # Vars ---------------------------
+      # --------------------------------
+      $scope.show_more = false     # Show load more button?
+      $scope.offset    = 0         # Offset
+      $scope.category  = null
+
+      $scope.items = []
+
+      # Methods ------------------------
+      # --------------------------------
       $scope.init = ->
-#        GoodsService.getList().then (response)->
-#          $scope.goods = response
 
-
-      $scope.more   = true      # Show load more button?
-      $scope.offset = 0         # Offset
-
+      # Route handler
       $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
         # Change category
-        $scope.offset = 0 if toParams.category isnt fromParams.category
+        $scope.category = toParams.category
+        $scope.offset   = 0 if toParams.category isnt fromParams.category
+        $scope.goods    = []
 
         # Load goods
-        GoodsService.getList(category: toParams.category, offset: $scope.offset).then (response)->
-          $scope.goods  = response
-          $scope.more   = $scope.goods.meta.count > $scope.goods.meta.limit + $scope.goods.meta.offset
-          $scope.offset += $scope.goods.meta.limit
+        $scope.load_goods(false)
 
-          console.log response
-#        $($window).scrollTop 0
-#        if toState.name is "main"
-#          mixpanelService.trackEvent "tour-preorder",
-#            tour_id: $scope.tourId
-#
-#        else if toState.name is "travelers"
-#          mixpanelService.trackEvent "tour-travelers",
-#            tour_id: $scope.tourId
-#            travelers_count: $scope.preorder.passengersCount
+      # Load data
+      $scope.load_goods = (append = true)->
+        GoodsService.getList(category: $scope.category, offset: $scope.offset).then (response)->
+          $scope.goods = response
 
+          $scope.show_more = ($scope.goods.meta.count > $scope.goods.meta.limit + $scope.goods.meta.offset)
+          $scope.offset   += $scope.goods.meta.limit
+
+          if append
+            $scope.items = _.union($scope.items, _.toArray(response))
+          else
+            $scope.items = _.toArray(response)
+
+          console.log $scope.items
+
+      # PRIVATE ------------------------
+      # --------------------------------
 
   ])
 )(window.angular)
