@@ -25,9 +25,9 @@
         p= t('views.contacts.social')
         p
           .social.social_blue
-            = render :partial => 'partials/common/social'
+            = render 'partials/common/social'
     .contacts__column
-      = render :partial => 'feedback_form'
+      = render 'pages/feedback_form'
     .contacts__column
       .title.title_small= t('views.vacancies.our_vacancies')
       .contacts__desc= t('views.vacancies.we_are_finding_talants_html')

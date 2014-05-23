@@ -56,8 +56,8 @@ Gm::Application.routes.draw do
   # Error handler
   match '(errors)/:status', to: 'common/errors#show', constraints: {status: /\d{3}/}, via: :all
 
-  # Staic pages
-  get '/:page'  => 'common/static#show', as: :static_page, constraints: {page: /about|help|contacts|promo/}
+  # Static pages
+  get '/*id',  to: 'pages#show', as: :static_page
 
   #require 'sidekiq/web'
   #
