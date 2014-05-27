@@ -1,6 +1,6 @@
 ((angular)->
-  angular.module 'gm.services.store', []
-  angular.module 'gm.filters.store', []
-  angular.module 'gm.directives.store', []
-  angular.module 'gm.controllers.store', []
+  angular.module 'gm.store.services', []
+  angular.module 'gm.store.filters', []
+  angular.module 'gm.store.directives', []
+  angular.module 'gm.store.controllers', []
 )(window.angular)

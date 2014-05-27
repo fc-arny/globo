@@ -1,14 +1,15 @@
 ((angular)->
   'use strict'
 
-  angular.module('gm.controllers.store', [
+  angular.module('gm.store', [
     'restangular'
 
     'ngSanitize'
 
-    'gm.services.store'
-    'gm.filters.store'
-    'gm.directives.store'
+    'gm.store.controllers'
+    'gm.store.services'
+    'gm.store.filters'
+    'gm.store.directives'
 
     'ui.bootstrap'
     'ui.router'

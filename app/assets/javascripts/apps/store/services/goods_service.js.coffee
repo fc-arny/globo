@@ -1,5 +1,5 @@
 ((angular) ->
-  angular.module('gm.services.store').
+  angular.module('gm.store.services').
     factory('GoodsService',  (Restangular) ->
       Restangular.service('good/items')
   )

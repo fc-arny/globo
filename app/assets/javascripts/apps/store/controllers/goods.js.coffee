@@ -1,5 +1,5 @@
 ((angular)->
-  angular.module('gm.controllers.store').controller('GoodsController', [
+  angular.module('gm.store.controllers').controller('GoodsController', [
     '$scope', 'GoodsService', '$state'
     ($scope, GoodsService, $state)->
 
@@ -7,7 +7,7 @@
       # --------------------------------
       $scope.show_more = false     # Show load more button?
       $scope.offset    = 0         # Offset
-      $scope.category  = null
+      $scope.category  = null      # Current category
 
       $scope.items = []
 
