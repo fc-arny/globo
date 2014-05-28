@@ -514,19 +514,19 @@ $(document).ready(function() {
 
 //window scroll
 	var scroll_top = 0;
-//	$(window).scroll(function() {
-//		scroll_top = $(window).scrollTop();
-//		if (!body.hasClass('no-scroll')) {
-//			if (scroll_top > 90) {
-//				wrap.addClass('is-fixed');
-//				cart_el.addClass('is-fixed');
-//			}
-//			else {
-//				wrap.removeClass('is-fixed');
-//				cart_el.removeClass('is-fixed');
-//			};
-//		};
-//	});
+	$(window).scroll(function() {
+		scroll_top = $(window).scrollTop();
+		if (!body.hasClass('no-scroll')) {
+			if (scroll_top > 90) {
+				wrap.addClass('is-fixed');
+				cart_el.addClass('is-fixed');
+			}
+			else {
+				wrap.removeClass('is-fixed');
+				cart_el.removeClass('is-fixed');
+			};
+		};
+	});
 
 //click document
 	$(document).click(function() {

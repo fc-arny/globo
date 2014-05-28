@@ -4,7 +4,16 @@ header.header
       span.logo__pic
     ._user_state_wrapper= user_state
   .header__down
-    .menu
+    .sel-shop.js-shops
+      .sel-shop__list
+        /button Выбраный магазин
+        ul
+          li: img(src='/assets/shop2-s.png')
+          li: img(src='/assets/shop1-s.png')
+          li: img(src='/assets/shop3-s.png')
+      .sel-shop__pic
+        img(src='/assets/shop1-s.png')
+    .menu.is-slider
       .menu__list
         button.menu__btn-prev: i
         button.menu__btn-next: i

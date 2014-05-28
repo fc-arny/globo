@@ -53,7 +53,7 @@ module Common::MenuHelper
     selected  = get_session_setting(:store_id)
     options   = options_for_select(stores, selected )
 
-    haml_tag :div, :class => 'select-store' do
+    haml_tag :div, class: 'select-store' do
       haml_concat select_tag('select-store', options)
     end
       #.b-store-choose

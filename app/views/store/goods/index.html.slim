@@ -1,26 +1,26 @@
 = content_for :content do
   #good-app-container.layout(ng-controller='GoodsController' ng-init='init()')
-    /= goods_search
-    .bc
-      .bc__in
-        .bc__links(ui-view='breadcrumsContainer')
-          = image_tag 'loaders/arrows16x16_black_on_white.gif'
-        .bc__filter
-          span Сортировать по:
-          button.js-sort Самое популярное
-          ul
-            li По цене
-            li По рейтингу
-            li По производителю
-            li По рейтингу покупателей
-        .bc__push
-    aside.right
+    aside.left
       /.search
       /  input(placeholder="Поиск" type="text")
       /  button: i
       .filter
         section(ui-view='filterContainer')= image_tag 'loaders/arrows32x32_black_on_white.gif'
     .center
+      /= goods_search
+      .bc
+        .bc__in
+          .bc__links(ui-view='breadcrumsContainer')
+            = image_tag 'loaders/arrows16x16_black_on_white.gif'
+          .bc__filter
+            span Сортировать по:
+            button.js-sort Самое популярное
+            ul
+              li По цене
+              li По рейтингу
+              li По производителю
+              li По рейтингу покупателей
+          .bc__push
       section.catalog(ui-view='goodsContainer')
         div(style='text-align: center; margin: 30px')= image_tag 'loaders/arrows32x32_black_on_white.gif'
       button.catalog__more-btn.ng-hide(ng-show='show_more' ng-click='load_goods()' )  Показать ещё
