@@ -8,11 +8,11 @@ header.header
       .sel-shop__list
         /button Выбраный магазин
         ul
-          li: img(src='/assets/shop2-s.png')
-          li: img(src='/assets/shop1-s.png')
-          li: img(src='/assets/shop3-s.png')
-      .sel-shop__pic
-        img(src='/assets/shop1-s.png')
+          - @stores.each do |store|
+            li= image_tag("stores/#{store.system_name}/select.png")
+
+      / TODO: Selected store
+      .sel-shop__pic= image_tag("stores/azbuka/select.png")
     .menu.is-slider
       .menu__list
         button.menu__btn-prev: i

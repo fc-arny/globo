@@ -3,4 +3,4 @@
   .container
     - @stores.each do |store|
       a(href="/goods/#{store.url}" title=store.name)
-        = image_tag("stores/main_#{store.system_name}.png", alt: store.name)
+        = image_tag("stores/#{store.system_name}/main.png", alt: store.name)
