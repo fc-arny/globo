@@ -3,8 +3,9 @@
 # -------------------------------------------------------------
 class ApplicationController < Sap::BaseController
 
-  after_filter :flash_to_headers
-  before_filter :mini_profile
+  after_action :flash_to_headers
+  before_action :mini_profile
+  before_action :reload_rails_admin, :if => :rails_admin_path?
 
   # Include helpers
   helper :all
@@ -52,8 +53,19 @@ class ApplicationController < Sap::BaseController
   private
 
   def mini_profile
-    if Rails.env.development? || (current_user && current_user.role)
+    if Rails.env.development? && !rails_admin_path?
       Rack::MiniProfiler.authorize_request # TODO: Only admins
+    end
+  end
+
+  def reload_rails_admin
+    RailsAdmin::Config::Actions.reset
+
+    path = [Rails.root, 'components/sap/backend/config/initializers'].join('/')
+    load([path, 'rails_admin.rb'].join('/'))
+
+    %W(goods.rb stores.rb users.rb).each do |model|
+      load([path, 'rails_admin', model].join('/'))
     end
   end
 

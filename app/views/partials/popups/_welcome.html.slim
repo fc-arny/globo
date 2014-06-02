@@ -16,7 +16,7 @@
 
       button.btn.btn-globo= t 'popup.button.enter'
       .popup__pass-forgot
-        a href: remember_path, target: '_blank' = t 'popup.forget_password'
+        a(href=remember_path target='_blank')= t('popup.forget_password')
       .popup__pass-help
         | *
         = t 'popup.required_fields'

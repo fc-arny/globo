@@ -2,5 +2,5 @@
 .m-stores
   .container
     - @stores.each do |store|
-      a href: "/goods/#{store.url}", title: "#{store.name}" 
-        img alt: "#{store.name}", src: "/assets/stores/main_#{store.system_name}.png" /
+      a(href="/goods/#{store.url}" title=store.name)
+        = image_tag("stores/main_#{store.system_name}.png", alt: store.name)
