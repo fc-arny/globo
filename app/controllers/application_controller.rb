@@ -64,7 +64,7 @@ class ApplicationController < Sap::BaseController
     path = [Rails.root, 'components/sap/backend/config/initializers'].join('/')
     load([path, 'rails_admin.rb'].join('/'))
 
-    %W(goods.rb stores.rb users.rb).each do |model|
+    %W(goods.rb stores.rb users.rb categories.rb).each do |model|
       load([path, 'rails_admin', model].join('/'))
     end
   end
