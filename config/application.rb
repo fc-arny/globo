@@ -22,9 +22,6 @@ module Gm
                             #{config.root}/workers)
 
     # Assets
-    config.assets.paths += %W(
-                            #{config.root}/assets/fonts/**
-                            #{config.root}/assets/templates/**)
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.assets.initialize_on_precompile = false
 
