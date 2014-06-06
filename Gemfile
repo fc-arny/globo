@@ -49,8 +49,7 @@ gem 'jquery-rails'                   # jQuery UJS
 
 # Sap
 gem 'sap', path: './components/sap'
-#gem 'image_thread', github: 'martsoft/image_thread', branch: :master
-#gem 'rails_admin', github: 'sferik/rails_admin', branch: :master
+gem 'image_thread', path: '../image_thread'
 gem 'rails_admin_nestable', branch: 'master'
 
 group :development, :test do
