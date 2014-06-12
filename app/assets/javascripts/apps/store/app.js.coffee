@@ -1,7 +1,6 @@
 ((angular)->
   'use strict'
 
-
   angular.module('gm.store', [
     'restangular'
 
