@@ -10,7 +10,6 @@ gem 'unicorn', platform: :ruby
 gem 'dalli'
 
 # Tools, Utilities
-gem 'foreigner'             # Foreign key
 gem 'orm_adapter'           # Common function for different data storage
 gem 'rails_config'          # Configure app
 gem 'kaminari'              # Paginator
@@ -35,7 +34,6 @@ gem 'rack-mini-profiler'
 # Assets
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
-# gem 'haml-rails'
 gem 'slim-rails'
 
 gem 'bower-rails'

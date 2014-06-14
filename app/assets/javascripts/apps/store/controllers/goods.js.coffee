@@ -38,8 +38,6 @@
           else
             $scope.items = _.toArray(response)
 
-          console.log $scope.items
-
       # PRIVATE ------------------------
       # --------------------------------
 

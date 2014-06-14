@@ -48,6 +48,7 @@ PATH
       carrierwave
       devise
       draper (~> 1.0)
+      foreigner
       i18n-js
       jbuilder
       js-routes
@@ -424,7 +425,6 @@ DEPENDENCIES
   dalli
   database_cleaner
   factory_girl_rails
-  foreigner
   high_voltage!
   i18n-js
   image_thread!
