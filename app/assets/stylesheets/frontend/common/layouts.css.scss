@@ -3,6 +3,7 @@
 //styles for layouts
 .layout {
   position: relative;
+  max-width: 1850px;
 }
 
 .layout_mod {
@@ -17,9 +18,9 @@
 
 .left {
   float: left;
-  min-width: 180px;
+  width: 220px;
 }
 
 .center {
-  margin-left: 210px;
+  margin-left: 250px;
 }

@@ -26,18 +26,14 @@ class FrontendController < ApplicationController
     all = {}
     roots = Sap::Category.menu.roots
     roots.each do |item|
-      all[item.id] = {
-          url: item.url,
-          name: item.name,
-          parent_id: nil
-      }
+      all[item.id] = {id: item.id, url: item.url, name: item.name, parent_id: nil }
+
       item.children.each do |child|
         next unless child.show_in_menu
-        all[child.id] = {
-            url: child.url,
-            name: child.name,
-            parent_id: item.id
-        }
+        children = child.children.map do |i|
+          {id: i.id, url: i.url, name: i.name, parent_id: i.id }
+        end
+        all[child.id] = {id: child.id, url: child.url, name: child.name, parent_id: item.id, children: children }
       end
     end
 
