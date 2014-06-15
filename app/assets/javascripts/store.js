@@ -30,3 +30,4 @@
 
 // Init app
 angular.bootstrap($('#good-app-container').get(0), ['gm.store']);
+console.log(gon.categories);

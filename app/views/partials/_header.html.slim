@@ -33,7 +33,7 @@ header.header
                   - slice.each do |category|
                     - if category.is_a?(Sap::Category)
                       li.is-selected
-                        a(href="/goods/#!/#{category.url}") = category.name
+                        a(href="/goods/#!/#{category.id}-#{category.url}") = category.name
                     - else
                       li
                         - #%img{src: 'http://flickholdr.com/200/200'}

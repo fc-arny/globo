@@ -173,6 +173,9 @@ GEM
     foreigner (1.6.1)
       activerecord (>= 3.0.0)
     fssm (0.2.10)
+    gon (5.0.4)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -429,6 +432,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   factory_girl_rails
+  gon
   high_voltage!
   i18n-js
   image_thread!

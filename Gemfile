@@ -40,6 +40,8 @@ gem 'bower-rails'
 gem 'compass-rails',  '~> 1.1.7'
 gem 'uglifier',       '>= 1.3.0'
 
+gem 'gon'
+
 # gem 'oily_png'
 # gem 'remotipart',     '~> 1.2'
 
