@@ -8,8 +8,11 @@
       $scope.show_more = false     # Show load more button?
       $scope.offset    = 0         # Offset
       $scope.category  = null      # Current category
-      $scope.filters   = {}
 
+      # Filtering
+      $scope.filter_category = 'all'
+
+      # Good Items
       $scope.items = []
 
       # Methods ------------------------
@@ -25,7 +28,7 @@
         $scope.parent_category  = gon.categories[$scope.category.parent_id]
 
         # Filter
-        $scope.filters['categories'] = $scope.category.children
+        $scope.category_filter = $scope.category.children
 
         # Change category
         $scope.offset   = 0 if toParams.category isnt fromParams.category
@@ -36,8 +39,7 @@
 
       # Load data
       $scope.load_goods = (append = true)->
-        console.log $scope.category.id
-        GoodsService.getList(offset: $scope.offset).then (response)->
+        GoodsService.getList(category: $scope.category.id, offset: $scope.offset).then (response)->
           $scope.goods = response
 
           $scope.show_more = ($scope.goods.meta.count > $scope.goods.meta.limit + $scope.goods.meta.offset)
