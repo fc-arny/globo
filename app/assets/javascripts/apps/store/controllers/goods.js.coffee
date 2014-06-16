@@ -35,11 +35,20 @@
         $scope.goods    = []
 
         # Load goods
-        $scope.load_goods(false)
+        load_goods(false)
+
+      $scope.filter_by_category = (category_id = 'all')->
+        $scope.offset = 0
+        $scope.filter_category = category_id
+
+        load_goods(false)
+
+      # PRIVATE ------------------------
+      # --------------------------------
 
       # Load data
-      $scope.load_goods = (append = true)->
-        GoodsService.getList(category: $scope.category.id, offset: $scope.offset).then (response)->
+      load_goods = (append = true)->
+        GoodsService.getList(query_params()).then (response)->
           $scope.goods = response
 
           $scope.show_more = ($scope.goods.meta.count > $scope.goods.meta.limit + $scope.goods.meta.offset)
@@ -50,8 +59,16 @@
           else
             $scope.items = _.toArray(response)
 
-      # PRIVATE ------------------------
-      # --------------------------------
+      # Params for query list of goods
+      query_params = ->
+        # Common
+        query = category: $scope.category.id, offset: $scope.offset
+
+        # Filtering
+        query['filter[category]'] = $scope.filter_category unless $scope.filter_category == 'all'
+
+        # Result query
+        query
 
   ])
 )(window.angular)
