@@ -31,7 +31,10 @@
         $scope.category_filter = $scope.category.children
 
         # Change category
-        $scope.offset   = 0 if toParams.category isnt fromParams.category
+        if toParams.category isnt fromParams.category
+          $scope.filter_category = 'all'
+          $scope.offset   = 0
+
         $scope.goods    = []
 
         # Load goods
