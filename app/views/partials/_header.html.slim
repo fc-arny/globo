@@ -4,15 +4,6 @@ header.header
       span.logo__pic
     ._user_state_wrapper= user_state
   .header__down
-    .sel-shop.js-shops
-      .sel-shop__list
-        /button Выбраный магазин
-        ul
-          - @stores.each do |store|
-            li= image_tag("stores/#{store.system_name}/select.png")
-
-      / TODO: Selected store
-      .sel-shop__pic= image_tag("stores/azbuka/select.png")
     .menu.is-slider
       .menu__list
         button.menu__btn-prev: i
