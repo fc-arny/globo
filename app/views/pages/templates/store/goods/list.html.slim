@@ -6,10 +6,10 @@
         i.like.is-active
       .catalog__title.js-prod-open= '{{g_item.good.name}}'
       .catalog__price
-        span Цена (за 50 гр):
+        span Цена:
         strong
-          | {{g_item.price}}
-          sup 00
+          | {{g_item.price | decimal_part:first }}
+          sup= '{{g_item.price | decimal_part:"last"}}'
           i.rub P
       .catalog__down
         .catalog__down-in
