@@ -65,10 +65,10 @@
       # Params for query list of goods
       query_params = ->
         # Common
-        query = category: $scope.category.id, offset: $scope.offset
+        query = offset: $scope.offset
 
         # Filtering
-        query['filter[category]'] = $scope.filter_category unless $scope.filter_category == 'all'
+        query['filter[category]'] = if $scope.filter_category != 'all' then $scope.filter_category else $scope.category.id
 
         # Result query
         query
