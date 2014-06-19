@@ -49,8 +49,11 @@ gem 'jquery-rails'                   # jQuery UJS
 
 # Sap
 gem 'sap', path: './components/sap'
+
+# Sap override
 gem 'image_thread', path: '../image_thread'
 gem 'rails_admin_nestable', branch: 'master'
+gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 
 group :development, :test do
   # Deploy
@@ -72,9 +75,6 @@ group :development do
   # Errors
   # gem 'better_errors'
   # gem 'binding_of_caller'
-
-  # Debug
-  gem 'intellij-coffee-script-debugger', :git => 'git://github.com/JetBrains/intellij-coffee-script-debugger.git'
 end
 
 group :test do
