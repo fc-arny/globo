@@ -233,5 +233,5 @@ Sap::Category.create([
     {id: 1412, name: 'hair-removal', url: 'hair-removal', position: 21, show_in_menu: true, images_id: nil, ancestry: '1400', created_at: '2014-02-26 22:27:08', updated_at: '2014-06-04 18:06:14'},
     {id: 1413, name: 'mens-toiletries', url: 'mens-toiletries', position: 22, show_in_menu: true, images_id: nil, ancestry: '1400', created_at: '2014-02-26 22:27:08', updated_at: '2014-06-04 18:06:14'},
     {id: 1424, name: 'beauty-gifts-sets', url: 'beauty-gifts-sets', position: 23, show_in_menu: true, images_id: nil, ancestry: '1400', created_at: '2014-02-26 22:27:08', updated_at: '2014-06-04 18:06:14'},
-    {id: 1423, name: 'medicine', url: 'medicine', position: 24, show_in_menu: true, images_id: nil, ancestry: '1400', created_at: '2014-02-26 22:27:08', updated_at: '2014-06-04 18:06:14'},
+    {id: 1423, name: 'medicine', url: 'medicine', position: 24, show_in_menu: true, images_id: nil, ancestry: '1400', created_at: '2014-02-26 22:27:08', updated_at: '2014-06-04 18:06:14'}
 ])
