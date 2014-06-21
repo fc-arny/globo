@@ -4,15 +4,14 @@
 //header
 .header {
   position: relative;
-  height: 188px;
+  height: 180px;
   margin-bottom: 30px;
   background: #f6f6f6;
   opacity: 0.9;
-  //  @include background-image(linear-gradient(#f6f6f6, #f2f2f2));
   border: 1px solid white;
   border-width: 0px 1px 1px 1px;
-  box-shadow: 0 0 1px #f9f9f9, 0 0 2px rgba(0, 0, 0, 0.7);
-  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 1px #f9f9f9, 0 0 1px rgba(0, 0, 0, 0.7);
+  border-radius: 0 0 2px 2px;
   z-index: 200;
 
 
@@ -22,7 +21,7 @@
 
   .header__top {
     height: 90px;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     background: asset_url('icons/header-line.png') repeat-x 0 100%;
     @include clr;
     .navbar-nav > li > a {
@@ -39,6 +38,63 @@
     padding: 0;
     @include rt(768) {
       padding: 0 30px 0 0;
+    }
+
+    .h-basket {
+      background-color: #ffffff;
+      border: 1px solid #f1d1cd;
+      border-right-color: #ffffff;
+      border-radius: 2px 0 0 2px;
+      box-shadow: 0 0 1px #dd5746;
+      cursor: pointer;
+      margin: 10px -1px 0 0;
+      float: right;
+      width: 150px;
+      &:hover {
+        box-shadow: 0 0 2px #dd5746;
+      }
+      .counter {
+        border-right: 2px solid #f1d1cd;
+        margin: 2px;
+        float: left;
+        padding: 7px;
+        width: 44px;
+      }
+      .total {
+        text-align: right;
+        .total__value {
+          color: #dd5746;
+          display: block;
+          font-size: 18px;
+          font-weight: bold;
+          height: 40px;
+          padding: 10px 5px 10px 5px;
+        }
+      }
+      .rub {
+        font-size: 14px;
+      }
+      &.full {
+        background-color: #dd5746;
+        .counter {
+          .counter__image {
+            @include s(basket_full);
+          }
+        }
+      }
+      &.empty {
+        .counter {
+          .counter__image {
+            @include s(basket_empty);
+          }
+        }
+        .total {
+
+          .rub:before, .rub:after {
+            background: #dd5746;
+          }
+        }
+      }
     }
   }
 }
@@ -225,8 +281,8 @@
 //menu
 .menu {
   position: relative;
-  margin-left: 55px;
-  margin-right: 115px;
+  margin-left: 30px;
+  margin-right: 185px;
 
   .menu__btn-prev, .menu__btn-next {
     display: none;
@@ -237,7 +293,7 @@
     background: none;
     overflow: visible;
     &:hover {
-      background: #e1e1e1;
+      border-color: transparent transparent transparent #07a6f7;
     }
     i {
       position: absolute;
@@ -245,7 +301,7 @@
       left: 5px;
       width: 0px;
       height: 0px;
-      margin-top: -10px;
+      margin-top: -15px;
       border-style: solid;
     }
   }

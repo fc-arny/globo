@@ -1,11 +1,5 @@
 = content_for :content do
   #good-app-container.layout(ng-controller='GoodsController' ng-init='init()')
-    aside.left
-      /.search
-      /  input(placeholder="Поиск" type="text")
-      /  button: i
-      .filter
-        section(ui-view='filterContainer')= image_tag 'loaders/arrows32x32_black_on_white.gif'
     .center
       /= goods_search
       .bc
@@ -21,6 +15,12 @@
               li По производителю
               li По рейтингу покупателей
           .bc__push
+      aside.right
+        /.search
+        /  input(placeholder="Поиск" type="text")
+        /  button: i
+        .filter
+          section(ui-view='filterContainer')= image_tag 'loaders/arrows32x32_black_on_white.gif'
       section.catalog(ui-view='goodsContainer')
         div(style='text-align: center; margin: 30px')= image_tag 'loaders/arrows32x32_black_on_white.gif'
       button.catalog__more-btn.ng-hide(ng-show='show_more' ng-click='load_goods()' )  Показать ещё

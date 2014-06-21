@@ -4,7 +4,7 @@
       if part is 'first'
         parseInt input
       else if part is 'last'
-        (parseFloat(input) % 1) * 100
+        Math.ceil(input * 100 - Math.floor(input) * 100)
       else
         throw 'Wrong param \'part\' value'
 
