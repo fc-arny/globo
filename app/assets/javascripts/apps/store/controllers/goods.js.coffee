@@ -45,6 +45,8 @@
         $scope.filter_category = category_id
 
         load_goods(false)
+      $scope.more_goods = ->
+        load_goods(true)
 
       # PRIVATE ------------------------
       # --------------------------------

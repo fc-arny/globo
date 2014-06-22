@@ -38,7 +38,7 @@ input[disabled], textarea[disabled] {
   overflow: hidden;
   &.is-fixed {
     @include rt(more768) {
-      .header, .search {
+      .header { //, .search
         position: fixed;
       }
       .header {
@@ -53,19 +53,14 @@ input[disabled], textarea[disabled] {
       .header__down {
         padding-top: 100px;
       }
-      .search {
-        top: 131px;
-        z-index: 300;
-      }
-      .search {
-        left: 20px;
-      }
+//      .search {
+//        right: 20px;
+//        top: 131px;
+//        z-index: 300;
+//      }
       .layout {
-        padding-top: 211px;
+        padding-top: 191px;
       }
-      //    .left {
-      //      padding-top: 52px;
-      //    }
     }
   }
 }
