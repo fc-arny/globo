@@ -5,9 +5,10 @@
 
       # Vars ---------------------------
       # --------------------------------
-      $scope.show_more = false     # Show load more button?
-      $scope.offset    = 0         # Offset
-      $scope.category  = null      # Current category
+      $scope.show_more = true     # Show load more button?
+      $scope.loading   = true     # if loading process
+      $scope.offset    = 0        # Offset
+      $scope.category  = null     # Current category
 
       # Filtering
       $scope.filter_category = 'all'
@@ -15,13 +16,14 @@
       # Good Items
       $scope.items = []
 
+
       # Methods ------------------------
       # --------------------------------
       $scope.init = ->
 
       # Route handler
       $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
-        category_id     = toParams.category.split('-')[0]
+        category_id    = toParams.category.split('-')[0]
 
         # Breadcrumbs
         $scope.category         = gon.categories[category_id]
@@ -53,6 +55,8 @@
 
       # Load data
       load_goods = (append = true)->
+        $scope.loading = true
+
         GoodsService.getList(query_params()).then (response)->
           $scope.goods = response
 
@@ -63,6 +67,8 @@
             $scope.items = _.union($scope.items, _.toArray(response))
           else
             $scope.items = _.toArray(response)
+        .then ->
+          $scope.loading = false
 
       # Params for query list of goods
       query_params = ->

@@ -310,11 +310,11 @@
   position: relative;
   margin: 0 10px 25px;
   background: white;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.16);
-  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  border-radius: 2px 2px 0 0;
   font-size: 14px;
   &:hover {
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
   }
   &:after {
     content: "";
@@ -479,15 +479,18 @@
 }
 
 .catalog__more-btn {
-  width: 100%;
+  display: block;
   padding: 9px 20px;
-  margin-bottom: 40px;
+  margin: 40px auto;
   background: white;
-  border-radius: 4px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
   color: $bl;
+  font-weight: bold;
+  clear: both;
   &:hover {
     color: $blh;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.40);
   }
 }
 
