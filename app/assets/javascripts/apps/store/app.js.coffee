@@ -38,14 +38,26 @@
 
       # Routes
       $stateProvider.state('goods',
-        url: '/:category'
+        abstract: true
+      ).state('goods.index',
+        url: '^'
+        controller: 'GoodsIndexController'
+        views:
+          goodsContainer:
+            templateUrl: '/templates/store/goods/list'
+          filterContainer:
+            templateUrl: '/templates/store/goods/filter'
+          breadcrumbsContainer:
+            templateUrl: '/templates/store/goods/breadcrumbs'
+      ).state('goods.list',
+        url: '^/:category'
         controller: 'GoodsController'
         views:
           goodsContainer:
             templateUrl: '/templates/store/goods/list'
           filterContainer:
             templateUrl: '/templates/store/goods/filter'
-          breadcrumsContainer:
+          breadcrumbsContainer:
             templateUrl: '/templates/store/goods/breadcrumbs'
       ).state 'goods.details',
         url: '/item/:id'
@@ -54,12 +66,11 @@
             templateUrl: '/templates/store/goods/detail'
 
       $urlRouterProvider.otherwise '/'
-
       $locationProvider.hashPrefix '!'
 
   ])
-#  .run(['$state', '$stateParams',  ($state, $stateParams) ->
-##    console.log $state.current
-##    $state.transitionTo $state.current, $stateParams
+#  .run(['$rootScope', '$state', '$stateParams',  ($rootScope, $state, $stateParams) ->
+##      $rootScope.$state = $state;
+##      $rootScope.$stateParams = $stateParams;
 #  ])
 )(window.angular)

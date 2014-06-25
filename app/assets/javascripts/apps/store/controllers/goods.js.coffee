@@ -23,7 +23,7 @@
 
       # Route handler
       $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
-        category_id    = toParams.category.split('-')[0]
+        category_id    = toParams['category'].split('-')[0]
 
         # Breadcrumbs
         $scope.category         = gon.categories[category_id]

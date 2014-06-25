@@ -1,7 +1,11 @@
-label.filter__all
-  input(ng-model='filter_category' name='filter[category]' type='radio' value='all' ng-change='filter_by_category()')
-  span Все
-.filter__list
-  label.filter__item{ng-repeat='f in category_filter'}
-    input(ng-model='$parent.filter_category' name='filter[category]' value='{{f.id}}' type='radio' ng-change='filter_by_category($parent.filter_category)')
-    span= '{{f.name}}'
+.search
+  input(placeholder="Поиск" type="text"):button: i
+.filter
+  section
+    label.filter__all
+      input(ng-model='filter_category' name='filter[category]' type='radio' value='all' ng-change='filter_by_category()')
+      span Все
+    .filter__list
+      label.filter__item{ng-repeat='f in category_filter'}
+        input(ng-model='$parent.filter_category' name='filter[category]' value='{{f.id}}' type='radio' ng-change='filter_by_category($parent.filter_category)')
+        span= '{{f.name}}'

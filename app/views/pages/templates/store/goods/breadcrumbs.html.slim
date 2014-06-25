@@ -1,5 +1,15 @@
-a(href='')
-  = '{{parent_category.name}}'
-  i(class='bc__ico-1')
-span= '{{category.name}}'
-
+.bc__in
+  .bc__links
+    a(href='')
+      = '{{parent_category.name}}'
+      i(class='bc__ico-1')
+    span= '{{category.name}}'
+  .bc__filter
+    span Сортировать по:
+    button.js-sort Самое популярное
+    ul
+      li По цене
+      li По рейтингу
+      li По производителю
+      li По рейтингу покупателей
+  .bc__push

@@ -1,28 +1,8 @@
 = content_for :content do
-  #good-app-container.layout(ng-controller='GoodsController' ng-init='init()')
-    /= goods_search
-    .bc
-      .bc__in
-        .bc__links(ui-view='breadcrumsContainer')
-          = image_tag 'loaders/arrows16x16_black_on_white.gif'
-        .bc__filter
-          span Сортировать по:
-          button.js-sort Самое популярное
-          ul
-            li По цене
-            li По рейтингу
-            li По производителю
-            li По рейтингу покупателей
-        .bc__push
-    aside.right
-      .search
-        input(placeholder="Поиск" type="text"):button: i
-      .filter
-        section(ui-view='filterContainer')= image_tag 'loaders/arrows32x32_black_on_white.gif'
-    section.center
-      .catalog(ui-view='goodsContainer')
-      button.catalog__more-btn.ng-hide(ng-show='show_more' ng-click='more_goods()' ng-disabled='loading')
-        span(ng-if='loading')= image_tag 'loaders/arrows32x32_black_on_white.gif'
-        span(ng-if='!loading') Показать ещё
+  #good-app-container.layout
+    div.bc(ui-view='breadcrumbsContainer')
+    aside.right(ui-view='filterContainer')
+    section.center(ui-view='goodsContainer')
+
 = content_for :js do
   = javascript_include_tag :store
