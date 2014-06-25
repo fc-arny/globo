@@ -1,8 +1,5 @@
 = content_for :content do
-  #good-app-container.layout
-    div.bc(ui-view='breadcrumbsContainer')
-    aside.right(ui-view='filterContainer')
-    section.center(ui-view='goodsContainer')
+  #good-app-container.layout(ui-view)
 
 = content_for :js do
   = javascript_include_tag :store

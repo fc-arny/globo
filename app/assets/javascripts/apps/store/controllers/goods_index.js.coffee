@@ -6,8 +6,7 @@
       $scope.init = ->
 
         # Route handler
-      $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
-       console.log 'Index'
+#      $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
 
   ])
 )(window.angular)

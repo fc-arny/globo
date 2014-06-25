@@ -37,29 +37,29 @@
         extractedData
 
       # Routes
-      $stateProvider.state('goods',
-        abstract: true
-      ).state('goods.index',
-        url: '^'
-        controller: 'GoodsIndexController'
+      $stateProvider.state('index',
+        url: ''
         views:
-          goodsContainer:
-            templateUrl: '/templates/store/goods/list'
-          filterContainer:
-            templateUrl: '/templates/store/goods/filter'
-          breadcrumbsContainer:
-            templateUrl: '/templates/store/goods/breadcrumbs'
-      ).state('goods.list',
-        url: '^/:category'
-        controller: 'GoodsController'
+          '@':
+            controller: 'GoodsIndexController'
+            templateUrl: '/templates/store/goods/index'
+          'promoContainer@index':
+            templateUrl: '/templates/store/goods/p/promo'
+          'searchContainer@index':
+            templateUrl: '/templates/store/goods/p/search'
+      ).state('list',
+        url: '/:category'
         views:
-          goodsContainer:
+          '@':
+            controller: 'GoodsController'
             templateUrl: '/templates/store/goods/list'
-          filterContainer:
-            templateUrl: '/templates/store/goods/filter'
-          breadcrumbsContainer:
-            templateUrl: '/templates/store/goods/breadcrumbs'
-      ).state 'goods.details',
+          'goodsContainer@list':
+            templateUrl: '/templates/store/goods/p/items'
+          'filterContainer@list':
+            templateUrl: '/templates/store/goods/p/filter'
+          'breadcrumbsContainer@list':
+            templateUrl: '/templates/store/goods/p/breadcrumbs'
+      ).state 'goods_details',
         url: '/item/:id'
         views:
           goodsContainer:
