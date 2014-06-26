@@ -199,8 +199,9 @@
   }
 
   .bc__filter {
-    display: none;
     position: relative;
+    float: right;
+    max-width: 270px;
     span {
       margin-right: 5px;
     }
@@ -485,11 +486,10 @@
   background: white;
   border-radius: 2px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
-  color: $bl;
   font-weight: bold;
   clear: both;
   &:hover {
-    color: $blh;
+    color: #666666;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.40);
   }
 }

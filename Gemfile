@@ -27,9 +27,9 @@ gem 'rack-mini-profiler'
 # Erbit
 # Scoupapp
 # LogAnalyzer
-#gem 'newrelic_rpm'
-#gem 'ruby-prof'
-#gem 'airbrake'
+gem 'newrelic_rpm'
+gem 'airbrake'
+
 
 # Assets
 gem 'sass-rails',   '~> 4.0.0'
@@ -75,6 +75,9 @@ group :development do
   # Errors
   # gem 'better_errors'
   # gem 'binding_of_caller'
+
+  # Profiling
+  #gem 'ruby-prof'
 end
 
 group :test do

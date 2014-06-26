@@ -36,9 +36,9 @@
   .header__down {
     height: 71px;
     padding: 0;
-    @include rt(768) {
-      padding: 0 30px 0 0;
-    }
+//    @include rt(768) {
+//      padding: 0 30px 0 0;
+//    }
 
     .h-basket {
       background-color: #ffffff;
