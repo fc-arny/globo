@@ -51,9 +51,9 @@
         .title= t('views.index.titles.benefits')
         ul
           - t('views.index.benefits_hash').each do |benefit|
-            li(class=benefit['class'])
+            li(class=benefit[:class])
               i
-              span= benefit['text']
+              span= benefit[:text]
 
       .m-info.container
         .title= t('views.index.titles.registration_reason')

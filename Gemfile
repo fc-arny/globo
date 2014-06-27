@@ -24,6 +24,7 @@ gem 'i18n-js'
 
 # Profiling, Monitoring
 gem 'rack-mini-profiler'
+gem 'flamegraph'
 # Erbit
 # Scoupapp
 # LogAnalyzer
