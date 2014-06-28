@@ -5,11 +5,8 @@
 @import "variables";
 @import "mixins";
 
-// Bootstrap ext
-[class*="col-"]{
-//  margin-bottom: -99999px;
-//  padding-bottom: 99999px;
-}
+//Fonts
+@import "fonts";
 
 .row{
   overflow: hidden;

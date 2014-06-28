@@ -23,6 +23,7 @@ module Gm
 
     # Assets
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    config.assets.paths += %W(#{config.root}/assets/fonts/**)
     config.assets.initialize_on_precompile = false
 
     # Only load the plugins named here, in the order given (default is alphabetical).

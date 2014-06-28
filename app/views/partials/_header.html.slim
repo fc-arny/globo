@@ -4,13 +4,13 @@ header.header
       span.logo__pic
     ._user_state_wrapper= user_state
   .header__down
-    .h-basket.empty
-      .counter
-        .counter__image
-      .total
-        .total__value
-          = '9 000'
-          span<> р.
+    .h-basket(ng-controller='BasketController' ng-init='init()' class='ng-cloak')
+      .full(ng-show='!loading')
+        .counter
+          .counter__image
+        .total
+          .total__value= '{{score}} p'
+      .loader(ng-hide='!loading') Loading...
     .menu.is-slider
       .menu__list
         button.menu__btn-prev: i

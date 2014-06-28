@@ -1,6 +1,7 @@
 /**
 // Lib
   *= require bootstrap
+  *= require angular/angular-csp
 
 // Globo Common
   *= require frontend/common
