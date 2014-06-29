@@ -13,6 +13,11 @@
       # Filtering
       $scope.filter_category = 'all'
 
+      # Sorting
+      $scope.sort_by  = 'default'
+      $scope.sort_dir = ''
+      $scope.sorts = ['default', 'name_asc', 'name_desc', 'price_asc', 'price_desc']
+
       # Good Items
       $scope.items = []
 
@@ -45,11 +50,26 @@
         # Load goods
         load_goods(false)
 
+      # Sorting
+      $scope.sort = (field_dir) ->
+        field_dir = field_dir.split('_')
+
+        $scope.offset = 0
+        $scope.sort_dir = field_dir.pop()
+        $scope.sort_by  = field_dir.join('_')
+
+        console.log 'Sort'
+
+        load_goods(false)
+
+      # Filtering by category
       $scope.filter_by_category = (category_id = 'all')->
         $scope.offset = 0
         $scope.filter_category = category_id
 
         load_goods(false)
+
+      # Load more goods
       $scope.more_goods = ->
         load_goods(true)
 

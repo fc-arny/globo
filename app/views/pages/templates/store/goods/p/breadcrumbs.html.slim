@@ -4,13 +4,9 @@
       = '{{parent_category.name}}'
       i(class='bc__ico-1')
     span= '{{category.name}}'
-  .bc__filter.dropdown
+  .bc__filter(on-toggle="console.log('sss')" dropdown)
     span Сортировать по:
-    button.dropdown-toggle(data={togle: 'dropdown'}) популярности
+    button.dropdown-toggle= '{{sort_by }}'
     ul.dropdown-menu(role='menu')
-      li: a(role='menuitem') популярности
-      li: a(role='menuitem') цене(по убыванию)
-      li: a(role='menuitem') цене(по возрастанию)
-      li: a(role='menuitem') названию(от А до Я)
-      li: a(role='menuitem') названию(от Я до А)
+      li(ng-repeat='sort_item in sorts'): a(ng-click='sort(sort_item)' href)= '{{sort_item}}'
   .bc__push
