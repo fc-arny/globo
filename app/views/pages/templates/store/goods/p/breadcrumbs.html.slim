@@ -4,14 +4,13 @@
       = '{{parent_category.name}}'
       i(class='bc__ico-1')
     span= '{{category.name}}'
-  .bc__filter
-    span Сортировать:
-    button.js-sort Самое популярное
-    ul
-      li Популярное
-      li По цене: по убыванию
-      li По цене: по возрастанию
-      li По названию: от А до Я
-      li По названию: от Я до А
-      li По рейтингу
+  .bc__filter.dropdown
+    span Сортировать по:
+    button.dropdown-toggle(data={togle: 'dropdown'}) популярности
+    ul.dropdown-menu(role='menu')
+      li: a(role='menuitem') популярности
+      li: a(role='menuitem') цене(по убыванию)
+      li: a(role='menuitem') цене(по возрастанию)
+      li: a(role='menuitem') названию(от А до Я)
+      li: a(role='menuitem') названию(от Я до А)
   .bc__push

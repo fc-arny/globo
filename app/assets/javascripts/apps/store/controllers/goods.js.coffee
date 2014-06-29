@@ -21,6 +21,9 @@
       # --------------------------------
       $scope.init = ->
 
+      # Add to basket
+      $scope.add_to_basket = ->
+
       # Route handler
       $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
         category_id    = toParams['category'].split('-')[0]

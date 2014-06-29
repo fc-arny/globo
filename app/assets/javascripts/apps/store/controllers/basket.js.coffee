@@ -7,7 +7,7 @@
 
       $scope.init = ->
         $scope.loading = false
-        console.log 'Loaded'
+
 
   ])
 )(window.angular)

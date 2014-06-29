@@ -18,11 +18,13 @@
 //---------------------------------
 //= require underscore/underscore
 
-// Common
+// Common -------------------------
+//---------------------------------
 //= require_tree ./core
 //= require common/init
 
-// Plugins
+// Plugins ------------------------
+//---------------------------------
 //= require common/plugins/ajaxForm
 //= require common/plugins/ajaxPopup
 //= require common/plugins/flashMessage
@@ -31,6 +33,9 @@
 gmCurUserState = 'common';
 
 $(document).ready(function() {
+
+
+    // DEEP REFACTORING
 	// Init
 	var overlay = $('.overlay');
 	var body = $('body');
@@ -38,9 +43,6 @@ $(document).ready(function() {
 	var wrap = $('.wrap');
 	var header = $('.header');
 	var $fWelcome = $('.popup_welcome');
-
-
-
 
 	var btn_shop = $('.js-shops');
 	btn_shop.click(function() {
@@ -53,19 +55,6 @@ $(document).ready(function() {
 	btn_shop.click(function(event) {
 		event.stopPropagation();
 	});
-
-	var btn_sort = $('.js-sort');
-	btn_sort.click(function() {
-		$(this).next().fadeIn(300);
-	})
-	btn_sort.next().find('li').click(function() {
-		var val = $(this).text();
-		$(this).parent().prev().html(val);
-	});
-	btn_sort.click(function(event) {
-		event.stopPropagation();
-	});
-
 
 	var cart_el =  $('.cart');
 	var cart_popup = $('.cart__popup');
@@ -532,7 +521,7 @@ $(document).ready(function() {
 	$(document).click(function() {
 //		btn_login.next().hide();
 		btn_shop.removeClass('is-open');
-		btn_sort.next().hide();
+//		btn_sort.next().hide();
 		datepicker_el.hide();
 		$('.js-select').removeClass('is-open');
 		$('.js-shop-search').find('ul').hide();

@@ -25,8 +25,9 @@
 
 //= require_tree ./apps/store/controllers
 
+// Others
+// ------------------------------------------
+//= require_tree ./store
+
 // Main module
 angular.module('gm', ['gm.store']);
-
-// Init app
-//angular.bootstrap($('#good-app-container').get(0), ['gm.store']);

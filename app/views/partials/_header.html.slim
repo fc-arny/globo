@@ -9,7 +9,8 @@ header.header
         .counter__image.gm-icon-basket2
       .total
         .total__value(ng-show='!loading' class='ng-cloak')
-          = '{{score}} p'
+          = '{{score}}'
+          i.gm-icon-rouble<>
         .loader(ng-hide='!loading') Loading...
     .menu.is-slider
       .menu__list
