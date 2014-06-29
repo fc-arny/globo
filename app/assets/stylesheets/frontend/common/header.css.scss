@@ -41,15 +41,21 @@
 //    }
 
     .h-basket {
-      background-color: #ffffff;
+      background-color: #dd5746;
       border: 1px solid #f1d1cd;
       border-right-color: #ffffff;
       border-radius: 2px 0 0 2px;
       box-shadow: 0 0 1px #dd5746;
+      color: #ffffff;
       cursor: pointer;
       margin: 10px -1px 0 0;
       float: right;
       width: 150px;
+      .counter {
+        .counter__image {
+          font-size: 22px;
+        }
+      }
       &:hover {
         box-shadow: 0 0 2px #dd5746;
       }
@@ -63,7 +69,6 @@
       .total {
         text-align: right;
         .total__value {
-          color: #dd5746;
           display: block;
           font-size: 18px;
           font-weight: bold;
@@ -73,27 +78,6 @@
       }
       .rub {
         font-size: 14px;
-      }
-      &.full {
-        background-color: #dd5746;
-        .counter {
-          .counter__image {
-            @include s(basket_full);
-          }
-        }
-      }
-      &.empty {
-        .counter {
-          .counter__image {
-            @include s(basket_empty);
-          }
-        }
-        .total {
-
-          .rub:before, .rub:after {
-            background: #dd5746;
-          }
-        }
       }
     }
   }
