@@ -2,11 +2,12 @@
   .bc__links
     a(href='')
       = '{{parent_category.name}}'
-      i(class='bc__ico-1')
+      i(ng-hide='loading' class='bc__ico-1')
+      i.loader(ng-show='loading' style='margin: 4px')= image_tag('loaders/arrows16x16_black_on_white.gif')
     span= '{{category.name}}'
-  .bc__filter(on-toggle="console.log('sss')" dropdown)
+  .bc__filter(dropdown)
     span Сортировать по:
-    button.dropdown-toggle= '{{sort_by }}'
+    button.dropdown-toggle= '{{sorts[sort_field]}}'
     ul.dropdown-menu(role='menu')
-      li(ng-repeat='sort_item in sorts'): a(ng-click='sort(sort_item)' href)= '{{sort_item}}'
+      li(ng-repeat='(param, name) in sorts'): a(ng-click='sort(param)' href)= '{{name}}'
   .bc__push

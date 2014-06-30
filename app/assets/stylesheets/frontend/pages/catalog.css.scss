@@ -143,6 +143,7 @@
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.16);
     text-align: justify;
     font-size: 0;
+    height: 33px;
     @include rt(1380) {
       .bc__links {
         display: block;

@@ -14,9 +14,9 @@
       $scope.filter_category = 'all'
 
       # Sorting
-      $scope.sort_by  = 'default'
+      $scope.sort_field  = 'default'
       $scope.sort_dir = ''
-      $scope.sorts = ['default', 'name_asc', 'name_desc', 'price_asc', 'price_desc']
+      $scope.sorts = default: 'умолчанию', name_asc: 'имени от А до Я', name_desc: 'имени от Я до А', price_asc: 'цене по убыванию', price_desc: 'цене по возрастанию'
 
       # Good Items
       $scope.items = []
@@ -56,7 +56,7 @@
 
         $scope.offset = 0
         $scope.sort_dir = field_dir.pop()
-        $scope.sort_by  = field_dir.join('_')
+        $scope.sort_field  = field_dir.join('_')
 
         console.log 'Sort'
 
@@ -100,6 +100,11 @@
 
         # Filtering
         query['filter[category]'] = if $scope.filter_category != 'all' then $scope.filter_category else $scope.category.id
+
+        # Sorting
+        if $scope.sort_field isnt 'default'
+          query['sort[dir]']   = $scope.sort_dir
+          query['sort[field]'] = $scope.sort_field
 
         # Result query
         query
