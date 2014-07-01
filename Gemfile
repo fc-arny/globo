@@ -58,7 +58,7 @@ gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1
 
 group :development, :test do
   # Deploy
-  gem 'capistrano',         '~> 3.1'
+  gem 'capistrano',         '~> 3.2.1'
   gem 'capistrano-rails',   '~> 1.1'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
