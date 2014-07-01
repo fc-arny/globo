@@ -18,7 +18,6 @@ config/database.yml
 config/newrelic.yml
 config/unicorn.rb
 
-
 # Ignore settings, configs
 config/unicorn.rb
 config/settings.local.yml
@@ -27,3 +26,6 @@ config/environments/*.local.yml
 
 # Ignore sap gems
 components/sap
+
+# Ignore uploads
+public/uploads/*

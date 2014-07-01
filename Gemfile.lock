@@ -1,31 +1,6 @@
 GIT
-  remote: git://github.com/jetthoughts/yaml_db.git
-  revision: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
-  ref: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
-  specs:
-    yaml_db (0.2.3)
-
-GIT
-  remote: git://github.com/thoughtbot/high_voltage.git
-  revision: f75fdd32334d9ec2d608cc3b07ae9624b7964847
-  branch: master
-  specs:
-    high_voltage (2.2.0)
-
-PATH
-  remote: ../image_thread
-  specs:
-    image_thread (0.0.1)
-      carrierwave
-      foreigner
-      haml-rails
-      migration_comments
-      mini_magick
-      rails (>= 4.0.0)
-      sass-rails
-
-PATH
-  remote: ./components/sap
+  remote: git@github-sap:martsoft/sap.git
+  revision: 7fe57a1843b54ec21978f32c4698a8a2db1777e5
   specs:
     sap (0.0.1)
       sap_api (= 0.0.1)
@@ -55,6 +30,18 @@ PATH
       oj_mimic_json
       ransack
       seedbank
+
+PATH
+  remote: ../image_thread
+  specs:
+    image_thread (0.0.1)
+      carrierwave
+      foreigner
+      haml-rails
+      migration_comments
+      mini_magick
+      rails (>= 4.0.0)
+      sass-rails
 
 GEM
   remote: https://rubygems.org/
@@ -193,6 +180,7 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    high_voltage (2.2.0)
     hike (1.2.3)
     i18n (0.6.9)
     i18n-js (2.1.2)
@@ -450,7 +438,7 @@ DEPENDENCIES
   factory_girl_rails
   flamegraph
   gon
-  high_voltage!
+  high_voltage (~> 2.2.0)
   i18n-js
   image_thread!
   jquery-rails
@@ -476,4 +464,3 @@ DEPENDENCIES
   spring
   uglifier (>= 1.3.0)
   unicorn
-  yaml_db!

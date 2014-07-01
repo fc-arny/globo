@@ -16,7 +16,7 @@ gem 'kaminari'              # Paginator
 gem 'resque'                # Delayed Job
 gem 'mailcatcher'           # View sent emails
 gem 'awesome_print'         # Print in console
-gem 'high_voltage', github: 'thoughtbot/high_voltage', branch: 'master'
+gem 'high_voltage', '~> 2.2.0'
 
 # I18n
 gem 'rails-i18n'
@@ -25,11 +25,9 @@ gem 'i18n-js'
 # Profiling, Monitoring
 gem 'rack-mini-profiler'
 gem 'flamegraph'
-# Erbit
-# Scoupapp
-# LogAnalyzer
 gem 'newrelic_rpm'
 gem 'airbrake'
+# TODO: LogAnalyzer
 
 
 # Assets
@@ -49,12 +47,12 @@ gem 'gon'
 gem 'jquery-rails'                   # jQuery UJS
 
 # Sap
-gem 'sap', path: './components/sap'
+# gem 'sap', path: './components/sap'
+gem 'sap', git: 'git@github-sap:martsoft/sap.git'
 
 # Sap override
 gem 'image_thread', path: '../image_thread'
 gem 'rails_admin_nestable', branch: 'master'
-gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 
 group :development, :test do
   # Deploy
