@@ -51,7 +51,7 @@ gem 'jquery-rails'                   # jQuery UJS
 gem 'sap', git: 'git@github-sap:martsoft/sap.git'
 
 # Sap override
-gem 'image_thread', path: '../image_thread'
+gem 'image_thread', '~> 0.1.0' #path: '../image_thread'
 gem 'rails_admin_nestable', branch: 'master'
 
 group :development, :test do

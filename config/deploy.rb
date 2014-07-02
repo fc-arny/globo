@@ -8,7 +8,7 @@ set :repo_url,    'git@github-globo:martsoft/globo.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/globomarket.ru'
+set :deploy_to, '/home/deploy/apps/globomarket'
 
 
 # Default value for :format is :pretty
@@ -56,4 +56,4 @@ namespace :deploy do
 end
 
 require './config/boot'
-require 'airbrake/capistrano'
+# require 'airbrake/capistrano'
