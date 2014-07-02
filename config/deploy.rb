@@ -32,6 +32,12 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # Default value for keep_releases is 5
 set :keep_releases, 10
 
+before 'deploy', 'rvm1:install:rvm'
+before 'deploy', 'rvm1:install:ruby'
+
+after 'deploy', 'deploy:migrate'
+after 'deploy', 'deploy:cleanup'
+
 namespace :deploy do
 
   desc 'Restart application'
