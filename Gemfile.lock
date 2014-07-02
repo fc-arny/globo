@@ -1,6 +1,6 @@
 GIT
   remote: git@github-sap:martsoft/sap.git
-  revision: 7fe57a1843b54ec21978f32c4698a8a2db1777e5
+  revision: c55c984ab312d9233730746c75d7b8007b6aefad
   specs:
     sap (0.0.1)
       sap_api (= 0.0.1)
