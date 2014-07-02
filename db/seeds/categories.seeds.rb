@@ -1,4 +1,3 @@
-require File.expand_path('../../../components/sap/core/app/models/sap', __FILE__)
 Sap::Category.create([
   # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   {id: 100, name: 'Выпечка', url: 'bakery', position: 1, show_in_menu: true, images_id: nil, ancestry: nil, created_at: '2014-02-26 22:27:08', updated_at: '2014-06-04 18:06:13'},
