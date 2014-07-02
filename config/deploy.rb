@@ -32,8 +32,6 @@ namespace :deploy do
     end
   end
 
-  after :publishing, :restart
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -44,6 +42,7 @@ namespace :deploy do
   end
 
   before :compile_assets, 'bower:update'
+  after :publishing, :restart
   after :finishing, 'deploy:cleanup'
 end
 

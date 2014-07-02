@@ -36,7 +36,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'slim-rails'
 
 gem 'bower-rails'
-gem 'compass-rails',  '~> 1.1.7'
+gem 'compass-rails'
 gem 'uglifier',       '>= 1.3.0'
 
 gem 'gon'
