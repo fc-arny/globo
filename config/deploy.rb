@@ -1,45 +1,29 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'globo'
-set :repo_url,    'git@github-globo:martsoft/globo.git'
-
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
-
-# Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/deploy/apps/globomarket'
-
 
 # Default value for :format is :pretty
 # set :format, :pretty
 
-# Default value for :log_level is :debug
-# set :log_level, :debug
-
 # Default value for :pty is false
 # set :pty, true
-
-# Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/newrelic.yml config/unicorn.rb}
-
-# Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system vendor/assets/components}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# Default value for keep_releases is 5
-set :keep_releases, 10
+set :application,   :globo
+set :repo_url,      'git@github-globo:martsoft/globo.git'
+set :deploy_to,     '/home/deploy/apps/globomarket'
+set :linked_files,  %w{config/database.yml config/newrelic.yml config/secrets.yml config/unicorn.rb}
+set :linked_dirs,   %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system vendor/assets/components}
+set :keep_releases, 5
 
-before 'deploy', 'rvm1:install:rvm'
-before 'deploy', 'rvm1:install:ruby'
 
-after 'deploy', 'deploy:migrate'
-after 'deploy', 'deploy:cleanup'
-
+# DEPLOY
+# --------------------------------------------
 namespace :deploy do
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -59,6 +43,21 @@ namespace :deploy do
     end
   end
 
+  before :compile_assets, 'bower:update'
+  after :finishing, 'deploy:cleanup'
+end
+
+# BOWER
+# --------------------------------------------
+namespace :bower do
+  desc 'Update bower dependencies'
+  task :update do
+    on roles(:app) do
+      within release_path do
+        execute :bower, :install, '-f'
+      end
+    end
+  end
 end
 
 require './config/boot'

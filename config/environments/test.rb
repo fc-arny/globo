@@ -36,5 +36,5 @@ Gm::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Log error messages when you accidentally call methods on nil.
-  config.eager_load = true
+  config.eager_load = false
 end

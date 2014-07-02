@@ -60,7 +60,6 @@ group :development, :test do
   gem 'capistrano-rails',   '~> 1.1'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
-  gem 'rvm1-capistrano3', require: false
 
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'minitest'
