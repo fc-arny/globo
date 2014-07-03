@@ -1,8 +1,8 @@
-GIT
-  remote: git@github-sap:martsoft/sap.git
-  revision: c55c984ab312d9233730746c75d7b8007b6aefad
+PATH
+  remote: ./components/sap
   specs:
     sap (0.0.1)
+      aasm
       sap_api (= 0.0.1)
       sap_backend (= 0.0.1)
       sap_core (= 0.0.1)
@@ -34,6 +34,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (3.2.1)
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
       actionview (= 4.1.4)
@@ -90,7 +91,7 @@ GEM
     capistrano-rvm (0.1.1)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capybara (2.3.0)
+    capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
