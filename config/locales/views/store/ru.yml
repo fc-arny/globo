@@ -1,0 +1,6 @@
+ru:
+  views:
+    store:
+      list:
+        loading: Загразка...
+        show_more: Показать еще

@@ -28,10 +28,10 @@
       RestangularProvider.addResponseInterceptor (data, operation, what, url, response, deferred) ->
         extractedData = undefined
 
-        extractedData     = data.data.result
+        extractedData     = data.data.result || {}
         delete data.data.result
 
-        extractedData.meta   = data.data
+        extractedData.meta   = data.data || {}
         extractedData.status = data.status
 
         extractedData
@@ -69,8 +69,7 @@
       $locationProvider.hashPrefix '!'
 
   ])
-#  .run(['$rootScope', '$state', '$stateParams',  ($rootScope, $state, $stateParams) ->
-##      $rootScope.$state = $state;
-##      $rootScope.$stateParams = $stateParams;
-#  ])
+  .run(['$rootScope', '$state', '$stateParams',  ($rootScope, $state, $stateParams) ->
+      console.log('Run!')
+  ])
 )(window.angular)

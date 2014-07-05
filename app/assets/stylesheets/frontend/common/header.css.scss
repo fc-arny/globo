@@ -48,7 +48,7 @@
       box-shadow: 0 0 1px #dd5746;
       color: #ffffff;
       cursor: pointer;
-      margin: 10px -1px 0 0;
+      margin: 10px -10px 0 0;
       float: right;
       width: 150px;
       .counter {
@@ -58,6 +58,7 @@
       }
       &:hover {
         box-shadow: 0 0 2px #dd5746;
+        background-color: #DD5D4E;
       }
       .counter {
         border-right: 2px solid #f1d1cd;
@@ -76,6 +77,11 @@
           padding: 12px 5px 10px 5px;
           i {
             font-size: 14px;
+          }
+          .empty {
+            font-size: 14px;
+            font-weight: normal;
+            text-align: center;
           }
         }
       }

@@ -9,8 +9,11 @@ header.header
         .counter__image.gm-icon-basket2
       .total
         .total__value(ng-show='!loading' class='ng-cloak')
-          = '{{score}}'
-          i.gm-icon-ruble
+          div(ng-show='total > 0')
+            = '{{total}}'
+            i.gm-icon-ruble
+          .empty(ng-show='total == 0')= t('views.common.header.basket.empty')
+
     .menu.is-slider
       .menu__list
         button.menu__btn-prev: i

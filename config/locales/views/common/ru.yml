@@ -19,6 +19,8 @@ ru:
           blog: Блог
           promo: Акции
       header:
+        basket:
+          empty: пусто ;-(
         user_state:
           login: Войти
         nav:
