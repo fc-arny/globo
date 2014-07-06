@@ -1631,8 +1631,11 @@
       margin-left: 0;
     }
   }
-  .catalog__item-in {
+  .catalog__item-in.is-selected {
     margin: 0;
+    .catalog__down-in {
+      left: 0px;
+    }
   }
 }
 

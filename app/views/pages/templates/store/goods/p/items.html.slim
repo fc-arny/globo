@@ -1,7 +1,7 @@
 .catalog
   .catalog__list
     .catalog__item.col-sm-6.col-md-4.col-lg-3(ng-repeat='g_item in items')
-      .catalog__item-in
+      .catalog__item-in{ng-class='g_item.ordered ? "is-selected" : ""'}
         .catalog__pic.js-prod-open
           img(src='/assets/pic1.jpg')
           i.like.is-active
@@ -9,7 +9,7 @@
         .catalog__price
           span Цена:
           strong
-            | {{g_item.price | decimal_part:first }}
+            = '{{g_item.price | decimal_part:"first"}}'
             sup= '{{g_item.price | decimal_part:"last"}}'
             i.rub P
         .catalog__down
