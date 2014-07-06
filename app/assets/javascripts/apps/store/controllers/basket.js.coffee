@@ -10,8 +10,9 @@ angular.module('gm.store.controllers').controller 'BasketController', [
         $scope.loading = false
 
     $scope.$on 'goods:add_to_basket', (event, data) ->
-      console.log 'Add to basket'
-      OrderItemService.one('1')
+      console.log 'Basket:Add to basket'
+      console.log data
+#      OrderItemService.one('1')
 
     $scope.$on 'goods:remove_to_basket', (event, data) ->
       console.log 'Remove from basket'

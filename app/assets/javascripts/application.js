@@ -120,16 +120,16 @@ $(document).ready(function() {
 	});
 
 //buy prod (add prod in cart)
-	var add_prod = $('.js-add-prod');
-	var del_prod = $('.js-del-prod')
-	add_prod.click(function() {
-		$(this).parent().parent().animate({left: 0}, 200);
-		$(this).parent().parent().parent().parent().addClass('is-selected');
-	});
-	del_prod.click(function() {
-		$(this).parent().parent().parent().animate({left: '-100%'}, 200);
-		$(this).parent().parent().parent().parent().parent().removeClass('is-selected');
-	});
+//	var add_prod = $('.js-add-prod');
+//	var del_prod = $('.js-del-prod')
+//	add_prod.click(function() {
+//		$(this).parent().parent().animate({left: 0}, 200);
+//		$(this).parent().parent().parent().parent().addClass('is-selected');
+//	});
+//	del_prod.click(function() {
+//		$(this).parent().parent().parent().animate({left: '-100%'}, 200);
+//		$(this).parent().parent().parent().parent().parent().removeClass('is-selected');
+//	});
 
 //page
 	var page_fixed = $('.js-prod-open');

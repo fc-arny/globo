@@ -30,7 +30,7 @@
                   i.rub P
                 button.js-del-prod Удалить
             .catalog__down-item
-              button.catalog__buy-btn.js-add-prod В корзину
+              button.catalog__buy-btn.js-add-prod(ng-click='add_to_basket(1, 1)') В корзину
   button.catalog__more-btn.ng-hide(ng-show='show_more' ng-click='more_goods()' ng-disabled='loading')
     span(ng-if='loading')= t('views.store.list.loading')
     span(ng-if='!loading')= t('views.store.list.show_more')

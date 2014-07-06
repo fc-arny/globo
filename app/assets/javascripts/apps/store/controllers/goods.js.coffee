@@ -1,6 +1,6 @@
 angular.module('gm.store.controllers').controller 'GoodsController', [
-  '$scope', 'GoodsService', '$state'
-  ($scope, GoodsService, $state)->
+  '$scope', 'GoodsService', '$state', '$rootScope'
+  ($scope, GoodsService, $state, $rootScope)->
 
     # Vars ---------------------------
     # --------------------------------
@@ -26,7 +26,9 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     $scope.init = ->
 
     # Add to basket
-    $scope.add_to_basket = ->
+    $scope.add_to_basket = (item_id, value)->
+      console.log 'Add'
+      $rootScope.$broadcast 'goods:add_to_basket', id: item_id, value: value
 
     # Route handler
     $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
