@@ -47,8 +47,8 @@ gem 'gon'
 gem 'jquery-rails'                   # jQuery UJS
 
 # Sap
-gem 'sap', path: './components/sap'
-# gem 'sap', git: 'git@github-sap:martsoft/sap.git'
+gem 'sap', path: '../sap'
+# gem 'sap', git: 'git@github-sap:martsoft/sap.git', path: './components/sap'
 
 # Sap override
 gem 'image_thread', '~> 0.1.0'

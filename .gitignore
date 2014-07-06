@@ -15,6 +15,7 @@
 
 # Ignore database settings
 config/database.yml
+config/secret.yml
 config/newrelic.yml
 config/unicorn.rb
 
