@@ -26,9 +26,11 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     $scope.init = ->
 
     # Add to basket
-    $scope.add_to_basket = (item_id, value)->
-      console.log 'Add'
-      $rootScope.$broadcast 'goods:add_to_basket', id: item_id, value: value
+    $scope.add_to_basket = (item, value)->
+
+      item.ordered ||= {}
+      item.ordered.value = value
+      $rootScope.$broadcast 'goods:add_to_basket', id: item.id, value: value
 
     # Route handler
     $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->

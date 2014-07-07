@@ -412,6 +412,10 @@
             border-color: transparent transparent transparent #0484c6;
           }
         }
+        .loader {
+          display: none;
+          float: right;
+        }
       }
 
       .catalog__sum {
@@ -461,6 +465,12 @@
         &:after {
           background: asset_url('icons/wave-blue.png') repeat-x;
         }
+      }
+    }
+
+    &.loading {
+      .loader {
+        display: inline;
       }
     }
   }

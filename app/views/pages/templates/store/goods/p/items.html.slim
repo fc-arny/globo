@@ -1,6 +1,6 @@
 .catalog
   .catalog__list
-    .catalog__item.col-sm-6.col-md-4.col-lg-3(ng-repeat='g_item in items')
+    .catalog__item.col-sm-6.col-md-4.col-lg-3(ng-repeat='g_item in items' id='catalog_item_{{g_item.id}}')
       .catalog__item-in{ng-class='g_item.ordered ? "is-selected" : ""'}
         .catalog__pic.js-prod-open
           img(src='/assets/pic1.jpg')
@@ -16,22 +16,21 @@
           .catalog__down-in
             .catalog__down-item
               .weight.js-weight
-                button.weight__btn-minus
-                  i
+                button.weight__btn-minus(ng-click='add_to_basket(g_item, g_item.ordered.value - 1)'): i
                 .weight__val
-                  input(data={factor:50} maxlength=4 type=:text value=500)
+                  input(ng-model='g_item.ordered.value' data={factor:50} maxlength=4 type=:text value=500)
                   span гр
-                button.weight__btn-plus
-                  i
+                button.weight__btn-plus(ng-click='add_to_basket(g_item, g_item.ordered.value + 1)'): i
               .catalog__sum
                 strong
-                  | 750
-                  sup 00
+                  = '{{g_item.price * g_item.ordered.value | decimal_part:"first"}}'
+                  sup= '{{g_item.price * g_item.ordered.value | decimal_part:"last"}}'
                   i.rub P
                 button.js-del-prod Удалить
             .catalog__down-item
-              button.catalog__buy-btn.js-add-prod(ng-click='add_to_basket(1, 1)') В корзину
+              button.catalog__buy-btn.js-add-prod(ng-click='add_to_basket(g_item, 1)')= t('views.store.list.add_to_basket')
+
   button.catalog__more-btn.ng-hide(ng-show='show_more' ng-click='more_goods()' ng-disabled='loading')
-    span(ng-if='loading')= t('views.store.list.loading')
-    span(ng-if='!loading')= t('views.store.list.show_more')
+    span(ng-show='loading')= t('views.store.list.loading')
+    span(ng-hide='loading')= t('views.store.list.show_more')
 
