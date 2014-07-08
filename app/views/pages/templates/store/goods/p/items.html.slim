@@ -7,7 +7,7 @@
           i.like.is-active
         .catalog__title.js-prod-open= '{{g_item.good.name}}'
         .catalog__price
-          span Цена:
+          span= t('views.store.list.price')
           strong
             = '{{g_item.price | decimal_part:"first"}}'
             sup= '{{g_item.price | decimal_part:"last"}}'
@@ -26,7 +26,7 @@
                   = '{{g_item.price * g_item.ordered.value | decimal_part:"first"}}'
                   sup= '{{g_item.price * g_item.ordered.value | decimal_part:"last"}}'
                   i.rub P
-                button.js-del-prod Удалить
+                button.js-del-prod= t('views.store.list.remove')
             .catalog__down-item
               button.catalog__buy-btn.js-add-prod(ng-click='add_to_basket(g_item, 1)')= t('views.store.list.add_to_basket')
 
