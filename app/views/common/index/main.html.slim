@@ -44,7 +44,7 @@
           a(href=blog_list_path(:news))= t('views.index.nav.news')
           a(href=goods_path)= t('views.index.nav.goods')
           a(href=static_page_path(:promo))= t('views.index.nav.promo')
-      = render 'partials/common/stores_main', stores: @stores
+      /= render 'partials/common/stores_main', stores: @stores
 
 
       .m-benefits.container
