@@ -18,8 +18,8 @@
               .weight.js-weight
                 button.weight__btn-minus(ng-click='add_to_basket(g_item, g_item.ordered.value - 1)'): i
                 .weight__val
-                  input(ng-model='g_item.ordered.value' data={factor:50} maxlength=4 type=:text value=500)
-                  span гр
+                  input(ng-model='g_item.ordered.value' type='text')
+                  span= '{{g_item.measure.name}}'
                 button.weight__btn-plus(ng-click='add_to_basket(g_item, g_item.ordered.value + 1)'): i
               .catalog__sum
                 strong
