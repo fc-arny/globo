@@ -1,4 +1,16 @@
 PATH
+  remote: ../image_thread
+  specs:
+    image_thread (0.1.1)
+      carrierwave
+      foreigner
+      haml-rails
+      migration_comments
+      mini_magick
+      rails (>= 4.0.0)
+      sass-rails
+
+PATH
   remote: ../sap
   specs:
     sap (0.0.1)
@@ -10,7 +22,6 @@ PATH
       sap_core (= 0.0.1)
     sap_backend (0.0.1)
       cancan
-      image_thread
       paper_trail (~> 3.0.0)
       rails_admin
       sap_api (= 0.0.1)
@@ -24,6 +35,7 @@ PATH
       draper (~> 1.0)
       foreigner
       i18n-js
+      image_thread (~> 0.1.0)
       jbuilder
       js-routes
       oj
@@ -34,7 +46,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    aasm (3.2.1)
+    aasm (3.3.0)
     actionmailer (4.1.4)
       actionpack (= 4.1.4)
       actionview (= 4.1.4)
@@ -171,18 +183,10 @@ GEM
       railties (>= 4.0.1)
     high_voltage (2.2.0)
     hike (1.2.3)
-    i18n (0.6.9)
+    i18n (0.6.11)
     i18n-js (2.1.2)
       i18n
-    image_thread (0.1.1)
-      carrierwave
-      foreigner
-      haml-rails
-      migration_comments
-      mini_magick
-      rails (>= 4.0.0)
-      sass-rails
-    jbuilder (2.1.1)
+    jbuilder (2.1.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.1)
@@ -211,13 +215,13 @@ GEM
       skinny (>= 0.1.2)
       sqlite3-ruby
       thin
-    migration_comments (0.3.1)
+    migration_comments (0.3.2)
       activerecord (>= 2.3.2)
     mime-types (1.25.1)
     mini_magick (3.7.0)
       subexec (~> 0.2.1)
     mini_portile (0.6.0)
-    minitest (5.3.5)
+    minitest (5.4.0)
     mono_logger (1.1.0)
     multi_json (1.10.1)
     nested_form (0.3.2)
@@ -227,7 +231,7 @@ GEM
     newrelic_rpm (3.9.0.229)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
-    oj (2.9.8)
+    oj (2.9.9)
     oj_mimic_json (1.0.1)
     orm_adapter (0.5.0)
     paper_trail (3.0.3)
@@ -437,7 +441,7 @@ DEPENDENCIES
   gon
   high_voltage (~> 2.2.0)
   i18n-js
-  image_thread (~> 0.1.0)
+  image_thread!
   jquery-rails
   kaminari
   mailcatcher

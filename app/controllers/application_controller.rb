@@ -61,7 +61,7 @@ class ApplicationController < Sap::BaseController
   def reload_rails_admin
     RailsAdmin::Config::Actions.reset
 
-    path = [Rails.root, 'components/sap/backend/config/initializers'].join('/')
+    path = [Rails.root, '../sap/backend/config/initializers'].join('/')
     load([path, 'rails_admin.rb'].join('/'))
 
     %W(goods.rb stores.rb users.rb categories.rb).each do |model|

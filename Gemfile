@@ -51,8 +51,8 @@ gem 'sap', path: '../sap'
 # gem 'sap', git: 'git@github-sap:martsoft/sap.git', path: './components/sap'
 
 # Sap override
-gem 'image_thread', '~> 0.1.0'
-# gem 'image_thread', path: '../image_thread'
+# gem 'image_thread', '~> 0.1.0'
+gem 'image_thread', path: '../image_thread'
 gem 'rails_admin_nestable', branch: 'master'
 
 group :development, :test do
