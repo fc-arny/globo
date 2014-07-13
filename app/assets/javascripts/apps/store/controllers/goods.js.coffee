@@ -29,8 +29,9 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     $scope.add_to_basket = (item, value)->
 
       item.ordered ||= {}
-      item.ordered.value = value
-      $rootScope.$broadcast 'goods:add_to_basket', id: item.id, value: value
+      item.ordered.value = (if value <= 0 then 0 else value)
+      score = (item.ordered.value / item.good.value) * item.price
+      $rootScope.$broadcast 'goods:add_to_basket', id: item.id, value: item.ordered.value, score: score
 
     # Route handler
     $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
@@ -60,8 +61,6 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
       $scope.offset = 0
       $scope.sort_dir = field_dir.pop()
       $scope.sort_field  = field_dir.join('_')
-
-      console.log 'Sort'
 
       load_goods(false)
 

@@ -47,8 +47,8 @@ gem 'gon'
 gem 'jquery-rails'                   # jQuery UJS
 
 # Sap
-# gem 'sap', path: '../sap'
-gem 'sap', git: 'git@github-sap:martsoft/sap.git', tag: File.read(File.expand_path('../SAP_TAG', __FILE__)).strip
+gem 'sap', path: '../sap'
+# gem 'sap', git: 'git@github-sap:martsoft/sap.git', branch: :s1, tag: File.read(File.expand_path('../SAP_TAG', __FILE__)).strip
 
 # Sap override
 # gem 'image_thread', '~> 0.1.0'
@@ -62,7 +62,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
 
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'jasmine'
   gem 'minitest'
   gem 'spring'
 end
