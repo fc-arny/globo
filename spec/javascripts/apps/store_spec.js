@@ -1,5 +1,13 @@
 describe('Angular store app', function() {
-    describe('filters of store app', function() {
+    // Controllers
+    describe('gm.store.controllers', function() {
+        describe('GoodsController', function() {
+
+        });
+    });
+
+    // Filters
+    describe('gm.store.filters', function() {
         describe('decimal_part', function() {
             var filter;
 
@@ -9,6 +17,7 @@ describe('Angular store app', function() {
                     filter = $injector.get('$filter')('decimal_part');
                 });
             });
+
             it('get value before point', function() {
                 expect(filter(12.98, 'first')).toBe(12);
             });

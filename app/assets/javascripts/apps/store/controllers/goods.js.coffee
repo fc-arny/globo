@@ -31,7 +31,11 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
       item.ordered ||= {}
       item.ordered.value = (if value <= 0 then 0 else value)
       score = (item.ordered.value / item.good.value) * item.price
-      $rootScope.$broadcast 'goods:add_to_basket', id: item.id, value: item.ordered.value, score: score
+      $rootScope.$broadcast 'goods:update_ordered', id: item.id, value: item.ordered.value, score: score
+
+    $scope.remove_from_basket = (item) ->
+      item.ordered.value = 0
+      $rootScope.$broadcast 'goods:update_ordered', id: item.id, value: 0, score: 0
 
     # Route handler
     $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
