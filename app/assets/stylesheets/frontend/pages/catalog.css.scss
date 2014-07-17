@@ -282,7 +282,8 @@
   font-size: 0;
 
   .catalog__item {
-    min-width: 230px;
+    min-width: 275px;
+    max-width: 410px;
     vertical-align: top;
 
     .catalog__item-in {

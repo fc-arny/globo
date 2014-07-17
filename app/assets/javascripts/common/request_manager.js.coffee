@@ -1,0 +1,2 @@
+class RequestManager
+  constructor: (callback)->

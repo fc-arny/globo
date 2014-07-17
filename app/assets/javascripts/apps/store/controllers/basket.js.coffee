@@ -9,10 +9,13 @@ angular.module('gm.store.controllers').controller 'BasketController', [
       OrdersService.one('current').get().then (response)->
         $scope.order = response
         $scope.loading = false
-        for i in $scope.order.items
-          $scope.total += i.current_price * i.value
+        calculate_total()
 
     $scope.$on 'goods:update_ordered', (event, data) ->
+      calculate_total()
 
 
+    calculate_total = ->
+      for i in $scope.order.items
+        $scope.total += i.current_price * i.value
 ]
