@@ -22,6 +22,7 @@
 //---------------------------------
 //= require_tree ./core
 //= require common/init
+//= require_tree ./common/classes
 
 // Plugins ------------------------
 //---------------------------------
