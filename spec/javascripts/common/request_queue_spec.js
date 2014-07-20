@@ -10,13 +10,9 @@ describe('RequestQueue', function() {
 
     it('push request data to queue', function() {
         queue.push({one: 'one'});
-        expect(queue.get_queue().length).toBe(1);
+        expect(queue._queue.length).toBe(1);
 
         queue.push(1);
-        expect(queue.get_queue().length).toBe(2);
-    });
-
-    it('must exec callback and lock others execs', function() {
-
+        expect(queue._queue.length).toBe(2);
     });
 });

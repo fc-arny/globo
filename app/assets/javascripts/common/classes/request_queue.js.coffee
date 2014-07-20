@@ -10,10 +10,10 @@ class @RequestQueue
     @_queue.push(data)
     clearTimeout(@_timer)
 
-    @_timer = setTimeout( ->
+    @_timer = setTimeout(=>
 
       params = @_queue.pop(); @_queue = []; @_lock = true
-      @callbaack(params)
+      @callback(params)
 
       if @async_event
         $(document).on @async_event, -> @_lock = false
