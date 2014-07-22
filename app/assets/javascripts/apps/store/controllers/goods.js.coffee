@@ -35,17 +35,19 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
       score = (item.ordered.value / item.good.value) * item.price
 
       if $scope._requests[item.id] is undefined
+        val = item.ordered.value
         $scope._requests[item.id] = new RequestQueue(->
-          OrderItemsService.post(good_item_id: item.id, value: item.ordered.value)
+          OrderItemsService.post(good_item_id: item.id, value: val)
         , 500)
 
       $scope._requests[item.id].push item.ordered.value
 
       $rootScope.$broadcast 'goods:update_ordered', id: item.id, value: item.ordered.value, score: score
 
+      item.ordered = null if item.ordered.value == 0
+
     $scope.remove_from_basket = (item) ->
-      item.ordered.value = 0
-      $rootScope.$broadcast 'goods:update_ordered', id: item.id, value: 0, score: 0
+      $scope.add_to_basket(item, 0)
 
     # Route handler
     $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
