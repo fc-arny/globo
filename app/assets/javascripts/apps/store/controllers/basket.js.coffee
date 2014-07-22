@@ -1,6 +1,6 @@
 angular.module('gm.store.controllers').controller 'BasketController', [
-  '$scope', 'OrdersService', 'OrderItemService'
-  ($scope, OrdersService, OrderItemService)->
+  '$scope', 'OrdersService', 'OrderItemsService'
+  ($scope, OrdersService, OrderItemsService)->
     $scope.total = 0
     $scope.loading = true
     $scope.order = null

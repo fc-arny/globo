@@ -1,7 +1,7 @@
 class @RequestQueue
   constructor: (callback, interval = 1000, async_event = false)->
-    @interval = interval
     @callback = callback
+    @interval = interval
     @async_event = async_event
 
     @_queue = []; @_lock = false; @_timer = null
@@ -21,3 +21,5 @@ class @RequestQueue
         @_lock = false
 
     , @interval)
+
+    @_queue

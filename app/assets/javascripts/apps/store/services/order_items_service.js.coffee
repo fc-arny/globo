@@ -1,1 +1,1 @@
-angular.module('gm.store.services').factory 'OrderItemService', (Restangular) -> Restangular.service('order/items')
+angular.module('gm.store.services').factory 'OrderItemsService', (Restangular) -> Restangular.service('order_items')

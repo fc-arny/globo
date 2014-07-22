@@ -1,9 +1,8 @@
 angular.module('gm.store.controllers').controller 'GoodsController', [
-  '$scope', 'GoodsService', '$state', '$rootScope'
-  ($scope, GoodsService, $state, $rootScope)->
+  '$scope', 'GoodsService', 'OrderItemsService', '$state', '$rootScope'
+  ($scope, GoodsService, OrderItemsService, $state, $rootScope)->
 
     # Vars ---------------------------
-    # --------------------------------
     $scope.show_more = true     # Show load more button?
     $scope.loading   = true     # if loading process
     $scope.offset    = 0        # Offset
@@ -20,6 +19,9 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     # Good Items
     $scope.items = []
 
+    # Requests queue
+    $scope._requests = []
+
 
     # Methods ------------------------
     # --------------------------------
@@ -31,6 +33,14 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
       item.ordered ||= {}
       item.ordered.value = (if value <= 0 then 0 else value)
       score = (item.ordered.value / item.good.value) * item.price
+
+      if $scope._requests[item.id] is undefined
+        $scope._requests[item.id] = new RequestQueue(->
+          OrderItemsService.post(good_item_id: item.id, value: item.ordered.value)
+        , 500)
+
+      $scope._requests[item.id].push item.ordered.value
+
       $rootScope.$broadcast 'goods:update_ordered', id: item.id, value: item.ordered.value, score: score
 
     $scope.remove_from_basket = (item) ->
