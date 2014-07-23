@@ -11,6 +11,8 @@
     'gm.store.filters'
     'gm.store.directives'
 
+    'gm.util.filters'
+
     'ui.bootstrap'
     'ui.router'
   ]).config([

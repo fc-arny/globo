@@ -15,6 +15,8 @@
 
 // Angular Store App
 // ------------------------------------------
+//= require      apps/util
+
 //= require      apps/store/modules
 
 //= require_tree ./apps/store/filters

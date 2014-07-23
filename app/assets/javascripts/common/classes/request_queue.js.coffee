@@ -1,25 +1,17 @@
 class @RequestQueue
-  constructor: (callback, interval = 1000, async_event = false)->
+  constructor: (callback, interval = 1000)->
     @callback = callback
     @interval = interval
-    @async_event = async_event
 
-    @_queue = []; @_lock = false; @_timer = null
+    @_queue = []; @_timer = null
 
   push: (data)->
     @_queue.push(data)
     clearTimeout(@_timer)
 
-    @_timer = setTimeout(=>
-
-      params = @_queue.pop(); @_queue = []; @_lock = true
-      @callback(params)
-
-      if @async_event
-        $(document).on @async_event, -> @_lock = false
-      else
-        @_lock = false
-
+    @_timer = setTimeout( =>
+        params = @_queue.pop(); @_queue = [];
+        @callback(params)
     , @interval)
 
     @_queue
