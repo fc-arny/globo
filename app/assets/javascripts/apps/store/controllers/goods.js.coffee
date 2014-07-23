@@ -32,17 +32,15 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
 
       item.ordered ||= {}
       item.ordered.value = (if value <= 0 then 0 else value)
-      score = (item.ordered.value / item.good.value) * item.price
 
       if $scope._requests[item.id] is undefined
-        val = item.ordered.value
-        $scope._requests[item.id] = new RequestQueue(->
-          OrderItemsService.post(good_item_id: item.id, value: val)
+        $scope._requests[item.id] = new RequestQueue((value)->
+          OrderItemsService.post(good_item_id: item.id, value: value)
         , 500)
 
       $scope._requests[item.id].push item.ordered.value
 
-      $rootScope.$broadcast 'goods:update_ordered', id: item.id, value: item.ordered.value, score: score
+      $rootScope.$broadcast 'goods:order_item', gid: item.id, value: item.ordered.value, current_price: item.price
 
       item.ordered = null if item.ordered.value == 0
 
