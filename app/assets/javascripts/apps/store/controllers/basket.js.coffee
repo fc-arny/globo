@@ -12,7 +12,7 @@ angular.module('gm.store.controllers').controller 'BasketController', [
         calculate_total()
 
     $scope.$on 'goods:order_item', (event, data) ->
-      item = _.findWhere($scope.order.items, gid: data.id)
+      item = _.findWhere($scope.order.items, gid: data.gid)
       if item
         item.value = data.value
       else
