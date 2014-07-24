@@ -1,4 +1,4 @@
-angular.module('gm.util.filters').filter('decimal_part', ->
+angular.module('gm.util.filters').filter('decimal', ->
   (input, part = 'first') ->
     if part is 'first'
       parseInt input
@@ -7,6 +7,6 @@ angular.module('gm.util.filters').filter('decimal_part', ->
       val = '0' + val if val < 10
       val
     else
-      throw 'Wrong param \'part\' value'
+      parseFloat(input)
 
 )

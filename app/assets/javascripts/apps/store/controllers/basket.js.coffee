@@ -24,5 +24,5 @@ angular.module('gm.store.controllers').controller 'BasketController', [
     calculate_total = ->
       $scope.total = 0
       for i in $scope.order.items
-        $scope.total += i.current_price * i.value
+        $scope.total += parseFloat(i.current_price * i.value)
 ]

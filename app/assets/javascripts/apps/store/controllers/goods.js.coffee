@@ -29,7 +29,6 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
 
     # Add to basket
     $scope.add_to_basket = (item, value)->
-
       item.ordered ||= {}
       item.ordered.value = (if value <= 0 then 0 else value)
 

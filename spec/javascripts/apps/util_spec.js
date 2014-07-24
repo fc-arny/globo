@@ -2,13 +2,13 @@ describe('Angular gm.util', function() {
 
     // Filters
     describe('gm.util.filters', function() {
-        describe('decimal_part', function() {
+        describe('decimal', function() {
             var filter;
 
             beforeEach(function() {
                 module('gm.util.filters');
                 inject(function($injector){
-                    filter = $injector.get('$filter')('decimal_part');
+                    filter = $injector.get('$filter')('decimal');
                 });
             });
 

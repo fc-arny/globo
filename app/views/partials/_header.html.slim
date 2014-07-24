@@ -10,7 +10,7 @@ header.header
       .total
         .total__value(ng-show='!loading' class='ng-cloak')
           div(ng-show='total > 0')
-            = '{{total|number:0}}'
+            = '{{total | decimal:"first" | number:0}}'
             i.gm-icon-ruble
           .empty(ng-show='total == 0')= t('views.common.header.basket.empty')
 

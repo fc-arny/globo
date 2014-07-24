@@ -9,8 +9,8 @@
         .catalog__price
           span= t('views.store.list.price')
           strong
-            = '{{g_item.price | number:0 }}'
-            sup= '{{g_item.price | decimal_part:"last"}}'
+            = '{{g_item.price | decimal:"first" | number:0 }}'
+            sup= '{{g_item.price | decimal:"last"}}'
             i.rub P
         .catalog__down
           .catalog__down-in
@@ -18,13 +18,13 @@
               .weight.js-weight
                 button.weight__btn-minus(ng-click='add_to_basket(g_item, g_item.ordered.value - 1)'): i
                 .weight__val
-                  input(ng-model='g_item.ordered.value' type='text')
+                  input(ng-model='g_item.ordered.value' ng-blur='add_to_basket(g_item, g_item.ordered.value)' type='text')
                   span= '{{g_item.measure.name}}'
                 button.weight__btn-plus(ng-click='add_to_basket(g_item, g_item.ordered.value + 1)'): i
               .catalog__sum
                 strong
-                  = '{{g_item.price * g_item.ordered.value | number:0 }}'
-                  sup= '{{g_item.price * g_item.ordered.value | decimal_part:"last"}}'
+                  = '{{g_item.price * g_item.ordered.value | decimal:"first" | number:0 }}'
+                  sup= '{{g_item.price * g_item.ordered.value | decimal:"last"}}'
                   i.rub P
                 button.js-del-prod(ng-click="remove_from_basket(g_item)")= t('views.store.list.remove')
             .catalog__down-item
