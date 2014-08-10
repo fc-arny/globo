@@ -36,33 +36,33 @@ input[disabled], textarea[disabled] {
   margin-bottom: -212px;
   padding: 0 20px;
   overflow: hidden;
-  &.is-fixed {
-    @include rt(more768) {
-      .header { //, .search
-        position: fixed;
-      }
-      .header {
-        top: -90px;
-        left: 20px;
-        right: 20px;
-        z-index: 400;
-      }
-      .header__top {
-        display: none;
-      }
-      .header__down {
-        padding-top: 100px;
-      }
+//  &.is-fixed {
+//    @include rt(more768) {
+//      .header { //, .search
+//        position: fixed;
+//      }
+//      .header {
+//        top: -90px;
+//        left: 20px;
+//        right: 20px;
+//        z-index: 400;
+//      }
+//      .header__top {
+//        display: none;
+//      }
+//      .header__down {
+//        padding-top: 100px;
+//      }
 //      .search {
 //        right: 20px;
 //        top: 131px;
 //        z-index: 300;
 //      }
-      .layout {
-        padding-top: 198px;
-      }
-    }
-  }
+//      .layout {
+//        padding-top: 198px;
+//      }
+//    }
+//  }
 }
 
 .push {
@@ -500,7 +500,7 @@ input[disabled], textarea[disabled] {
   }
 }
 
-.btn-dashed {
+  .btn-dashed {
   background: none;
   border-bottom: 1px dashed $bl;
   font-size: 12px;

@@ -1,19 +1,21 @@
 header.header
   .header__top
     a.logo(href=root_url)
-      span.logo__pic
+      img.logo__pic(src='/assets/images/logo.svg')
+      span.logo__txt
+        span Globo
+        span Market
     ._user_state_wrapper= user_state
-  .header__down
-    .h-basket(ng-controller='BasketController' ng-init='init()')
+    .basket.ng-cloak(ng-controller='BasketController' ng-init='init()')
       .counter
         .counter__image.gm-icon-basket2
-      .total
-        .total__value(ng-show='!loading' class='ng-cloak')
+      button.btn-dashed.total
+        .total__value(ng-show='!loading')
           div(ng-show='total > 0')
             = '{{total | decimal:"first" | number:0}}'
-            i.gm-icon-ruble
+            i.gm-icon-ruble<>
           .empty(ng-show='total == 0')= t('views.common.header.basket.empty')
-
+  .header__down
     .menu.is-slider
       .menu__list
         button.menu__btn-prev: i

@@ -1,10 +1,44 @@
 @import "common/base";
 
+// Logotype ============================================================================================================
+.logo {
+  float: left;
+  margin: 8px 0 0 25px;
+  font-size: 0;
+  text-align: center;
 
-//header
+  .logo__pic {
+    display: inline-block;
+    margin: 0 0 5px 0;
+    opacity: 0.95;
+
+    &:hover {
+      opacity: 1;
+    }
+    &.logo__pic_white {
+      @include s(logo-white);
+    }
+  }
+  .logo__txt {
+    margin-left: 5px;
+    span {
+      display: inline-block;
+      font-family: Georgia;
+      color: #444444;
+      text-align: right;
+      text-transform: uppercase;
+      font-size: 15px;
+      &:first-letter {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+// Header ==============================================================================================================
 .header {
-  position: relative;
-  height: 180px;
+  position: fixed;
+  height: 150px;
   margin-bottom: 20px;
   background: #f6f6f6;
   opacity: 0.9;
@@ -12,15 +46,65 @@
   border-width: 0px 1px 1px 1px;
   box-shadow: 0 0 1px #f9f9f9, 0 0 1px rgba(0, 0, 0, 0.7);
   border-radius: 0 0 2px 2px;
-  z-index: 200;
+  z-index: 400;
 
+  left: 20px;
+  right: 20px;
+
+  min-width: 610px;
+
+  .logo {
+    img {
+      height: 40px;
+    }
+  }
+
+  .basket {
+    cursor: pointer;
+    margin: 10px 10px 0 0;
+    float: right;
+    .counter {
+      .counter__image {
+        font-size: 22px;
+      }
+    }
+
+    .counter {
+      background-color: $bl;
+      border-radius: 16px;
+      margin: 2px 5px 2px 2px;
+      float: left;
+      height: 32px;
+      width: 32px;
+      .counter__image {
+        color: #ffffff;
+        line-height: 32px;
+      }
+    }
+    .total {
+      text-align: right;
+      .total__value {
+        display: block;
+        font-size: 14px;
+        margin: 12px 0 0;
+        i {
+          font-size: 11px;
+        }
+        .empty {
+          font-size: 14px;
+          font-weight: normal;
+          text-align: center;
+        }
+      }
+    }
+  }
 
   .header__top, .header__down {
     height: 86px;
   }
 
   .header__top {
-    height: 90px;
+    height: 60px;
     margin-bottom: 10px;
     background: asset_url('icons/header-line.png') repeat-x 0 100%;
     @include clr;
@@ -35,85 +119,19 @@
 
   .header__down {
     height: 71px;
-    padding: 0;
+    padding-top: 0;
 //    @include rt(768) {
 //      padding: 0 30px 0 0;
 //    }
 
-    .h-basket {
-      background-color: #dd5746;
-      border: 1px solid #f1d1cd;
-      border-right-color: #ffffff;
-      border-radius: 2px 0 0 2px;
-      box-shadow: 0 0 1px #dd5746;
-      color: #ffffff;
-      cursor: pointer;
-      margin: 10px -10px 0 0;
-      float: right;
-      width: 150px;
-      .counter {
-        .counter__image {
-          font-size: 22px;
-        }
-      }
-
-      &:hover {
-        box-shadow: 0 0 2px #dd5746;
-        background-color: #DD5D4E;
-      }
-      .counter {
-        border-right: 2px solid #f1d1cd;
-        margin: 2px;
-        float: left;
-        padding: 7px;
-        width: 44px;
-      }
-      .total {
-        text-align: right;
-        .total__value {
-          display: block;
-          font-size: 18px;
-          height: 40px;
-          padding: 12px 5px 10px 5px;
-          i {
-            font-size: 14px;
-          }
-          .empty {
-            font-size: 14px;
-            font-weight: normal;
-            text-align: center;
-          }
-        }
-      }
-    }
   }
 }
 
-
-.logo {
-  float: left;
-  margin: 8px 0 0 45px;
-  font-size: 0;
-  text-align: center;
-
-  .logo__pic {
-    display: inline-block;
-    margin: 0 0 5px 0;
-    opacity: 0.95;
-    @include s(logo);
-    &:hover {
-      opacity: 1;
-    }
-    &.logo__pic_white {
-      @include s(logo-white);
-    }
-  }
-}
 
 .login {
   position: relative;
   float: right;
-  margin: 25px 15px 0 20px;
+  margin: 15px 15px 0 20px;
   background: none;
   max-width: 140px;
   .logged_in {
@@ -272,7 +290,7 @@
 .menu {
   position: relative;
   margin-left: 30px;
-  margin-right: 185px;
+  margin-right: 30px;
 
   .menu__btn-prev, .menu__btn-next {
     display: none;
@@ -332,7 +350,7 @@
         box-shadow: 1px 0 0 #fcfcfc;
         white-space: normal;
         text-align: center;
-        font-size: 12px;
+        font-size: 10px;
         color: #666666;
         cursor: pointer;
         text-transform: uppercase;
