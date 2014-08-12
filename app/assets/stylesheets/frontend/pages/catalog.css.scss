@@ -276,7 +276,11 @@
 }
 
 
-//catalog
+//
+.catalog {
+  border-right: 1px dashed #dddede;
+  padding-right: 20px;
+}
 .catalog__list {
   margin: 0 -25px;
   font-size: 0;

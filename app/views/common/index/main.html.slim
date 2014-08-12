@@ -9,8 +9,11 @@
     .wrap.wrap_main
       .m-header
         .container
-          a.logo(href=root_url title=Settings.common.title)
-            span.logo__pic
+          a.logo(href=root_url)
+            img.logo__pic(src='/assets/images/logo.svg')
+            span.logo__txt
+              span Globo
+              span Market
           ._user_state_wrapper
             = user_state
           .social.social_blue

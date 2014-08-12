@@ -5,11 +5,11 @@ header.header
       span.logo__txt
         span Globo
         span Market
-    ._user_state_wrapper= user_state
+    /._user_state_wrapper= user_state
     .basket.ng-cloak(ng-controller='BasketController' ng-init='init()')
       .counter
         .counter__image.gm-icon-basket2
-      button.btn-dashed.total
+      a.btn-dashed.total
         .total__value(ng-show='!loading')
           div(ng-show='total > 0')
             = '{{total | decimal:"first" | number:0}}'

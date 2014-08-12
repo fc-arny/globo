@@ -41,7 +41,7 @@
   height: 150px;
   margin-bottom: 20px;
   background: #f6f6f6;
-  opacity: 0.9;
+//  opacity: 0.9;
   border: 1px solid white;
   border-width: 0px 1px 1px 1px;
   box-shadow: 0 0 1px #f9f9f9, 0 0 1px rgba(0, 0, 0, 0.7);
@@ -63,6 +63,10 @@
     cursor: pointer;
     margin: 10px 10px 0 0;
     float: right;
+//    background: #ffffff;
+    border-radius: 18px;
+    padding-right: 10px;
+//    border: 1px dotted #dddede;
     .counter {
       .counter__image {
         font-size: 22px;
@@ -83,6 +87,13 @@
     }
     .total {
       text-align: right;
+      border-bottom-style: dotted;
+      display: inline-block;
+
+      &:hover {
+        text-decoration: none;
+      }
+
       .total__value {
         display: block;
         font-size: 14px;
@@ -134,6 +145,12 @@
   margin: 15px 15px 0 20px;
   background: none;
   max-width: 140px;
+  .user-state__login {
+    display: inline-block;
+//    border-bottom: 1px dashed #009bea;
+    font-size: 12px;
+    color: #009bea;
+  }
   .logged_in {
     margin-top: 10px;
     & > a {

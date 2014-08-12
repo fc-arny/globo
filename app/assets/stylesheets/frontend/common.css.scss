@@ -475,32 +475,32 @@ input[disabled], textarea[disabled] {
   font-size: 16px;
   color: white;
   font-weight: bold;
+}
 
-  &.btn-globo {
-    background: $bl;
-    padding: 3px 12px;
-    &:hover, &:active, &:focus {
-      color: #ffffff !important;
-    }
-    &:hover {
-      background: $blh;
-    }
-    &:active {
-      background: #0484c6;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
-    }
+.btn-globo {
+  background: $bl;
+  padding: 3px 12px;
+  &:hover, &:active, &:focus {
+    color: #ffffff !important;
+  }
+  &:hover {
+    background: $blh;
+  }
+  &:active {
+    background: #0484c6;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
+  }
 
-    &.load {
-      background: asset_url('loaders/loader-s.gif') no-repeat center center #65b1d7;
-      color: transparent !important;
-      img {
-        margin-left: 10px;
-      }
+  &.load {
+    background: asset_url('loaders/loader-s.gif') no-repeat center center #65b1d7;
+    color: transparent !important;
+    img {
+      margin-left: 10px;
     }
   }
 }
 
-  .btn-dashed {
+.btn-dashed {
   background: none;
   border-bottom: 1px dashed $bl;
   font-size: 12px;
@@ -508,12 +508,6 @@ input[disabled], textarea[disabled] {
   &:hover {
     border-color: $blh;
     color: $blh;
-  }
-}
-
-a {
-  &.btn-dashed {
-    display: inline-block;
   }
 }
 
@@ -547,6 +541,23 @@ a {
     &:after {
       border-color: transparent transparent transparent #0484c6;
     }
+  }
+}
+
+.btn-blue {
+  background: none;
+  border: 1px solid $bl;
+  font-size: 12px;
+  color: $bl;
+  &:hover {
+    border-color: $blh;
+    color: $blh;
+  }
+}
+
+a {
+  &.btn {
+    display: inline-block;
   }
 }
 
