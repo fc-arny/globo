@@ -63,10 +63,8 @@
     cursor: pointer;
     margin: 10px 10px 0 0;
     float: right;
-//    background: #ffffff;
     border-radius: 18px;
     padding-right: 10px;
-//    border: 1px dotted #dddede;
     .counter {
       .counter__image {
         font-size: 22px;
@@ -74,14 +72,14 @@
     }
 
     .counter {
-      background-color: $bl;
+//      background-color: $bl;
       border-radius: 16px;
       margin: 2px 5px 2px 2px;
       float: left;
       height: 32px;
       width: 32px;
       .counter__image {
-        color: #ffffff;
+        color: $bl;
         line-height: 32px;
       }
     }
@@ -147,9 +145,6 @@
   max-width: 140px;
   .user-state__login {
     display: inline-block;
-//    border-bottom: 1px dashed #009bea;
-    font-size: 12px;
-    color: #009bea;
   }
   .logged_in {
     margin-top: 10px;

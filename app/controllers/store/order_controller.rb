@@ -1,6 +1,4 @@
-# -------------------------------------------------------------
 # Backend for basket
-# -------------------------------------------------------------
 class Store::OrderController < FrontendController
 
   # -------------------------------------------------------------
@@ -10,16 +8,11 @@ class Store::OrderController < FrontendController
     %w[auth delivery payment]
   end
 
-  # -------------------------------------------------------------
-  #
-  # -------------------------------------------------------------
   def current_step
     @current_step || steps.first
   end
 
-  # -------------------------------------------------------------
-  # Start order process
-  # -------------------------------------------------------------
+  # Open basket
   def index
     @login_form     = LoginForm.new
     @register_form  = NewCustomer.new
@@ -27,11 +20,8 @@ class Store::OrderController < FrontendController
     @delivery_form  = OrderDeliveryForm.new
   end
 
-  # -------------------------------------------------------------
   # View ordered products
-  # -------------------------------------------------------------
   def list
-
-
+    render partial: 'partials/popups/basket' if request.xhr?
   end
 end

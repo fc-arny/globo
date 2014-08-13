@@ -64,7 +64,7 @@
           - t('views.index.registration_reason_array').each do |reason|
             li= reason
           li
-            button.btn.btn-globo data={popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'} = t('views.index.btn.register')
+            button.btn.btn-blue data={popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'} = t('views.index.btn.register')
       .container.container_cols
         = render 'common/index/partials/main_about'
         = render 'common/index/partials/main_news'

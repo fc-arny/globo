@@ -31,7 +31,7 @@
 //= require common/plugins/flashMessage
 //= require common/plugins/userState
 //= require common/plugins/resetPhone
-gmCurUserState = 'common';
+
 
 $(document).ready(function() {
 
@@ -43,59 +43,59 @@ $(document).ready(function() {
 	var page = $('.page');
 	var wrap = $('.wrap');
 	var header = $('.header');
-	var $fWelcome = $('.popup_welcome');
+//	var $fWelcome = $('.popup_welcome');
 
-	var btn_shop = $('.js-shops');
-	btn_shop.click(function() {
-		$(this).toggleClass('is-open');
-	});
-	btn_shop.find('li').click(function() {
-		var pic = $(this).find('img').attr('src');
-		$(this).parent().parent().next().find('img').attr('src', pic);
-	});
-	btn_shop.click(function(event) {
-		event.stopPropagation();
-	});
-
-	var cart_el =  $('.cart');
-	var cart_popup = $('.cart__popup');
-	var cart_close = $('.js-cart-close');
-	var cart_popup_open = $('.js-cart-popup > li');
-	var cart_arr = $('.cart__arr');
-	var scroll_el = $('.js-scroll');
-	var popup_el = $('.popup');
-	var popup_close = $('.popup__btn-close');
-	var datepicker_el = $('.datepicker__wrap');
-
-//	popup_close.click(function() {
-//		popup_el.hide();
-//		overlay.hide();
+//	var btn_shop = $('.js-shops');
+//	btn_shop.click(function() {
+//		$(this).toggleClass('is-open');
+//	});
+//	btn_shop.find('li').click(function() {
+//		var pic = $(this).find('img').attr('src');
+//		$(this).parent().parent().next().find('img').attr('src', pic);
+//	});
+//	btn_shop.click(function(event) {
+//		event.stopPropagation();
 //	});
 
-	cart_popup_open.click(function() {
-		var pos_top = $(this).position().top;
-		var height = $(this).height();
-		var top = pos_top + height/2 - 14;
-		cart_arr.css('top', top);
-		if (!cart_el.hasClass('is-open')) {
-			cart_el.addClass('is-open');
-			cart_popup.show();
-			scroll_init();
-			page_top = scroll_top;
-			page.css('top', -page_top);
-			body.addClass('no-scroll');
-			overlay.show();
-		};
-	});
-
-	cart_close.click(function() {
-		var wnd_width = $(window).width();
-		cart_popup.hide();
-		overlay.hide();
-		body.removeClass('no-scroll');
-		cart_el.removeClass('is-open');
-		cart_el.addClass('is-move');
-	});
+//	var cart_el =  $('.cart');
+//	var cart_popup = $('.cart__popup');
+//	var cart_close = $('.js-cart-close');
+//	var cart_popup_open = $('.js-cart-popup > li');
+//	var cart_arr = $('.cart__arr');
+//	var scroll_el = $('.js-scroll');
+//	var popup_el = $('.popup');
+//	var popup_close = $('.popup__btn-close');
+//	var datepicker_el = $('.datepicker__wrap');
+//
+////	popup_close.click(function() {
+////		popup_el.hide();
+////		overlay.hide();
+////	});
+//
+//	cart_popup_open.click(function() {
+//		var pos_top = $(this).position().top;
+//		var height = $(this).height();
+//		var top = pos_top + height/2 - 14;
+//		cart_arr.css('top', top);
+//		if (!cart_el.hasClass('is-open')) {
+//			cart_el.addClass('is-open');
+//			cart_popup.show();
+//			scroll_init();
+//			page_top = scroll_top;
+//			page.css('top', -page_top);
+//			body.addClass('no-scroll');
+//			overlay.show();
+//		};
+//	});
+//
+//	cart_close.click(function() {
+//		var wnd_width = $(window).width();
+//		cart_popup.hide();
+//		overlay.hide();
+//		body.removeClass('no-scroll');
+//		cart_el.removeClass('is-open');
+//		cart_el.addClass('is-move');
+//	});
 
 //	overlay.click(function() {
 //		$(this).hide();
@@ -163,13 +163,13 @@ $(document).ready(function() {
 	});
 
 //scroll init
-	function scroll_init() {
-		scroll_el.jScrollPane( {
-			hideFocus: true
-			//autoReinitialise: true
-			//autoReinitialiseDelay: 500
-		});
-	};
+//	function scroll_init() {
+//		scroll_el.jScrollPane( {
+//			hideFocus: true
+//			//autoReinitialise: true
+//			//autoReinitialiseDelay: 500
+//		});
+//	};
 
 //shop-search
 	function search_shop() {
@@ -489,7 +489,7 @@ $(document).ready(function() {
 	steps();
 	account();
 	search_shop();
-	scroll_init();
+//	scroll_init();
 	accordion(); //TODO: Create plugin or use thirdpart
 	address();
 
@@ -503,27 +503,14 @@ $(document).ready(function() {
 	});
 
 //window scroll
-//	var scroll_top = 0;
-//	$(window).scroll(function() {
-//		scroll_top = $(window).scrollTop();
-//		if (!body.hasClass('no-scroll')) {
-//			if (scroll_top > 90) {
-//				wrap.addClass('is-fixed');
-//				cart_el.addClass('is-fixed');
-//			}
-//			else {
-//				wrap.removeClass('is-fixed');
-//				cart_el.removeClass('is-fixed');
-//			};
-//		};
-//	});
+
 
 //click document
 	$(document).click(function() {
 //		btn_login.next().hide();
-		btn_shop.removeClass('is-open');
+//		btn_shop.removeClass('is-open');
 //		btn_sort.next().hide();
-		datepicker_el.hide();
+//		datepicker_el.hide();
 		$('.js-select').removeClass('is-open');
 		$('.js-shop-search').find('ul').hide();
 	});

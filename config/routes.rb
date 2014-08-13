@@ -37,7 +37,7 @@ Gm::Application.routes.draw do
   get 'store/list' => 'store/index#index' # View stores list
   get 'store/:url' => 'store/index#show'  # View stores list
 
-  scope :module => 'store' do
+  scope module: :store do
     get '/goods(/*category)', to: 'goods#index', as: :goods      # Goods main page
 
     controller :order do

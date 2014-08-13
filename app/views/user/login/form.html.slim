@@ -49,18 +49,18 @@
           button.btn.btn-globo= t('views.user.button.ready')
 = content_for :js do
   javascript:
-     $(function(){
-       $('.sign-in-on-form_auth form').ajaxForm({
-         onSuccess: function(response){
-           location.href = '/';
-         }
-       });
-
-       $('.sign-in-on-form_register form').ajaxForm({
-         onSuccess: function(response){
-           location.href = '/';
-         }
-       });
-
-       $('.phonenumber').mask('+7(999) 999-99-99');
+    $(function(){
+     $('.sign-in-on-form_auth form').ajaxForm({
+       onSuccess: function(response){
+         location.href = '/';
+       }
      });
+
+     $('.sign-in-on-form_register form').ajaxForm({
+       onSuccess: function(response){
+         location.href = '/';
+       }
+     });
+
+     $('.phonenumber').mask('+7(999) 999-99-99');
+    });

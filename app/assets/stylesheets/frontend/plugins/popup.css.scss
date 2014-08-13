@@ -5,6 +5,7 @@
   bottom: 0;
   display: none;
   left: 0;
+  min-width: $min_width;
   overflow-x: auto;
   overflow-y: scroll;
   position: fixed;
@@ -126,6 +127,13 @@
           padding: 0 30px;
         }
       }
+    }
+
+    &.popup_basket {
+      width: auto;
+      margin-right: 20px;
+      margin-left: 50px;
+      top: 60px;
     }
   }
 }

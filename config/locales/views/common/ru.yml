@@ -20,7 +20,7 @@ ru:
           promo: Акции
       header:
         basket:
-          empty: пусто ;-(
+          empty: пусто
         user_state:
           login: Войти
         nav:
