@@ -1,103 +1,54 @@
 .cart
   .cart__arr
-  .cart__bottom
-    strong
-      | Доставка:
-      span
-        | 400
-        sup 00
-      i.rub P
-    strong
-      | Итого:
-      span
-        | 3396
-        sup 00
-      i.rub P
-    .cart__go: button.btn.btn-globo ОФОРМИТЬ ЗАКАЗ
   .cart__prod
-    ul.cart__prod-in
-      li
-        .cart__prod-pic
-          img alt: "", src: "/assets/pic2.jpg" /
-          button
-        .cart__prod-title Ролл с крабовыми палочками Калифорния...
-        .weight.js-weight
-          button.weight__btn-minus
-            i
-          button.weight__btn-plus
-            i
-          .weight__val
-            input data-factor="50", maxlength: "4", type: "text", value: "500" /
-            span гр
-        .cart__prod-price
-          | Стоимость:
-          span 470
-          i.rub P
-      li
-        .cart__prod-pic
-          img alt: "", src: "/assets/pic2.jpg" /
-          button
-        .cart__prod-title Ролл с крабовыми палочками Калифорния...
-        .weight.js-weight
-          button.weight__btn-minus
-            i
-          button.weight__btn-plus
-            i
-          .weight__val
-            input data-factor="50", maxlength: "4", type: "text", value: "500" /
-            span гр
-        .cart__prod-price
-          | Стоимость:
-          span 470
-          i.rub P
-      li
-        .cart__prod-pic
-          img alt: "", src: "/assets/pic2.jpg" /
-          button
-        .cart__prod-title Ролл с крабовыми палочками Калифорния...
-        .weight.js-weight
-          button.weight__btn-minus
-            i
-          button.weight__btn-plus
-            i
-          .weight__val
-            input data-factor="50", maxlength: "4", type: "text", value: "500" /
-            span гр
-        .cart__prod-price
-          | Стоимость:
-          span 470
-          i.rub P
-      li
-        .cart__prod-pic
-          img alt: "", src: "/assets/pic2.jpg" /
-          button
-        .cart__prod-title Ролл с крабовыми палочками Калифорния...
-        .weight.js-weight
-          button.weight__btn-minus
-            i
-          button.weight__btn-plus
-            i
-          .weight__val
-            input data-factor="50", maxlength: "4", type: "text", value: "500" /
-            span гр
-        .cart__prod-price
-          | Стоимость:
-          span 470
-          i.rub P
-      li
-        .cart__prod-pic
-          img alt: "", src: "/assets/pic2.jpg" /
-          button
-        .cart__prod-title Ролл с крабовыми палочками Калифорния...
-        .weight.js-weight
-          button.weight__btn-minus
-            i
-          button.weight__btn-plus
-            i
-          .weight__val
-            input data-factor="50", maxlength: "4", type: "text", value: "500" /
-            span гр
-        .cart__prod-price
-          | Стоимость:
-          span 470
-          i.rub P
+    .order
+      .order__nav
+        button.btn.btn-globo= t('popup.basket.checkout')
+        button.order__clear Очистить корзину
+      .order__table
+        .order__head
+          .order__title(style='color: #ffffff') Итого
+          .order__title.order__title-weight Количество
+          .order__title Цена
+          .order__title Название
+        - 10.times do
+          .order__row-items(style='display: block')
+            .order__row-prod
+              .order__pic
+                a(href='#')
+                  img(src='/assets/img/pic4.jpg') /
+              .order__price
+                span
+                  | 400
+                  i.rub Р
+              .order__weight
+                .weight.js-weight
+                  button.weight__btn-minus
+                    i
+                  .weight__val
+                    input(maxlength=4 type='text' value=500) /
+                    span гр
+                  button.weight__btn-plus
+                    i
+              .order__price
+                span
+                  | 400
+                  i.rub Р
+              .order__prod
+                a(href='#')  Ролл с крабовыми палочками Калифорния
+        /.order__delivery
+        /  .order__price
+        /    span
+        /      | 400
+        /      i.rub Р
+        /  .order__delivary-title Доставка
+        .order__total
+          .order__price
+            span
+              | 5550
+              sup 00
+              i.rub Р
+          .order__total-title Итого:
+      .order__nav
+        button.btn.btn-globo= t('popup.basket.checkout')
+        button.order__clear Очистить корзину

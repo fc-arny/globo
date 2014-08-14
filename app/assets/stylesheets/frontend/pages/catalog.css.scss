@@ -562,7 +562,6 @@
 .cart {
   top: 221px;
   right: 20px;
-  margin-bottom: 20px;
   &.is-fixed {
     position: fixed;
     top: 131px;
@@ -622,11 +621,17 @@
     }
   }
 
-  .cart__go {
+  .cart__manage {
     position: relative;
     padding: 10px;
+    text-align: right;
     border-bottom: 1px dashed #e5e5e5;
-    @include box;
+
+    &.bottom {
+      border-bottom: none;
+      border-top: 1px dashed #e5e5e5;
+    }
+
     &:after {
       content: "";
       position: absolute;
@@ -648,86 +653,13 @@
     border-color: transparent transparent  #ffffff transparent;
   }
 
-  .cart__top {
-    padding: 13px 30px;
-    overflow: hidden;
-    strong {
-      float: left;
-      font-size: 24px;
-      text-transform: uppercase;
-    }
-    button {
-      position: relative;
-      float: right;
-      margin-top: 5px;
-      padding-right: 20px;
-      background: none;
-      font-size: 16px;
-      color: $bl;
-      overflow: visible;
-      &:hover {
-        color: $blh;
-        i {
-          opacity: 0.8;
-        }
-      }
-      i {
-        position: absolute;
-        top: 3px;
-        right: 0;
-        @include s(cart-btn-back);
-      }
-    }
-  }
-
-  .cart__bottom {
-    padding: 15px 20px;
-    text-align: right;
-    font-size: 0;
-    overflow: hidden;
-    strong {
-      display: inline-block;
-      margin-left: 30px;
-      font-size: 16px;
-      &:first-child {
-        color: #666666;
-        span, .rub {
-          color: #444444;
-        }
-        .rub {
-          &:before, &:after {
-            background: #444444;
-          }
-        }
-      }
-    }
-    span {
-      margin-left: 25px;
-    }
-    sup {
-      margin-left: 2px;
-      font-size: 12px;
-    }
-    span, .rub {
-      color: $bl;
-    }
-    .rub {
-      &:before {
-        top: 8px;
-      }
-      &:after {
-        top: 11px;
-        width: 9px;
-      }
-    }
-  }
-
   .cart__prod-in {
     height: 315px;
     background: #fafafa;
     overflow: auto;
     white-space: nowrap;
     font-size: 0;
+    margin-top: 10px;
     li {
       display: inline-block;
       width: 190px;
