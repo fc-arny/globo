@@ -2,6 +2,7 @@
   .cart__arr
   .cart__prod
     .order
+      = '{{}}'
       .order__nav
         button.btn.btn-globo= t('popup.basket.checkout')
         button.order__clear Очистить корзину
@@ -36,12 +37,6 @@
                   i.rub Р
               .order__prod
                 a(href='#')  Ролл с крабовыми палочками Калифорния
-        /.order__delivery
-        /  .order__price
-        /    span
-        /      | 400
-        /      i.rub Р
-        /  .order__delivary-title Доставка
         .order__total
           .order__price
             span
