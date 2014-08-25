@@ -2,6 +2,8 @@
   .catalog__list
     .catalog__item.col-sm-6.col-md-4.col-lg-3(ng-repeat='g_item in items' id='catalog_item_{{g_item.id}}')
       .catalog__item-in{ng-class='g_item.ordered ? "is-selected" : ""'}
+        div(item='g_item' good-item)
+          strong= '{{item.price}}'
         .catalog__pic.js-prod-open
           img.img-responsive(ng-src='{{g_item.images[0].url}}' src='/assets/pic1.jpg')
           /i.like.is-active

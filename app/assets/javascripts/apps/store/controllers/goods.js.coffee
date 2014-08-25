@@ -1,6 +1,6 @@
 angular.module('gm.store.controllers').controller 'GoodsController', [
   '$scope', 'GoodsService', 'OrderItemsService', '$state', '$rootScope'
-  ($scope, GoodsService, OrderItemsService, $state, $rootScope)->
+  ($scope, GoodsService, BasketService, $state, $rootScope)->
 
     # Vars ---------------------------
     $scope.show_more = true     # Show load more button?
@@ -34,7 +34,7 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
 
       if $scope._requests[item.id] is undefined
         $scope._requests[item.id] = new RequestQueue((value)->
-          OrderItemsService.post(good_item_id: item.id, value: value)
+          BasketService.post(good_item_id: item.id, value: value)
         , 500)
 
       $scope._requests[item.id].push item.ordered.value

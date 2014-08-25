@@ -2,7 +2,6 @@
   .cart__arr
   .cart__prod
     .order
-      = '{{}}'
       .order__nav
         button.btn.btn-globo= t('popup.basket.checkout')
         button.order__clear Очистить корзину
@@ -12,37 +11,39 @@
           .order__title.order__title-weight Количество
           .order__title Цена
           .order__title Название
-        - 10.times do
-          .order__row-items(style='display: block')
-            .order__row-prod
-              .order__pic
-                a(href='#')
-                  img(src='/assets/img/pic4.jpg') /
-              .order__price
-                span
-                  | 400
-                  i.rub Р
-              .order__weight
-                .weight.js-weight
-                  button.weight__btn-minus
-                    i
-                  .weight__val
-                    input(maxlength=4 type='text' value=500) /
-                    span гр
-                  button.weight__btn-plus
-                    i
-              .order__price
-                span
-                  | 400
-                  i.rub Р
-              .order__prod
-                a(href='#')  Ролл с крабовыми палочками Калифорния
+
+        .order__row-items(style='display: block' ng-repeat='item in order.items')
+          .order__row-prod
+            .order__pic
+              a(href='#')
+                img(src='/assets/img/pic4.jpg') /
+            .order__price
+              span
+                = '{{item.current_price * item.value | decimal:"first" | number:0 }}'
+                sup= '{{item.current_price * item.value | decimal:"last"}}'
+                i.rub P
+            .order__weight
+              .weight.js-weight
+                button.weight__btn-minus(ng-click='add_to_basket(item, item.value - 1)')
+                  i
+                .weight__val
+                  input(ng-model='item.value')
+                  span гр
+                button.weight__btn-plus(ng-click='add_to_basket(item, item.value + 1)')
+                  i
+            .order__price
+              span
+                = '{{item.current_price | decimal:"first" | number:0 }}'
+                sup= '{{item.current_price | decimal:"last"}}'
+                i.rub P
+            .order__prod
+              a(href='#')= '{{item.name}}'
         .order__total
           .order__price
             span
-              | 5550
-              sup 00
-              i.rub Р
+              = '{{total| decimal:"first" | number:0 }}'
+              sup= '{{total | decimal:"last"}}'
+              i.rub P
           .order__total-title Итого:
       .order__nav
         button.btn.btn-globo= t('popup.basket.checkout')

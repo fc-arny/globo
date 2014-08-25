@@ -1,7 +1,7 @@
 doctype html
 html(lang=:ru ng-app='gm')
   head
-    title(ng-bind='')
+    title
       = yield(:title) + ' | ' if content_for?(:title)
       = Settings.common.title
       |  -

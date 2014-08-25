@@ -9,12 +9,13 @@ header.header
     .basket.ng-cloak(ng-controller='BasketController' ng-init='init()')
       .counter
         .counter__image.gm-icon-basket2
-      a.btn-dashed.total(data={popup: '/order', classes: 'popup_basket js-popup', title: t('popup.basket.title')})
+      a.btn-dashed.total(data={popup: '#basket__popup_content', classes: 'popup_basket js-popup', title: t('popup.basket.title')})
         .total__value(ng-show='!loading')
           div(ng-show='total > 0')
             = '{{total | decimal:"first" | number:0}}'
             i.gm-icon-ruble<>
           .empty(ng-show='total == 0')= t('views.common.header.basket.empty')
+      div(id='basket__popup_content' style='display:none')= render partial: 'partials/popups/basket'
   .header__down
     .menu.is-slider
       .menu__list
