@@ -3,13 +3,18 @@ angular.module('gm.store.directives', [])
     restrict: 'EA'
     scope:
       item: '='
-    transclude: 'element'
-    multiElement: true
+    transclude: true
 #    replace : true
-#    template: '<div ng-transclude></div>'
-#    compile: goodItemCompile = ($element, $attr)->
+#    compile: (tElement, tAttr, transclude)->
+#      ($scope)->
+#        transclude($scope, (clone)->
+#          tElement.append clone
+#        )
 
-    link: (scope, element, attrs) ->
-      console.log scope.item
+
+    link: (scope, element, attrs, ctrl, transclude) ->
+      transclude(scope, (clone)->
+        element.append clone
+      )
 
   )
