@@ -1,4 +1,4 @@
-.cart
+.cart.ng-cloak(ng-controller='BasketModalController' ng-init='init()')
   .cart__arr
   .cart__prod
     .order
@@ -12,32 +12,32 @@
           .order__title Цена
           .order__title Название
 
-        .order__row-items(style='display: block' ng-repeat='item in order.items')
+        .order__row-items(style='display: block' ng-repeat='gitem in order.items' item='gitem' good-item)
           .order__row-prod
             .order__pic
               a(href='#')
-                img(src='/assets/img/pic4.jpg') /
+                img(src='/assets/pic4.jpg') /
             .order__price
               span
-                = '{{item.current_price * item.value | decimal:"first" | number:0 }}'
-                sup= '{{item.current_price * item.value | decimal:"last"}}'
+                = '{{item.price * item.value | decimal:"first" | number:0 }}'
+                sup= '{{item.price * item.value | decimal:"last"}}'
                 i.rub P
             .order__weight
               .weight.js-weight
                 button.weight__btn-minus(ng-click='add_to_basket(item, item.value - 1)')
                   i
                 .weight__val
-                  input(ng-model='item.value')
-                  span гр
+                  input(ng-model='item.value' ng-blur='add_to_basket(item, item.value)' type='text')
+                  span= '{{item.measure.name}}'
                 button.weight__btn-plus(ng-click='add_to_basket(item, item.value + 1)')
                   i
             .order__price
               span
-                = '{{item.current_price | decimal:"first" | number:0 }}'
-                sup= '{{item.current_price | decimal:"last"}}'
+                = '{{item.price | decimal:"first" | number:0 }}'
+                sup= '{{item.price | decimal:"last"}}'
                 i.rub P
             .order__prod
-              a(href='#')= '{{item.name}}'
+              a(href='#')= '{{item.good.name}}'
         .order__total
           .order__price
             span

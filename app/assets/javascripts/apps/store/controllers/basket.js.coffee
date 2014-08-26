@@ -1,5 +1,5 @@
 angular.module('gm.store.controllers').controller 'BasketController', [
-  '$scope', 'OrdersService', 'OrderItemsService'
+  '$scope', 'OrdersService', 'BasketService'
   ($scope, OrdersService, BasketService)->
     $scope.total = 0
     $scope.loading = true
@@ -24,5 +24,5 @@ angular.module('gm.store.controllers').controller 'BasketController', [
     calculate_total = ->
       $scope.total = 0
       for i in $scope.order.items
-        $scope.total += parseFloat(i.current_price * i.value)
+        $scope.total += parseFloat(i.price * i.value)
 ]
