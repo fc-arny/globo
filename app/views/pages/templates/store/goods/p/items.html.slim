@@ -1,7 +1,7 @@
 .catalog
   .catalog__list
     .catalog__item.col-sm-6.col-md-4.col-lg-3(ng-repeat='gitem in items' id='catalog_item_{{g_item.id}}' item='gitem' good-item)
-      .catalog__item-in{ng-class='item.ordered ? "is-selected" : ""'}
+      .catalog__item-in{ng-class='item.value ? "is-selected" : ""'}
         .catalog__pic.js-prod-open
           img.img-responsive(ng-src='{{item.images[0].url}}' src='/assets/pic1.jpg')
           /i.like.is-active
@@ -16,15 +16,15 @@
           .catalog__down-in
             .catalog__down-item
               .weight.js-weight
-                button.weight__btn-minus(ng-click='add_to_basket(item, item.ordered.value - 1)'): i
+                button.weight__btn-minus(ng-click='add_to_basket(item, item.value - 1)'): i
                 .weight__val
-                  input(ng-model='item.ordered.value' ng-blur='add_to_basket(item, item.ordered.value)' type='text')
+                  input(ng-model='item.value' ng-blur='add_to_basket(item, item.value)' type='text')
                   span= '{{item.measure.name}}'
-                button.weight__btn-plus(ng-click='add_to_basket(item, item.ordered.value + 1)'): i
+                button.weight__btn-plus(ng-click='add_to_basket(item, item.value + 1)'): i
               .catalog__sum
                 strong
-                  = '{{item.price * item.ordered.value | decimal:"first" | number:0 }}'
-                  sup= '{{item.price * item.ordered.value | decimal:"last"}}'
+                  = '{{item.price * item.value | decimal:"first" | number:0 }}'
+                  sup= '{{item.price * item.value | decimal:"last"}}'
                   i.rub P
                 button.js-del-prod(ng-click="remove_from_basket(item)")= t('views.store.list.remove')
             .catalog__down-item

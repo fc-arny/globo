@@ -75,7 +75,8 @@ class AjaxPopup extends PluginBase
           @_renderContent(response, _title, _classes)
       )
     else
-      @_renderContent($(_source).html(), _title, _classes)
+      @_renderContent('', _title, _classes)
+      $(_source).clone().appendTo('.popup__in').show()
 
 
   ###

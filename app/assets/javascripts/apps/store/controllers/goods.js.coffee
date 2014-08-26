@@ -24,6 +24,11 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     # --------------------------------
     $scope.init = ->
 
+    $scope.$on 'goods:order_item', (event, data) ->
+      item = _.findWhere($scope.items, id: data.id)
+      item.value = data.value if item
+
+
     # Route handler
     $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
       category_id    = toParams['category'].split('-')[0]

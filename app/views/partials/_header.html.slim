@@ -15,7 +15,6 @@ header.header
             = '{{total | decimal:"first" | number:0}}'
             i.gm-icon-ruble<>
           .empty(ng-show='total == 0')= t('views.common.header.basket.empty')
-      div(id='basket__popup_content' style='display:none')= render partial: 'partials/popups/basket'
   .header__down
     .menu.is-slider
       .menu__list
