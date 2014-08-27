@@ -42,41 +42,44 @@ class AjaxPopup extends PluginBase
 
   # -------------------------------------------------- Hide popup
   _hidePopup: ->
+    console.log @cache
+    if @cache is 'y'
+      $(@source).appendTo('.dom-cache')
+
     @$node.hide()
     @$overlay.hide()
     @$body.removeClass 'no-scroll'
 
 
   # -------------------------------------------------- Show popup
-  _showPopup: (event)->
+  _showPopup: (event = null)->
     event.preventDefault()
 
     @$node.html '<div class="loader"></div>'
     el = event.currentTarget
 
-    _title    = $(el).data 'title'
-    _source   = $(el).data 'popup'
-    _classes  = $(el).data 'classes'
-
-    @title = $(el).data 'title'
+    @title    = $(el).data 'title'
+    @source   = $(el).data 'popup'
+    @classes  = $(el).data 'classes'
+    @cache    = $(el).data('cache')
 
     @$body.addClass 'no-scroll'
     @$node.show()
     @$overlay.show()
 
-    if _source.indexOf('/') isnt -1
+    if @source.indexOf('/') isnt -1
       $.ajax(
-        url:       _source
+        url:       @source
         type:      'get'
         dataType:  'html'
         success: (response)=>
           @$node.html response
 
-          @_renderContent(response, _title, _classes)
+          @_renderContent(response, @title, @classes)
       )
     else
-      @_renderContent('', _title, _classes)
-      $(_source).clone().appendTo('.popup__in').show()
+      @_renderContent('', @title, @classes)
+      $(@source).appendTo('.popup__in').show()
 
 
   ###
