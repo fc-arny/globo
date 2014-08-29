@@ -32,9 +32,7 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     # Route handler
     $scope.$on "$stateChangeSuccess", (event, toState, toParams, fromState, fromParams) ->
       # Breadcrumbs
-      console.log toParams['category']
       $scope.category         = _.findWhere(gon.categories, url: toParams['category'])
-      console.log $scope.category
       $scope.parent_category  = gon.categories[$scope.category.parent_id]
 
       # Filter
