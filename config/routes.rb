@@ -3,7 +3,10 @@ Gm::Application.routes.draw do
   get 'badbrowser' => 'common/index#badbrowser'
 
   # Main and other pages
-  root :to => 'common/index#main'
+  root to: 'common/index#main'
+
+  get '/goods(/*category)', to: 'store/goods#index', as: :goods      # Goods main page
+
   post '/static/:action' => 'common/static#:action', as: :static_post
 
   # Blog
@@ -38,8 +41,6 @@ Gm::Application.routes.draw do
   get 'store/:url' => 'store/index#show'  # View stores list
 
   scope module: :store do
-    get '/goods(/*category)', to: 'goods#index', as: :goods      # Goods main page
-
     controller :order do
       get 'order/checkout' => :index
       get 'order' => :list

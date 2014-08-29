@@ -24,7 +24,7 @@ header.header
         ul.menu__list-in
           - categories.each do |category|
             li(data={item: "menu-item-#{category.id}"})
-              span(class="menu__item-#{category.id} menu__item-#{category.url}" href="/goods/#!/#{category.url}")
+              span(class="menu__item-#{category.id} menu__item-#{category.url}" href="/goods/#{category.url}")
                 = category.name
                 i
       .menu__sub-arr
@@ -37,7 +37,7 @@ header.header
                   - slice.each do |category|
                     - if category.is_a?(Sap::Category)
                       li.is-selected
-                        a(href="/goods/#!/#{category.id}-#{category.url}") = category.name
+                        a(href="/goods/#{category.url}") = category.name
                     - else
                       li
                         - #%img{src: 'http://flickholdr.com/200/200'}
