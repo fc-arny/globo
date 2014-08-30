@@ -3,6 +3,7 @@ angular.module('gm.store.controllers').controller 'GoodsIndexController', [
   ($scope, GoodsService, $state)->
     $scope.score = 10
     $scope.init = ->
+      console.log 'GoodIndex'
 
 
 ]

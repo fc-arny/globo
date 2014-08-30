@@ -11,6 +11,7 @@
     display: inline-block;
     margin: 0 0 5px 0;
     opacity: 0.95;
+    height: 50px;
 
     &:hover {
       opacity: 1;
@@ -27,9 +28,9 @@
       color: #444444;
       text-align: right;
       text-transform: uppercase;
-      font-size: 15px;
+      font-size: 20px;
       &:first-letter {
-        font-size: 18px;
+        font-size: 23px;
       }
     }
   }

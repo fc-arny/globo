@@ -40,7 +40,7 @@
 
       # Routes
       $stateProvider.state('index',
-        url: ''
+        url: '/'
         views:
           '@':
             controller: 'GoodsIndexController'
@@ -50,7 +50,7 @@
           'searchContainer@index':
             templateUrl: '/templates/store/goods/p/search'
       ).state('list',
-        url: '/goods/:category'
+        url: '/:category'
         views:
           '@':
             controller: 'GoodsController'
@@ -67,8 +67,8 @@
           goodsContainer:
             templateUrl: '/templates/store/goods/detail'
 
-      $urlRouterProvider.otherwise '/goods/'
-      $locationProvider.html5Mode(true)#.hashPrefix '!'
+      $urlRouterProvider.otherwise '/'
+      $locationProvider.html5Mode(true).hashPrefix '!'
 
   ])
   .run(['$rootScope', '$state', '$stateParams',  ($rootScope, $state, $stateParams) ->
