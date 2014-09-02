@@ -14,7 +14,7 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     # Sorting
     $scope.sort_field  = 'default'
     $scope.sort_dir = ''
-    $scope.sorts = default: 'умолчанию', name_asc: 'имени от А до Я', name_desc: 'имени от Я до А', price_asc: 'цене по убыванию', price_desc: 'цене по возрастанию'
+    $scope.sorts = default: 'умолчанию', name_asc: 'имени от А до Я', name_desc: 'имени от Я до А', price_desc: 'цене по убыванию', price_asc: 'цене по возрастанию'
 
     # Good Items
     $scope.items = []
