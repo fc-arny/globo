@@ -20,7 +20,7 @@ angular.module('gm.store.directives').directive('goodItem', [
 
         scope._requests[item.id].push item.value
 
-        $rootScope.$broadcast 'goods:order_item', item
+        $rootScope.$broadcast 'order:item:update', item
 
         item.value = null if item.value == 0
 

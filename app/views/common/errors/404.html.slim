@@ -5,17 +5,14 @@
       .title.title_big Ошибка 404.
       .title Извините, мы ничего не нашли
       .static__pic
-        img alt: "", src= "/assets/pic11.png" /
-        img alt: "", src= "/assets/pic12.png" /
+        = image_tag('common/globoman-404.png', alt: 'Globoman')
+        = image_tag('common/404-store.png')
       .static__help
-        p Возможно, страница которую вы ищите временно не доступна, удалена либо сменила адрес.
-        p
-          | Попробовать позже, либо пройти по следующим ссылкам:
-          = succeed "," do
-            a href= "#"  Главная
-          = succeed "," do
-            a href= "#"  Новости
-          = succeed "." do
-            a href= "#"  Магазины
-        a.logo href= root_path
-          span.logo__pic
+        p Возможно, страница которую вы ищите временно не доступна, удалена либо сменила адрес,
+        p чтобы продолжить работу перейдите по одной из ссылок ниже.
+
+        a<>(href=root_path) Главная
+        | /
+        a<>(href='/goods/'): b ПРОДУКТЫ
+        | /
+        a<>(href='/news')  Новости

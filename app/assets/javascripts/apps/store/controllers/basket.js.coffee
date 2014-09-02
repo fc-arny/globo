@@ -11,7 +11,7 @@ angular.module('gm.store.controllers').controller 'BasketController', [
         $scope.loading = false
         calculate_total()
 
-    $scope.$on 'goods:order_item', (event, data) ->
+    $scope.$on 'order:item:update', (event, data) ->
       item = _.findWhere($scope.order.items, id: data.id)
       if item
         item.value = data.value

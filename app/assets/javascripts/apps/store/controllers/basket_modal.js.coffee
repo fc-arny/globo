@@ -13,7 +13,7 @@ angular.module('gm.store.controllers').controller 'BasketModalController', [
       for i in $scope.order.items
         $scope.total += parseFloat(i.price * i.value)
 
-    $scope.$on 'goods:order_item', (event, data) ->
+    $scope.$on 'order:item:update', (event, data) ->
       item = _.findWhere($scope.order.items, id: data.id)
       if item
         item.value = data.value

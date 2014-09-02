@@ -1,7 +1,7 @@
 #common
 common:
   title: GloboMarket
-  page_title: Все ведущие ритейлеры России в одном месте
+  page_title: "Онлайн супермаркет: продукты, товары для дома, мяло, рыба, напитки"
   domain:
     main_link: http://globomarket.ru
 

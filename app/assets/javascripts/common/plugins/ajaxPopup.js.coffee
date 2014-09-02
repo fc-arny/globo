@@ -58,6 +58,7 @@ class AjaxPopup extends PluginBase
     @$node.html '<div class="loader"></div>'
     el = event.currentTarget
 
+    # TODO: merge option to one variable
     @title    = $(el).data 'title'
     @source   = $(el).data 'popup'
     @classes  = $(el).data 'classes'

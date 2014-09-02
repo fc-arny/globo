@@ -73,5 +73,6 @@
   ])
   .run(['$rootScope', '$state', '$stateParams',  ($rootScope, $state, $stateParams) ->
       console.log('Run!')
+      $rootScope.page_title = 'Продукты'
   ])
 )(window.angular)

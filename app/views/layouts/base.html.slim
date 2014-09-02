@@ -1,11 +1,9 @@
 doctype html
 html(lang=:ru ng-app='gm')
   head
-    title
+    title(ng-bind="page_title + ' | #{title_tail}'")
       = yield(:title) + ' | ' if content_for?(:title)
-      = Settings.common.title
-      |  -
-      = Settings.common.page_title
+      = [Settings.common.title, Settings.common.page_title].join(' - ')
     meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
     meta(name='fragment' content='!')
     link(rel='icon' href='/favicon.ico' type='image/x-icon')

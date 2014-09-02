@@ -8,6 +8,10 @@ module ApplicationHelper
     content_for :title, page_title.to_s
   end
 
+  def title_tail
+    [Settings.common.title, Settings.common.page_title].join(' - ')
+  end
+
   # -------------------------------------------------------------
   # Display flash messages - :error, :info, :success
   # :info - default message type

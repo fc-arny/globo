@@ -24,7 +24,7 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
     # --------------------------------
     $scope.init = ->
 
-    $scope.$on 'goods:order_item', (event, data) ->
+    $scope.$on 'order:item:update', (event, data) ->
       item = _.findWhere($scope.items, id: data.id)
       item.value = data.value if item
 
@@ -34,6 +34,9 @@ angular.module('gm.store.controllers').controller 'GoodsController', [
       # Breadcrumbs
       $scope.category         = _.findWhere(gon.categories, url: toParams['category'])
       $scope.parent_category  = gon.categories[$scope.category.parent_id]
+
+      # Page title
+      $rootScope.page_title = $scope.category.name + ' | Продукты'
 
       # Filter
       $scope.category_filter = $scope.category.children
