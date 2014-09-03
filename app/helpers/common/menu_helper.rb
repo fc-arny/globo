@@ -1,7 +1,7 @@
 module Common::MenuHelper
 
   # Main menu 
-  def header_menu
+  def menu_with_categories(view = 'header')
     cache_time = Settings.cache.main_menu_sec.to_i
     base_scope = Sap::Category.menu
 
@@ -21,7 +21,7 @@ module Common::MenuHelper
       subcategories
     end
 
-    render partial: 'partials/header', locals: { categories: cached_categories, subcategories: cached_subcategories }
+    render partial: "partials/#{view}", locals: { categories: cached_categories, subcategories: cached_subcategories }
   end
 
   # def header_menu_link(*urls)

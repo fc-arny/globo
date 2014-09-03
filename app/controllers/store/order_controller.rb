@@ -14,10 +14,10 @@ class Store::OrderController < FrontendController
 
   # Open basket
   def index
-    @login_form     = LoginForm.new
-    @register_form  = NewCustomer.new
-    @contact_form   = CustomerTemporaryForm.new
-    @delivery_form  = OrderDeliveryForm.new
+    # @login_form     = LoginForm.new
+    # @register_form  = NewCustomer.new
+    # @contact_form   = CustomerTemporaryForm.new
+    # @delivery_form  = OrderDeliveryForm.new
   end
 
   # View ordered products

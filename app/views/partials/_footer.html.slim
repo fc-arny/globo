@@ -1,39 +1,52 @@
 footer.footer
   .footer__in
-    .footer__left
-      a.logo(href=root_url)
-        span.logo__pic.logo__pic_white
-      .social
-        = render :partial => 'partials/common/social'
     nav.footer__nav
-      ul
-        li= t('views.common.footer.menu.information')
-        li
-          a href= static_page_path(:contacts) = t('views.common.footer.menu.contacts')
-        li
-          a href= static_page_path(:about) = t('views.common.footer.menu.abount')
-        li
-          a href= static_page_path(:help) = t('views.common.footer.menu.help')
+      .footer__center
+        a.logo(href=root_url)
+          span.logo__pic.logo__pic_white
 
-      ul.hidden
-        li= t('views.common.footer.menu.stores')
-        - @stores.each do |store|
+        .social= render :partial => 'partials/common/social'
+
+        ul
+          li= t('views.common.footer.menu.information')
           li
-            a href= "/goods/#{store.url}" = store.name
+            a href= static_page_path(:contacts) = t('views.common.footer.menu.contacts')
+          li
+            a href= static_page_path(:about) = t('views.common.footer.menu.abount')
+          li
+            a href= static_page_path(:help) = t('views.common.footer.menu.help')
 
-      ul
-        li= t('views.common.footer.menu.addition')
-        /%li
-        /  %a{href= '/recipes'}= t('views.common.footer.menu.recipes')
-        li
-          a href= blog_list_path = t('views.common.footer.menu.blog')
-        li
-          a href= static_page_path(:promo) = t('views.common.footer.menu.promo')
+        ul.hidden
+          li= t('views.common.footer.menu.stores')
+          - @stores.each do |store|
+            li
+              a href= "/goods/#{store.url}" = store.name
 
-    .copyright
-      = Time.now.year
-      |  &copy;
-      = Settings.common.title
+        ul
+          li= t('views.common.footer.menu.addition')
+          /%li
+          /  %a{href= '/recipes'}= t('views.common.footer.menu.recipes')
+          li
+            a href= blog_list_path = t('views.common.footer.menu.blog')
+          li
+            a href= static_page_path(:promo) = t('views.common.footer.menu.promo')
 
-/! BEGIN .overlay
+  .footer__out
+    .footer__nav.row
+      - categories.in_groups_of(3) do |cats|
+        div
+          - cats.each do |cat|
+            - unless cat.nil?
+              ul.category__list
+                li= cat.name
+                - subcategories["menu-item-#{cat.id}"].each do |sub_cat|
+                  - if sub_cat.is_a? Sap::Category
+                    li: a(href="/goods/#{sub_cat.url}")= sub_cat.name
+
+  .copyright
+    = Time.now.year
+    = ' &copy; '.html_safe
+    = Settings.common.title
+    br: br
+
 .overlay

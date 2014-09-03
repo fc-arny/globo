@@ -8,10 +8,10 @@
 = content_for :base_content do
   .page
     .wrap
-      = header_menu
+      = menu_with_categories 'header'
       = content_for?(:content) ? yield(:content) : yield
       .push
 
-    = render 'partials/footer'
+    = menu_with_categories 'footer'
 
 = render file: 'layouts/base'

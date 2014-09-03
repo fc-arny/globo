@@ -1,7 +1,7 @@
 .cart.ng-cloak(ng-controller='BasketModalController' ng-init='init()')
   .cart__arr
   .cart__prod
-    form(action='/order')
+    form(action=order_checkout_path method=:get)
       .order
         .order__nav
           button.btn.btn-globo= t('popup.basket.checkout')
