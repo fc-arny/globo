@@ -3,8 +3,9 @@
 //styles for layouts
 .layout {
   position: relative;
-  max-width: 1850px;
-  padding-top: 160px;
+  max-width: $max_width;
+  padding-top: 170px;
+  margin: 0 auto;
 
   .center {
     margin-right: 250px;

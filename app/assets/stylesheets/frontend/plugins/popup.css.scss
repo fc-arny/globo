@@ -5,8 +5,9 @@
   bottom: 0;
   display: none;
   left: 0;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   min-width: $min_width;
+  max-width: $max_width + 20px;
   overflow-x: auto;
   overflow-y: scroll;
   position: fixed;
@@ -133,7 +134,7 @@
     &.popup_basket {
       width: auto;
       margin-right: 20px;
-      margin-left: 50px;
+      margin-left: 20px;
       top: 60px;
     }
   }

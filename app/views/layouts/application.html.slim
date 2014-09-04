@@ -9,7 +9,7 @@
   .page
     .wrap
       = menu_with_categories 'header'
-      = content_for?(:content) ? yield(:content) : yield
+      .layout(ui-view)= content_for?(:content) ? yield(:content) : yield
       .push
 
     = menu_with_categories 'footer'

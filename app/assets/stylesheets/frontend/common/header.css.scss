@@ -40,7 +40,6 @@
 .header {
   position: fixed;
   height: 150px;
-  margin-bottom: 20px;
   background: #f6f6f6;
 //  opacity: 0.9;
   border: 1px solid white;
@@ -53,6 +52,8 @@
   right: 20px;
 
   min-width: 610px;
+  max-width: $max_width;
+  margin: 0 auto 20px auto;
 
   .logo {
     img {
