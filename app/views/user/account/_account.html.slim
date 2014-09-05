@@ -3,15 +3,15 @@
     /! FirstName, LastName  etc
     h4.account__header= t('views.account.title.main')
     = form_for @forms[:private], as: :private, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
-      input type: 'hidden', value: @main_form.to_s 
+      input(type=:hidden value=@main_form.to_s)
       .account__row
         .account__col
           label.label
             span.label__title= t('views.account.label.phone')
             .account__phone-in
 
-              button class='btn-dashed', :'data-popup' => '/user/phone/reset', :'data-title' => t('views.account.label.phone_edit') 
-                strong= format('+%<first>s *** *** ** - %<last>s',  first: @forms[:private].phone[0], last: @forms[:private].phone[-2..-1]  )
+              button(class='btn-dashed' data={popup: '/user/phone/reset', title: t('views.account.label.phone_edit')})
+                strong= format('+%<first>s *** *** ** - %<last>s',  first: @forms[:private].phone[0], last: @forms[:private].phone[-2..-1])
 
         .account__col
           label.label
@@ -24,7 +24,7 @@
             = f.text_field :email, {class: 'label__txt'}
 
         .account__btn
-          button.btn= t('common.btn.save')
+          button.btn.btn-globo= t('common.btn.save')
     /! Addresses
     /%h4.account__header= t('views.account.title.delivary_address')
     /= form_for :user, remote: true, method: 'PATCH', url: sap.user_registration_path do |f|
@@ -67,16 +67,16 @@
             = f.password_field :password_confirmation, {class: 'label__txt required'}
             span.label__help
         .account__btn
-          button.btn= t('common.btn.change')
+          button.btn.btn-globo= t('common.btn.change')
 = content_for :js do
   javascript:
-    | $(function(){
-      | $('#new_password').ajaxForm({
-        | onSuccess: function() {
-          | console.log($(this));
-        | }
-      | });
-    | });
+    $(function(){
+      $('#new_password').ajaxForm({
+        onSuccess: function() {
+          console.log($(this));
+        }
+      });
+    });
 /!
   .account__col
     label.label.label_mod

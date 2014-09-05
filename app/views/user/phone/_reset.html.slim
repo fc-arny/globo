@@ -13,7 +13,7 @@
       span.label__title= t('views.account.label.code')
       = f.text_field :code, class: 'label__txt required'
     .account__btn
-      button.btn :'data-reset' => t('views.account.button.get_code'), :'data-check' => t('views.account.button.send_code') 
+      button.btn.btn-globo(data={reset: t('views.account.button.get_code'), check: t('views.account.button.send_code')})
         = t('views.account.button.get_code')
 javascript:
-  | $('.reset_phone_form').resetPhone();
+  $('.reset_phone_form').resetPhone();

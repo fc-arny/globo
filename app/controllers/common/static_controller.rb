@@ -3,8 +3,6 @@
 # -------------------------------------------------------------
 class Common::StaticController < FrontendController
 
-  before_action :prepare_team
-
   def show
     render action: params[:page]
   end

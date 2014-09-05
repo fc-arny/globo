@@ -156,8 +156,9 @@ input[disabled], textarea[disabled] {
 
   .footer__out {
     background: #272F31;
-    padding: 20px 0px;
-
+    h3 {
+      color: #ffffff;
+    }
     .footer__nav {
       margin: 0 auto;
     }
