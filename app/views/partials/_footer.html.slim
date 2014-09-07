@@ -8,28 +8,15 @@ footer.footer
         .social= render :partial => 'partials/common/social'
 
         ul
-          li= t('views.common.footer.menu.information')
-          li
-            a href= static_page_path(:contacts) = t('views.common.footer.menu.contacts')
-          li
-            a href= static_page_path(:about) = t('views.common.footer.menu.abount')
-          li
-            a href= static_page_path(:help) = t('views.common.footer.menu.help')
-
-        ul.hidden
-          li= t('views.common.footer.menu.stores')
-          - @stores.each do |store|
-            li
-              a href= "/goods/#{store.url}" = store.name
+          li: b= t('views.common.footer.menu.information')
+          li: a(href= static_page_path(:contacts))= t('views.common.footer.menu.contacts')
+          li: a(href= static_page_path(:about))= t('views.common.footer.menu.abount')
+          li: a(href= static_page_path(:help))= t('views.common.footer.menu.help')
 
         ul
-          li= t('views.common.footer.menu.addition')
-          /%li
-          /  %a{href= '/recipes'}= t('views.common.footer.menu.recipes')
-          li
-            a href= blog_list_path = t('views.common.footer.menu.blog')
-          li
-            a href= static_page_path(:promo) = t('views.common.footer.menu.promo')
+          li: b= t('views.common.footer.menu.addition')
+          li: a(href= blog_list_path)= t('views.common.footer.menu.blog')
+          li: a(href= static_page_path(:promo))= t('views.common.footer.menu.promo')
 
   .footer__out
     .footer__nav.row

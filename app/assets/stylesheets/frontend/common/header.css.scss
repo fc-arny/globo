@@ -122,19 +122,23 @@
     .navbar-nav > li > a {
       padding-top: 9px;
       padding-bottom: 9px;
-      //    &:hover {
-      //      background: $linkBgHover;
-      //    }
     }
   }
 
   .header__down {
     height: 71px;
     padding-top: 0;
-//    @include rt(768) {
-//      padding: 0 30px 0 0;
-//    }
+  }
+  &.no-menu {
+    background: none;
+    border: none;
+    box-shadow: none;
+    height: auto;
+    position: relative;
 
+    .header__top {
+      background: none;
+    }
   }
 }
 
@@ -149,7 +153,7 @@
     display: inline-block;
   }
   .logged_in {
-    margin-top: 10px;
+    margin-top: 5px;
     & > a {
       display: block;
       white-space: nowrap;

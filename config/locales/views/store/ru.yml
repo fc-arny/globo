@@ -7,3 +7,9 @@ ru:
         add_to_basket: В корзину
         price: 'Цена:'
         remove: Удалить
+      order:
+        delivery_address: АДРЕС ДОСТАВКИ
+        help_delivery_address: Укажите город и адрес, на которые нужно совершить доставку
+        city: Город
+        address: Адрес
+        phone: Номер телефона

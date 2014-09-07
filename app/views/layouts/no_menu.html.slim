@@ -1,0 +1,20 @@
+= content_for :head do
+  = stylesheet_link_tag :application, media: :all
+
+= content_for :base_content do
+  .page
+    .wrap
+      header.header.no-menu
+        .header__top
+          a.logo(href=root_url)
+            img.logo__pic(src='/assets/images/logo.svg')
+            span.logo__txt
+              span Globo
+              span Market
+          /._user_state_wrapper= user_state
+      .layout.no-menu(ui-view)= content_for?(:content) ? yield(:content) : yield
+      .push
+
+    = menu_with_categories 'footer'
+
+= render file: 'layouts/base'
