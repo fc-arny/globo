@@ -47,7 +47,7 @@
               i.ico-pass
               = f.password_field :password, {class: 'label__txt', autocomplete: :off}
           button.btn.btn-globo= t('views.user.button.ready')
-= content_for :js do
+- content_for :js do
   javascript:
     $(function(){
      $('.sign-in-on-form_auth form').ajaxForm({

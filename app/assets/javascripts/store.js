@@ -29,7 +29,7 @@
 
 // Others
 // ------------------------------------------
-//= require_tree ./store
+//= require_dir ./store
 
 // Main module
 angular.module('gm', ['gm.store']);

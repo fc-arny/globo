@@ -1,7 +1,4 @@
-= content_for :head do
-  = stylesheet_link_tag :application, media: :all
-
-= content_for :base_content do
+- content_for :base_content do
   .page
     .wrap
       header.header.no-menu
@@ -12,7 +9,7 @@
               span Globo
               span Market
           /._user_state_wrapper= user_state
-      .layout.no-menu(ui-view)= content_for?(:content) ? yield(:content) : yield
+      .layout.no-menu= content_for?(:content) ? yield(:content) : yield
       .push
 
     = menu_with_categories 'footer'

@@ -9,6 +9,8 @@ html(lang=:ru ng-app='gm')
     link(rel='icon' href='/favicon.ico' type='image/x-icon')
     base(href='/goods/')
 
+    = stylesheet_link_tag :application, media: :all
+
     = include_gon
     = yield :head
     = csrf_meta_tag
@@ -23,6 +25,8 @@ html(lang=:ru ng-app='gm')
     = display_flash_message
     .js-errors
     .js-scripts
+      = javascript_include_tag :application
+      = javascript_include_tag 'common/debug' if Rails.env.development?
       = yield :bottom
       = yield :js
     .dom-cache(style='display:none')

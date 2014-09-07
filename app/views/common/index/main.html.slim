@@ -1,10 +1,10 @@
-= content_for :head do
+- content_for :head do
   = stylesheet_link_tag :main
 
-= content_for :bottom do
+- content_for :js do
   = javascript_include_tag 'main'
 
-= content_for :base_content do
+- content_for :base_content do
   .page
     .wrap.wrap_main
       .m-header

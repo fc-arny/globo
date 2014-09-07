@@ -68,7 +68,7 @@
             span.label__help
         .account__btn
           button.btn.btn-globo= t('common.btn.change')
-= content_for :js do
+- content_for :js do
   javascript:
     $(function(){
       $('#new_password').ajaxForm({

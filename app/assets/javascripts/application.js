@@ -205,42 +205,7 @@ $(document).ready(function() {
 		});
 	};
 
-//steps
-	function steps() {
-		var el = $('.step');
-		el.hide();
-		el.first().show();
-		var btn = $('.js-step-btn');
-		var current = $('.position__value-in');
-		btn.click(function() {
-			el.slideUp();
-			var step = $(this).attr('data-step');
-			$('.' + step).slideDown();
-			current.removeClass('step-first');
-			current.removeClass('step-second');
-			current.removeClass('step-third');
-			current.addClass(step);
-		});
-	};
 
-//payment
-	function payment() {
-		var el = $('.js-payment');
-		var el_btn = el.find('li');
-		var item = $('.js-payment-item');
-		item.hide();
-		item.first().show();
-		//item.hide();
-		el_btn.click(function() {
-			if (!$(this).hasClass('is-active')) {
-				el_btn.removeClass('is-active');
-				$(this).addClass('is-active');
-				item.slideUp();
-				var val = $(this).attr('data-payment');
-				$('.' + val).slideDown();
-			};
-		});
-	};
 
 //menu - sub
 	function submenu() {
@@ -376,25 +341,25 @@ $(document).ready(function() {
 	};
 
 //weight
-	function weight() {
-		var el = $('.js-weight');
-		var plus = el.find('.weight__btn-plus');
-		var minus = el.find('.weight__btn-minus');
-		plus.click(function() {
-			var val = $(this).parent().find('.weight__val input').val();
-			var factor = el.parent().find('.weight__val input').attr('data-factor');
-			var sum = parseInt(val) + parseInt(factor);
-			$(this).parent().find('.weight__val input').val(sum);
-		});
-		minus.click(function() {
-			var val = $(this).parent().find('.weight__val input').val();
-			var factor = el.parent().find('.weight__val input').attr('data-factor');
-			var res = parseInt(val) - parseInt(factor);
-			if (res > 0) {
-				$(this).parent().find('.weight__val input').val(res);
-			};
-		});
-	};
+//	function weight() {
+//		var el = $('.js-weight');
+//		var plus = el.find('.weight__btn-plus');
+//		var minus = el.find('.weight__btn-minus');
+//		plus.click(function() {
+//			var val = $(this).parent().find('.weight__val input').val();
+//			var factor = el.parent().find('.weight__val input').attr('data-factor');
+//			var sum = parseInt(val) + parseInt(factor);
+//			$(this).parent().find('.weight__val input').val(sum);
+//		});
+//		minus.click(function() {
+//			var val = $(this).parent().find('.weight__val input').val();
+//			var factor = el.parent().find('.weight__val input').attr('data-factor');
+//			var res = parseInt(val) - parseInt(factor);
+//			if (res > 0) {
+//				$(this).parent().find('.weight__val input').val(res);
+//			};
+//		});
+//	};
 
 //tabs
 	function tabs() {
@@ -480,13 +445,13 @@ $(document).ready(function() {
 	submenu();
 	slidermenu();
 	slidermenu_responsive();
-	weight();
+//	weight();
 	tabs();
 	m_slider();
 	select();
 	choice_date();
-	payment();
-	steps();
+//	payment();
+//	steps();
 	account();
 	search_shop();
 //	scroll_init();
