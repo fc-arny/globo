@@ -1,82 +1,36 @@
 - content_for :content do
-  /! BEGIN .position
+  / Progress
   .position
-    .title ОФОРМЛЕНИЕ ЗАКАЗА
+    h1.title= t('views.store.order.checkout')
     .position__sum
       | Заказ на сумму 5550
       sup 00
       i.rub Р
     .position__value
       .position__value-in.step-first
-        .position__value-1
-          strong
-            | ШАГ 1.
-            span АВТОРИЗАЦИя
-        .position__value-2
-          strong
-            | ШАГ 2.
-            span ДОСТАВКА
-        .position__value-3
-          strong
-            | ШАГ 3.
-            span ОПЛАТА
+        .position__value-1: strong= t('views.store.order.step_number_html', num: 1, title: t('views.store.order.step_basket'))
+        .position__value-2: strong= t('views.store.order.step_number_html', num: 2, title: t('views.store.order.step_delivery'))
+        .position__value-3: strong= t('views.store.order.step_number_html', num: 3, title: t('views.store.order.step_payment'))
         .position__progress
-  /! END .position
-  /! BEGIN .step
-  .step.step-first
-    .step__row
-      .step__col
-        .step__title ВОЙТИ
-        .step__title-sub Авторизируйтесь, используя свои данные
-        fieldset.step__fieldset
-          label.label
-            span.label__title Логин
-            span.label__in
-              i.ico-login
-              input.label__txt placeholder: "yourmail@mail.com", type: "text" /
-          label.label
-            span.label__title Пароль
-            span.label__in
-              i.ico-pass
-              input.label__txt(placeholder="•••••••••" type="password")
 
-          button.btn.btn-globo ВОЙТИ
-          .step__pass-forgot
-            a(href="#")  Забыли ваш пароль?
-      .step__col
-        .step__title НОВЫЙ ПОЛЬЗОВАТЕЛЬ
-        .step__title-sub Впервые на сайте? Зарегистрируйтесь, это не займет много времени
-        fieldset.step__fieldset
-          label.label
-            span.label__title Логин *
-            span.label__in
-              i.ico-login
-              input.label__txt placeholder: "yourmail@mail.com", type: "text" /
-          label.label
-            span.label__title Телефон *
-            span.label__in
-              i.ico-phone
-              input.label__txt placeholder: "+7 (123) 456-78-90", type: "text" /
-          label.label
-            span.label__title Пароль
-            span.label__in
-              i.ico-pass
-              input.label__txt placeholder: "•••••••••", type: "password" /
-            span.label__help Пароль должен состоять минимум из 8 символов (A-Z, a-z, 0-9)
-          button.btn.btn-globo ГОТОВО
-          .step__pass-help * Поля обьязательные для заполнения
+  / STEP 1
+  .step.step-first
+    .step__nav.top: h3.step__title= t('views.store.order.step_basket')
+    .step__row
+
     .step__nav
       button.btn.btn-globo К ЗАКАЗУ
       button.btn.btn-globo.js-step-btn data-step="step-second"  ПРОДОЛЖИТЬ
       .step__nav-help
         | Не забывайте, что вам не обьязательно авторизироваться или регистрироваться для совершения заказа на нашем сайте. Вы можете пропустить этот шаг и перейти к шагу “Доставка”. Однако, в таком случае вы лишаетесь следующих преймуществ, согласно
         a<>(href='#') Пользовательскому соглашению.
-  /! END .step
-  /! BEGIN .step
+
+  / STEP 2
   .step.step-second
+    .step__nav.top: h3.step__title= t('views.store.order.step_delivery')
     .step__row
       .step__col
-        .step__title= t('views.store.order.delivery_address')
+        .step__title= t('views.store.order.delivery_where')
         .step__title-sub= t('views.store.order.help_delivery_address')
         fieldset.step__fieldset.step__fieldset_less
           .label
@@ -98,7 +52,7 @@
             input.label__txt(type=:text)
           .step__info Доставка осуществляется ежедневно с 08.00 до 24.00
       .step__col
-        .step__title ВРЕМЯ ДОСТАВКИ
+        .step__title= t('views.store.order.delivery_when')
         .step__title-sub Укажите удобные вам дату и время для получения доставки
         .step__date
           .datepicker.js-datepicker
@@ -110,67 +64,43 @@
         .step__time
           fieldset.step__time-col
             label.label-check.is-disabled
-              input disabled: "disabled", type: "checkbox" /
+              input(disabled=:disabled type=:radio name='time')
               i
               span 10.00 - 11.00
             label.label-check.is-disabled
-              input disabled: "disabled", type: "checkbox" /
+              input(disabled=:disabled type=:radio name='time')
               i
               span 12.00 - 13.00
             label.label-check
-              input type: "checkbox" /
+              input(type=:radio name='time')
               i
               span 15.00 - 18.00
           fieldset.step__time-col
             label.label-check
-              input checked: "checked", type: "checkbox" /
+              input(type=:radio name='time')
               i
               span 19.00 - 20.00
             label.label-check
-              input checked: "checked", type: "checkbox" /
+              input(type=:radio checked=true  name='time')
               i
               span 20.00 - 22.00
             label.label-check
-              input type: "checkbox" /
+              input(type=:radio name='time')
               i
               span 23.00 - 24.00
         .step__title КОММЕНТАРИЙ
         .step__title-sub Особые комментарии к вашему заказу
         .step__comm
-          .label
-            textarea.label__area placeholder: "Текст комментария" 
+          .label: textarea.label__area
     .step__nav
       button.btn.btn-globo.js-step-btn data-step="step-first"  НАЗАД
       button.btn.btn-globo.js-step-btn data-step="step-third"  ПРОДОЛЖИТЬ
-  /! END .step
-  /! BEGIN .step
+
+  / STEP 3
   .step.step-third
+    .step__nav.top: h3.step__title= t('views.store.order.step_payment')
     .step__payment
-      .step__title СПОСОБ ОПЛАТЫ
-      .step__title-sub Укажите удобный вам способ оплаты заказа
-      ul.step__payment-list.js-payment
-        li.is-active data-payment="step__payment-qiwi" 
-          i.ico-pay-sys-1
-        li data-payment="step__payment-paypal" 
-          i.ico-pay-sys-2
-        li data-payment="step__payment-yandex" 
-          i.ico-pay-sys-3
-        li data-payment="step__payment-webmoney" 
-          i.ico-pay-sys-4
-        li data-payment="step__payment-card" 
-          i.ico-pay-sys-5
-        li data-payment="step__payment-beznal" 
-          span Безналичный расчет
-    .step__payment-content
-      .step__payment-qiwi.js-payment-item
-        .step__title qiwi
-      .step__payment-paypal.js-payment-item
-        .step__title paypal
-      .step__payment-yandex.js-payment-item
-        .step__title yandex
-      .step__payment-webmoney.js-payment-item
-        .step__title webmoney
-      .step__payment-card.js-payment-item
+      .step__payment-card
         .step__title КРЕДИТНАЯ КАРТА
         .step__card-number
           label.label

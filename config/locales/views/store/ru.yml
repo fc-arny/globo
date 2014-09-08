@@ -8,8 +8,16 @@ ru:
         price: 'Цена:'
         remove: Удалить
       order:
-        delivery_address: АДРЕС ДОСТАВКИ
+        delivery_where: Куда?
+        delivery_when: Когда?
         help_delivery_address: Укажите город и адрес, на которые нужно совершить доставку
         city: Город
         address: Адрес
         phone: Номер телефона
+        checkout: ОФОРМЛЕНИЕ ЗАКАЗА
+        step_number_html: 'Шаг %{num}.: %{title}'
+        step_basket: ЗАКАЗ
+        step_delivery: ДОСТАВКА
+        step_payment: ОПЛАТА
+
+
