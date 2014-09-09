@@ -5,30 +5,20 @@ html(lang=:ru ng-app='gm')
       = yield(:title) + ' | ' if content_for?(:title)
       = [Settings.common.title, Settings.common.page_title].join(' - ')
     meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
-    meta(name='fragment' content='!')
     link(rel='icon' href='/favicon.ico' type='image/x-icon')
-    base(href='/goods/')
 
-    = stylesheet_link_tag :application, media: :all
-
+    = stylesheet_link_tag :application, :main
     = include_gon
-    = yield :head
     = csrf_meta_tag
   body
     - if current_user && current_user.role
-      .inside-block: a.btn.btn-danger(href='/admin') admin
+      .inside-block
+        a.btn.btn-danger(href='/admin') admin
+    = yield
 
-    = content_for?(:base_content) ? yield(:base_content) : yield
-
-    .popup-container(style='display:none'): .loader
-
+    .popup-container(style='display:none')
+      .loader
     = display_flash_message
-
     .js-errors
-    .js-scripts
-      = javascript_include_tag :application
-      = javascript_include_tag 'common/debug' if Rails.env.development?
-      = yield :bottom
-      = yield :js
-
+    .js-scripts= javascript_include_tag 'main'
     .dom-cache(style='display:none')

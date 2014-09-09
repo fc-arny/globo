@@ -32,9 +32,9 @@ class Common::IndexController < FrontendController
         when 'badbrowser'
           'badbrowser'
         when 'main'
-          'base'
+          'main'
         else
-          'application_without_basket'
+          'application'
       end
     end
 end

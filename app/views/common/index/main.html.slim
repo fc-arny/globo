@@ -1,74 +1,67 @@
-- content_for :head do
-  = stylesheet_link_tag :main
+.page
+  .wrap.wrap_main
+    .m-header
+      .container
+        a.logo(href=root_url)
+          img.logo__pic(src='/assets/images/logo.svg')
+          span.logo__txt
+            span Globo
+            span Market
+        ._user_state_wrapper
+          = user_state
+        .social.social_blue
+          = render 'partials/common/social'
 
-- content_for :js do
-  = javascript_include_tag 'main'
-
-- content_for :base_content do
-  .page
-    .wrap.wrap_main
-      .m-header
-        .container
-          a.logo(href=root_url)
-            img.logo__pic(src='/assets/images/logo.svg')
-            span.logo__txt
-              span Globo
-              span Market
-          ._user_state_wrapper
-            = user_state
-          .social.social_blue
-            = render 'partials/common/social'
-
-      .m-slider.js-m-slider
-        .container
-          .m-slider__cart
-            strong
-              | Итого
-              span
-                | 5246
-                sup 00
-                i.rub Р
-              em
+    .m-slider.js-m-slider
+      .container
+        .m-slider__cart
+          strong
+            | Итого
+            span
+              | 5246
+              sup 00
+              i.rub Р
+            em
+          button.m-slider__btn к покупкам
+        .m-slider__pager
+        .cycle-slideshow data-cycle-fx='fade' data-cycle-pager='.m-slider__pager' data-cycle-slides=('> div') data-cycle-timeout='3000'
+          .m-slider__item style='background-image: url(/assets/slider-pic.png);'
+            .m-slider__title-1 ВКУСНЫЕ ИДЕИ ДЛЯ ЛЕТНЕГО МЕНЮ
+            .m-slider__title-2 С НОВЫМИ МОРЕПРОДУКТАМИ ОТ ГЛОБУС ГУРМЭ
             button.m-slider__btn к покупкам
-          .m-slider__pager
-          .cycle-slideshow data-cycle-fx='fade' data-cycle-pager='.m-slider__pager' data-cycle-slides=('> div') data-cycle-timeout='3000'
-            .m-slider__item style='background-image: url(/assets/slider-pic.png);'
-              .m-slider__title-1 ВКУСНЫЕ ИДЕИ ДЛЯ ЛЕТНЕГО МЕНЮ
-              .m-slider__title-2 С НОВЫМИ МОРЕПРОДУКТАМИ ОТ ГЛОБУС ГУРМЭ
-              button.m-slider__btn к покупкам
-            .m-slider__item style='background-image: url(/assets/slider-pic1.png);'
-              .m-slider__title-1 С МОРЕПРОДУКТАМИ ОТ ГЛОБУС ГУРМЭ
-              .m-slider__title-2 ВКУСНЫЕ ИДЕИ ДЛЯ ЛЕТНЕГО МЕНЮ
-              button.m-slider__btn к покупкам
+          .m-slider__item style='background-image: url(/assets/slider-pic1.png);'
+            .m-slider__title-1 С МОРЕПРОДУКТАМИ ОТ ГЛОБУС ГУРМЭ
+            .m-slider__title-2 ВКУСНЫЕ ИДЕИ ДЛЯ ЛЕТНЕГО МЕНЮ
+            button.m-slider__btn к покупкам
 
-      .m-nav
-        nav.container
-          a(href=static_page_path(:help))= t('views.index.nav.help')
-          a(href=blog_list_path(:news))= t('views.index.nav.news')
-          a(href=goods_path)= t('views.index.nav.goods')
-          a(href=static_page_path(:promo))= t('views.index.nav.promo')
-      /= render 'partials/common/stores_main', stores: @stores
+    .m-nav
+      nav.container
+        a(href=static_page_path(:help))= t('views.index.nav.help')
+        a(href=blog_list_path(:news))= t('views.index.nav.news')
+        a(href=goods_path)= t('views.index.nav.goods')
+        a(href=static_page_path(:promo))= t('views.index.nav.promo')
+    /= render 'partials/common/stores_main', stores: @stores
 
 
-      .m-benefits.container
-        .title= t('views.index.titles.benefits')
-        ul
-          - t('views.index.benefits_hash').each do |benefit|
-            li(class=benefit[:class])
-              i
-              span= benefit[:text]
+    .m-benefits.container
+      .title= t('views.index.titles.benefits')
+      ul
+        - t('views.index.benefits_hash').each do |benefit|
+          li(class=benefit[:class])
+            i
+            span= benefit[:text]
 
-      .m-info.container
-        .title= t('views.index.titles.registration_reason')
-        ul
-          - t('views.index.registration_reason_array').each do |reason|
-            li= reason
-          li
-            button.btn.btn-blue data={popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'} = t('views.index.btn.register')
-      .container.container_cols
-        = render 'common/index/partials/main_about'
-        = render 'common/index/partials/main_news'
+    .m-info.container
+      .title= t('views.index.titles.registration_reason')
+      ul
+        - t('views.index.registration_reason_array').each do |reason|
+          li= reason
+        li
+          button.btn.btn-blue data={popup: login_path, title: t('popup.welcome'), classes: 'popup_welcome js-popup'} = t('views.index.btn.register')
+    .container.container_cols
+      = render 'common/index/partials/main_about'
+      = render 'common/index/partials/main_news'
 
-      .push
+    .push
 
-    = menu_with_categories 'footer'
+  = menu_with_categories 'footer'

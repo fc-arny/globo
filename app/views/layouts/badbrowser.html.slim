@@ -1,5 +1,5 @@
 doctype html
-html 'lang' => "ru" 
+html(lang=:ru)
 
   head
     title= @title || APP_DEFAULT_NAME
@@ -7,5 +7,4 @@ html 'lang' => "ru"
     = stylesheet_link_tag :application, :media => :all
     = csrf_meta_tag
 
-  body
-    = yield
+  body= yield
