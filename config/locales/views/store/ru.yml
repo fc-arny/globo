@@ -15,6 +15,7 @@ ru:
         address: Адрес
         phone: Номер телефона
         checkout: ОФОРМЛЕНИЕ ЗАКАЗА
+        checkout_title: Оформление заказа
         step_number_html: 'Шаг %{num}.: %{title}'
         step_basket: ЗАКАЗ
         step_delivery: ДОСТАВКА

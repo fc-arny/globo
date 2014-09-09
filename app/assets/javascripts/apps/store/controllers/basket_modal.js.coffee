@@ -3,7 +3,6 @@ angular.module('gm.store.controllers').controller 'BasketModalController', [
   ($scope, OrdersService, BasketService)->
 
     $scope.init = ->
-      $scope.init = ->
       OrdersService.one('current').get().then (response)->
         $scope.order = response
         calculate_total()

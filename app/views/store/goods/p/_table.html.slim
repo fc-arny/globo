@@ -1,0 +1,26 @@
+.order__row-items(style='display: block' ng-repeat='gitem in order.items' item='gitem' good-item)
+  .order__row-prod
+    .order__pic
+      a(href='#')
+        img(src='/assets/pic4.jpg') /
+    .order__price
+      span
+        = '{{item.price * item.value | decimal:"first" | number:0 }}'
+        sup= '{{item.price * item.value | decimal:"last"}}'
+        i.rub P
+    .order__weight
+      .weight.js-weight
+        button.weight__btn-minus(ng-click='add_to_basket(item, item.value - 1)')
+          i
+        .weight__val
+          input(ng-model='item.value' ng-blur='add_to_basket(item, item.value)' type='text')
+          span= '{{item.measure.name}}'
+        button.weight__btn-plus(ng-click='add_to_basket(item, item.value + 1)')
+          i
+    .order__price
+      span
+        = '{{item.price | decimal:"first" | number:0 }}'
+        sup= '{{item.price | decimal:"last"}}'
+        i.rub P
+    .order__prod
+      a(href='#')= '{{item.good.name}}'

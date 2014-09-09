@@ -1,18 +1,18 @@
 Gm::Application.routes.draw do
   # If JS is disabled
-  get 'badbrowser' => 'common/index#badbrowser'
+  get :badbrowser, to: 'common/index#badbrowser'
 
   # Main and other pages
   root to: 'common/index#main'
 
   get '/goods(/*category)', to: 'store/goods#index', as: :goods      # Goods main page
 
-  post '/static/:action' => 'common/static#:action', as: :static_post
+  post '/static/:action', to: 'common/static#:action', as: :static_post
 
   # Blog
   namespace :blog do
-    get 'post/:post' => 'posts#show', as: :post
-    get '(:category)' => 'index#index', as: :list
+    get 'post/:post', to: 'posts#show', as: :post
+    get '(:category)', to: 'index#index', as: :list
   end
 
   # Resipes
@@ -36,14 +36,9 @@ Gm::Application.routes.draw do
     match 'account/:action', :to => 'account#:action',:via => [:get]
   end
 
-  # Store
-  get 'store/list' => 'store/index#index' # View stores list
-  get 'store/:url' => 'store/index#show'  # View stores list
-
   scope module: :store do
     controller :order do
-      get 'order/checkout' => :index
-      get 'order' => :list
+      get :order, to: :index
     end
   end
 

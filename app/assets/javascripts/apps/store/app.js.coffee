@@ -67,7 +67,7 @@
           goodsContainer:
             templateUrl: '/templates/store/goods/detail'
 
-      $urlRouterProvider.otherwise '/'
+#      $urlRouterProvider.otherwise '/'
       $locationProvider.html5Mode(true).hashPrefix '!'
 
   ])

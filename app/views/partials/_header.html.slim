@@ -6,8 +6,8 @@ header.header
         span Globo
         span Market
     ._user_state_wrapper= user_state
-    #basket__popup_content(style='display: none')= render 'partials/popups/basket'
     .basket.ng-cloak(ng-controller='BasketController' ng-init='init()')
+      #basket__popup_content(style='display: none')= render 'partials/popups/basket'
       .counter
         .counter__image.gm-icon-basket2
       a.btn-dashed.total(data={popup: '#basket__popup_content', classes: 'popup_basket js-popup', title: t('popup.basket.title'), cache: 'y'})

@@ -1,5 +1,8 @@
-= content_for :content do
+- content_for :head do
+  base(href='/goods/')
+  meta(name='fragment' content='!')
+- content_for :content do
   h4(style='color: #555555;') Загрузка...
 
-= content_for :js do
+- content_for :js do
   = javascript_include_tag :store
