@@ -5,9 +5,13 @@ Gm::Application.routes.draw do
   # Main and other pages
   root to: 'common/index#main'
 
-  get '/goods(/*category)', to: 'store/goods#index', as: :goods      # Goods main page
-
   post '/static/:action', to: 'common/static#:action', as: :static_post
+
+  # Store
+  scope module: :store do
+    get '/goods(/*category)', to: 'goods#index', as: :goods
+    get '/order(/*act)', to: 'order#index', as: :order
+  end
 
   # Blog
   namespace :blog do
@@ -34,12 +38,6 @@ Gm::Application.routes.draw do
     get 'password_reset_sent' => 'index#password_reset_sent'
 
     match 'account/:action', :to => 'account#:action',:via => [:get]
-  end
-
-  scope module: :store do
-    controller :order do
-      get :order, to: :index
-    end
   end
 
   # SAP

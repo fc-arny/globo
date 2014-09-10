@@ -1,0 +1,635 @@
+@import "common/base";
+
+//order
+.order {
+  padding: 10px 0;
+}
+
+.order__table {
+  margin-bottom: 20px;
+  background: white;
+  border: 1px solid #e7e7e7;
+  .rub {
+    font-weight: normal;
+    line-height: 1.2;
+    &:before, &:after {
+      background: #666666;
+      height: 1px;
+    }
+    &:before {
+      top: 9px;
+    }
+    &:after {
+      top: 11px;
+      width: 9px;
+    }
+  }
+
+  .order__head {
+    padding: 10px 20px;
+    border-bottom: 1px dashed #e1e1e1;
+    color: #888888;
+    overflow: hidden;
+  }
+
+  .order__title {
+    float: right;
+    width: 160px;
+    text-align: center;
+    &:last-child {
+      float: none;
+      width: auto;
+      overflow: hidden;
+    }
+    @include rt(1380) {
+      width: 130px;
+      &.order__title-weight {
+        width: 148px;
+      }
+    }
+
+    @include rt(1120) {
+      width: 100px;
+    }
+  }
+}
+
+.order__row-top {
+  display: table;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid #e6e6e6;
+  cursor: pointer;
+  @include box;
+  @include no-sel;
+  @include clr;
+}
+
+.order__row-top-in {
+  display: table-row;
+}
+
+.order__row-items {
+  display: none;
+}
+
+.order__row-prod {
+  padding: 10px 20px;
+  background: #fafafa;
+  border-bottom: 1px dashed #e6e6e6;
+  @include clr;
+}
+
+.order__shop {
+  display: table-cell;
+  font-size: 0;
+  img {
+    margin-right: 20px;
+    vertical-align: middle;
+  }
+}
+
+.order__price-sum {
+  display: table-cell;
+  width: 160px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px;
+  @include rt(1380) {
+    width: 100px;
+  }
+}
+
+.order__shop-name {
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.order__price {
+  float: right;
+  width: 160px;
+  min-height: 82px;
+  line-height: 82px;
+  text-align: center;
+  font-size: 16px;
+  sup {
+    margin-left: 2px;
+    font-size: 12px;
+  }
+  @include rt(1380) {
+    width: 130px;
+  }
+
+  @include rt(1120) {
+    width: 100px;
+  }
+}
+
+.order__pic {
+  float: left;
+  margin-right: 20px;
+  padding-left: 160px;
+  font-size: 0;
+  @include rt(1600) {
+    padding-left: 0;
+  }
+
+  button, img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  button {
+    margin-right: 20px;
+    @include s(close);
+    &:hover {
+      @include s(close-h);
+    }
+    &.order__favorite {
+      @include s(star-a);
+    }
+  }
+  img {
+    border: 1px solid #e5e5e5;
+  }
+}
+
+.order__weight {
+  float: right;
+  .weight {
+    margin-top: 28px;
+  }
+  .weight__val {
+    input {
+      width: 72px;
+    }
+  }
+  @include rt(1380) {
+    .weight__val {
+      input {
+        width: 60px;
+      }
+    }
+  }
+}
+
+.order__prod {
+  min-height: 82px;
+  overflow: hidden;
+  line-height: 82px;
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.2;
+    font-size: 16px;
+  }
+}
+
+.order__delivery, .order__total {
+  padding: 15px 20px;
+  @include clr;
+  .order__price {
+    min-height: 0;
+    line-height: 1.2;
+  }
+}
+
+.order__delivery {
+  border-bottom: 1px dashed #e1e1e1;
+}
+
+.order__total {
+  .order__price {
+    color: $bl;
+    font-weight: bold;
+    .rub {
+      font-weight: normal;
+      &:before, &:after {
+        background: $bl;
+      }
+    }
+  }
+}
+
+.order__delivary-title, .order__total-title {
+  float: right;
+  font-size: 16px;
+}
+
+.order__delivary-title {
+  color: $bl;
+}
+
+.order__total-title {
+  margin-top: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.order__nav {
+  padding-bottom: 20px;
+  @include clr;
+  .title {
+    float: left;
+    margin: 0;
+    @include rt(1120) {
+      float: none;
+      margin-bottom: 15px;
+    }
+  }
+  .btn {
+    float: right;
+    width: 240px;
+  }
+}
+
+.order__back, .order__clear {
+  float: right;
+  margin: 8px 50px 0 0;
+  background: none;
+  font-size: 12px;
+}
+
+.order__back {
+  position: relative;
+  padding-right: 17px;
+  i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include s(cart-btn-back);
+  }
+}
+
+//position
+.position {
+  @include clr;
+  .title {
+    float: left;
+    margin: 0;
+  }
+}
+
+.position__sum {
+  float: right;
+  width: 400px;
+  padding: 7px 30px 0 0;
+  color: #666666;
+  span {
+    display: block;
+  }
+  .rub {
+    &:before, &:after {
+      background: #666666;
+      height: 1px;
+    }
+    &:before {
+      top: 8px;
+    }
+  }
+}
+
+.position__value {
+  padding: 12px 50px 55px;
+  margin: 0 450px;
+  overflow: hidden;
+  @include rt(1380) {
+    padding-top: 20px;
+    margin: 0 50px;
+    clear: both;
+  }
+}
+
+.position__value-in {
+  position: relative;
+  height: 6px;
+  background: #9b9b9b;
+  border-radius: 3px;
+  text-align: center;
+  &.step-first {
+    .position__value-1 {
+      background: $gr;
+      strong {
+        color: $gr;
+      }
+    }
+  }
+  &.step-second {
+    .position__value-1 {
+      background: $bl;
+      strong {
+        color: $bl;
+      }
+    }
+    .position__value-2 {
+      background: $gr;
+      strong {
+        color: $gr;
+      }
+    }
+    .position__progress {
+      width: 50%;
+    }
+    .position__value-2 {}
+  }
+  &.step-third {
+    .position__value-1, .position__value-2 {
+      background: $bl;
+      strong {
+        color: $bl;
+      }
+    }
+    .position__value-3 {
+      background: $gr;
+      strong {
+        color: $gr;
+      }
+    }
+    .position__progress {
+      width: 100%;
+    }
+  }
+}
+
+.position__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  background: $bl;
+  border-radius: 3px;
+}
+
+.position__value-1, .position__value-2, .position__value-3 {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: -7px;
+  background: #9b9b9b;
+  border-radius: 50%;
+  z-index: 2;
+  strong {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #666666;
+  }
+  span {
+    display: block;
+    font-weight: normal;
+  }
+}
+
+.position__value-1 {
+  float: left;
+}
+
+.position__value-2 {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.position__value-3 {
+  float: right;
+}
+
+//step
+.step {
+  margin-bottom: 50px;
+  background: white;
+  border: 1px solid #e7e7e7;
+
+  .step__row {
+    padding: 50px 0;
+    @include clr;
+  }
+
+  .step__col {
+    float: left;
+    width: 50%;
+    padding: 0 50px 0 70px;
+    border-left: 1px solid #e7e7e7;
+    @include box;
+    &:first-child {
+      margin-right: -1px;
+      border-right: 1px solid #e7e7e7;
+      border-left: none;
+    }
+  }
+
+  .step__title {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #666666;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  .step__title-sub {
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: #989898;
+  }
+
+  .step__fieldset {
+    width: 240px;
+  }
+
+  .step__fieldset_less {
+    position: relative;
+    width: 220px;
+  }
+
+  .step__pass-forgot {
+    margin-top: 16px;
+    a {
+      font-size: 12px;
+    }
+  }
+
+  .step__pass-help {
+    padding-top: 17px;
+    font-size: 12px;
+    color: #989898;
+  }
+
+  .step__nav {
+    padding: 25px;
+    border-top: 1px dashed #e7e7e7;
+    overflow: hidden;
+    &.top {
+      border-top: none;
+      border-bottom: 1px dashed #e7e7e7;
+    }
+    .btn {
+      width: 240px;
+      float: right;
+      &:first-child {
+        float: left;
+      }
+    }
+  }
+
+  .step__nav-help {
+    padding: 0 60px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #989898;
+    @include rt(1120) {
+      padding: 20px 0 0 0;
+      clear: both;
+    }
+  }
+
+  .step__info {
+    position: absolute;
+    top: 25px;
+    left: 270px;
+    width: 185px;
+    padding: 20px 30px;
+    background: #ccebfb;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 14px;
+    color: #606e75;
+    @include rt(1380) {
+      position: relative;
+      top: auto;
+      left: 0;
+      width: auto;
+      padding: 15px;
+    }
+  }
+
+  .step__date {
+    margin-bottom: 20px;
+  }
+
+  .step__time {
+    margin-bottom: 10px;
+    @include clr;
+  }
+
+  .step__time-col {
+    float: left;
+    width: 205px;
+    .label-check {
+      margin-bottom: 10px;
+    }
+  }
+
+  .step__comm {
+    .label {
+      margin-bottom: 0;
+    }
+  }
+
+  .step__payment {
+    padding: 50px 70px 60px;
+  }
+
+  .step__payment-list {
+    @include clr;
+    li {
+      float: left;
+      display: block;
+      height: 62px;
+      padding: 0 20px;
+      margin: 0 10px 10px 0;
+      background: #fafafa;
+      border: 1px solid #e3e3e3;
+      border-radius: 2px;
+      line-height: 62px;
+      font-size: 0;
+      cursor: pointer;
+      i, span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      span {
+        font-size: 16px;
+        font-weight: normal;
+        color: $bl;
+      }
+      &.is-active {
+        background: white;
+        border-color: $gr;
+        cursor: default;
+      }
+    }
+  }
+
+
+  &.step-first {
+    .step__row {
+      padding: 0;
+    }
+
+    .order__table {
+      margin-bottom: 0;
+      border: none;
+
+
+    }
+  }
+}
+
+
+
+.ico-pay-sys-1 {
+  @include s(pay-sys1);
+}
+
+.ico-pay-sys-2 {
+  @include s(pay-sys2);
+}
+
+.ico-pay-sys-3 {
+  @include s(pay-sys3);
+}
+
+.ico-pay-sys-4 {
+  @include s(pay-sys4);
+}
+
+.ico-pay-sys-5 {
+  @include s(pay-sys5);
+}
+
+.step__payment-content {
+  padding: 30px 70px 15px;
+  border-top: 1px dashed #d7d7d7;
+}
+
+.step__card-number {
+  width: 300px;
+}
+
+.step__card-termin {
+  @include clr;
+  .label {
+    float: left;
+    margin-right: 20px;
+  }
+  .label__in {
+    padding: 0;
+    @include clr;
+    .label__txt, span {
+      float: left;
+    }
+    span {
+      margin: 5px 8px 0;
+      font-size: 16px;
+    }
+  }
+  .label__txt {
+    width: 70px;
+  }
+}

@@ -128,3 +128,123 @@
     }
   }
 }
+
+
+//purchases
+.purchases__row {
+  padding: 40px 20px;
+  border-bottom: 1px dashed #e7e7e7;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.purchases__head {
+  padding: 5px 20px;
+  border-bottom: 1px dashed #e7e7e7;
+  overflow: hidden;
+  .purchases__cell {
+    font-size: 14px;
+    color: #888888;
+  }
+}
+
+.purchases__row-down {
+  display: none;
+  padding: 0 20px;
+  border-bottom: 1px dashed #e7e7e7;
+  overflow: hidden;
+  background: #fafafa;
+  .purchases__cell {
+    width: 100%;
+    padding: 20px 0 0;
+  }
+}
+
+.purchases__cell {
+  float: left;
+  width: 250px;
+  @include box;
+  font-size: 16px;
+  color: #666666;
+  .btn-dashed {
+    font-size: 16px;
+  }
+  .rub {
+    &:before, &:after {
+      background: #666666;
+      height: 1px;
+    }
+    &:before {
+      top: 9px;
+    }
+    &:after {
+      top: 11px;
+      width: 9px;
+    }
+  }
+  @include rt(1600) {
+    width: 200px;
+  }
+
+  @include rt(1380) {
+    width: 125px;
+  }
+}
+
+.purchases__prods {
+  float: left;
+  width: 580px;
+  margin-right: 50px;
+  padding-bottom: 20px;
+  li {
+    display: block;
+    margin-bottom: 5px;
+    @include clr;
+    &:last-child {
+      padding-top: 5px;
+      border-top: 1px dashed #e7e7e7;
+    }
+  }
+  span {
+    float: right;
+    min-width: 80px;
+  }
+  a, strong {
+    padding-right: 40px;
+    overflow: hidden;
+  }
+  strong {
+    float: right;
+    font-weight: normal;
+  }
+  @include rt(1600) {
+    width: 480px;
+  }
+
+  @include rt(1380) {
+    width: 330px;
+  }
+}
+
+.purchases__delivery {
+  float: left;
+  padding-bottom: 20px;
+  ul {
+    li {
+      margin-bottom: 10px;
+    }
+    span, strong {
+      display: block;
+    }
+    span {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.purchases__back {
+  padding: 15px;
+  a {
+    font-size: 12px;
+  }
+}

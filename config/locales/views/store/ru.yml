@@ -18,6 +18,7 @@ ru:
         checkout_title: Оформление заказа
         step_number_html: 'Шаг %{num}.: %{title}'
         step_basket: ЗАКАЗ
+        step_basket_html: ЗАКАЗ НА <span class='ng-cloak' ng-bind='total'></span> руб.
         step_delivery: ДОСТАВКА
         step_payment: ОПЛАТА
 

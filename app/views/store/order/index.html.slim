@@ -1,3 +1,7 @@
+- content_for :head do
+  base(href='/order/')
+  meta(name='fragment' content='!')
+
 - title(t('views.store.order.checkout_title'))
 
 - content_for :content do
@@ -5,10 +9,10 @@
     / Progress
     .position
       h1.title= t('views.store.order.checkout')
-      .position__sum
-        | Заказ на сумму 5550
-        sup 00
-        i.rub Р
+      /.position__sum
+      /  | Заказ на сумму 5550
+      /  sup 00
+      /  i.rub Р
       .position__value
         .position__value-in.step-first
           .position__value-1: strong= t('views.store.order.step_number_html', num: 1, title: t('views.store.order.step_basket'))
@@ -18,7 +22,8 @@
 
     / STEP 1
     .step.step-first
-      .step__nav.top: h3.step__title= t('views.store.order.step_basket')
+      .step__nav.top: h3.step__title= t('views.store.order.step_basket_html')
+
       .step__row: .order__table= render 'store/goods/p/table'
       .step__nav
         button.btn.btn-globo К ЗАКАЗУ
