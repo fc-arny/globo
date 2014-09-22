@@ -26,8 +26,8 @@
 
       .step__row: .order__table= render 'store/goods/p/table'
       .step__nav
-        button.btn.btn-globo К ЗАКАЗУ
-        button.btn.btn-globo.js-step-btn data-step="step-second"  ПРОДОЛЖИТЬ
+        button.btn.btn-globo(style='visibility: hidden')
+        button.btn.btn-globo.js-step-btn(data={step:'step-second'})= t('views.store.order.btn_continue')
         .step__nav-help
           | Не забывайте, что вам не обьязательно авторизироваться или регистрироваться для совершения заказа на нашем сайте. Вы можете пропустить этот шаг и перейти к шагу “Доставка”. Однако, в таком случае вы лишаетесь следующих преймуществ, согласно
           a<>(href='#') Пользовательскому соглашению.
@@ -40,17 +40,6 @@
           .step__title= t('views.store.order.delivery_where')
           .step__title-sub= t('views.store.order.help_delivery_address')
           fieldset.step__fieldset.step__fieldset_less
-            .label
-              .label__title= t('views.store.order.city')
-              .label__select.js-select
-                span
-                  | Москва
-                  i
-                ul
-                  li Москва
-                  li Киев
-                  li Санкт-Петербург
-                  li Одесса
             label.label
               span.label__title= t('views.store.order.address')
               input.label__txt(type=:text)

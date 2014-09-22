@@ -1,10 +1,9 @@
 .cart.ng-cloak
-  .cart__arr
   .cart__prod
     .order
       .order__nav
-        button.btn.btn-globo= t('popup.basket.checkout')
-        button.order__clear Очистить корзину
+        form(action=order_path): button.btn.btn-globo= t('popup.basket.checkout')
+        /button.order__clear Очистить корзину
       .order__table
         .order__head
           .order__title(style='color: #ffffff') Итого
@@ -20,5 +19,5 @@
               i.rub P
           .order__total-title Итого:
       .order__nav
-        button.btn.btn-globo= t('popup.basket.checkout')
-        button.order__clear Очистить корзину
+        form(action=order_path): button.btn.btn-globo= t('popup.basket.checkout')
+        /button.order__clear Очистить корзину

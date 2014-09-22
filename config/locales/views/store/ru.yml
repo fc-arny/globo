@@ -21,5 +21,6 @@ ru:
         step_basket_html: ЗАКАЗ НА <span class='ng-cloak' ng-bind='total'></span> руб.
         step_delivery: ДОСТАВКА
         step_payment: ОПЛАТА
+        btn_continue: ПРОДОЛЖИТЬ
 
 
