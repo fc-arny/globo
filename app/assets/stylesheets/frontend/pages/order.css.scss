@@ -263,164 +263,14 @@
   }
 }
 
-//position
-.position {
-  @include clr;
-  .title {
-    float: left;
-    margin: 0;
-  }
-}
-
-.position__sum {
-  float: right;
-  width: 400px;
-  padding: 7px 30px 0 0;
-  color: #666666;
-  span {
-    display: block;
-  }
-  .rub {
-    &:before, &:after {
-      background: #666666;
-      height: 1px;
-    }
-    &:before {
-      top: 8px;
-    }
-  }
-}
-
-.position__value {
-  padding: 12px 50px 55px;
-  margin: 0 450px;
-  overflow: hidden;
-  @include rt(1380) {
-    padding-top: 20px;
-    margin: 0 50px;
-    clear: both;
-  }
-}
-
-.position__value-in {
-  position: relative;
-  height: 6px;
-  background: #9b9b9b;
-  border-radius: 3px;
-  text-align: center;
-  &.step-first {
-    .position__value-1 {
-      background: $gr;
-      strong {
-        color: $gr;
-      }
-    }
-  }
-  &.step-second {
-    .position__value-1 {
-      background: $bl;
-      strong {
-        color: $bl;
-      }
-    }
-    .position__value-2 {
-      background: $gr;
-      strong {
-        color: $gr;
-      }
-    }
-    .position__progress {
-      width: 50%;
-    }
-    .position__value-2 {}
-  }
-  &.step-third {
-    .position__value-1, .position__value-2 {
-      background: $bl;
-      strong {
-        color: $bl;
-      }
-    }
-    .position__value-3 {
-      background: $gr;
-      strong {
-        color: $gr;
-      }
-    }
-    .position__progress {
-      width: 100%;
-    }
-  }
-}
-
-.position__progress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 6px;
-  background: $bl;
-  border-radius: 3px;
-}
-
-.position__value-1, .position__value-2, .position__value-3 {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  margin-top: -7px;
-  background: #9b9b9b;
-  border-radius: 50%;
-  z-index: 2;
-  strong {
-    position: absolute;
-    top: 28px;
-    left: 50%;
-    width: 100px;
-    margin-left: -50px;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #666666;
-  }
-  span {
-    display: block;
-    font-weight: normal;
-  }
-}
-
-.position__value-1 {
-  float: left;
-}
-
-.position__value-2 {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.position__value-3 {
-  float: right;
-}
-
 //step
 .step {
-  margin-bottom: 50px;
+  margin-bottom: 5px;
   background: white;
   border: 1px solid #e7e7e7;
 
   .step__row {
-    padding: 50px 0;
     @include clr;
-  }
-
-  .step__col {
-    float: left;
-    width: 50%;
-    padding: 0 50px 0 70px;
-    border-left: 1px solid #e7e7e7;
-    @include box;
-    &:first-child {
-      margin-right: -1px;
-      border-right: 1px solid #e7e7e7;
-      border-left: none;
-    }
   }
 
   .step__title {
@@ -439,12 +289,7 @@
   }
 
   .step__fieldset {
-    width: 240px;
-  }
-
-  .step__fieldset_less {
-    position: relative;
-    width: 220px;
+    width: 400px;
   }
 
   .step__pass-forgot {
@@ -466,7 +311,7 @@
     overflow: hidden;
     &.top {
       border-top: none;
-      border-bottom: 1px dashed #e7e7e7;
+      border-bottom: 1px solid #e7e7e7;
     }
     .btn {
       width: 240px;
@@ -496,7 +341,6 @@
     padding: 20px 30px;
     background: #ccebfb;
     border-radius: 2px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
     font-size: 14px;
     color: #606e75;
     @include rt(1380) {
@@ -531,43 +375,14 @@
     }
   }
 
-  .step__payment {
-    padding: 50px 70px 60px;
-  }
-
-  .step__payment-list {
-    @include clr;
-    li {
-      float: left;
-      display: block;
-      height: 62px;
-      padding: 0 20px;
-      margin: 0 10px 10px 0;
-      background: #fafafa;
-      border: 1px solid #e3e3e3;
-      border-radius: 2px;
-      line-height: 62px;
-      font-size: 0;
-      cursor: pointer;
-      i, span {
-        display: inline-block;
-        vertical-align: middle;
-      }
-      span {
-        font-size: 16px;
-        font-weight: normal;
-        color: $bl;
-      }
-      &.is-active {
-        background: white;
-        border-color: $gr;
-        cursor: default;
-      }
+  &.step-delivery {
+    .step__row {
+      padding: 25px;
     }
   }
 
-
-  &.step-first {
+  &.step-basket {
+    margin-bottom: 25px;
     .step__row {
       padding: 0;
     }
@@ -575,8 +390,8 @@
     .order__table {
       margin-bottom: 0;
       border: none;
-
-
+      height: 300px;
+      overflow: scroll;
     }
   }
 }

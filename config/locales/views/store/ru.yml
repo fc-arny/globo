@@ -13,6 +13,7 @@ ru:
         help_delivery_address: Укажите город и адрес, на которые нужно совершить доставку
         city: Город
         address: Адрес
+        name: Имя
         phone: Номер телефона
         checkout: ОФОРМЛЕНИЕ ЗАКАЗА
         checkout_title: Оформление заказа
@@ -21,6 +22,7 @@ ru:
         step_basket_html: ЗАКАЗ НА <span class='ng-cloak' ng-bind='total'></span> руб.
         step_delivery: ДОСТАВКА
         step_payment: ОПЛАТА
-        btn_continue: ПРОДОЛЖИТЬ
+        btn_checkout: ОФОРМИТЬ
+        btn_back_to_store: ВЕРНУТЬСЯ В КАТАЛОГ
 
 
