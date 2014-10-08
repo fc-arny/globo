@@ -289,7 +289,7 @@
   }
 
   .step__fieldset {
-    width: 400px;
+    max-width: 400px;
   }
 
   .step__pass-forgot {
@@ -309,16 +309,13 @@
     padding: 25px;
     border-top: 1px dashed #e7e7e7;
     overflow: hidden;
+    text-align: center;
     &.top {
       border-top: none;
       border-bottom: 1px solid #e7e7e7;
     }
     .btn {
       width: 240px;
-      float: right;
-      &:first-child {
-        float: left;
-      }
     }
   }
 
@@ -334,10 +331,6 @@
   }
 
   .step__info {
-    position: absolute;
-    top: 25px;
-    left: 270px;
-    width: 185px;
     padding: 20px 30px;
     background: #ccebfb;
     border-radius: 2px;
@@ -376,6 +369,7 @@
   }
 
   &.step-delivery {
+    margin-right: 20px;
     .step__row {
       padding: 25px;
     }
@@ -390,7 +384,6 @@
     .order__table {
       margin-bottom: 0;
       border: none;
-      height: 300px;
       overflow: scroll;
     }
   }

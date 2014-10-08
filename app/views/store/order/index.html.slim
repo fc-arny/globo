@@ -7,46 +7,48 @@
 - content_for :content do
   #order-checkout(ng-controller='BasketController' ng-init='init()')
     h1.title= t('views.store.order.checkout')
-    .step.step-delivery
-      .step__nav.top: h3.step__title= t('views.store.order.step_delivery')
-      .step__info Доставка в следующий календарный день с 06.00 до 24.00 по г. Москва в пределах 5км от МКАД
-      .step__row
-        .step__fieldset
-          label.label
-            span.label__title= t('views.store.order.address')
-            input.label__txt(type=:text)
-          label.label
-            span.label__title= t('views.store.order.phone')
-            input.label__txt(type=:text style='width: 200px')
+    .col-sm-6.col-md-6
+      .step.step-delivery
+        .step__nav.top: h3.step__title= t('views.store.order.step_delivery')
+        .step__info Доставка в следующий календарный день с 06.00 до 24.00 по г. Москва в пределах 5км от МКАД
+        .step__row
+          .step__fieldset
+            label.label
+              span.label__title= t('views.store.order.address')
+              input.label__txt(type=:text)
+            label.label
+              span.label__title= t('views.store.order.phone')
+              input.label__txt(type=:text style='width: 200px')
 
-          label.label
-            span.label__title= t('views.store.order.name')
-            input.label__txt(type=:text style='width: 200px')
+            label.label
+              span.label__title= t('views.store.order.name')
+              input.label__txt(type=:text style='width: 200px')
 
 
-        .step__date
-          label.label
-            span.label__title Когда
-            select.form-control(style='width: auto; display: inline; margin-right: 20px')
-              option 23 декабря, Среда
-              option 24 декабря, Четверг
-              option 25 декабря, Пятница
-            select.form-control(style='width: auto; display: inline;')
-              option 6:00 - 10:00
-              option 10:00 - 18:00
-              option 20:00 - 24:00
+          .step__date
+            label.label
+              span.label__title Когда
+              select.form-control(style='width: auto; display: inline; margin-right: 20px')
+                option 23 декабря, Среда
+                option 24 декабря, Четверг
+                option 25 декабря, Пятница
+              select.form-control(style='width: auto; display: inline;')
+                option 6:00 - 10:00
+                option 10:00 - 18:00
+                option 20:00 - 24:00
 
-        .step__title КОММЕНТАРИЙ
-        .step__title-sub Особые комментарии к вашему заказу
-        .step__comm
-          .label: textarea.label__area
-      .step__nav
-        button.btn.btn-globo= t('views.store.order.btn_back_to_store')
-        button.btn.btn-globo= t('views.store.order.btn_checkout')
+          .step__title КОММЕНТАРИЙ
+          .step__title-sub Особые комментарии к вашему заказу
+          .step__comm
+            .label: textarea.label__area
+        .step__nav
+          /button.btn.btn-globo= t('views.store.order.btn_back_to_store')
+          button.btn.btn-globo= t('views.store.order.btn_checkout')
 
-    .step.step-basket.ng-cloak
-      .step__nav.top: h3.step__title= t('views.store.order.step_basket_html')
-      .step__row: .order__table= render 'store/goods/p/table'
+    .col-sm-6.col-md-6
+      .step.step-basket.ng-cloak
+        .step__nav.top: h3.step__title= t('views.store.order.step_basket_html')
+        .step__row: .order__table= render 'store/goods/p/table'
 
 - content_for :js do
   = javascript_include_tag :store
