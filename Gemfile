@@ -16,6 +16,7 @@ gem 'kaminari'              # Paginator
 gem 'resque'                # Delayed Job
 gem 'mailcatcher'           # View sent emails
 gem 'awesome_print'         # Print in console
+gem 'hirb'
 gem 'high_voltage', '~> 2.2.0'
 
 # I18n

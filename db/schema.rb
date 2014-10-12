@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20140430005549) do
 
   add_index "image_thread_threads", ["default_image_id"], name: "index_image_thread_threads_on_default_image_id", using: :btree
 
-  create_table "sp_addresses", force: true, comment: "Addresses table" do |t|
-    t.string   "name",                    comment: "Address title.Ex.: home, offece, manny etc"
+  create_table "sap_addresses", force: true, comment: "Addresses table" do |t|
+    t.string   "name",                    comment: "Address title.Ex.: home, office, manny etc"
     t.string   "street",     null: false, comment: "Street, house number etc"
     t.string   "comment",                 comment: "More information for courier"
     t.integer  "region_id",  null: false, comment: "Link to region. Ex.: Moscow"
@@ -60,16 +60,16 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  create_table "sp_blog_categories", force: true, comment: "Blog categories" do |t|
+  create_table "sap_blog_categories", force: true, comment: "Blog categories" do |t|
     t.string   "name",       null: false
     t.string   "url",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sp_blog_categories", ["url"], name: "index_sp_blog_categories_on_url", unique: true, using: :btree
+  add_index "sap_blog_categories", ["url"], name: "index_sap_blog_categories_on_url", unique: true, using: :btree
 
-  create_table "sp_blog_posts", force: true, comment: "Blog posts" do |t|
+  create_table "sap_blog_posts", force: true, comment: "Blog posts" do |t|
     t.string   "title",                          null: false
     t.text     "body",                           null: false
     t.integer  "category_id"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  create_table "sp_categories", force: true, comment: "Goods categories" do |t|
+  create_table "sap_categories", force: true, comment: "Goods categories" do |t|
     t.string   "name",                        null: false, comment: "Category name"
     t.string   "url",                         null: false, comment: "Category url segment"
     t.integer  "position",     default: 0,                 comment: "Sorting value"
@@ -90,17 +90,17 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  add_index "sp_categories", ["ancestry"], name: "index_sp_categories_on_ancestry", using: :btree
-  add_index "sp_categories", ["images_id"], name: "index_sp_categories_on_images_id", using: :btree
+  add_index "sap_categories", ["ancestry"], name: "index_sap_categories_on_ancestry", using: :btree
+  add_index "sap_categories", ["images_id"], name: "index_sap_categories_on_images_id", using: :btree
 
-  create_table "sp_category_goods", id: false, force: true, comment: "Joining table" do |t|
+  create_table "sap_category_goods", id: false, force: true, comment: "Joining table" do |t|
     t.integer "category_id"
     t.integer "good_id"
   end
 
-  add_index "sp_category_goods", ["category_id", "good_id"], name: "index_sp_category_goods_on_category_id_and_good_id", unique: true, using: :btree
+  add_index "sap_category_goods", ["category_id", "good_id"], name: "index_sap_category_goods_on_category_id_and_good_id", unique: true, using: :btree
 
-  create_table "sp_good_items", force: true, comment: "Goods of store" do |t|
+  create_table "sap_good_items", force: true, comment: "Goods of store" do |t|
     t.integer  "good_id",                                                null: false, comment: "Real good ID"
     t.string   "store_gid",                                              null: false, comment: "Store inside good's ID for sync list"
     t.decimal  "price",           precision: 8, scale: 2,                null: false, comment: "Price in the store"
@@ -112,11 +112,11 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  add_index "sp_good_items", ["good_id"], name: "index_sp_good_items_on_good_id", using: :btree
-  add_index "sp_good_items", ["store_gid", "store_id"], name: "index_sp_good_items_on_store_gid_and_store_id", unique: true, using: :btree
-  add_index "sp_good_items", ["store_id"], name: "index_sp_good_items_on_store_id", using: :btree
+  add_index "sap_good_items", ["good_id"], name: "index_sap_good_items_on_good_id", using: :btree
+  add_index "sap_good_items", ["store_gid", "store_id"], name: "index_sap_good_items_on_store_gid_and_store_id", unique: true, using: :btree
+  add_index "sap_good_items", ["store_id"], name: "index_sap_good_items_on_store_id", using: :btree
 
-  create_table "sp_goods", force: true, comment: "All goods from all stores" do |t|
+  create_table "sap_goods", force: true, comment: "All goods from all stores" do |t|
     t.string   "name",                            null: false, comment: "Goods name"
     t.text     "description",                                  comment: "Goods's description"
     t.integer  "value",                           null: false, comment: "How many gram or priece in one item"
@@ -129,14 +129,12 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  create_table "sp_measures", force: true do |t|
-    t.string  "name",            null: false
-    t.integer "step",            null: false
-    t.integer "value_in_parent"
-    t.integer "parent_id"
+  create_table "sap_measures", force: true do |t|
+    t.string "name",     null: false
+    t.string "sys_name", null: false
   end
 
-  create_table "sp_order_items", id: false, force: true, comment: "GoodList of order" do |t|
+  create_table "sap_order_items", force: true, comment: "GoodList of order" do |t|
     t.integer  "order_id",                             null: false, comment: "Order ID"
     t.integer  "good_item_id",                         null: false, comment: "Good(item) ID"
     t.integer  "value",                                null: false, comment: "Good value. Ex.: 100 packs or 1500 gram"
@@ -145,22 +143,25 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  add_index "sp_order_items", ["order_id", "good_item_id"], name: "index_sp_order_items_on_order_id_and_good_item_id", unique: true, using: :btree
-  add_index "sp_order_items", ["order_id"], name: "index_sp_order_items_on_order_id", using: :btree
+  add_index "sap_order_items", ["order_id", "good_item_id"], name: "index_sap_order_items_on_order_id_and_good_item_id", unique: true, using: :btree
+  add_index "sap_order_items", ["order_id"], name: "index_sap_order_items_on_order_id", using: :btree
 
-  create_table "sp_orders", force: true, comment: "Order model" do |t|
-    t.string   "state",                              null: false, comment: "Order state - new, payed etc"
-    t.string   "hash_str",                           null: false, comment: "Hash for order access"
-    t.decimal  "sum",        precision: 2, scale: 0
-    t.integer  "user_id",                                         comment: "Customer.user_id - link to user"
-    t.string   "phone",                                           comment: "Phone string"
-    t.string   "address",                                         comment: "Address string"
-    t.string   "comment",                                         comment: "Order comment"
+  create_table "sap_orders", force: true, comment: "Order model" do |t|
+    t.string   "state",                                     null: false, comment: "Order state - new, payed etc"
+    t.string   "hash_str",                                  null: false, comment: "Hash for order access"
+    t.decimal  "sum",               precision: 8, scale: 2
+    t.integer  "user_id",                                                comment: "Customer.user_id - link to user"
+    t.string   "phone",                                                  comment: "Phone string"
+    t.string   "address",                                                comment: "Address string"
+    t.string   "comment",                                                comment: "Order comment"
+    t.date     "delivery_date",                                          comment: "Delivery date"
+    t.string   "delivery_interval",                                      comment: "Delivery time interval(ex.: 18:00-01:00)"
+    t.decimal  "delivery_price",    precision: 8, scale: 2,              comment: "Price for delivery"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "sp_regions", force: true, comment: "Regions.ex Moscow(chld: Reutov, Rublevo, Lyubertsy etc)" do |t|
+  create_table "sap_regions", force: true, comment: "Regions.ex Moscow(child: Reutov, Rublevo, Lyubertsy etc)" do |t|
     t.string   "name",        null: false, comment: "Region name"
     t.string   "description",              comment: "Description for region"
     t.integer  "parent_id",                comment: "Big region can have smaller subregions"
@@ -168,7 +169,7 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  create_table "sp_sms", force: true do |t|
+  create_table "sap_sms", force: true do |t|
     t.integer  "number"
     t.string   "message"
     t.datetime "created"
@@ -177,7 +178,7 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  create_table "sp_stores", force: true do |t|
+  create_table "sap_stores", force: true do |t|
     t.string   "name",                           null: false, comment: "Store's name"
     t.integer  "position",       default: 0,                  comment: "Value for sorting stores"
     t.string   "url",                            null: false, comment: "Url segment"
@@ -190,7 +191,7 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  create_table "sp_users", force: true, comment: "Base model for all users" do |t|
+  create_table "sap_users", force: true, comment: "Base model for all users" do |t|
     t.string   "name",                                                comment: "All users should have name. Generated name"
     t.string   "login",                                  null: false, comment: "User login"
     t.string   "email",                                               comment: "User email"
@@ -210,12 +211,12 @@ ActiveRecord::Schema.define(version: 20140430005549) do
     t.datetime "updated_at"
   end
 
-  add_index "sp_users", ["authentication_token"], name: "index_sp_users_on_authentication_token", unique: true, using: :btree
-  add_index "sp_users", ["email"], name: "index_sp_users_on_email", unique: true, using: :btree
-  add_index "sp_users", ["login"], name: "index_sp_users_on_login", unique: true, using: :btree
-  add_index "sp_users", ["phone"], name: "index_sp_users_on_phone", unique: true, using: :btree
+  add_index "sap_users", ["authentication_token"], name: "index_sap_users_on_authentication_token", unique: true, using: :btree
+  add_index "sap_users", ["email"], name: "index_sap_users_on_email", unique: true, using: :btree
+  add_index "sap_users", ["login"], name: "index_sap_users_on_login", unique: true, using: :btree
+  add_index "sap_users", ["phone"], name: "index_sap_users_on_phone", unique: true, using: :btree
 
-  create_table "sp_vendors", force: true do |t|
+  create_table "sap_vendors", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -236,28 +237,26 @@ ActiveRecord::Schema.define(version: 20140430005549) do
 
   add_foreign_key "image_thread_threads", "image_thread_images", name: "image_thread_threads_default_image_id_fk", column: "default_image_id", dependent: :nullify
 
-  add_foreign_key "sp_addresses", "sp_regions", name: "sp_addresses_region_id_fk", column: "region_id"
+  add_foreign_key "sap_addresses", "sap_regions", name: "sap_addresses_region_id_fk", column: "region_id"
 
-  add_foreign_key "sp_blog_posts", "sp_blog_categories", name: "sp_blog_posts_category_id_fk", column: "category_id"
+  add_foreign_key "sap_blog_posts", "sap_blog_categories", name: "sap_blog_posts_category_id_fk", column: "category_id"
 
-  add_foreign_key "sp_categories", "image_thread_threads", name: "sp_categories_images_id_fk", column: "images_id"
+  add_foreign_key "sap_categories", "image_thread_threads", name: "sap_categories_images_id_fk", column: "images_id"
 
-  add_foreign_key "sp_good_items", "sp_goods", name: "sp_good_items_good_id_fk", column: "good_id"
-  add_foreign_key "sp_good_items", "sp_stores", name: "sp_good_items_store_id_fk", column: "store_id"
+  add_foreign_key "sap_good_items", "sap_goods", name: "sap_good_items_good_id_fk", column: "good_id"
+  add_foreign_key "sap_good_items", "sap_stores", name: "sap_good_items_store_id_fk", column: "store_id"
 
-  add_foreign_key "sp_goods", "sp_categories", name: "sp_goods_category_id_fk", column: "category_id"
-  add_foreign_key "sp_goods", "sp_goods", name: "sp_goods_group_id_fk", column: "group_id"
-  add_foreign_key "sp_goods", "sp_measures", name: "sp_goods_measure_id_fk", column: "measure_id"
+  add_foreign_key "sap_goods", "sap_categories", name: "sap_goods_category_id_fk", column: "category_id"
+  add_foreign_key "sap_goods", "sap_goods", name: "sap_goods_group_id_fk", column: "group_id"
+  add_foreign_key "sap_goods", "sap_measures", name: "sap_goods_measure_id_fk", column: "measure_id"
 
-  add_foreign_key "sp_measures", "sp_measures", name: "sp_measures_parent_id_fk", column: "parent_id"
+  add_foreign_key "sap_order_items", "sap_good_items", name: "sap_order_items_good_item_id_fk", column: "good_item_id"
+  add_foreign_key "sap_order_items", "sap_orders", name: "sap_order_items_order_id_fk", column: "order_id"
 
-  add_foreign_key "sp_order_items", "sp_good_items", name: "sp_order_items_good_item_id_fk", column: "good_item_id"
-  add_foreign_key "sp_order_items", "sp_orders", name: "sp_order_items_order_id_fk", column: "order_id"
+  add_foreign_key "sap_orders", "sap_users", name: "sap_orders_user_id_fk", column: "user_id"
 
-  add_foreign_key "sp_orders", "sp_users", name: "sp_orders_user_id_fk", column: "user_id"
+  add_foreign_key "sap_regions", "sap_regions", name: "sap_regions_parent_id_fk", column: "parent_id"
 
-  add_foreign_key "sp_regions", "sp_regions", name: "sp_regions_parent_id_fk", column: "parent_id"
-
-  add_foreign_key "sp_stores", "sp_regions", name: "sp_stores_region_id_fk", column: "region_id"
+  add_foreign_key "sap_stores", "sap_regions", name: "sap_stores_region_id_fk", column: "region_id"
 
 end
