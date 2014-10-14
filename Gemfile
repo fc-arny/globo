@@ -55,6 +55,7 @@ gem 'sap', path: '../sap'
 # gem 'image_thread', '~> 0.1.0'
 gem 'image_thread', path: '../image_thread'
 gem 'rails_admin_nestable', branch: 'master'
+gem 'activemerchant', '~> 1.44.1'
 
 group :development, :test do
   # Deploy
