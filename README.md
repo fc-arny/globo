@@ -1,4 +1,2 @@
-# Need to install on server:
-1. postgresql 9.3
-2. bower
-3. 
+# GloboMarket (gmarket.su) - гипермаркет 
+![Logo](https://raw.githubusercontent.com/fc-arny/globo/master/logotip%20%20globalmarket.png)!
